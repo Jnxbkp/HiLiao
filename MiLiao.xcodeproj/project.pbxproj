@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
+		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
+		E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273F1FFE0C29005D543F /* ImageIO.framework */; };
+		E21227421FFE0C32005D543F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227411FFE0C32005D543F /* CoreMedia.framework */; };
+		E21227441FFE0C39005D543F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227431FFE0C39005D543F /* CoreVideo.framework */; };
+		E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227451FFE0C40005D543F /* VideoToolbox.framework */; };
+		E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227471FFE0C48005D543F /* MediaPlayer.framework */; };
+		E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227491FFE0C50005D543F /* OpenAL.framework */; };
+		E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212274B1FFE0C58005D543F /* libc++.tbd */; };
+		E212274E1FFE0C60005D543F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212274D1FFE0C60005D543F /* libsqlite3.tbd */; };
+		E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212274F1FFE0C68005D543F /* libiconv.tbd */; };
 		E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B56F1FF5D6FF00353875 /* AppDelegate.m */; };
 		E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E221B5741FF5D6FF00353875 /* Main.storyboard */; };
 		E221B5781FF5D6FF00353875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E221B5771FF5D6FF00353875 /* Assets.xcassets */; };
@@ -96,6 +106,19 @@
 /* Begin PBXFileReference section */
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
+		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
+		E212272F1FFE0B4E005D543F /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../AliyunVideoSDKDemo_pro_iOS_3.4.0_20180103/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		E212273D1FFE0C1A005D543F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E212273F1FFE0C29005D543F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		E21227411FFE0C32005D543F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E21227431FFE0C39005D543F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E21227451FFE0C40005D543F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		E21227471FFE0C48005D543F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		E21227491FFE0C50005D543F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		E212274B1FFE0C58005D543F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E212274D1FFE0C60005D543F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E212274F1FFE0C68005D543F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		E21227521FFE1031005D543F /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E221B56B1FF5D6FF00353875 /* MiLiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiLiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E221B56E1FF5D6FF00353875 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E221B56F1FF5D6FF00353875 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -232,6 +255,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */,
+				E212274E1FFE0C60005D543F /* libsqlite3.tbd in Frameworks */,
+				E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */,
+				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
+				E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */,
+				E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */,
+				E21227441FFE0C39005D543F /* CoreVideo.framework in Frameworks */,
+				E21227421FFE0C32005D543F /* CoreMedia.framework in Frameworks */,
+				E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */,
+				E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +289,19 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E21227521FFE1031005D543F /* QuCore-ThirdParty.framework */,
+				E212274F1FFE0C68005D543F /* libiconv.tbd */,
+				E212274D1FFE0C60005D543F /* libsqlite3.tbd */,
+				E212274B1FFE0C58005D543F /* libc++.tbd */,
+				E21227491FFE0C50005D543F /* OpenAL.framework */,
+				E21227471FFE0C48005D543F /* MediaPlayer.framework */,
+				E21227451FFE0C40005D543F /* VideoToolbox.framework */,
+				E21227431FFE0C39005D543F /* CoreVideo.framework */,
+				E21227411FFE0C32005D543F /* CoreMedia.framework */,
+				E212273F1FFE0C29005D543F /* ImageIO.framework */,
+				E212273D1FFE0C1A005D543F /* libz.tbd */,
+				E212272F1FFE0B4E005D543F /* QuCore-ThirdParty.framework */,
+				E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */,
 				42A0607256A5A3252358EB13 /* libPods-MiLiao.a */,
 			);
 			name = Frameworks;
@@ -1074,6 +1120,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiLiao",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
 				INFOPLIST_FILE = MiLiao/Info.plist;
@@ -1093,6 +1144,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MiLiao",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
 				INFOPLIST_FILE = MiLiao/Info.plist;
