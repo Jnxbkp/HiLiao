@@ -293,6 +293,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    
     _isTitleView?[self refreshTitleIndex]:[self refreshCurrentIndex];
     
     if (self.pageControl.currentPage != _currentIndex) {
