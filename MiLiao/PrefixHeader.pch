@@ -31,8 +31,8 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
-
-
+//网络请求成功
+#define SUCCESS 200
 //请求Url
 #define HLRequestUrl @"http://47.104.25.213"
 

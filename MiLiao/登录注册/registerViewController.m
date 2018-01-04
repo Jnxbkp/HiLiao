@@ -77,22 +77,18 @@
 }
 //下一步
 - (IBAction)next:(id)sender {
-    [HLLoginManager NetPostresetpwdMobile:self.phoneNum.text password:self.password.text msgId:self.msgId verifyCode:self.yanzhengNum.text success:^(NSDictionary *info) {
+    [HLLoginManager NetPostRegisterMobile:self.phoneNum.text password:self.password.text msgId:self.msgId verifyCode:self.yanzhengNum.text success:^(NSDictionary *info) {
         NSLog(@"注册---------------%@",info);
-        
-        phoneLoginViewController *login = [[phoneLoginViewController alloc]init];
-        [self presentViewController:login animated:YES completion:^{
-            
-        }];
-        
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            phoneLoginViewController*bvc = [[phoneLoginViewController alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bvc];
+            [self presentViewController:nav animated:NO completion:^{
+            }];
+        }
     } failure:^(NSError *error) {
         
     }];
-    
-    //    [self.navigationController popViewControllerAnimated:YES];
-    //我的
-        NSDictionary *dic =[NSDictionary dictionaryWithObject:@"log" forKey:@"kind"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
     
     
 }
