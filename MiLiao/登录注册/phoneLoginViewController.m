@@ -8,7 +8,8 @@
 
 #import "phoneLoginViewController.h"
 #import "registerViewController.h"
-@interface phoneLoginViewController ()
+#import "forgetPassViewController.h"
+@interface phoneLoginViewController ()<UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *weChat;
 @property (strong, nonatomic) IBOutlet UIButton *QQ;
 @property (strong, nonatomic) IBOutlet UIButton *weiBo;
@@ -21,16 +22,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 设置导航控制器的代理为self
+    self.navigationController.delegate = self;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     
 }
-//- (void)viewWillDisappear:(BOOL)animated{
-//    self.navigationController.navigationBarHidden = NO;
-//    [super viewWillDisappear:animated];
-//}
+- (void)viewWillDisappear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
+}
 //注册
 - (IBAction)registe:(id)sender {
     registerViewController *registerVC = [[registerViewController alloc]init];
@@ -42,11 +45,15 @@
 - (IBAction)login:(id)sender {
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+        }
+       
     } failure:^(NSError *error) {
         
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+
 }
 //三方登录
 - (IBAction)thirdLog:(UIButton *)sender {
@@ -59,7 +66,32 @@
         
     }
 }
+//忘记密码
+- (IBAction)forget:(id)sender {
+//    forgetPassViewController*bvc = [[forgetPassViewController alloc]init];
+//
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bvc];
+//
+//    [self presentViewController:nav animated:NO completion:^{
+//
+//
+//
+//    }];
+    
 
+    forgetPassViewController *forget = [[forgetPassViewController alloc]init];
+//    [self presentViewController:forget animated:YES completion:^{
+//    }];
+    [self.navigationController pushViewController:forget animated:YES];
+}
+#pragma mark - UINavigationControllerDelegate
+// 将要显示控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 判断要显示的控制器是否是自己
+    BOOL isShowHomePage = [viewController isKindOfClass:[self class]];
+    
+    [self.navigationController setNavigationBarHidden:isShowHomePage animated:YES];
+}
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }

@@ -31,9 +31,10 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
-
+//网络请求成功
+#define SUCCESS 200
 //请求Url
-#define HLRequestUrl @"http://192.168.1.34"
+#define HLRequestUrl @"http://47.104.25.213"
 
 #define USHARE_DEMO_APPKEY  @"5a4cae02f29d9852a4000170"
 //微信key

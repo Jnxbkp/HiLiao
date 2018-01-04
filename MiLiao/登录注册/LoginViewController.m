@@ -88,11 +88,19 @@
         }];
     }
     if (sender == self.phoneNumber) {
-        phoneLoginViewController *phVC = [[phoneLoginViewController alloc]init];
-        [self presentViewController:phVC animated:YES completion:^{
+//        phoneLoginViewController *phVC = [[phoneLoginViewController alloc]init];
+//        [self presentViewController:phVC animated:YES completion:^{
+//
+//        }];
+        phoneLoginViewController*bvc = [[phoneLoginViewController alloc]init];
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bvc];
+        
+        [self presentViewController:nav animated:NO completion:^{
+            
+            
             
         }];
-        
     }
 }
 

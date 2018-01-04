@@ -227,6 +227,20 @@
                         <action selector="thirdLog:" destination="-1" eventType="touchUpInside" id="GSl-9D-kIg"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4L-L1-mGy">
+                    <rect key="frame" x="216" y="414" width="103" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="o1D-Mt-vXZ"/>
+                        <constraint firstAttribute="width" constant="103" id="xgN-87-qkF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="忘记密码?">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="forget:" destination="-1" eventType="touchUpInside" id="Q9O-VP-4i0"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.14901960784313725" green="0.13333333333333333" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -247,10 +261,12 @@
                 <constraint firstItem="HeO-0K-IgH" firstAttribute="centerY" secondItem="gLi-OQ-EpV" secondAttribute="centerY" id="SMP-Ga-SIK"/>
                 <constraint firstItem="HeO-0K-IgH" firstAttribute="leading" secondItem="11i-Je-LN4" secondAttribute="trailing" constant="65" id="TT3-hi-3a0"/>
                 <constraint firstItem="gLi-OQ-EpV" firstAttribute="top" secondItem="PqO-Ow-E5l" secondAttribute="bottom" constant="53" id="UlD-wj-H5B"/>
+                <constraint firstItem="E4L-L1-mGy" firstAttribute="top" secondItem="iFW-JM-1NS" secondAttribute="bottom" constant="8" id="XVa-aC-Kgp"/>
                 <constraint firstItem="iFW-JM-1NS" firstAttribute="centerY" secondItem="PqO-Ow-E5l" secondAttribute="centerY" id="Xbo-eW-2NV"/>
                 <constraint firstItem="bkS-YI-orF" firstAttribute="leading" secondItem="lGD-eS-Qs1" secondAttribute="trailing" constant="24" id="YuY-86-Yq9"/>
                 <constraint firstItem="GL2-BT-6oA" firstAttribute="centerX" secondItem="QVD-X7-1Qu" secondAttribute="centerX" id="YzU-iD-2Ij"/>
                 <constraint firstItem="qXF-Ag-neP" firstAttribute="top" secondItem="4cf-Zb-zc5" secondAttribute="bottom" constant="5" id="ZJl-Xs-sgf"/>
+                <constraint firstItem="E4L-L1-mGy" firstAttribute="trailing" secondItem="iFW-JM-1NS" secondAttribute="trailing" id="ZaV-up-GDc"/>
                 <constraint firstItem="11i-Je-LN4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bEk-ap-VHN"/>
                 <constraint firstItem="vui-m6-dCW" firstAttribute="top" secondItem="bkS-YI-orF" secondAttribute="bottom" constant="5" id="cao-61-uzF"/>
                 <constraint firstItem="GL2-BT-6oA" firstAttribute="top" secondItem="QVD-X7-1Qu" secondAttribute="bottom" constant="8" id="fAG-Nn-nNA"/>

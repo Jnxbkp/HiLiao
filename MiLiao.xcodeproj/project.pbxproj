@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */; };
+		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
 		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
 		E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273F1FFE0C29005D543F /* ImageIO.framework */; };
@@ -104,6 +106,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185A9EFB1FFE4B0000110182 /* forgetPassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetPassViewController.h; sourceTree = "<group>"; };
+		185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetPassViewController.m; sourceTree = "<group>"; };
+		185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetPassViewController.xib; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
 		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
@@ -519,6 +524,9 @@
 				E259293A1FFCA96600B6502D /* phoneLoginViewController.h */,
 				E259293F1FFCA96600B6502D /* phoneLoginViewController.m */,
 				E259293B1FFCA96600B6502D /* phoneLoginViewController.xib */,
+				185A9EFB1FFE4B0000110182 /* forgetPassViewController.h */,
+				185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */,
+				185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */,
 				E25929421FFCA96600B6502D /* registerViewController.h */,
 				E259293D1FFCA96600B6502D /* registerViewController.m */,
 				E259293E1FFCA96600B6502D /* registerViewController.xib */,
@@ -817,6 +825,7 @@
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
+				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
@@ -919,6 +928,7 @@
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
+				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
