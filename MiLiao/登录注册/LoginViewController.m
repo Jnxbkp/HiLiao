@@ -62,7 +62,28 @@
         }];
     }
     if (sender == self.QQ) {
-        
+        [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+            if (error) {
+                
+            } else {
+                UMSocialUserInfoResponse *resp = result;
+                
+                // 授权信息
+                NSLog(@"QQ uid: %@", resp.uid);
+                NSLog(@"QQ openid: %@", resp.openid);
+                NSLog(@"QQ unionid: %@", resp.unionId);
+                NSLog(@"QQ accessToken: %@", resp.accessToken);
+                NSLog(@"QQ expiration: %@", resp.expiration);
+                
+                // 用户信息
+                NSLog(@"QQ name: %@", resp.name);
+                NSLog(@"QQ iconurl: %@", resp.iconurl);
+                NSLog(@"QQ gender: %@", resp.unionGender);
+                
+                // 第三方平台SDK源数据
+                NSLog(@"QQ originalResponse: %@", resp.originalResponse);
+            }
+        }];
     }
     if (sender == self.WeiBo) {
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_Sina currentViewController:nil completion:^(id result, NSError *error) {
