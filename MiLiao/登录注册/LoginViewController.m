@@ -56,8 +56,7 @@
                 NSLog(@"Wechat iconurl: %@", resp.iconurl);
                 NSLog(@"Wechat gender: %@", resp.unionGender);
                 
-                // 第三方平台SDK源数据
-                NSLog(@"Wechat originalResponse: %@", resp.originalResponse);
+                 [self quickLogInname:resp.name platform:@"WECHAT" token:resp.accessToken uid:resp.uid];
             }
         }];
     }
@@ -80,8 +79,8 @@
                 NSLog(@"QQ iconurl: %@", resp.iconurl);
                 NSLog(@"QQ gender: %@", resp.unionGender);
                 
-                // 第三方平台SDK源数据
-                NSLog(@"QQ originalResponse: %@", resp.originalResponse);
+                [self quickLogInname:resp.name platform:@"QQ" token:resp.accessToken uid:resp.uid];
+            
             }
         }];
     }
@@ -102,9 +101,8 @@
                 NSLog(@"Sina name: %@", resp.name);
                 NSLog(@"Sina iconurl: %@", resp.iconurl);
                 NSLog(@"Sina gender: %@", resp.unionGender);
+                [self quickLogInname:resp.name platform:@"SINA" token:resp.accessToken uid:resp.uid];
                 
-                // 第三方平台SDK源数据
-                NSLog(@"Sina originalResponse: %@", resp.originalResponse);
             }
         }];
     }
@@ -116,7 +114,19 @@
         
     }
 }
-
+//快速登录
+- (void)quickLogInname:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid {
+    [HLLoginManager NetPostquickLoginName:name platform:platform token:token uid:uid success:^(NSDictionary *info) {
+        //                    NSLog(@"------>>%@",info);
+        NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
+        if ([resultCode isEqualToString:@"200"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+        }
+        
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
+}
 
 
 
