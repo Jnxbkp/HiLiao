@@ -350,7 +350,6 @@
 				E221B5A21FF5DE1600353875 /* Discover(发现) */,
 				E25929521FFCA97200B6502D /* 消息 */,
 				E2D518B51FFE375D00A548DA /* 我的 */,
-				E2D518AC1FFE362700A548DA /* 1 */,
 				E225016A1FFA586700E8321F /* Tools */,
 				E225016E1FFA596E00E8321F /* PublicView */,
 				E221B5AD1FF5DED600353875 /* MLUploadViewController.h */,
@@ -685,14 +684,6 @@
 				E2B77BE91FFDD68700597326 /* UIView+SDAutoLayout.h */,
 			);
 			path = SDAutoLayout;
-			sourceTree = "<group>";
-		};
-		E2D518AC1FFE362700A548DA /* 1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = 1;
-			path = "消息/1";
 			sourceTree = "<group>";
 		};
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
