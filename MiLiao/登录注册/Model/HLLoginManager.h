@@ -23,4 +23,8 @@
 //重置密码
 //POST /v1/user/resetpwd
 + (void)NetPostresetpwdMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//快速登录
+//POST /v1/user/quickLogin
++ (void)NetPostquickLoginName:(NSString *)name platform:(NSString *)platform token:(NSString *)platform uid:(NSString *)uid success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

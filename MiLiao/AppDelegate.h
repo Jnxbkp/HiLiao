@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
-//123
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-//qwwewe
+
 @property (strong, nonatomic) UIWindow *window;
 
 - (AFHTTPSessionManager *)sharedHTTPSession;
+
 @end
 
