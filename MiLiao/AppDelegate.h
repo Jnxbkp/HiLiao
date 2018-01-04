@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+//qwwewe
 @property (strong, nonatomic) UIWindow *window;
 
 - (AFHTTPSessionManager *)sharedHTTPSession;
