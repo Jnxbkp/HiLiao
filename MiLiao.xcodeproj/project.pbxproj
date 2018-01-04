@@ -82,6 +82,8 @@
 		E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF51FFDD69A00597326 /* UIColor+expanded.m */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
+		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
+		E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518B11FFE364A00A548DA /* edttViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +243,10 @@
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoneyViewController.m; sourceTree = "<group>"; };
+		E2D518AE1FFE364400A548DA /* MyMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoneyViewController.h; sourceTree = "<group>"; };
+		E2D518B01FFE364A00A548DA /* edttViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edttViewController.h; sourceTree = "<group>"; };
+		E2D518B11FFE364A00A548DA /* edttViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = edttViewController.m; sourceTree = "<group>"; };
 		EF51C1A8DE887E99131B1354 /* Pods-MiLiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,9 +349,7 @@
 				E221B5A11FF5DDF400353875 /* Home(主页) */,
 				E221B5A21FF5DE1600353875 /* Discover(发现) */,
 				E25929521FFCA97200B6502D /* 消息 */,
-				E2D518A91FFE35B500A548DA /* Me.storyboard */,
-				E2D518A71FFE35B500A548DA /* MeViewController.h */,
-				E2D518A81FFE35B500A548DA /* MeViewController.m */,
+				E2D518AC1FFE362700A548DA /* 我的 */,
 				E225016A1FFA586700E8321F /* Tools */,
 				E225016E1FFA596E00E8321F /* PublicView */,
 				E221B5AD1FF5DED600353875 /* MLUploadViewController.h */,
@@ -682,6 +686,21 @@
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
+		E2D518AC1FFE362700A548DA /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				E2D518A91FFE35B500A548DA /* Me.storyboard */,
+				E2D518A71FFE35B500A548DA /* MeViewController.h */,
+				E2D518A81FFE35B500A548DA /* MeViewController.m */,
+				E2D518AE1FFE364400A548DA /* MyMoneyViewController.h */,
+				E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */,
+				E2D518B01FFE364A00A548DA /* edttViewController.h */,
+				E2D518B11FFE364A00A548DA /* edttViewController.m */,
+			);
+			name = "我的";
+			path = "消息/我的";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -926,6 +945,8 @@
 				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
+				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
+				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
