@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface forgetNextViewController : UIViewController
+@property(nonatomic,strong) NSString *phoneNum;
+@property(nonatomic,strong) NSString *yanZhengNum;
+@property(nonatomic,strong) NSString *msgId;
 
 @end

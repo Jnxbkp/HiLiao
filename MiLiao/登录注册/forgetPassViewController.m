@@ -7,6 +7,7 @@
 //
 
 #import "forgetPassViewController.h"
+#import "forgetNextViewController.h"
 #define CountDown 60
 
 @interface forgetPassViewController ()
@@ -49,7 +50,11 @@
 }
 //下一步
 - (IBAction)next:(id)sender {
-    
+    forgetNextViewController *next = [[forgetNextViewController alloc]init];
+    next.phoneNum = self.phoneNum.text;
+    next.yanZhengNum = self.yanZhengNum.text;
+    next.msgId = self.msgId;
+    [self.navigationController pushViewController:next animated:YES];
 }
 - (void)getCodeFromSer{
     _secondCountDown = CountDown;
@@ -71,5 +76,11 @@
         self.getButton.contentVerticalAlignment=UIControlContentHorizontalAlignmentCenter;
     }
 }
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
+}
 @end
