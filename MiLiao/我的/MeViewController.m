@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _userDefaults = [NSUserDefaults standardUserDefaults];
+  
     self.extendedLayoutIncludesOpaqueBars = YES;
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

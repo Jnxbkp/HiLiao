@@ -136,7 +136,6 @@ static AFHTTPSessionManager *manager ;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     NSString *isLog = [userDefaults objectForKey:@"isLog"];
-  
     if ([isLog isEqualToString:@"yes"]) {
         MLTabBarController *tabBarVC = [[MLTabBarController alloc] init];
         tabBarVC.selectedViewController = [tabBarVC.viewControllers objectAtIndex:0];

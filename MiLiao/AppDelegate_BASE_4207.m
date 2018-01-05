@@ -11,9 +11,7 @@
 #import "LoginViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 
-@interface AppDelegate () {
-    NSUserDefaults *_userDefaults;
-}
+@interface AppDelegate ()
 
 @end
 
@@ -21,17 +19,9 @@
 
 //test
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    _userDefaults = [NSUserDefaults standardUserDefaults];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    NSString *isLog = [_userDefaults stringForKey:@"isLog"];
-    if ([isLog isEqualToString:@"yes"]) {
-        self.window.rootViewController = [[MLTabBarController alloc] init];
-    } else {
-        self.window.rootViewController = [[LoginViewController alloc]init];
-    }
-    
+    self.window.rootViewController = [[LoginViewController alloc]init];
+//    self.window.rootViewController = [[MLTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchRootViewController:) name:@"KSwitchRootViewControllerNotification" object:nil];
@@ -112,8 +102,7 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-   
-//    [self switchRootViewController:nil];
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 
@@ -133,18 +122,8 @@ static AFHTTPSessionManager *manager ;
 //选择bar
 - (void)switchRootViewController:(NSNotification *)note {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
-    NSString *isLog = [userDefaults objectForKey:@"isLog"];
-  
-    if ([isLog isEqualToString:@"yes"]) {
-        MLTabBarController *tabBarVC = [[MLTabBarController alloc] init];
-        tabBarVC.selectedViewController = [tabBarVC.viewControllers objectAtIndex:0];
-        self.window.rootViewController = tabBarVC;
-    } else {
-        self.window.rootViewController = [[LoginViewController alloc]init];
-        
-    }
-    
+    MLTabBarController *tabBarVC = [[MLTabBarController alloc] init];
+    tabBarVC.selectedViewController = [tabBarVC.viewControllers objectAtIndex:0];
+    self.window.rootViewController = tabBarVC;
 }
 @end

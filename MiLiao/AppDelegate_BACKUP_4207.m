@@ -10,10 +10,16 @@
 #import "MLTabBarController.h"
 #import "LoginViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
+<<<<<<< HEAD
 
 @interface AppDelegate () {
     NSUserDefaults *_userDefaults;
 }
+=======
+//12121212
+//31313131313
+@interface AppDelegate ()
+>>>>>>> 9083a868845cf110a4f1424fd60509c8b3b602ec
 
 @end
 
@@ -136,7 +142,6 @@ static AFHTTPSessionManager *manager ;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     NSString *isLog = [userDefaults objectForKey:@"isLog"];
-  
     if ([isLog isEqualToString:@"yes"]) {
         MLTabBarController *tabBarVC = [[MLTabBarController alloc] init];
         tabBarVC.selectedViewController = [tabBarVC.viewControllers objectAtIndex:0];
