@@ -13,5 +13,5 @@ pod 'UMengUShare/Social/ReducedQQ'
 pod 'UMengUShare/Social/ReducedSina'
 
 pod 'YYText'
-
+pod 'AliyunOSSiOS'
 end

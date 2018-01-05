@@ -49,14 +49,8 @@
     [self.LogoutButton addTarget:self action:@selector(LogoutButtonClick) forControlEvents:(UIControlEventTouchUpInside)];
     [self.LogoutButton setTitle:@"提交" forState:(UIControlStateNormal)];
     [footView addSubview:self.LogoutButton];
-    
-
     self.tableView.tableFooterView=footView;
-//    self.LogoutButton.sd_layout
-//    .leftSpaceToView(footView, 50)
-//    .rightSpaceToView(footView, 50)
-//    .heightEqualToWidth(footView, 0)
-//    .bottomSpaceToView(footView, 30);
+
 }
 
 - (void)setCustomView{
@@ -82,6 +76,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

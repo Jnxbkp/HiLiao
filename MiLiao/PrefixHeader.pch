@@ -31,6 +31,8 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
+//阿里云OSS
+#import <AliyunOSSiOS/OSSService.h>
 //网络请求成功
 #define SUCCESS 200
 //请求Url
