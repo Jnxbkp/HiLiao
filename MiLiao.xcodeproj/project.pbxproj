@@ -68,6 +68,7 @@
 		E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F661FFB311100096A6E /* MLDetailTableViewCell.m */; };
 		E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6C1FFB573400096A6E /* ItemsView.m */; };
 		E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */; };
+		E2B497D31FFF48B50017A5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D21FFF48B50017A5B6 /* User.m */; };
 		E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BB61FFCEBCD00597326 /* HLLoginManager.m */; };
 		E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BBC1FFD009900597326 /* MLCommentsViewController.m */; };
 		E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BBF1FFD01DB00597326 /* HLZiLiaoController.m */; };
@@ -220,6 +221,8 @@
 		E27E9F6C1FFB573400096A6E /* ItemsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsView.m; sourceTree = "<group>"; };
 		E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLSearchViewController.h; sourceTree = "<group>"; };
 		E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchViewController.m; sourceTree = "<group>"; };
+		E2B497D11FFF48B50017A5B6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E2B497D21FFF48B50017A5B6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E2B77BB51FFCEBCD00597326 /* HLLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLLoginManager.h; sourceTree = "<group>"; };
 		E2B77BB61FFCEBCD00597326 /* HLLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLLoginManager.m; sourceTree = "<group>"; };
 		E2B77BBB1FFD009900597326 /* MLCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLCommentsViewController.h; sourceTree = "<group>"; };
@@ -361,6 +364,7 @@
 				E25929521FFCA97200B6502D /* 消息 */,
 				E2D518B51FFE375D00A548DA /* 我的 */,
 				E225016A1FFA586700E8321F /* Tools */,
+				E2B497D01FFF489A0017A5B6 /* PublicModel */,
 				E225016E1FFA596E00E8321F /* PublicView */,
 				E221B5AD1FF5DED600353875 /* MLUploadViewController.h */,
 				E221B5AE1FF5DED600353875 /* MLUploadViewController.m */,
@@ -624,6 +628,15 @@
 				E27E9F531FFB1E0C00096A6E /* SGPageView.h */,
 			);
 			path = SGPageView;
+			sourceTree = "<group>";
+		};
+		E2B497D01FFF489A0017A5B6 /* PublicModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2B497D11FFF48B50017A5B6 /* User.h */,
+				E2B497D21FFF48B50017A5B6 /* User.m */,
+			);
+			path = PublicModel;
 			sourceTree = "<group>";
 		};
 		E2B77BB41FFCEB8B00597326 /* Model */ = {
@@ -969,6 +982,7 @@
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
+				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
 				E221B5AF1FF5DED600353875 /* MLUploadViewController.m in Sources */,

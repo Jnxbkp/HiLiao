@@ -132,7 +132,7 @@
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
-            
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
         

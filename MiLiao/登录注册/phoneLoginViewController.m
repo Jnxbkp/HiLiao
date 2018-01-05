@@ -48,7 +48,7 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+    
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
       
         NSInteger resultCode = [info[@"resultCode"] integerValue];
@@ -58,7 +58,8 @@
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
-           
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
        
@@ -154,6 +155,7 @@
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }

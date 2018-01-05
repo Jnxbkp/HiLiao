@@ -23,6 +23,9 @@
 #import "YZNavigationController.h"
 #import "UIImage+Color.h"
 #import "HLLoginManager.h"
+
+#import "User.h"
+
 /**SDAutoLayout*/
 #import "UIView+SDAutoLayout.h"
 
@@ -33,6 +36,9 @@
 #import <SDCycleScrollView.h>
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
+
+
+
 //网络请求成功
 #define SUCCESS 200
 //请求Url
