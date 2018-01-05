@@ -113,7 +113,7 @@
 
         phoneLoginViewController*bvc = [[phoneLoginViewController alloc]init];
         
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bvc];
+        YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:bvc];
         
         [self presentViewController:nav animated:NO completion:^{
             

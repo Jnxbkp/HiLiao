@@ -138,20 +138,7 @@
 }
 //忘记密码
 - (IBAction)forget:(id)sender {
-//    forgetPassViewController*bvc = [[forgetPassViewController alloc]init];
-//
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:bvc];
-//
-//    [self presentViewController:nav animated:NO completion:^{
-//
-//
-//
-//    }];
-    
-
     forgetPassViewController *forget = [[forgetPassViewController alloc]init];
-//    [self presentViewController:forget animated:YES completion:^{
-//    }];
     [self.navigationController pushViewController:forget animated:YES];
 }
 //快速登录
