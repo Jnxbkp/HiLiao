@@ -10,7 +10,9 @@
 #import "phoneLoginViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 
-@interface LoginViewController ()
+@interface LoginViewController () {
+    NSUserDefaults  *_userDefaults;
+}
 
 @property (strong, nonatomic) IBOutlet UIButton *weChat;
 @property (strong, nonatomic) IBOutlet UIButton *QQ;
@@ -23,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -122,10 +125,15 @@
 //快速登录
 - (void)quickLogInname:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid {
     [HLLoginManager NetPostquickLoginName:name platform:platform token:token uid:uid success:^(NSDictionary *info) {
-        //                    NSLog(@"------>>%@",info);
+//                            NSLog(@"------>>%@",info);
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
+            [_userDefaults setObject:isBigV forKey:@"isBigV"];
+            [_userDefaults setObject:@"yes" forKey:@"isLog"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
         
     } failure:^(NSError *error) {

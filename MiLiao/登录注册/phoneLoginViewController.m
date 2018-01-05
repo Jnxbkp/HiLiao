@@ -11,7 +11,9 @@
 #import "forgetPassViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 
-@interface phoneLoginViewController ()<UINavigationControllerDelegate>
+@interface phoneLoginViewController ()<UINavigationControllerDelegate> {
+    NSUserDefaults *_userDefaults;
+}
 @property (strong, nonatomic) IBOutlet UIButton *weChat;
 @property (strong, nonatomic) IBOutlet UIButton *QQ;
 @property (strong, nonatomic) IBOutlet UIButton *weiBo;
@@ -50,7 +52,12 @@
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
+            [_userDefaults setObject:isBigV forKey:@"isBigV"];
+            [_userDefaults setObject:@"yes" forKey:@"isLog"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
        
     } failure:^(NSError *error) {
@@ -141,7 +148,12 @@
         //                    NSLog(@"------>>%@",info);
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
+            [_userDefaults setObject:isBigV forKey:@"isBigV"];
+            [_userDefaults setObject:@"yes" forKey:@"isLog"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
         
     } failure:^(NSError *error) {
