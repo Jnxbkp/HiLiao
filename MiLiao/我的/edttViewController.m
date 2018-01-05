@@ -79,7 +79,45 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }]];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"拍  照"] style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"抱歉，您的设备没有摄像头" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            UIImagePickerController *controller = [[UIImagePickerController alloc]init];
+            [controller setSourceType:UIImagePickerControllerSourceTypeCamera];
+            [controller setAllowsEditing:YES];
+            [controller setDelegate:self];
+            [self presentViewController:controller animated:YES completion:nil];
+        }]];
+        
+        [alertVC addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIImagePickerController *controller = [[UIImagePickerController alloc]init];
+            [controller setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            [controller setAllowsEditing:YES];
+            [controller setDelegate:self];
+            [self presentViewController:controller animated:YES completion:nil];
+        }]];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }
+}
+#pragma mark - UIImagePickerController Delegate
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self uploadImage:image];
+}
+- (void)uploadImage:(UIImage*)image {
     
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
