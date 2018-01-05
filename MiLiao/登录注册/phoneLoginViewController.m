@@ -48,7 +48,7 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-    
+     
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
       
         NSInteger resultCode = [info[@"resultCode"] integerValue];
