@@ -45,6 +45,7 @@
 }
 //登录
 - (IBAction)login:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];

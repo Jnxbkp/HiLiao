@@ -40,7 +40,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQb-tY-mpG">
-                                    <rect key="frame" x="347" y="14" width="20" height="20"/>
+                                    <rect key="frame" x="347" y="31" width="20" height="20"/>
                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="HFs-pP-zEE"/>
@@ -59,7 +59,7 @@
                                 <constraint firstAttribute="trailing" secondItem="bQb-tY-mpG" secondAttribute="trailing" constant="8" id="flM-O8-qfj"/>
                                 <constraint firstItem="odP-Cb-z2k" firstAttribute="top" secondItem="RYw-E8-k1f" secondAttribute="top" constant="43" id="jSB-hP-f3b"/>
                                 <constraint firstItem="odP-Cb-z2k" firstAttribute="centerX" secondItem="RYw-E8-k1f" secondAttribute="centerX" id="mSD-q4-wkC"/>
-                                <constraint firstItem="bQb-tY-mpG" firstAttribute="top" secondItem="RYw-E8-k1f" secondAttribute="top" constant="14" id="xMZ-xQ-Uge"/>
+                                <constraint firstItem="bQb-tY-mpG" firstAttribute="top" secondItem="RYw-E8-k1f" secondAttribute="top" constant="31" id="xMZ-xQ-Uge"/>
                             </constraints>
                         </view>
                         <sections>
