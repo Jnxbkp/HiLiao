@@ -9,9 +9,9 @@
 #import "MLTabBarController.h"
 #import "MLHomeViewController.h"
 #import "MLDiscoverViewController.h"
-#import "MLUploadViewController.h"
 #import "messageViewController.h"
 #import "MeViewController.h"
+#import "HLTabBar.h"
 
 @interface MLTabBarController ()<UITabBarControllerDelegate>
 
@@ -42,13 +42,16 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
+//    if ([isBigV isEqualToString:@"1"]) {
+        [self InitMiddleView];
+//    } else {
+//
+//    }
+    
+    
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
     [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
-    if ([isBigV isEqualToString:@"1"]) {
-        [self addChildViewController:[[MLUploadViewController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
-    } else {
-
-    }
+   
 
     [self addChildViewController:[[messageViewController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
@@ -56,7 +59,14 @@
     [self addChildViewController:meViewController title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
     
 }
-
+- (void)InitMiddleView
+{
+    HLTabBar *tabBar = [[HLTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
+    [tabBar setDidMiddBtn:^{
+        NSLog(@"qqqqqqqqqq");
+    }];
+}
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {
     
 //    childController.tabBarItem.title = title;

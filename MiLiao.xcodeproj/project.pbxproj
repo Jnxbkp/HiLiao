@@ -31,7 +31,6 @@
 		E221B5931FF5D70000353875 /* MiLiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5921FF5D70000353875 /* MiLiaoUITests.m */; };
 		E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */; };
 		E221B5A91FF5DE9B00353875 /* MLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */; };
-		E221B5AF1FF5DED600353875 /* MLUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5AE1FF5DED600353875 /* MLUploadViewController.m */; };
 		E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5BA1FF5DFD000353875 /* MLTabBarController.m */; };
 		E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5BD1FF5E83E00353875 /* MLHomeListTableViewController.m */; };
 		E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */; };
@@ -69,6 +68,13 @@
 		E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6C1FFB573400096A6E /* ItemsView.m */; };
 		E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */; };
 		E2B497D31FFF48B50017A5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D21FFF48B50017A5B6 /* User.m */; };
+		E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */; };
+		E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */; };
+		E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DB1FFF56760017A5B6 /* CHD_ListView_Structure.m */; };
+		E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DD1FFF56760017A5B6 /* UIButton+Edge.m */; };
+		E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497DF1FFF56760017A5B6 /* UIView+Size.m */; };
+		E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497E11FFF56760017A5B6 /* MyObject.m */; };
+		E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B497E31FFF56760017A5B6 /* NSString+Size.m */; };
 		E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BB61FFCEBCD00597326 /* HLLoginManager.m */; };
 		E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BBC1FFD009900597326 /* MLCommentsViewController.m */; };
 		E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BBF1FFD01DB00597326 /* HLZiLiaoController.m */; };
@@ -149,8 +155,6 @@
 		E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLHomeViewController.m; sourceTree = "<group>"; };
 		E221B5A71FF5DE9B00353875 /* MLDiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDiscoverViewController.h; sourceTree = "<group>"; };
 		E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverViewController.m; sourceTree = "<group>"; };
-		E221B5AD1FF5DED600353875 /* MLUploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLUploadViewController.h; sourceTree = "<group>"; };
-		E221B5AE1FF5DED600353875 /* MLUploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLUploadViewController.m; sourceTree = "<group>"; };
 		E221B5B91FF5DFD000353875 /* MLTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLTabBarController.h; sourceTree = "<group>"; };
 		E221B5BA1FF5DFD000353875 /* MLTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLTabBarController.m; sourceTree = "<group>"; };
 		E221B5BC1FF5E83E00353875 /* MLHomeListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLHomeListTableViewController.h; sourceTree = "<group>"; };
@@ -223,6 +227,19 @@
 		E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchViewController.m; sourceTree = "<group>"; };
 		E2B497D11FFF48B50017A5B6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E2B497D21FFF48B50017A5B6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E2B497D41FFF50AE0017A5B6 /* HLTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLTabBar.h; sourceTree = "<group>"; };
+		E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLTabBar.m; sourceTree = "<group>"; };
+		E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabar_plus_normal@2x.png"; sourceTree = "<group>"; };
+		E2B497DA1FFF56760017A5B6 /* UIView+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Size.h"; sourceTree = "<group>"; };
+		E2B497DB1FFF56760017A5B6 /* CHD_ListView_Structure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHD_ListView_Structure.m; sourceTree = "<group>"; };
+		E2B497DC1FFF56760017A5B6 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		E2B497DD1FFF56760017A5B6 /* UIButton+Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Edge.m"; sourceTree = "<group>"; };
+		E2B497DE1FFF56760017A5B6 /* MyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyObject.h; sourceTree = "<group>"; };
+		E2B497DF1FFF56760017A5B6 /* UIView+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Size.m"; sourceTree = "<group>"; };
+		E2B497E01FFF56760017A5B6 /* CHD_ListView_Structure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHD_ListView_Structure.h; sourceTree = "<group>"; };
+		E2B497E11FFF56760017A5B6 /* MyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyObject.m; sourceTree = "<group>"; };
+		E2B497E21FFF56760017A5B6 /* UIButton+Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Edge.h"; sourceTree = "<group>"; };
+		E2B497E31FFF56760017A5B6 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		E2B77BB51FFCEBCD00597326 /* HLLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLLoginManager.h; sourceTree = "<group>"; };
 		E2B77BB61FFCEBCD00597326 /* HLLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLLoginManager.m; sourceTree = "<group>"; };
 		E2B77BBB1FFD009900597326 /* MLCommentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLCommentsViewController.h; sourceTree = "<group>"; };
@@ -366,8 +383,6 @@
 				E225016A1FFA586700E8321F /* Tools */,
 				E2B497D01FFF489A0017A5B6 /* PublicModel */,
 				E225016E1FFA596E00E8321F /* PublicView */,
-				E221B5AD1FF5DED600353875 /* MLUploadViewController.h */,
-				E221B5AE1FF5DED600353875 /* MLUploadViewController.m */,
 				E221B5741FF5D6FF00353875 /* Main.storyboard */,
 				E221B5771FF5D6FF00353875 /* Assets.xcassets */,
 				E221B5791FF5D6FF00353875 /* LaunchScreen.storyboard */,
@@ -426,6 +441,10 @@
 				E2B77BCA1FFDD4BA00597326 /* YZNavigationTitleLabel.m */,
 				E221B5B91FF5DFD000353875 /* MLTabBarController.h */,
 				E221B5BA1FF5DFD000353875 /* MLTabBarController.m */,
+				E2B497D71FFF56010017A5B6 /* tabar_plus_normal@2x.png */,
+				E2B497D41FFF50AE0017A5B6 /* HLTabBar.h */,
+				E2B497D51FFF50AE0017A5B6 /* HLTabBar.m */,
+				E2B497D91FFF56760017A5B6 /* CDCustom */,
 			);
 			path = "Nav+Tab";
 			sourceTree = "<group>";
@@ -639,6 +658,23 @@
 			path = PublicModel;
 			sourceTree = "<group>";
 		};
+		E2B497D91FFF56760017A5B6 /* CDCustom */ = {
+			isa = PBXGroup;
+			children = (
+				E2B497DA1FFF56760017A5B6 /* UIView+Size.h */,
+				E2B497DB1FFF56760017A5B6 /* CHD_ListView_Structure.m */,
+				E2B497DC1FFF56760017A5B6 /* NSString+Size.h */,
+				E2B497DD1FFF56760017A5B6 /* UIButton+Edge.m */,
+				E2B497DE1FFF56760017A5B6 /* MyObject.h */,
+				E2B497DF1FFF56760017A5B6 /* UIView+Size.m */,
+				E2B497E01FFF56760017A5B6 /* CHD_ListView_Structure.h */,
+				E2B497E11FFF56760017A5B6 /* MyObject.m */,
+				E2B497E21FFF56760017A5B6 /* UIButton+Edge.h */,
+				E2B497E31FFF56760017A5B6 /* NSString+Size.m */,
+			);
+			path = CDCustom;
+			sourceTree = "<group>";
+		};
 		E2B77BB41FFCEB8B00597326 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +884,7 @@
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
+				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
@@ -932,8 +969,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
+				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
@@ -950,6 +990,7 @@
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
+				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
@@ -968,11 +1009,13 @@
 				E259296C1FFCBC2A00B6502D /* FSScrollContentViewController.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
+				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
+				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
 				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
@@ -985,7 +1028,6 @@
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
-				E221B5AF1FF5DED600353875 /* MLUploadViewController.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
