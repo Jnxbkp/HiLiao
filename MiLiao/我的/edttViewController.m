@@ -7,14 +7,29 @@
 //
 
 #import "edttViewController.h"
+#import "OSSImageUploader.h"
+
 #define iconImageWH 60
+NSString * const AccessKey = @"－－－－－－－－－";
+NSString * const SecretKey = @"－－－－－－－－－";
+NSString * const securityToken = @"－－－－－－－－－";
+static NSString *kTempFolder = @"temp";
 
 @interface edttViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITableViewDelegate, UITableViewDataSource>
+{
+    OSSClient * client;
+}
 @property (nonatomic, weak)UITableView * tableView;
 @property(nonatomic,strong)UIButton *LogoutButton;
 
 //用户头像
 @property(nonatomic,strong)UIImageView *iconImage;
+@property(nonatomic,strong)NSData *imageData;
+
+//@property(nonatomic,strong)NSString *AccessKey;
+//@property(nonatomic,strong)NSString *SecretKey;
+//@property(nonatomic,strong)NSString *securityToken;
+
 @end
 
 @implementation edttViewController
@@ -109,12 +124,68 @@
 }
 #pragma mark - UIImagePickerController Delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    UIImage *avatar = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     [picker dismissViewControllerAnimated:YES completion:nil];
-    [self uploadImage:image];
+    //判断图片是不是png格式的文件
+    if (UIImagePNGRepresentation(avatar)) {
+        //返回为png图像。
+        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
+        self.imageData = UIImagePNGRepresentation(imagenew);
+    }else {
+        //返回为JPEG图像。
+        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
+        self.imageData = UIImageJPEGRepresentation(imagenew, 0.1);
+    }
+    
+// 参数设置
+    NSString *endpoint = @"http://oss-cn-hangzhou.aliyuncs.com";
+    // 明文设置secret的方式建议只在测试时使用，更多鉴权模式参考后面链接给出的官网完整文档的`访问控制`章节
+   id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:@"AccessKeyId" secretKeyId:@"AccessKeySecret" securityToken:@"SecurityToken"];
+    client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
+    OSSPutObjectRequest * put = [OSSPutObjectRequest new];
+    put.bucketName = @"xbkp-nihao";
+    NSString *imageName = [kTempFolder stringByAppendingPathComponent:[[NSUUID UUID].UUIDString stringByAppendingString:@".jpg"]];
+    put.objectKey = imageName;
+    put.uploadingData = self.imageData;
+    put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
+        NSLog(@"%lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
+    };
+    OSSTask * putTask = [client putObject:put];
+    
+    [putTask continueWithBlock:^id(OSSTask *task) {
+        task = [client presignPublicURLWithBucketName:@"xbkp-nihao"
+                                        withObjectKey:imageName];
+        NSLog(@"objectKey: %@", put.objectKey);
+        if (!task.error) {
+            
+            NSLog(@"upload object success!");
+            
+        } else {
+            NSLog(@"upload object failed, error: %@" , task.error);
+        }
+        return nil;
+    }];
+//    [self uploadImage:avatar];
 }
 - (void)uploadImage:(UIImage*)image {
     
+}
+/**
+ *  压缩图片尺寸
+ *
+ *  @param image   图片
+ *  @param newSize 大小
+ *
+ *  @return 真实图片
+ */
+- (UIImage *)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];

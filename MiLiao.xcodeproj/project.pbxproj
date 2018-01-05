@@ -11,6 +11,7 @@
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
+		18D6EA241FFF58E600774749 /* OSSImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6EA231FFF58E600774749 /* OSSImageUploader.m */; };
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
 		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
 		E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273F1FFE0C29005D543F /* ImageIO.framework */; };
@@ -115,6 +116,8 @@
 		185A9F001FFE58A800110182 /* forgetNextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetNextViewController.h; sourceTree = "<group>"; };
 		185A9F011FFE58A800110182 /* forgetNextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetNextViewController.m; sourceTree = "<group>"; };
 		185A9F021FFE58A800110182 /* forgetNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetNextViewController.xib; sourceTree = "<group>"; };
+		18D6EA221FFF58E600774749 /* OSSImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSImageUploader.h; sourceTree = "<group>"; };
+		18D6EA231FFF58E600774749 /* OSSImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSImageUploader.m; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
 		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
@@ -723,6 +726,8 @@
 				E2D518A81FFE35B500A548DA /* MeViewController.m */,
 				E2D518AE1FFE364400A548DA /* MyMoneyViewController.h */,
 				E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */,
+				18D6EA221FFF58E600774749 /* OSSImageUploader.h */,
+				18D6EA231FFF58E600774749 /* OSSImageUploader.m */,
 				E2D518B01FFE364A00A548DA /* edttViewController.h */,
 				E2D518B11FFE364A00A548DA /* edttViewController.m */,
 			);
@@ -949,6 +954,7 @@
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				18D6EA241FFF58E600774749 /* OSSImageUploader.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
