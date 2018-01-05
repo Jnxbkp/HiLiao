@@ -9,6 +9,8 @@
 #import "phoneLoginViewController.h"
 #import "registerViewController.h"
 #import "forgetPassViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
+
 @interface phoneLoginViewController ()<UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *weChat;
 @property (strong, nonatomic) IBOutlet UIButton *QQ;
@@ -144,6 +146,19 @@
 //    [self presentViewController:forget animated:YES completion:^{
 //    }];
     [self.navigationController pushViewController:forget animated:YES];
+}
+//快速登录
+- (void)quickLogInname:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid {
+    [HLLoginManager NetPostquickLoginName:name platform:platform token:token uid:uid success:^(NSDictionary *info) {
+        //                    NSLog(@"------>>%@",info);
+        NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
+        if ([resultCode isEqualToString:@"200"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:nil];
+        }
+        
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
 }
 #pragma mark - UINavigationControllerDelegate
 // 将要显示控制器
