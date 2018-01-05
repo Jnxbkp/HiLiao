@@ -9,7 +9,9 @@
 #import "MeViewController.h"
 #import "MyMoneyViewController.h"
 #import "edttViewController.h"
-@interface MeViewController ()
+@interface MeViewController () {
+    NSUserDefaults   *_userDefaults;
+}
 //退出按钮
 @property(nonatomic,strong)UIButton *LogoutButton;
 @end
@@ -18,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     self.extendedLayoutIncludesOpaqueBars = YES;
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -78,7 +81,12 @@
     }
     if (indexPath.section == 3) {
         //退出登录
-        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [_userDefaults setObject:@"0" forKey:@"isBigV"];
+        [_userDefaults setObject:@"no" forKey:@"isLog"];
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"0",@"isBigV",@"no",@"isLog", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         NSLog(@"退出登录");
     }
 }

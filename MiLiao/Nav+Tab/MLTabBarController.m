@@ -38,15 +38,17 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *isV = @"no";
+//    NSString *isV = @"no";
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
     [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
-//    if ([isV isEqualToString:@"yes"]) {
+    if ([isBigV isEqualToString:@"1"]) {
         [self addChildViewController:[[MLUploadViewController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
-//    } else {
-//
-//    }
+    } else {
+
+    }
 
     [self addChildViewController:[[messageViewController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
