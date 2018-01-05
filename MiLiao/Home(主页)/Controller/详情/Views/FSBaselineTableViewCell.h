@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FSBaselineTableViewCell : UITableViewCell
-
+//@property (nonatomic ,strong)UIButton         *stateButton;
+//@property (nonatomic ,strong)UIButton         *focusButton;
+////@property (nonatomic ,strong)UIButton         *backButton;
+//@property (nonatomic, strong)PriceView        *priceView;
 @end

@@ -15,4 +15,5 @@
 //@property (nonatomic ,strong)UIButton         *backButton;
 @property (nonatomic, strong)PriceView        *priceView;
 
+
 @end

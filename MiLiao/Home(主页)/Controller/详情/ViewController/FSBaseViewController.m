@@ -52,6 +52,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50) style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -107,6 +108,7 @@
     }
     [self.view addSubview:footView];
 }
+//底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
     
 }
@@ -190,7 +192,7 @@
                 }
             }
             _contentCell.viewControllers = contentVCs;
-            _contentCell.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT - 64) childVCs:contentVCs parentVC:self delegate:self];
+            _contentCell.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT - 50) childVCs:contentVCs parentVC:self delegate:self];
             [_contentCell.contentView addSubview:_contentCell.pageContentView];
         }
         return _contentCell;
@@ -231,7 +233,7 @@
 #pragma mark UIScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y - 64;
+    CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y ;
     if (scrollView.contentOffset.y >= bottomCellOffset) {
         scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
         if (self.canScroll) {

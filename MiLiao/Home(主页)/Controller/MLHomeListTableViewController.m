@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.tableView.scrollsToTop = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, VTTABBAR_HEIGHT, 0);
@@ -96,6 +96,7 @@
 
 #pragma mark - functional methods
 - (void)fetchNewsData {
+    
     _newsList = [[NSMutableArray alloc] init];
     for (NSInteger index = 0; index < 5; index++) {
         [_newsList addObject:[NSString stringWithFormat:@"新闻%ld", (long)index]];
