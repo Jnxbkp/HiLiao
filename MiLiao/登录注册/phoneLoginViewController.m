@@ -55,7 +55,7 @@
         if (resultCode == SUCCESS) {
               NSLog(@"----------------%@",info);
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:[info[@"data"] lastObject]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
@@ -154,7 +154,7 @@
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:[info[@"data"] lastObject]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
