@@ -10,6 +10,7 @@
 #import "MLTabBarController.h"
 #import "LoginViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "ViewController.h"
 
 @interface AppDelegate () {
     NSUserDefaults *_userDefaults;
@@ -112,13 +113,26 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-   
+    UIViewController *topmostVC = [self topViewController];
+    if ([topmostVC isKindOfClass:[ViewController class]]) {
+        ViewController *VC = topmostVC;
+        [VC resumeCapturePreview];
+    } else {
+        
+    }
 //    [self switchRootViewController:nil];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    UIViewController *topmostVC = [self topViewController];
+    if ([topmostVC isKindOfClass:[ViewController class]]) {
+        ViewController *VC = topmostVC;
+        [VC clear];
+    } else {
+        
+    }
 }
 //AFNetWorking leaks
 static AFHTTPSessionManager *manager ;
@@ -129,6 +143,26 @@ static AFHTTPSessionManager *manager ;
         manager.requestSerializer.timeoutInterval = 10;
     });
     return manager;
+}
+//获取最上层VC
+- (UIViewController *)topViewController {
+    UIViewController *resultVC;
+    resultVC = [self _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self _topViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
+
+- (UIViewController *)_topViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self _topViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self _topViewController:[(UITabBarController *)vc selectedViewController]];
+    } else {
+        return vc;
+    }
+    return nil;
 }
 //选择bar
 - (void)switchRootViewController:(NSNotification *)note {
