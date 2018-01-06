@@ -31,4 +31,7 @@
 //快速登录
 //POST /v1/user/quickLogin
 + (void)NetPostquickLoginName:(NSString *)name platform:(NSString *)platform token:(NSString *)platform uid:(NSString *)uid success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//更新头像昵称
+//POST /v1/user/updateHeadUrl
++ (void)NetPostupdateHeadUrl:(NSString *)headUrl nickName:(NSString *)nickName token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

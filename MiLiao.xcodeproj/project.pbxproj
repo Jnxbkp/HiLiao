@@ -12,6 +12,8 @@
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
 		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
+		1877240D2000789000A93345 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240B2000789000A93345 /* NickNameViewController.m */; };
+		1877240E2000789000A93345 /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1877240C2000789000A93345 /* NickNameViewController.xib */; };
 		18D6EA241FFF58E600774749 /* OSSImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6EA231FFF58E600774749 /* OSSImageUploader.m */; };
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
 		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
@@ -143,6 +145,9 @@
 		1877240220005E2500A93345 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
 		1877240320005E2500A93345 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		1877240A2000789000A93345 /* NickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = "<group>"; };
+		1877240B2000789000A93345 /* NickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = "<group>"; };
+		1877240C2000789000A93345 /* NickNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
 		18D6EA221FFF58E600774749 /* OSSImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSImageUploader.h; sourceTree = "<group>"; };
 		18D6EA231FFF58E600774749 /* OSSImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSImageUploader.m; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,6 +855,9 @@
 				18D6EA231FFF58E600774749 /* OSSImageUploader.m */,
 				E2D518B01FFE364A00A548DA /* edttViewController.h */,
 				E2D518B11FFE364A00A548DA /* edttViewController.m */,
+				1877240A2000789000A93345 /* NickNameViewController.h */,
+				1877240B2000789000A93345 /* NickNameViewController.m */,
+				1877240C2000789000A93345 /* NickNameViewController.xib */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -963,6 +971,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1877240E2000789000A93345 /* NickNameViewController.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				E221B5781FF5D6FF00353875 /* Assets.xcassets in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
@@ -1127,6 +1136,7 @@
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
+				1877240D2000789000A93345 /* NickNameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

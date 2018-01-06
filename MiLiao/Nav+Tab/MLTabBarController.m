@@ -99,7 +99,7 @@
     childController.tabBarItem.selectedImage = selectedImage;
     
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childController];
+    YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:childController];
     if ([isHidden isEqualToString:@"yes"]) {
         nav.navigationBarHidden = YES;
     }

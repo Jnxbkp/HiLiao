@@ -11,8 +11,7 @@
 
 @interface YZCurrentUserModel : NSObject
 
-/**商家id*/
-@property (nonatomic, copy) NSString * userid;
+
 
 @property (nonatomic, copy) NSString * id;
 

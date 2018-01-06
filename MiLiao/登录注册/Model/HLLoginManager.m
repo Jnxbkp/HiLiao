@@ -142,4 +142,27 @@
         failure(error);
     }];
 }
+//更新头像昵称
+//POST   /v1/user/updateHeadUrl
++ (void)NetPostupdateHeadUrl:(NSString *)headUrl nickName:(NSString *)nickName token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    //设置请求头
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"nickName"] = nickName;
+    param[@"headUrl"] = headUrl;
+    param[@"token"] = token;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/user/updateHeadUrl",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end
