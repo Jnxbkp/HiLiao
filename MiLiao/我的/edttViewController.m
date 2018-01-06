@@ -7,7 +7,6 @@
 //
 
 #import "edttViewController.h"
-#import "OSSImageUploader.h"
 #import "NickNameViewController.h"
 #define iconImageWH 60
 
@@ -47,7 +46,6 @@ static NSString *kTempFolder = @"touxiang";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"编辑资料"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    self.headerUrl = [_userDefaults objectForKey:@"headUrl"];
     [self setCustomView];
     //初始化尾部视图
     [self setupFootView];
@@ -57,7 +55,9 @@ static NSString *kTempFolder = @"touxiang";
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:NO];
+    self.headerUrl = [_userDefaults objectForKey:@"headUrl"];
     NSString *nickname = [_userDefaults objectForKey:@"nickname"];
+
     self.nickName = nickname;
 }
 //初始化尾部视图
@@ -82,7 +82,7 @@ static NSString *kTempFolder = @"touxiang";
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         NSLog(@"----------------%@",info);
         if (resultCode == SUCCESS) {
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failure:^(NSError *error) {
         
@@ -157,7 +157,7 @@ static NSString *kTempFolder = @"touxiang";
             [self presentViewController:controller animated:YES completion:nil];
         }]];
         [self presentViewController:alertVC animated:YES completion:nil];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
     }
     if (indexPath.row == 1) {
         NickNameViewController *nick = [[NickNameViewController alloc]init];
@@ -263,7 +263,6 @@ static NSString *kTempFolder = @"touxiang";
             self.headerUrl = [NSString stringWithFormat:@"%@",result];
             [_userDefaults setObject:self.headerUrl forKey:@"headUrl"];
             NSLog(@"------>>>%@",self.headerUrl);
-//            [self.tableView reloadData];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"qqq" object:nil userInfo:nil];
 //            for (NSDictionary * objectInfo in result.contents) {
 //                NSLog(@"list object: %@", objectInfo);
@@ -316,6 +315,7 @@ static NSString *kTempFolder = @"touxiang";
 }
 - (void)qqq:(NSNotification *)note {
     NSLog(@"------23213123123>>>%@",self.headerUrl);
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.headerUrl]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
     [self.tableView reloadData];
 }
 @end

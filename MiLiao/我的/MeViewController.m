@@ -33,7 +33,9 @@
     }
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    NSLog(@"--------=--=-=-=-=-%@",[YZCurrentUserModel sharedYZCurrentUserModel].headUrl);
+    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
+    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
