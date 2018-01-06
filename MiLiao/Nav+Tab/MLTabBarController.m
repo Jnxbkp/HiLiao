@@ -12,6 +12,7 @@
 #import "messageViewController.h"
 #import "MeViewController.h"
 #import "HLTabBar.h"
+#import "ViewController.h"
 
 @interface MLTabBarController ()<UITabBarControllerDelegate>
 
@@ -64,7 +65,11 @@
     HLTabBar *tabBar = [[HLTabBar alloc] init];
     [self setValue:tabBar forKey:@"tabBar"];
     [tabBar setDidMiddBtn:^{
-        NSLog(@"qqqqqqqqqq");
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ViewController *VC = [story instantiateViewControllerWithIdentifier:@"ViewController"];
+        [self presentViewController:VC animated:YES completion:^{
+            
+        }];
     }];
 }
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {

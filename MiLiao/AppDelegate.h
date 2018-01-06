@@ -8,7 +8,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
-//test
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

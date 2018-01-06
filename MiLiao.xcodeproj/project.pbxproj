@@ -93,6 +93,23 @@
 		E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF21FFDD69A00597326 /* UIImage+Color.m */; };
 		E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF41FFDD69A00597326 /* UIImage+Common.m */; };
 		E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B77BF51FFDD69A00597326 /* UIColor+expanded.m */; };
+		E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */; };
+		E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9D820008075006E0B2A /* UIColor+Hex.m */; };
+		E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9D920008075006E0B2A /* UIView+Frame.m */; };
+		E2C6B9E520008075006E0B2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9DA20008075006E0B2A /* ViewController.m */; };
+		E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9DC20008075006E0B2A /* Main.storyboard */; };
+		E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */ = {isa = PBXBuildFile; fileRef = E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */; };
+		E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9E020008075006E0B2A /* FxTableViewCell.m */; };
+		E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9E920008169006E0B2A /* AVFoundation.framework */; };
+		E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */; };
+		E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */; };
+		E2C6B9F02000817F006E0B2A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9EF2000817F006E0B2A /* Photos.framework */; };
+		E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */; };
+		E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F320008194006E0B2A /* CoreMotion.framework */; };
+		E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F52000819C006E0B2A /* Accelerate.framework */; };
+		E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */; };
+		E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */; };
+		E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
 		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
@@ -277,6 +294,27 @@
 		E2B77BF31FFDD69A00597326 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		E2B77BF41FFDD69A00597326 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		E2B77BF51FFDD69A00597326 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FxTableViewCell.xib; sourceTree = "<group>"; };
+		E2C6B9D820008075006E0B2A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		E2C6B9D920008075006E0B2A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		E2C6B9DA20008075006E0B2A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxTableViewCell.h; sourceTree = "<group>"; };
+		E2C6B9DC20008075006E0B2A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx"; sourceTree = "<group>"; };
+		E2C6B9DF20008075006E0B2A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		E2C6B9E020008075006E0B2A /* FxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxTableViewCell.m; sourceTree = "<group>"; };
+		E2C6B9E120008075006E0B2A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E2C6B9E920008169006E0B2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E2C6B9EF2000817F006E0B2A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E2C6B9F320008194006E0B2A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E2C6B9F52000819C006E0B2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkCore.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkCore.a; sourceTree = "<group>"; };
+		E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
+		E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps2.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
@@ -292,6 +330,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */,
+				E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */,
+				E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */,
+				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
+				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
+				E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */,
+				E2C6B9F02000817F006E0B2A /* Photos.framework in Frameworks */,
+				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
+				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
+				E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */,
 				E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */,
 				E212274E1FFE0C60005D543F /* libsqlite3.tbd in Frameworks */,
 				E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */,
@@ -326,6 +374,16 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */,
+				E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */,
+				E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */,
+				E2C6B9F52000819C006E0B2A /* Accelerate.framework */,
+				E2C6B9F320008194006E0B2A /* CoreMotion.framework */,
+				E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */,
+				E2C6B9EF2000817F006E0B2A /* Photos.framework */,
+				E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */,
+				E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */,
+				E2C6B9E920008169006E0B2A /* AVFoundation.framework */,
 				E21227521FFE1031005D543F /* QuCore-ThirdParty.framework */,
 				E212274F1FFE0C68005D543F /* libiconv.tbd */,
 				E212274D1FFE0C60005D543F /* libsqlite3.tbd */,
@@ -385,6 +443,7 @@
 				E25929391FFCA96600B6502D /* 登录注册 */,
 				E221B5A11FF5DDF400353875 /* Home(主页) */,
 				E221B5A21FF5DE1600353875 /* Discover(发现) */,
+				E2C6B9D620008075006E0B2A /* 视频拍摄 */,
 				E25929521FFCA97200B6502D /* 消息 */,
 				E2D518B51FFE375D00A548DA /* 我的 */,
 				E225016A1FFA586700E8321F /* Tools */,
@@ -761,6 +820,24 @@
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
+		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
+			isa = PBXGroup;
+			children = (
+				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
+				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
+				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
+				E2C6B9DA20008075006E0B2A /* ViewController.m */,
+				E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */,
+				E2C6B9DC20008075006E0B2A /* Main.storyboard */,
+				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
+				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
+				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
+				E2C6B9E020008075006E0B2A /* FxTableViewCell.m */,
+				E2C6B9E120008075006E0B2A /* ViewController.h */,
+			);
+			path = "视频拍摄";
+			sourceTree = "<group>";
+		};
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +968,8 @@
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
+				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
+				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
@@ -899,6 +978,7 @@
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
+				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
 			);
@@ -985,6 +1065,7 @@
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
+				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
@@ -999,6 +1080,7 @@
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
+				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				18D6EA241FFF58E600774749 /* OSSImageUploader.m in Sources */,
@@ -1028,6 +1110,7 @@
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
+				E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
@@ -1036,6 +1119,7 @@
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
 				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
+				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
@@ -1129,6 +1213,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1184,6 +1269,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1208,7 +1294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EE4DP99UN;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiLiao",
@@ -1216,9 +1302,37 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AliyunOSSiOS\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
+					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
+					"\"${PODS_ROOT}/Headers/Public/YYText\"",
+					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/include/sdkcore/ios\"",
+				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AliyunOSSiOS\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDCycleScrollView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/VTMagic\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/YYText\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDKPlugin\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
+					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1232,7 +1346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6EE4DP99UN;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiLiao",
@@ -1240,9 +1354,37 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AliyunOSSiOS\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
+					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
+					"\"${PODS_ROOT}/Headers/Public/YYText\"",
+					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/include/sdkcore/ios\"",
+				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AliyunOSSiOS\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDCycleScrollView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/VTMagic\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/YYText\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDKPlugin\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
+					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
+					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
