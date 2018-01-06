@@ -22,7 +22,7 @@
     UIButton *sendBtn = [[UIButton alloc] init];
     sendBtn.backgroundColor = [UIColor clearColor];
     [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal"] forState:UIControlStateNormal];
-    //    [sendBtn setTitle:@"发布" forState:UIControlStateNormal];
+   
     sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
     [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
     sendBtn.adjustsImageWhenHighlighted = NO;
