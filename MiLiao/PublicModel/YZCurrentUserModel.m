@@ -39,18 +39,20 @@ singleton_m(YZCurrentUserModel)
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     if ([key isEqualToString:@"id"]) {
-        self.userid = value;
+        self.id = value;
     }
     // 当发现没有定义的key值时 不处理
 }
 - (void)setValue:(id)value forKey:(NSString *)key {
     [super setValue:value forKey:key];
-    if ([key isEqualToString:@"nickName"]) {
-//        self.nickname = [value stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSLog(@"--------%@",value);
+    if ([key isEqualToString:@"nickname"]) {
+        self.nickname = [value stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     }
 }
 
 - (void)cleanUserData{
+    NSLog(@"-------12312321------");
     // 1.清除单例内存数据
     [self setValuesForKeysWithDictionary:[self toDicationary]];
     // 2.清除数据

@@ -23,7 +23,6 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odP-Cb-z2k">
                                     <rect key="frame" x="142" y="43" width="90" height="90"/>
-                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="90" id="UKD-1F-lm0"/>
                                         <constraint firstAttribute="width" constant="90" id="oWh-oL-c2U"/>
@@ -326,6 +325,10 @@
                             <outlet property="delegate" destination="ai7-5n-gNE" id="0q9-q3-f0A"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="headerImg" destination="odP-Cb-z2k" id="agR-O0-1vo"/>
+                        <outlet property="nickName" destination="k7y-Dr-AAv" id="vU0-js-BTd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcE-9L-oyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

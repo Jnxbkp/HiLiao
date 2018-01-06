@@ -8,16 +8,18 @@
 
 #import "edttViewController.h"
 #import "OSSImageUploader.h"
-
+#import "NickNameViewController.h"
 #define iconImageWH 60
-NSString * const AccessKey = @"－－－－－－－－－";
-NSString * const SecretKey = @"－－－－－－－－－";
-NSString * const securityToken = @"－－－－－－－－－";
+
 static NSString *kTempFolder = @"touxiang";
 
 @interface edttViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 {
     OSSClient * client;
+    
+    NSUserDefaults *_userDefaults;
+    
+    
 }
 @property (nonatomic, weak)UITableView * tableView;
 @property(nonatomic,strong)UIButton *LogoutButton;
@@ -29,6 +31,8 @@ static NSString *kTempFolder = @"touxiang";
 @property(nonatomic,strong)NSString *AccessKeyId;
 @property(nonatomic,strong)NSString *AccessKeySecret;
 @property(nonatomic,strong)NSString *SecurityToken;
+@property(nonatomic,strong)NSString *nickName;
+@property(nonatomic,strong)NSString *headerUrl;
 
 @end
 
@@ -36,11 +40,14 @@ static NSString *kTempFolder = @"touxiang";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(qqq:) name:@"qqq" object:nil];
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"编辑资料"];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    self.headerUrl = [_userDefaults objectForKey:@"headUrl"];
     [self setCustomView];
     //初始化尾部视图
     [self setupFootView];
@@ -50,6 +57,8 @@ static NSString *kTempFolder = @"touxiang";
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:NO];
+    NSString *nickname = [_userDefaults objectForKey:@"nickname"];
+    self.nickName = nickname;
 }
 //初始化尾部视图
 -(void)setupFootView
@@ -67,7 +76,18 @@ static NSString *kTempFolder = @"touxiang";
     self.tableView.tableFooterView=footView;
 
 }
-
+- (void)LogoutButtonClick
+{
+    [HLLoginManager NetPostupdateHeadUrl:[_userDefaults objectForKey:@"headUrl"] nickName:self.nickName token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        NSLog(@"----------------%@",info);
+        if (resultCode == SUCCESS) {
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)setCustomView{
     UITableView * tableView = [[UITableView alloc] init];
     tableView.delegate = self;
@@ -137,7 +157,73 @@ static NSString *kTempFolder = @"touxiang";
             [self presentViewController:controller animated:YES completion:nil];
         }]];
         [self presentViewController:alertVC animated:YES completion:nil];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    if (indexPath.row == 1) {
+        NickNameViewController *nick = [[NickNameViewController alloc]init];
+        nick.backBlock = ^(NSString *text) {
+        self.nickName = text;
+        [_userDefaults setObject:self.nickName forKey:@"nickname"];
+
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+        };
+        [self.navigationController pushViewController:nick animated:YES];
+    }
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        static NSString *cellID=@"cell1";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if(!cell){
+            cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier: cellID];
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.textLabel.text=@"头像";
+            self.iconImage=[[UIImageView alloc] init];
+            NSLog(@"----------%@",_headerUrl);
+            // store_img
+            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.headerUrl]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+            [cell.contentView addSubview:self.iconImage];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+            self.iconImage.sd_layout
+            .centerYIs(85 / 2)
+            .rightSpaceToView(cell.contentView, 10)
+            .widthIs(iconImageWH)
+            .heightIs(iconImageWH);
+        }
+        return cell;
+    }else{
+        static NSString *cellID=@"cell2";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if(!cell)
+        {
+            cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier: cellID];
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        }
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        //第一个分区
+        cell.textLabel.text=@"昵称";
+        cell.detailTextLabel.text=self.nickName;
+        
+        return cell;
+    }
+}
+//行高
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0)
+    {
+        return 85;
+        
+    }
+    
+    return 47;
+    
 }
 #pragma mark - UIImagePickerController Delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -153,8 +239,6 @@ static NSString *kTempFolder = @"touxiang";
         UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
         self.imageData = UIImageJPEGRepresentation(imagenew, 0.1);
     }
-    //oss-token获取
-   
 // 参数设置
     NSString *endpoint = @"http://oss-cn-beijing.aliyuncs.com";
     // 明文设置secret的方式建议只在测试时使用，更多鉴权模式参考后面链接给出的官网完整文档的`访问控制`章节
@@ -162,17 +246,13 @@ static NSString *kTempFolder = @"touxiang";
     client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
     OSSPutObjectRequest * put = [OSSPutObjectRequest new];
     put.bucketName = @"xbkp-nihao";
-//    NSString *imageName = [kTempFolder stringByAppendingPathComponent:[[NSUUID UUID].UUIDString stringByAppendingString:@".jpg"]];
     NSString *fileName = [NSString stringWithFormat:@"touxiang/%ld%c%c.jpg", (long)[[NSDate date] timeIntervalSince1970], arc4random_uniform(26) + 'a', arc4random_uniform(26) + 'a'];
-//     NSString *objectKeys = [NSString stringWithFormat:@"touxiang/%@.jpg",[self getTimeNow]];
     put.objectKey = fileName;
-
     put.uploadingData = self.imageData;
     put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
         NSLog(@"%lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
     };
     OSSTask * putTask = [client putObject:put];
-    
     [putTask continueWithBlock:^id(OSSTask *task) {
         task = [client presignPublicURLWithBucketName:@"xbkp-nihao"
                                         withObjectKey:fileName];
@@ -180,21 +260,22 @@ static NSString *kTempFolder = @"touxiang";
         if (!task.error) {
             OSSGetBucketResult * result = task.result;
             NSLog(@"%@",result);
-            NSLog(@"get bucket success!");
-            for (NSDictionary * objectInfo in result.contents) {
-                NSLog(@"list object: %@", objectInfo);
-            }
+            self.headerUrl = [NSString stringWithFormat:@"%@",result];
+            [_userDefaults setObject:self.headerUrl forKey:@"headUrl"];
+            NSLog(@"------>>>%@",self.headerUrl);
+//            [self.tableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"qqq" object:nil userInfo:nil];
+//            for (NSDictionary * objectInfo in result.contents) {
+//                NSLog(@"list object: %@", objectInfo);
+//            }
             NSLog(@"upload object success!");
             
-        } else {
+        }
+        else {
             NSLog(@"upload object failed, error: %@" , task.error);
         }
         return nil;
     }];
-//    [self uploadImage:avatar];
-}
-- (void)uploadImage:(UIImage*)image {
-    
 }
 /**
  *  压缩图片尺寸
@@ -233,55 +314,8 @@ static NSString *kTempFolder = @"touxiang";
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-        static NSString *cellID=@"cell1";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if(!cell){
-            cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier: cellID];
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            cell.textLabel.text=@"头像";
-            self.iconImage=[[UIImageView alloc] init];
-            // store_img
-//            [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[YZCurrentUserModel sharedYZCurrentUserModel].store_img] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
-            [cell.contentView addSubview:self.iconImage];
-            self.iconImage.sd_layout
-            .centerYIs(85 / 2)
-            .rightSpaceToView(cell.contentView, 10)
-            .widthIs(iconImageWH)
-            .heightIs(iconImageWH);
-        }
-        return cell;
-    }else{
-        static NSString *cellID=@"cell2";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if(!cell)
-        {
-            cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier: cellID];
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        }
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        //第一个分区
-       cell.textLabel.text=@"昵称";
-//       cell.detailTextLabel.text=[YZCurrentUserModel sharedYZCurrentUserModel].store_name;
-        
-        return cell;
-    }
-}
-//行高
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row == 0)
-    {
-        return 85;
-        
-    }
-    
-    return 47;
-    
+- (void)qqq:(NSNotification *)note {
+    NSLog(@"------23213123123>>>%@",self.headerUrl);
+    [self.tableView reloadData];
 }
 @end

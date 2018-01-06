@@ -14,12 +14,15 @@
 }
 //退出按钮
 @property(nonatomic,strong)UIButton *LogoutButton;
+@property (strong, nonatomic) IBOutlet UIImageView *headerImg;
+@property (strong, nonatomic) IBOutlet UILabel *nickName;
 @end
 
 @implementation MeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _userDefaults = [NSUserDefaults standardUserDefaults];
   
     self.extendedLayoutIncludesOpaqueBars = YES;
@@ -30,6 +33,7 @@
     }
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    NSLog(@"--------=--=-=-=-=-%@",[YZCurrentUserModel sharedYZCurrentUserModel].headUrl);
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -37,6 +41,9 @@
     //导航栏透明
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
+    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
+
 }
 - (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
@@ -91,6 +98,7 @@
         NSLog(@"退出登录");
     }
 }
+
 //编辑资料
 - (IBAction)edit:(id)sender {
 //    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];

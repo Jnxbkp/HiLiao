@@ -11,7 +11,8 @@
 #import "forgetPassViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 
-@interface phoneLoginViewController ()<UINavigationControllerDelegate> {
+@interface phoneLoginViewController ()<UINavigationControllerDelegate>
+{
     NSUserDefaults *_userDefaults;
 }
 @property (strong, nonatomic) IBOutlet UIButton *weChat;
@@ -61,7 +62,8 @@
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
-            
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
        
@@ -161,7 +163,8 @@
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
-            
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
         }
         
