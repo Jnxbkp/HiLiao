@@ -68,6 +68,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *switchFacingButton;
 @property (weak, nonatomic) IBOutlet UIButton *openBeautyButton;
 @property (weak, nonatomic) IBOutlet UIButton *captureWithFxButton;
+@property (nonatomic, strong)UIButton   *backButton;
 
 
 @end
@@ -118,6 +119,7 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view, typically from a nib.
     [self resetSettings];
     _isAutoFocus = false;
@@ -191,8 +193,16 @@ typedef enum {
     [self getBeautyInfo];
     // 给NvsStreamingContext设置回调接口
     _context.delegate = self;
+    [self addBackButton];
 }
-
+//返回按钮
+- (void)addBackButton {
+    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backButton.frame = CGRectMake(15, 27, 40, 30);
+    [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+    [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backButton];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -341,6 +351,7 @@ typedef enum {
         else
             [_context startRecording:outputFilePath];
         
+        NSLog(@"------------->>>>>>>%@",outputFilePath);
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         [self.switchFacingButton setEnabled:NO];
@@ -699,5 +710,10 @@ typedef enum {
 - (void)handleProgressTimer:(NSTimer *)timer {
     [self removeAutoFocusVisibleTimer];
 }
+//返回
+- (void)backBarButtonSelect:(UIButton *)but {
+    [self dismissViewControllerAnimated:YES completion:^{
 
+    }];
+}
 @end
