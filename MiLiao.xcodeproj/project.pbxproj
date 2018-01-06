@@ -823,17 +823,17 @@
 		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
-				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
+				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
+				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
+				E2C6B9E120008075006E0B2A /* ViewController.h */,
 				E2C6B9DA20008075006E0B2A /* ViewController.m */,
 				E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */,
-				E2C6B9DC20008075006E0B2A /* Main.storyboard */,
-				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
-				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
-				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9E020008075006E0B2A /* FxTableViewCell.m */,
-				E2C6B9E120008075006E0B2A /* ViewController.h */,
+				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
+				E2C6B9DC20008075006E0B2A /* Main.storyboard */,
+				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 			);
 			path = "视频拍摄";
 			sourceTree = "<group>";
