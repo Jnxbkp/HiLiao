@@ -13,7 +13,7 @@
 NSString * const AccessKey = @"－－－－－－－－－";
 NSString * const SecretKey = @"－－－－－－－－－";
 NSString * const securityToken = @"－－－－－－－－－";
-static NSString *kTempFolder = @"temp";
+static NSString *kTempFolder = @"touxiang";
 
 @interface edttViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 {
@@ -26,9 +26,9 @@ static NSString *kTempFolder = @"temp";
 @property(nonatomic,strong)UIImageView *iconImage;
 @property(nonatomic,strong)NSData *imageData;
 
-//@property(nonatomic,strong)NSString *AccessKey;
-//@property(nonatomic,strong)NSString *SecretKey;
-//@property(nonatomic,strong)NSString *securityToken;
+@property(nonatomic,strong)NSString *AccessKeyId;
+@property(nonatomic,strong)NSString *AccessKeySecret;
+@property(nonatomic,strong)NSString *SecurityToken;
 
 @end
 
@@ -82,6 +82,23 @@ static NSString *kTempFolder = @"temp";
     .rightSpaceToView(self.view, 0)
     .topSpaceToView(self.view, 0)
     .bottomSpaceToView(self.view, 0);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    [HLLoginManager NetGetgetOSSToken:token success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        NSLog(@"----------------%@",info);
+        
+        if (resultCode == SUCCESS) {
+            
+            self.AccessKeyId = info[@"data"][@"AccessKeyId"];
+            self.AccessKeySecret = info[@"data"][@"AccessKeySecret"];
+            self.SecurityToken = info[@"data"][@"SecurityToken"];
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -136,16 +153,20 @@ static NSString *kTempFolder = @"temp";
         UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
         self.imageData = UIImageJPEGRepresentation(imagenew, 0.1);
     }
-    
+    //oss-token获取
+   
 // 参数设置
-    NSString *endpoint = @"http://oss-cn-hangzhou.aliyuncs.com";
+    NSString *endpoint = @"http://oss-cn-beijing.aliyuncs.com";
     // 明文设置secret的方式建议只在测试时使用，更多鉴权模式参考后面链接给出的官网完整文档的`访问控制`章节
-   id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:@"AccessKeyId" secretKeyId:@"AccessKeySecret" securityToken:@"SecurityToken"];
+   id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:self.AccessKeyId secretKeyId:self.AccessKeySecret securityToken:self.SecurityToken];
     client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
     OSSPutObjectRequest * put = [OSSPutObjectRequest new];
     put.bucketName = @"xbkp-nihao";
-    NSString *imageName = [kTempFolder stringByAppendingPathComponent:[[NSUUID UUID].UUIDString stringByAppendingString:@".jpg"]];
-    put.objectKey = imageName;
+//    NSString *imageName = [kTempFolder stringByAppendingPathComponent:[[NSUUID UUID].UUIDString stringByAppendingString:@".jpg"]];
+    NSString *fileName = [NSString stringWithFormat:@"touxiang/%ld%c%c.jpg", (long)[[NSDate date] timeIntervalSince1970], arc4random_uniform(26) + 'a', arc4random_uniform(26) + 'a'];
+//     NSString *objectKeys = [NSString stringWithFormat:@"touxiang/%@.jpg",[self getTimeNow]];
+    put.objectKey = fileName;
+
     put.uploadingData = self.imageData;
     put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
         NSLog(@"%lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
@@ -154,10 +175,15 @@ static NSString *kTempFolder = @"temp";
     
     [putTask continueWithBlock:^id(OSSTask *task) {
         task = [client presignPublicURLWithBucketName:@"xbkp-nihao"
-                                        withObjectKey:imageName];
+                                        withObjectKey:fileName];
         NSLog(@"objectKey: %@", put.objectKey);
         if (!task.error) {
-            
+            OSSGetBucketResult * result = task.result;
+            NSLog(@"%@",result);
+            NSLog(@"get bucket success!");
+            for (NSDictionary * objectInfo in result.contents) {
+                NSLog(@"list object: %@", objectInfo);
+            }
             NSLog(@"upload object success!");
             
         } else {
@@ -186,6 +212,23 @@ static NSString *kTempFolder = @"temp";
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+/**
+ *  返回当前时间
+ *
+ *  @return <#return value description#>
+ */
+- (NSString *)getTimeNow
+{
+    NSString* date;
+    NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
+    [formatter setDateFormat:@"YYYYMMddhhmmssSSS"];
+    date = [formatter stringFromDate:[NSDate date]];
+    //取出个随机数
+    int last = arc4random() % 10000;
+    NSString *timeNow = [[NSString alloc] initWithFormat:@"%@-%i", date,last];
+    NSLog(@"%@", timeNow);
+    return timeNow;
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];

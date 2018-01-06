@@ -25,7 +25,13 @@
 #import "HLLoginManager.h"
 
 #import "User.h"
+/**
+ * 单例
+ */
 
+
+/**当前登录用户*/
+#import "YZCurrentUserModel.h"
 /**SDAutoLayout*/
 #import "UIView+SDAutoLayout.h"
 
@@ -81,5 +87,15 @@
 #define YZFont(f)  [UIFont systemFontOfSize:f]
 //导航栏背景色
 #define NavigationBarBackgroundColor ML_Color(255,255,255,1)
+// 设置偏好设置
+#define HLUserDefaults  [NSUserDefaults standardUserDefaults]
+// 存储登录信息
+#define CurrentUserAccount @"CurrentUserAccount"
+#define CurrentUserPassword @"CurrentUserPassword"
+#define UserType @"UserType"
 
+//token
+#define CurrentUserToken @"CurrentUserToken"
+//极光推送注册 id
+#define jpush_id @"jpush_id"
 #endif /* PrefixHeader_pch */
