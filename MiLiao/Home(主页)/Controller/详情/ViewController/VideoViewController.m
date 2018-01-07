@@ -71,13 +71,13 @@ static NSString * const reuseIdentifier = @"Cell";
 //判断屏幕触碰状态
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    //    DebugLog(@"接触屏幕");
+        NSLog(@"接触屏幕");
     self.fingerIsTouch = YES;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    //    DebugLog(@"离开屏幕");
+        NSLog(@"离开屏幕");
     self.fingerIsTouch = NO;
 }
 

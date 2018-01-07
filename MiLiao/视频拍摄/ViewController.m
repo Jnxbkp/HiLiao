@@ -28,7 +28,9 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate> {
+    NSTimer             *_timer;
+}
 
 @property (weak, nonatomic) IBOutlet NvsLiveWindow *liveWindow;
 @property (weak, nonatomic) IBOutlet UIImageView *imageAutoFocusRect;
@@ -69,6 +71,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *openBeautyButton;
 @property (weak, nonatomic) IBOutlet UIButton *captureWithFxButton;
 @property (nonatomic, strong)UIButton   *backButton;
+@property (nonatomic, strong)UIButton   *nextButton;
 
 
 @end
@@ -194,6 +197,14 @@ typedef enum {
     // 给NvsStreamingContext设置回调接口
     _context.delegate = self;
     [self addBackButton];
+    
+    _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _nextButton.hidden = YES;
+    _nextButton.frame = CGRectMake(WIDTH-60, HEIGHT-120, 40, 30);
+//    [_nextButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+    _nextButton.backgroundColor = [UIColor redColor];
+    [_nextButton addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_nextButton];
 }
 //返回按钮
 - (void)addBackButton {
@@ -350,7 +361,8 @@ typedef enum {
             [_context startRecordingWithFx:outputFilePath];
         else
             [_context startRecording:outputFilePath];
-        
+        _nextButton.hidden = YES;
+        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
         NSLog(@"------------->>>>>>>%@",outputFilePath);
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
@@ -359,12 +371,21 @@ typedef enum {
     }
     // 停止录制
     [_context stopRecording];
+    
+    [_timer invalidate];
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     if ([_context captureDeviceCount] > 1)
         [self.switchFacingButton setEnabled:YES];
 }
-
+//延时显示
+- (void)beganCapture:(NSTimer *)timer {
+    _nextButton.hidden = NO;
+}
+//点击下一步
+- (void)nextButtonClick:(UIButton *)but {
+    NSLog(@"------------ggoogggo");
+}
 - (bool) startCapturePreview {
     if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
         NSLog(@"启动预览失败");
