@@ -14,6 +14,7 @@
 		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
 		1877240D2000789000A93345 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240B2000789000A93345 /* NickNameViewController.m */; };
 		1877240E2000789000A93345 /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1877240C2000789000A93345 /* NickNameViewController.xib */; };
+		187724122000BF1600A93345 /* IdentificationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187724112000BF1600A93345 /* IdentificationVController.m */; };
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
 		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
 		E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273F1FFE0C29005D543F /* ImageIO.framework */; };
@@ -149,6 +150,8 @@
 		1877240A2000789000A93345 /* NickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = "<group>"; };
 		1877240B2000789000A93345 /* NickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = "<group>"; };
 		1877240C2000789000A93345 /* NickNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
+		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
+		187724112000BF1600A93345 /* IdentificationVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdentificationVController.m; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
 		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
@@ -379,6 +382,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1877240F2000BE3500A93345 /* 认证大V */ = {
+			isa = PBXGroup;
+			children = (
+				187724102000BF1600A93345 /* IdentificationVController.h */,
+				187724112000BF1600A93345 /* IdentificationVController.m */,
+			);
+			path = "认证大V";
+			sourceTree = "<group>";
+		};
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,6 +865,7 @@
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				1877240F2000BE3500A93345 /* 认证大V */,
 				E2D518A91FFE35B500A548DA /* Me.storyboard */,
 				E2D518A71FFE35B500A548DA /* MeViewController.h */,
 				E2D518A81FFE35B500A548DA /* MeViewController.m */,
@@ -1102,6 +1115,7 @@
 				E2C6BA0520025B2F006E0B2A /* FSScrollContentViewController.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
+				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,

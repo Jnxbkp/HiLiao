@@ -9,6 +9,7 @@
 #import "MeViewController.h"
 #import "MyMoneyViewController.h"
 #import "edttViewController.h"
+#import "IdentificationVController.h"
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
@@ -73,7 +74,14 @@
         }
         if (indexPath.row == 1) {
             //大V
-            
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
+            IdentificationVController *Identification = [story instantiateViewControllerWithIdentifier:@"IdentificationVController"];
+            //设置导航条颜色
+            UINavigationController *nav = (UINavigationController *)self.navigationController;
+            //隐藏分隔线
+            [nav.navigationBar setShadowImage:[UIImage new]];
+            [self.navigationController pushViewController:Identification animated:YES];
+
         }
     }
     if (indexPath.section == 1) {
@@ -103,9 +111,6 @@
 
 //编辑资料
 - (IBAction)edit:(id)sender {
-//    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
-//    editViewController *edit = [story instantiateViewControllerWithIdentifier:@"editViewController"];
-//    [self.navigationController pushViewController:edit animated:YES];
     edttViewController *edit = [[edttViewController alloc]init];
     [self.navigationController pushViewController:edit animated:YES];
 }
