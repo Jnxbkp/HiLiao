@@ -50,7 +50,7 @@
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
-    [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
+//    [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
     return YES;
 }
 
@@ -172,8 +172,16 @@ static AFHTTPSessionManager *manager ;
     dispatch_once(&onceToken, ^{
         manager = [AFHTTPSessionManager manager];
         manager.requestSerializer.timeoutInterval = 10;
+        
+        manager.requestSerializer=[AFJSONRequestSerializer serializer];
+        [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+        AFSecurityPolicy *security = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        [security setValidatesDomainName:NO];
+        security.allowInvalidCertificates = YES;
+        manager.securityPolicy = security;
+        
     });
-    return manager;
+        return manager;
 }
 //获取最上层VC
 - (UIViewController *)topViewController {

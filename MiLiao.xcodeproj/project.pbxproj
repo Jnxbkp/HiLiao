@@ -157,6 +157,7 @@
 		E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */; };
 		E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */; };
 		E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */; };
+		E2D194E22003217700EAEE57 /* HLVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194E12003217700EAEE57 /* HLVideoListViewController.m */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
 		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
@@ -425,6 +426,8 @@
 		E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps2.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
 		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
+		E2D194E02003217700EAEE57 /* HLVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLVideoListViewController.h; sourceTree = "<group>"; };
+		E2D194E12003217700EAEE57 /* HLVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLVideoListViewController.m; sourceTree = "<group>"; };
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
@@ -1366,6 +1369,8 @@
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
 				E2C6B9E120008075006E0B2A /* ViewController.h */,
 				E2C6B9DA20008075006E0B2A /* ViewController.m */,
+				E2D194E02003217700EAEE57 /* HLVideoListViewController.h */,
+				E2D194E12003217700EAEE57 /* HLVideoListViewController.m */,
 				E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */,
 				E2C6B9E020008075006E0B2A /* FxTableViewCell.m */,
 				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
@@ -1657,6 +1662,7 @@
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				18567F222001F568003F1985 /* BoardButton.m in Sources */,
 				E2B77BCC1FFDD4BA00597326 /* YZNavigationController.m in Sources */,
+				E2D194E22003217700EAEE57 /* HLVideoListViewController.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,

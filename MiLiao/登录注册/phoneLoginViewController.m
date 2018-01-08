@@ -54,7 +54,7 @@
       
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-              NSLog(@"----------------%@",info);
+              NSLog(@"---------------->>%@",info);
             //保存用户信息
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
@@ -70,7 +70,7 @@
         }
        
     } failure:^(NSError *error) {
-        
+        NSLog(@"----<<<>>>error%@",error);
     }];
 
 }
