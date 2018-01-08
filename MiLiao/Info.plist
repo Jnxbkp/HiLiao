@@ -111,5 +111,7 @@ e6d2a7cd7d57578a51532065957fb9ea</string>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>使用您的位置，获取你的位置信息。</string>
 </dict>
 </plist>

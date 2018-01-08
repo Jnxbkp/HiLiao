@@ -10,7 +10,7 @@
 #import "registerViewController.h"
 #import "forgetPassViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
-
+#import <RongIMKit/RongIMKit.h>
 @interface phoneLoginViewController ()<UINavigationControllerDelegate>
 {
     NSUserDefaults *_userDefaults;
@@ -65,6 +65,8 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
+            //融云登录操作
+            [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
         }
        
     } failure:^(NSError *error) {
@@ -156,7 +158,7 @@
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
@@ -166,6 +168,9 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
+            
+            //融云登录操作
+            [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
         }
         
     } failure:^(NSError *error) {
@@ -186,6 +191,31 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
     return YES;
+}
+// [_userDefaults objectForKey:@"token"]
+- (void)settingRCIMToken:(NSString *)token {
+    if (!token) return;
+    [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
+        
+        
+        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] forKey:@"rcim_token"];
+        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"] success:^(NSString *userId) {
+            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+            
+            //把自己信息存起来
+//            [[UserDataManager ShardInstance] RCIM_currentUserInfo:userId];
+            
+        } error:^(RCConnectErrorCode status) {
+            NSLog(@"登陆的错误码为:%ld", (long)status);
+        } tokenIncorrect:^{
+            //token过期或者不正确。
+            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+            NSLog(@"token错误");
+        }];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end
