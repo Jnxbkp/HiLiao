@@ -42,7 +42,7 @@
     leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [leftButton setImage:[UIImage imageNamed:@"fanhui2"] forState:UIControlStateNormal];
+    [leftButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];

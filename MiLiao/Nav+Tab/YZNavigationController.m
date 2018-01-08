@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.interactivePopGestureRecognizer.delegate = self;
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarBackgroundColor size:CGSizeMake(WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.viewControllers.count <= 1) {
+        return NO;
+    }
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

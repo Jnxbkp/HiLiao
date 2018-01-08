@@ -117,9 +117,9 @@
 //        [self.navigationController pushViewController:chat animated:YES];
         
         //新建一个聊天会话View Controller对象,建议这样初始化
-        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18396895755"];
+        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"15698096707"];
         chat.title = @"hehehe";
-        chat.automaticallyAdjustsScrollViewInsets = NO;
+//        chat.automaticallyAdjustsScrollViewInsets = NO;
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     }
