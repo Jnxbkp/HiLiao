@@ -99,7 +99,6 @@
 		E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295A1FFCBC1700B6502D /* FSBaseTopTableViewCell.m */; };
 		E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295B1FFCBC1700B6502D /* FSBaselineTableViewCell.m */; };
 		E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295E1FFCBC1700B6502D /* FSBottomTableViewCell.m */; };
-		E259296C1FFCBC2A00B6502D /* FSScrollContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929641FFCBC2A00B6502D /* FSScrollContentViewController.m */; };
 		E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929651FFCBC2A00B6502D /* FSBaseViewController.m */; };
 		E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E259296A1FFCBC2A00B6502D /* FSBaseTableView.m */; };
 		E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929721FFCBC3800B6502D /* FSSegmentTitleView.m */; };
@@ -158,6 +157,9 @@
 		E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */; };
 		E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */; };
 		E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */; };
+		E2C6B9FF200252E4006E0B2A /* JianjieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6B9FE200252E4006E0B2A /* JianjieTableViewCell.m */; };
+		E2C6BA0220025304006E0B2A /* BiaoQianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6BA0120025304006E0B2A /* BiaoQianTableViewCell.m */; };
+		E2C6BA0520025B2F006E0B2A /* FSScrollContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
 		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
@@ -323,10 +325,8 @@
 		E259295D1FFCBC1700B6502D /* FSBaseTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseTopTableViewCell.h; sourceTree = "<group>"; };
 		E259295E1FFCBC1700B6502D /* FSBottomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBottomTableViewCell.m; sourceTree = "<group>"; };
 		E259295F1FFCBC1700B6502D /* FSBaselineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaselineTableViewCell.h; sourceTree = "<group>"; };
-		E25929641FFCBC2A00B6502D /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
 		E25929651FFCBC2A00B6502D /* FSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseViewController.m; sourceTree = "<group>"; };
 		E25929671FFCBC2A00B6502D /* FSBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseTableView.h; sourceTree = "<group>"; };
-		E25929681FFCBC2A00B6502D /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E25929691FFCBC2A00B6502D /* FSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseViewController.h; sourceTree = "<group>"; };
 		E259296A1FFCBC2A00B6502D /* FSBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseTableView.m; sourceTree = "<group>"; };
 		E25929721FFCBC3800B6502D /* FSSegmentTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSegmentTitleView.m; sourceTree = "<group>"; };
@@ -426,6 +426,12 @@
 		E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkCore.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkCore.a; sourceTree = "<group>"; };
 		E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
 		E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps2.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
+		E2C6B9FD200252E4006E0B2A /* JianjieTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JianjieTableViewCell.h; sourceTree = "<group>"; };
+		E2C6B9FE200252E4006E0B2A /* JianjieTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JianjieTableViewCell.m; sourceTree = "<group>"; };
+		E2C6BA0020025304006E0B2A /* BiaoQianTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BiaoQianTableViewCell.h; sourceTree = "<group>"; };
+		E2C6BA0120025304006E0B2A /* BiaoQianTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiaoQianTableViewCell.m; sourceTree = "<group>"; };
+		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
+		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
@@ -1184,6 +1190,10 @@
 		E25929591FFCBC1700B6502D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2C6B9FD200252E4006E0B2A /* JianjieTableViewCell.h */,
+				E2C6B9FE200252E4006E0B2A /* JianjieTableViewCell.m */,
+				E2C6BA0020025304006E0B2A /* BiaoQianTableViewCell.h */,
+				E2C6BA0120025304006E0B2A /* BiaoQianTableViewCell.m */,
 				E259295D1FFCBC1700B6502D /* FSBaseTopTableViewCell.h */,
 				E259295A1FFCBC1700B6502D /* FSBaseTopTableViewCell.m */,
 				E259295F1FFCBC1700B6502D /* FSBaselineTableViewCell.h */,
@@ -1203,8 +1213,8 @@
 				E2B77BC21FFD077900597326 /* VideoViewController.m */,
 				E2B77BBB1FFD009900597326 /* MLCommentsViewController.h */,
 				E2B77BBC1FFD009900597326 /* MLCommentsViewController.m */,
-				E25929681FFCBC2A00B6502D /* FSScrollContentViewController.h */,
-				E25929641FFCBC2A00B6502D /* FSScrollContentViewController.m */,
+				E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */,
+				E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */,
 				E25929691FFCBC2A00B6502D /* FSBaseViewController.h */,
 				E25929651FFCBC2A00B6502D /* FSBaseViewController.m */,
 				E25929671FFCBC2A00B6502D /* FSBaseTableView.h */,
@@ -1619,8 +1629,12 @@
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
+<<<<<<< HEAD
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+=======
+				E2C6BA0220025304006E0B2A /* BiaoQianTableViewCell.m in Sources */,
+>>>>>>> 9eb4c71535ec945be1bcf910e46e81264152f956
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
@@ -1633,12 +1647,17 @@
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
+				E2C6B9FF200252E4006E0B2A /* JianjieTableViewCell.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+<<<<<<< HEAD
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
+=======
+				E2C6BA0520025B2F006E0B2A /* FSScrollContentViewController.m in Sources */,
+>>>>>>> 9eb4c71535ec945be1bcf910e46e81264152f956
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
@@ -1660,7 +1679,6 @@
 				E2B77BCC1FFDD4BA00597326 /* YZNavigationController.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
-				E259296C1FFCBC2A00B6502D /* FSScrollContentViewController.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
@@ -1876,7 +1894,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1939,7 +1957,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
