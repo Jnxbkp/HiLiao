@@ -198,8 +198,8 @@
     [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
         
-        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"] success:^(NSString *userId) {
+        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
+        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             
             //把自己信息存起来

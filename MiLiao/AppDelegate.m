@@ -50,7 +50,7 @@
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
-//    [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
+    [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
     return YES;
 }
 
