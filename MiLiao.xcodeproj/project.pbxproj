@@ -171,6 +171,7 @@
 		E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */; };
 		E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */; };
 		E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */; };
+		E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D1952F20035DD300EAEE57 /* GenerationView.m */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
 		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
@@ -494,6 +495,8 @@
 		E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageParticleDescParser.h; sourceTree = "<group>"; };
 		E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsParticleSystemContext.h; sourceTree = "<group>"; };
 		E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameReceiver.h; sourceTree = "<group>"; };
+		E2D1952F20035DD300EAEE57 /* GenerationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerationView.m; sourceTree = "<group>"; };
+		E2D1953020035DD300EAEE57 /* GenerationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerationView.h; sourceTree = "<group>"; };
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
+				E2D1953020035DD300EAEE57 /* GenerationView.h */,
+				E2D1952F20035DD300EAEE57 /* GenerationView.m */,
 				E2D194E320033D0400EAEE57 /* QBImagePicker */,
 				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
@@ -1599,6 +1604,7 @@
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
 				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
+				E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
