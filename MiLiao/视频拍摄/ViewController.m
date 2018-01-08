@@ -19,6 +19,7 @@
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
 #import "NvsFxDescription.h"
+#import "HLVideoListViewController.h"
 
 typedef enum {
     EDIT_TYPE_NONE = 0,
@@ -404,8 +405,11 @@ typedef enum {
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-    [self presentViewController:self.moviePicker animated:YES completion:nil];
+    HLVideoListViewController *videoVC = [[HLVideoListViewController alloc]init];
+   
+    [self presentViewController:videoVC animated:YES completion:nil];
 }
+#pragma mark - 调用系统相册界面
 - (UIImagePickerController *)moviePicker {
     if (_moviePicker == nil) {
         _moviePicker = [[UIImagePickerController alloc] init];

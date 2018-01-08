@@ -16,8 +16,7 @@
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
         //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+    
     //设置返回StatusCodes422为成功标志
 //    NSMutableIndexSet *indexSet=[[NSMutableIndexSet alloc] initWithIndexSet:manager.responseSerializer.acceptableStatusCodes];
 //
@@ -81,9 +80,6 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
-    //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"mobile"] = mobile;
     param[@"password"] = password;
@@ -101,10 +97,6 @@
 + (void)NetPostresetpwdMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
-    
-    //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
 
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"mobile"] = mobile;
@@ -124,10 +116,6 @@
 + (void)NetPostquickLoginName:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
-    
-    //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"name"] = name;
@@ -149,10 +137,6 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
-    //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
-    
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"nickName"] = nickName;
     param[@"headUrl"] = headUrl;
@@ -171,9 +155,6 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
-    //设置请求头
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
     [manager GET:[NSString stringWithFormat:@"%@/v1/oss/getRongYunToken?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
