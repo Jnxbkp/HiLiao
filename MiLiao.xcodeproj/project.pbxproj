@@ -1629,12 +1629,12 @@
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
-<<<<<<< HEAD
+
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
-=======
-				E2C6BA0220025304006E0B2A /* BiaoQianTableViewCell.m in Sources */,
->>>>>>> 9eb4c71535ec945be1bcf910e46e81264152f956
+
+
+
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
@@ -1653,11 +1653,11 @@
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
-<<<<<<< HEAD
+
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
-=======
-				E2C6BA0520025B2F006E0B2A /* FSScrollContentViewController.m in Sources */,
->>>>>>> 9eb4c71535ec945be1bcf910e46e81264152f956
+
+
+
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
