@@ -17,7 +17,8 @@
 #import "HLZiLiaoController.h"
 #import "MLCommentsViewController.h"
 #import "VideoViewController.h"
-
+#import "ChatListController.h"
+#import "ChatRoomController.h"
 #define downButtonTag   2000
 @interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     UIButton        *_backButton;
@@ -110,7 +111,18 @@
 }
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
-    
+    if (but.tag == downButtonTag) {
+//        ChatListController *chat = [[ChatListController alloc] init];
+////        [chat setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:chat animated:YES];
+        
+        //新建一个聊天会话View Controller对象,建议这样初始化
+        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18396895755"];
+        chat.title = @"hehehe";
+        chat.automaticallyAdjustsScrollViewInsets = NO;
+        //显示聊天会话界面
+        [self.navigationController pushViewController:chat animated:YES];
+    }
 }
 - (void)insertRowAtTop
 {

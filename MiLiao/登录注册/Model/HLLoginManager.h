@@ -34,4 +34,6 @@
 //更新头像昵称
 //POST /v1/user/updateHeadUrl
 + (void)NetPostupdateHeadUrl:(NSString *)headUrl nickName:(NSString *)nickName token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+// GET /v1/oss/getRongYunToken 获取融云Token
++ (void)NetGetupdateRongYunToken:(NSString *)token  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end
