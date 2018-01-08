@@ -19,7 +19,16 @@
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
 #import "NvsFxDescription.h"
-#import "HLVideoListViewController.h"
+#import "QBImagePickerController.h"
+
+
+static CGSize CGSizeScale(CGSize size, CGFloat scale) {
+    return CGSizeMake(size.width * scale, size.height * scale);
+}
+
+@implementation VideoCellModel
+
+@end
 
 typedef enum {
     EDIT_TYPE_NONE = 0,
@@ -29,7 +38,7 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate> {
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate> {
     NSTimer             *_timer;
 }
 
@@ -377,8 +386,8 @@ typedef enum {
             [_context startRecordingWithFx:outputFilePath];
         else
             [_context startRecording:outputFilePath];
-        _nextButton.hidden = YES;
-        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
+//        _nextButton.hidden = YES;
+//        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
         NSLog(@"------------->>>>>>>%@",outputFilePath);
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
@@ -405,19 +414,71 @@ typedef enum {
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-    HLVideoListViewController *videoVC = [[HLVideoListViewController alloc]init];
-   
-    [self presentViewController:videoVC animated:YES completion:nil];
+    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.maximumNumberOfSelection = 1;
+    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
+    imagePickerController.prompt = @"请选择视频";
+    imagePickerController.showsNumberOfSelectedAssets = YES;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
-#pragma mark - 调用系统相册界面
-- (UIImagePickerController *)moviePicker {
-    if (_moviePicker == nil) {
-        _moviePicker = [[UIImagePickerController alloc] init];
-        _moviePicker.delegate = self;
-        _moviePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        _moviePicker.mediaTypes = @[(NSString *)kUTTypeMovie];
-    }
-    return _moviePicker;
+#pragma mark - 界面
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
+//    @autoreleasepool {
+//        NSLog(@"-------------22222222");
+//        for (PHAsset *asset in assets) {
+//            __weak __typeof(self) weakSelf = self;
+//            NSUInteger index = _lstVideos.count;
+//
+//            VideoCellModel *model = [[VideoCellModel alloc] init];
+//            model.path = @"";
+//            model.thumb = nil;
+//            [_lstVideos addObject:model];
+//
+//            if (asset.mediaType == PHAssetMediaTypeImage) {             // 图片
+//                [_videoTrack appendClip:asset.localIdentifier];         // 追加片段
+//                model.path = asset.localIdentifier;
+//            } else {                                                    // 视频
+//                // 异步获取文件路径之后再添加片段
+//                [[PHImageManager defaultManager] requestAVAssetForVideo:asset
+//                                                                options:[PHVideoRequestOptions new] resultHandler:^(AVAsset * avAsset, AVAudioMix * audioMix, NSDictionary * info) {
+//                                                                    dispatch_async(dispatch_get_main_queue(), ^{
+//                                                                        [weakSelf addClip:avAsset withIndex:index];
+//                                                                    });
+//                                                                }];
+//            }
+//
+//            // 设置视频列表的封面
+//            CGSize size  = CGSizeMake(100, 100);
+//            CGSize targetSize = CGSizeScale(size, [[UIScreen mainScreen] scale]);
+//            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+//            options.resizeMode = PHImageRequestOptionsResizeModeExact;
+//            options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+//
+//            [self.imageManager requestImageForAsset:asset
+//                                         targetSize:targetSize
+//                                        contentMode:PHImageContentModeAspectFill
+//                                            options:options
+//                                      resultHandler:^(UIImage *thumb, NSDictionary *info) {
+//                                          if ([[info valueForKey:@"PHImageResultIsDegradedKey"]integerValue] == 0) {
+//                                              // Do something with the FULL SIZED image
+//                                              dispatch_async(dispatch_get_main_queue(), ^{
+//                                                  [weakSelf setThumb:thumb withIndex:index];
+//                                              });
+//                                          }
+//                                      }];
+//        }
+//    }
+//
+//    self.buttonPreview.enabled = true;
+//    self.buttonEditOrder.enabled = true;
+//
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (bool) startCapturePreview {

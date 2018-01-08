@@ -157,7 +157,20 @@
 		E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */; };
 		E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */; };
 		E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */; };
-		E2D194E22003217700EAEE57 /* HLVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194E12003217700EAEE57 /* HLVideoListViewController.m */; };
+		E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2D194E520033D0400EAEE57 /* QBImagePicker.strings */; };
+		E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194E920033D0400EAEE57 /* QBVideoIconView.m */; };
+		E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */; };
+		E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */; };
+		E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */; };
+		E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */; };
+		E2D1950020033D0400EAEE57 /* QBAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */; };
+		E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F520033D0400EAEE57 /* QBImagePickerController.m */; };
+		E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */; };
+		E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */; };
+		E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194F920033D0400EAEE57 /* QBAssetCell.m */; };
+		E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */; };
+		E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */; };
+		E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */; };
 		E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518A81FFE35B500A548DA /* MeViewController.m */; };
 		E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D518A91FFE35B500A548DA /* Me.storyboard */; };
 		E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D518AD1FFE364300A548DA /* MyMoneyViewController.m */; };
@@ -426,8 +439,61 @@
 		E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps2.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
 		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
-		E2D194E02003217700EAEE57 /* HLVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLVideoListViewController.h; sourceTree = "<group>"; };
-		E2D194E12003217700EAEE57 /* HLVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLVideoListViewController.m; sourceTree = "<group>"; };
+		E2D194E420033D0400EAEE57 /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerController.h; sourceTree = "<group>"; };
+		E2D194E620033D0400EAEE57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/QBImagePicker.strings"; sourceTree = "<group>"; };
+		E2D194E720033D0400EAEE57 /* QBAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetsViewController.h; sourceTree = "<group>"; };
+		E2D194E820033D0400EAEE57 /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
+		E2D194E920033D0400EAEE57 /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
+		E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
+		E2D194EB20033D0400EAEE57 /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
+		E2D194EC20033D0400EAEE57 /* QBImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePicker.h; sourceTree = "<group>"; };
+		E2D194ED20033D0400EAEE57 /* QBAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAssetCell.h; sourceTree = "<group>"; };
+		E2D194EE20033D0400EAEE57 /* QBSlomoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBSlomoIconView.h; sourceTree = "<group>"; };
+		E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
+		E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QBImagePicker.storyboard; sourceTree = "<group>"; };
+		E2D194F120033D0400EAEE57 /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
+		E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumsViewController.m; sourceTree = "<group>"; };
+		E2D194F320033D0400EAEE57 /* QBVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
+		E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetsViewController.m; sourceTree = "<group>"; };
+		E2D194F520033D0400EAEE57 /* QBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerController.m; sourceTree = "<group>"; };
+		E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
+		E2D194F720033D0400EAEE57 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
+		E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBSlomoIconView.m; sourceTree = "<group>"; };
+		E2D194F920033D0400EAEE57 /* QBAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAssetCell.m; sourceTree = "<group>"; };
+		E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
+		E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
+		E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNvStreamingSdkCore.a; sourceTree = "<group>"; };
+		E2D195102003510B00EAEE57 /* NvsStreamingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsStreamingContext.h; sourceTree = "<group>"; };
+		E2D195112003510B00EAEE57 /* NvsMultiThumbnailSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsMultiThumbnailSequenceView.h; sourceTree = "<group>"; };
+		E2D195122003510B00EAEE57 /* NvsAudioTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioTransition.h; sourceTree = "<group>"; };
+		E2D195132003510B00EAEE57 /* NvsFaceEffectV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFaceEffectV1.h; sourceTree = "<group>"; };
+		E2D195142003510B00EAEE57 /* NvsCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCommonDef.h; sourceTree = "<group>"; };
+		E2D195152003510B00EAEE57 /* NvsVideoTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoTransition.h; sourceTree = "<group>"; };
+		E2D195162003510B00EAEE57 /* NvsVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFx.h; sourceTree = "<group>"; };
+		E2D195172003510B00EAEE57 /* NvsTimelineVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineVideoFx.h; sourceTree = "<group>"; };
+		E2D195182003510B00EAEE57 /* NvsAudioFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioFx.h; sourceTree = "<group>"; };
+		E2D195192003510B00EAEE57 /* NvsAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioTrack.h; sourceTree = "<group>"; };
+		E2D1951A2003510B00EAEE57 /* NvsCaptureVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCaptureVideoFx.h; sourceTree = "<group>"; };
+		E2D1951B2003510B00EAEE57 /* NvsAVFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAVFileInfo.h; sourceTree = "<group>"; };
+		E2D1951C2003510B00EAEE57 /* NvsAudioClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAudioClip.h; sourceTree = "<group>"; };
+		E2D1951D2003510B00EAEE57 /* NvsLiveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsLiveWindow.h; sourceTree = "<group>"; };
+		E2D1951E2003510B00EAEE57 /* NvsVideoClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoClip.h; sourceTree = "<group>"; };
+		E2D1951F2003510B00EAEE57 /* NvsClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsClip.h; sourceTree = "<group>"; };
+		E2D195202003510B00EAEE57 /* NvsTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimeline.h; sourceTree = "<group>"; };
+		E2D195212003510B00EAEE57 /* NvsVideoFrameRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameRetriever.h; sourceTree = "<group>"; };
+		E2D195222003510B00EAEE57 /* NvsCustomVideoFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsCustomVideoFx.h; sourceTree = "<group>"; };
+		E2D195232003510B00EAEE57 /* NvsTimelineCaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineCaption.h; sourceTree = "<group>"; };
+		E2D195242003510B00EAEE57 /* NvsAssetPackageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageManager.h; sourceTree = "<group>"; };
+		E2D195252003510B00EAEE57 /* NvsTimelineAnimatedSticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTimelineAnimatedSticker.h; sourceTree = "<group>"; };
+		E2D195262003510B00EAEE57 /* NvsThumbnailSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsThumbnailSequenceView.h; sourceTree = "<group>"; };
+		E2D195272003510B00EAEE57 /* NvsVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoTrack.h; sourceTree = "<group>"; };
+		E2D195282003510B00EAEE57 /* NvsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsObject.h; sourceTree = "<group>"; };
+		E2D195292003510B00EAEE57 /* NvsFx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFx.h; sourceTree = "<group>"; };
+		E2D1952A2003510B00EAEE57 /* NvsTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsTrack.h; sourceTree = "<group>"; };
+		E2D1952B2003510B00EAEE57 /* NvsFxDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsFxDescription.h; sourceTree = "<group>"; };
+		E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsAssetPackageParticleDescParser.h; sourceTree = "<group>"; };
+		E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsParticleSystemContext.h; sourceTree = "<group>"; };
+		E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvsVideoFrameReceiver.h; sourceTree = "<group>"; };
 		E2D518A71FFE35B500A548DA /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		E2D518A81FFE35B500A548DA /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		E2D518A91FFE35B500A548DA /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
@@ -465,6 +531,7 @@
 				18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */,
 				18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */,
 				E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */,
+				E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */,
 				E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */,
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
 				18567F58200207C8003F1985 /* RongCallKit.framework in Frameworks */,
@@ -472,6 +539,7 @@
 				E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
 				E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */,
+				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
 				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
 				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
@@ -486,6 +554,7 @@
 				E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
 				E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */,
+				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
 				18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
 			);
@@ -606,253 +675,6 @@
 				18567F44200207C7003F1985 /* RongCallKit.framework */,
 			);
 			path = CallKit;
-			sourceTree = "<group>";
-		};
-		1856876920020ECE003F1985 /* NvStreamingSdk_IOS_1.15.1_20180102_195552 */ = {
-			isa = PBXGroup;
-			children = (
-				1856876A20020ECE003F1985 /* samples */,
-				1856878520020ECE003F1985 /* extrasdk */,
-			);
-			path = NvStreamingSdk_IOS_1.15.1_20180102_195552;
-			sourceTree = "<group>";
-		};
-		1856876A20020ECE003F1985 /* samples */ = {
-			isa = PBXGroup;
-			children = (
-				1856876B20020ECE003F1985 /* ios */,
-			);
-			path = samples;
-			sourceTree = "<group>";
-		};
-		1856876B20020ECE003F1985 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				1856876C20020ECE003F1985 /* Caption */,
-				1856876E20020ECE003F1985 /* Capture */,
-				1856877020020ECE003F1985 /* VRView */,
-				1856877220020ECE003F1985 /* capturescene */,
-				1856877420020ECE003F1985 /* Fx */,
-				1856877620020ECE003F1985 /* shared */,
-				1856877820020ECE003F1985 /* beauty */,
-				1856877A20020ECE003F1985 /* Edit */,
-				1856877C20020ECE003F1985 /* customvideofx */,
-				1856877E20020ECE003F1985 /* douyin */,
-				1856878020020ECE003F1985 /* particle */,
-				1856878320020ECE003F1985 /* Photo */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		1856876C20020ECE003F1985 /* Caption */ = {
-			isa = PBXGroup;
-			children = (
-				1856876D20020ECE003F1985 /* Caption */,
-			);
-			path = Caption;
-			sourceTree = "<group>";
-		};
-		1856876D20020ECE003F1985 /* Caption */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Caption;
-			sourceTree = "<group>";
-		};
-		1856876E20020ECE003F1985 /* Capture */ = {
-			isa = PBXGroup;
-			children = (
-				1856876F20020ECE003F1985 /* Capture */,
-			);
-			path = Capture;
-			sourceTree = "<group>";
-		};
-		1856876F20020ECE003F1985 /* Capture */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Capture;
-			sourceTree = "<group>";
-		};
-		1856877020020ECE003F1985 /* VRView */ = {
-			isa = PBXGroup;
-			children = (
-				1856877120020ECE003F1985 /* VRView */,
-			);
-			path = VRView;
-			sourceTree = "<group>";
-		};
-		1856877120020ECE003F1985 /* VRView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VRView;
-			sourceTree = "<group>";
-		};
-		1856877220020ECE003F1985 /* capturescene */ = {
-			isa = PBXGroup;
-			children = (
-				1856877320020ECE003F1985 /* capturescene */,
-			);
-			path = capturescene;
-			sourceTree = "<group>";
-		};
-		1856877320020ECE003F1985 /* capturescene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = capturescene;
-			sourceTree = "<group>";
-		};
-		1856877420020ECE003F1985 /* Fx */ = {
-			isa = PBXGroup;
-			children = (
-				1856877520020ECE003F1985 /* Fx */,
-			);
-			path = Fx;
-			sourceTree = "<group>";
-		};
-		1856877520020ECE003F1985 /* Fx */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fx;
-			sourceTree = "<group>";
-		};
-		1856877620020ECE003F1985 /* shared */ = {
-			isa = PBXGroup;
-			children = (
-				1856877720020ECE003F1985 /* QBImagePicker */,
-			);
-			path = shared;
-			sourceTree = "<group>";
-		};
-		1856877720020ECE003F1985 /* QBImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = QBImagePicker;
-			sourceTree = "<group>";
-		};
-		1856877820020ECE003F1985 /* beauty */ = {
-			isa = PBXGroup;
-			children = (
-				1856877920020ECE003F1985 /* beauty */,
-			);
-			path = beauty;
-			sourceTree = "<group>";
-		};
-		1856877920020ECE003F1985 /* beauty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = beauty;
-			sourceTree = "<group>";
-		};
-		1856877A20020ECE003F1985 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				1856877B20020ECE003F1985 /* Edit */,
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
-		1856877B20020ECE003F1985 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
-		1856877C20020ECE003F1985 /* customvideofx */ = {
-			isa = PBXGroup;
-			children = (
-				1856877D20020ECE003F1985 /* customvideofx */,
-			);
-			path = customvideofx;
-			sourceTree = "<group>";
-		};
-		1856877D20020ECE003F1985 /* customvideofx */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = customvideofx;
-			sourceTree = "<group>";
-		};
-		1856877E20020ECE003F1985 /* douyin */ = {
-			isa = PBXGroup;
-			children = (
-				1856877F20020ECE003F1985 /* douyin */,
-			);
-			path = douyin;
-			sourceTree = "<group>";
-		};
-		1856877F20020ECE003F1985 /* douyin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = douyin;
-			sourceTree = "<group>";
-		};
-		1856878020020ECE003F1985 /* particle */ = {
-			isa = PBXGroup;
-			children = (
-				1856878120020ECE003F1985 /* assetPackage */,
-				1856878220020ECE003F1985 /* particle */,
-			);
-			path = particle;
-			sourceTree = "<group>";
-		};
-		1856878120020ECE003F1985 /* assetPackage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = assetPackage;
-			sourceTree = "<group>";
-		};
-		1856878220020ECE003F1985 /* particle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = particle;
-			sourceTree = "<group>";
-		};
-		1856878320020ECE003F1985 /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-				1856878420020ECE003F1985 /* Photo */,
-			);
-			path = Photo;
-			sourceTree = "<group>";
-		};
-		1856878420020ECE003F1985 /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Photo;
-			sourceTree = "<group>";
-		};
-		1856878520020ECE003F1985 /* extrasdk */ = {
-			isa = PBXGroup;
-			children = (
-				1856878620020ECE003F1985 /* NvConvertorTest */,
-			);
-			path = extrasdk;
-			sourceTree = "<group>";
-		};
-		1856878620020ECE003F1985 /* NvConvertorTest */ = {
-			isa = PBXGroup;
-			children = (
-				1856878720020ECE003F1985 /* NvConvertorTest */,
-			);
-			path = NvConvertorTest;
-			sourceTree = "<group>";
-		};
-		1856878720020ECE003F1985 /* NvConvertorTest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NvConvertorTest;
 			sourceTree = "<group>";
 		};
 		1856878F2002136D003F1985 /* 融云聊天 */ = {
@@ -1119,7 +941,8 @@
 		E225016A1FFA586700E8321F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				1856876920020ECE003F1985 /* NvStreamingSdk_IOS_1.15.1_20180102_195552 */,
+				E2D1950D2003510B00EAEE57 /* include */,
+				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
 				18567F152001F568003F1985 /* IB_DESIGNABLE */,
 				18F335C52001D8A600AE7CCD /* IQActionSheetPickerView */,
@@ -1363,14 +1186,13 @@
 		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
+				E2D194E320033D0400EAEE57 /* QBImagePicker */,
 				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
 				E2C6B9E120008075006E0B2A /* ViewController.h */,
 				E2C6B9DA20008075006E0B2A /* ViewController.m */,
-				E2D194E02003217700EAEE57 /* HLVideoListViewController.h */,
-				E2D194E12003217700EAEE57 /* HLVideoListViewController.m */,
 				E2C6B9DB20008075006E0B2A /* FxTableViewCell.h */,
 				E2C6B9E020008075006E0B2A /* FxTableViewCell.m */,
 				E2C6B9D720008075006E0B2A /* FxTableViewCell.xib */,
@@ -1378,6 +1200,106 @@
 				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 			);
 			path = "视频拍摄";
+			sourceTree = "<group>";
+		};
+		E2D194E320033D0400EAEE57 /* QBImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E2D194E420033D0400EAEE57 /* QBImagePickerController.h */,
+				E2D194E520033D0400EAEE57 /* QBImagePicker.strings */,
+				E2D194E720033D0400EAEE57 /* QBAssetsViewController.h */,
+				E2D194E820033D0400EAEE57 /* QBAlbumsViewController.h */,
+				E2D194E920033D0400EAEE57 /* QBVideoIconView.m */,
+				E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */,
+				E2D194EB20033D0400EAEE57 /* QBCheckmarkView.h */,
+				E2D194EC20033D0400EAEE57 /* QBImagePicker.h */,
+				E2D194ED20033D0400EAEE57 /* QBAssetCell.h */,
+				E2D194EE20033D0400EAEE57 /* QBSlomoIconView.h */,
+				E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */,
+				E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */,
+				E2D194F120033D0400EAEE57 /* QBVideoIndicatorView.h */,
+				E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */,
+				E2D194F320033D0400EAEE57 /* QBVideoIconView.h */,
+				E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */,
+				E2D194F520033D0400EAEE57 /* QBImagePickerController.m */,
+				E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */,
+				E2D194F720033D0400EAEE57 /* QBAlbumCell.h */,
+				E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */,
+				E2D194F920033D0400EAEE57 /* QBAssetCell.m */,
+			);
+			path = QBImagePicker;
+			sourceTree = "<group>";
+		};
+		E2D195052003510500EAEE57 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E2D195062003510500EAEE57 /* ios */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		E2D195062003510500EAEE57 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E2D195072003510500EAEE57 /* libNvStreamingSdkDeps.a */,
+				E2D195082003510500EAEE57 /* libNvStreamingSdkDeps2.a */,
+				E2D195092003510500EAEE57 /* libNvStreamingSdkCore.a */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		E2D1950D2003510B00EAEE57 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				E2D1950E2003510B00EAEE57 /* sdkcore */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		E2D1950E2003510B00EAEE57 /* sdkcore */ = {
+			isa = PBXGroup;
+			children = (
+				E2D1950F2003510B00EAEE57 /* ios */,
+			);
+			path = sdkcore;
+			sourceTree = "<group>";
+		};
+		E2D1950F2003510B00EAEE57 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E2D195102003510B00EAEE57 /* NvsStreamingContext.h */,
+				E2D195112003510B00EAEE57 /* NvsMultiThumbnailSequenceView.h */,
+				E2D195122003510B00EAEE57 /* NvsAudioTransition.h */,
+				E2D195132003510B00EAEE57 /* NvsFaceEffectV1.h */,
+				E2D195142003510B00EAEE57 /* NvsCommonDef.h */,
+				E2D195152003510B00EAEE57 /* NvsVideoTransition.h */,
+				E2D195162003510B00EAEE57 /* NvsVideoFx.h */,
+				E2D195172003510B00EAEE57 /* NvsTimelineVideoFx.h */,
+				E2D195182003510B00EAEE57 /* NvsAudioFx.h */,
+				E2D195192003510B00EAEE57 /* NvsAudioTrack.h */,
+				E2D1951A2003510B00EAEE57 /* NvsCaptureVideoFx.h */,
+				E2D1951B2003510B00EAEE57 /* NvsAVFileInfo.h */,
+				E2D1951C2003510B00EAEE57 /* NvsAudioClip.h */,
+				E2D1951D2003510B00EAEE57 /* NvsLiveWindow.h */,
+				E2D1951E2003510B00EAEE57 /* NvsVideoClip.h */,
+				E2D1951F2003510B00EAEE57 /* NvsClip.h */,
+				E2D195202003510B00EAEE57 /* NvsTimeline.h */,
+				E2D195212003510B00EAEE57 /* NvsVideoFrameRetriever.h */,
+				E2D195222003510B00EAEE57 /* NvsCustomVideoFx.h */,
+				E2D195232003510B00EAEE57 /* NvsTimelineCaption.h */,
+				E2D195242003510B00EAEE57 /* NvsAssetPackageManager.h */,
+				E2D195252003510B00EAEE57 /* NvsTimelineAnimatedSticker.h */,
+				E2D195262003510B00EAEE57 /* NvsThumbnailSequenceView.h */,
+				E2D195272003510B00EAEE57 /* NvsVideoTrack.h */,
+				E2D195282003510B00EAEE57 /* NvsObject.h */,
+				E2D195292003510B00EAEE57 /* NvsFx.h */,
+				E2D1952A2003510B00EAEE57 /* NvsTrack.h */,
+				E2D1952B2003510B00EAEE57 /* NvsFxDescription.h */,
+				E2D1952C2003510B00EAEE57 /* NvsAssetPackageParticleDescParser.h */,
+				E2D1952D2003510B00EAEE57 /* NvsParticleSystemContext.h */,
+				E2D1952E2003510B00EAEE57 /* NvsVideoFrameReceiver.h */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
@@ -1509,10 +1431,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1877240E2000789000A93345 /* NickNameViewController.xib in Resources */,
+				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				E221B5781FF5D6FF00353875 /* Assets.xcassets in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
+				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
@@ -1638,6 +1562,7 @@
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
+				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
@@ -1645,6 +1570,7 @@
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
+				E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
@@ -1653,21 +1579,25 @@
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
+				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
+				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E259297E1FFCBC3900B6502D /* FSLoopScrollView.m in Sources */,
 				E221B5A91FF5DE9B00353875 /* MLDiscoverViewController.m in Sources */,
+				E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				18567F222001F568003F1985 /* BoardButton.m in Sources */,
 				E2B77BCC1FFDD4BA00597326 /* YZNavigationController.m in Sources */,
-				E2D194E22003217700EAEE57 /* HLVideoListViewController.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
+				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
+				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
@@ -1677,6 +1607,7 @@
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
+				E2D1950020033D0400EAEE57 /* QBAssetsViewController.m in Sources */,
 				18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */,
 				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
@@ -1684,6 +1615,7 @@
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
 				18567F212001F568003F1985 /* BoardView.m in Sources */,
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
+				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
 				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
@@ -1763,6 +1695,14 @@
 				E221B57A1FF5D6FF00353875 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E2D194E520033D0400EAEE57 /* QBImagePicker.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2D194E620033D0400EAEE57 /* zh-Hans */,
+			);
+			name = QBImagePicker.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1880,7 +1820,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1906,7 +1846,7 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
 					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
 					"\"${PODS_ROOT}/Headers/Public/YYText\"",
-					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/include/sdkcore/ios\"",
+					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
 				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1930,6 +1870,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
+					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1943,7 +1884,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1969,7 +1910,7 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengUShare\"",
 					"\"${PODS_ROOT}/Headers/Public/VTMagic\"",
 					"\"${PODS_ROOT}/Headers/Public/YYText\"",
-					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/include/sdkcore/ios\"",
+					"\"$(SRCROOT)/MiLiao/Tools/include/sdkcore/ios\"",
 				);
 				INFOPLIST_FILE = MiLiao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1993,6 +1934,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
+					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
