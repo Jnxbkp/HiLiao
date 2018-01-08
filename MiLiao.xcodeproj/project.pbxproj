@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
+		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
+		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
+		183AAF1420036C59006D658A /* introduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF1220036C59006D658A /* introduceViewController.m */; };
+		183AAF1520036C59006D658A /* introduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF1320036C59006D658A /* introduceViewController.xib */; };
+		183AAF19200372DD006D658A /* signViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF17200372DD006D658A /* signViewController.m */; };
+		183AAF1A200372DD006D658A /* signViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF18200372DD006D658A /* signViewController.xib */; };
+		183AAF1D20038EBC006D658A /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF1C20038EBC006D658A /* TagViewController.m */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -195,6 +203,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
+		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
+		183AAF0C200356E3006D658A /* HXAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAddressManager.m; sourceTree = "<group>"; };
+		183AAF0D200356E4006D658A /* HXProvincialCitiesCountiesPickerview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXProvincialCitiesCountiesPickerview.h; sourceTree = "<group>"; };
+		183AAF0E200356E4006D658A /* HXAddressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXAddressManager.h; sourceTree = "<group>"; };
+		183AAF1120036C59006D658A /* introduceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = introduceViewController.h; sourceTree = "<group>"; };
+		183AAF1220036C59006D658A /* introduceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = introduceViewController.m; sourceTree = "<group>"; };
+		183AAF1320036C59006D658A /* introduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = introduceViewController.xib; sourceTree = "<group>"; };
+		183AAF16200372DD006D658A /* signViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = signViewController.h; sourceTree = "<group>"; };
+		183AAF17200372DD006D658A /* signViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = signViewController.m; sourceTree = "<group>"; };
+		183AAF18200372DD006D658A /* signViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signViewController.xib; sourceTree = "<group>"; };
+		183AAF1B20038EBC006D658A /* TagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		183AAF1C20038EBC006D658A /* TagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -577,6 +598,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183AAF08200356CB006D658A /* 城市选择 */ = {
+			isa = PBXGroup;
+			children = (
+				183AAF0E200356E4006D658A /* HXAddressManager.h */,
+				183AAF0C200356E3006D658A /* HXAddressManager.m */,
+				183AAF0D200356E4006D658A /* HXProvincialCitiesCountiesPickerview.h */,
+				183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */,
+				183AAF09200356D9006D658A /* address.plist */,
+			);
+			path = "城市选择";
+			sourceTree = "<group>";
+		};
 		18567F152001F568003F1985 /* IB_DESIGNABLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,8 +726,17 @@
 		1877240F2000BE3500A93345 /* 认证大V */ = {
 			isa = PBXGroup;
 			children = (
+				183AAF08200356CB006D658A /* 城市选择 */,
 				187724102000BF1600A93345 /* IdentificationVController.h */,
 				187724112000BF1600A93345 /* IdentificationVController.m */,
+				183AAF1120036C59006D658A /* introduceViewController.h */,
+				183AAF1220036C59006D658A /* introduceViewController.m */,
+				183AAF1320036C59006D658A /* introduceViewController.xib */,
+				183AAF16200372DD006D658A /* signViewController.h */,
+				183AAF17200372DD006D658A /* signViewController.m */,
+				183AAF18200372DD006D658A /* signViewController.xib */,
+				183AAF1B20038EBC006D658A /* TagViewController.h */,
+				183AAF1C20038EBC006D658A /* TagViewController.m */,
 			);
 			path = "认证大V";
 			sourceTree = "<group>";
@@ -997,9 +1039,7 @@
 		E25929521FFCA97200B6502D /* 消息 */ = {
 			isa = PBXGroup;
 			children = (
-				E2B77BD01FFDD61E00597326 /* model */,
 				E2B77BCF1FFDD61400597326 /* view */,
-				E2B77BCE1FFDD60200597326 /* controller */,
 				E25929541FFCA97200B6502D /* messageViewController.h */,
 				E25929531FFCA97200B6502D /* messageViewController.m */,
 			);
@@ -1129,13 +1169,6 @@
 			path = "详情";
 			sourceTree = "<group>";
 		};
-		E2B77BCE1FFDD60200597326 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
 		E2B77BCF1FFDD61400597326 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1144,13 +1177,6 @@
 				E2B77BD11FFDD64900597326 /* messageCell.xib */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		E2B77BD01FFDD61E00597326 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		E2B77BE21FFDD68700597326 /* SDAutoLayout */ = {
@@ -1436,6 +1462,7 @@
 				E221B5781FF5D6FF00353875 /* Assets.xcassets in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
+				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
@@ -1443,12 +1470,14 @@
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
+				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
+				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
@@ -1544,6 +1573,7 @@
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
@@ -1556,6 +1586,7 @@
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
+				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
@@ -1576,10 +1607,12 @@
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
+				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
+				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
@@ -1617,6 +1650,7 @@
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
 				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
+				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
@@ -1820,7 +1854,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1884,7 +1918,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
