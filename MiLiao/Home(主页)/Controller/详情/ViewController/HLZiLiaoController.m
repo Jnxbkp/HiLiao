@@ -8,8 +8,8 @@
 
 #import "HLZiLiaoController.h"
 #import "MLDetailTableViewCell.h"
-#import "JianjieTableViewCell.h"
-#import "BiaoQianTableViewCell.h"
+
+
 
 @interface HLZiLiaoController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, assign) BOOL fingerIsTouch;
@@ -55,33 +55,19 @@
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 2) {
-        return self.data.count;
-    } else {
-        return 1;
-    }
-    
+    return self.data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-         CGSize messageSize = [NSStringSize detailString:_messageStr];
-        
-         return messageSize.height+18+15;
-    } else if(indexPath.section == 1) {
-        ItemsView *itemView = [[ItemsView alloc]init];
-        [itemView setItemsArr:_itemArr];
-        
-        return itemView.itemsViewHeight+36;
-    } else {
-        return 55;
-    }
+    
+    return 55;
+
     
 }
 //tableview头部高度
@@ -94,17 +80,17 @@
 //    NSNotification *notification =[NSNotification notificationWithName:@"detailHeight" object:nil userInfo:userInfo];
 //    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
-    return 10;
+    return 133;
 }
 
 //tableview 头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headView = [[UIView alloc]init];
     headView.backgroundColor = [UIColor whiteColor];
-//
-//    UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 3)];
-//    lineLabel.backgroundColor = [UIColor lightGrayColor];
-//
+
+    UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 0.4)];
+    lineLabel.backgroundColor = [UIColor lightGrayColor];
+
 //    CGSize messageSize = [NSStringSize detailString:_messageStr];
 //
 //    UILabel *messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 18, WIDTH-40, messageSize.height)];
@@ -121,16 +107,21 @@
 //
 //    UILabel *lineLabel1 = [[UILabel alloc]initWithFrame:CGRectMake(0, messageLabel.frame.origin.y+messageLabel.frame.size.height+15, WIDTH, 3)];
 //    lineLabel1.backgroundColor = [UIColor lightGrayColor];
-//
-//    ItemsView *itemView = [[ItemsView alloc]init];
-//    [itemView setItemsArr:_itemArr];
-//    itemView.frame = CGRectMake(0, lineLabel1.frame.origin.y+18, WIDTH, itemView.itemsViewHeight);
-//
+
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 10, WIDTH, 18)];
+    titleLabel.font = [UIFont systemFontOfSize:16.0];
+    titleLabel.text = @"印象标签";
+    
+    ItemsView *itemView = [[ItemsView alloc]init];
+    [itemView setItemsArr:_itemArr];
+    itemView.frame = CGRectMake(0, 43, WIDTH, 80);
+ 
 //    UILabel *lineLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(0, itemView.frame.origin.y+itemView.frame.size.height+15, WIDTH, 3)];
 //    lineLabel2.backgroundColor = [UIColor lightGrayColor];
-//
-//    [headView addSubview:lineLabel];
-//    [headView addSubview:messageLabel];
+
+    headView.frame = CGRectMake(0, 0, WIDTH, itemView.frame.origin.y+80+10+30);
+    [headView addSubview:titleLabel];
+    [headView addSubview:itemView];
 //    [headView addSubview:lineLabel1];
 //    [headView addSubview:itemView];
 //    [headView addSubview:lineLabel2];
@@ -139,46 +130,13 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0) {
-        JianjieTableViewCell *cell = nil;
-        static NSString *cellID = @"cell.jianjie";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (!cell) {
-            cell = [[JianjieTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        }
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        CGSize messageSize = [NSStringSize detailString:_messageStr];
-        cell.messageLabel.frame = CGRectMake(20, 28, WIDTH-40, messageSize.height);
-        NSMutableAttributedString * attributeStr = [[NSMutableAttributedString alloc] initWithString:_messageStr];
-        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-        paraStyle.lineSpacing = 4.0;
-        paraStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-        [attributeStr addAttribute:NSParagraphStyleAttributeName value:paraStyle range:NSMakeRange(0, _messageStr.length)];
-        [attributeStr addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:0.5] range:NSMakeRange(0, _messageStr.length)];
-        cell.messageLabel.attributedText = attributeStr;
-        return cell;
-    } else if(indexPath.section == 1){
-        BiaoQianTableViewCell *cell = nil;
-        static NSString *cellID = @"cell.biaoQian";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (!cell) {
-            cell = [[BiaoQianTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        }
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell.itemView setItemsArr:_itemArr];
-        cell.itemView.frame = CGRectMake(0, 18, WIDTH, cell.itemView.itemsViewHeight);
-        cell.lineLabel.frame = CGRectMake(0, cell.itemView.frame.origin.y+cell.itemView.frame.size.height+15, WIDTH, 3);
-        return cell;
-    } else {
+    
         MLDetailTableViewCell *cell = nil;
         static NSString *cellID = @"cell.Identifier";
         cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
             cell = [[MLDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLabel.text = [_data objectAtIndex:indexPath.row];
         cell.messageLabel.text = @"lalalal";
@@ -188,7 +146,7 @@
      
         }
         return cell;
-    }
+
     
 }
 
