@@ -28,7 +28,7 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate> {
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate> {
     NSTimer             *_timer;
 }
 
@@ -70,9 +70,12 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *switchFacingButton;
 @property (weak, nonatomic) IBOutlet UIButton *openBeautyButton;
 @property (weak, nonatomic) IBOutlet UIButton *captureWithFxButton;
+
+//需要的
 @property (nonatomic, strong)UIButton   *backButton;
 @property (nonatomic, strong)UIButton   *nextButton;
-
+@property (nonatomic, strong)UIButton   *updateButton;
+@property (strong, nonatomic) UIImagePickerController *moviePicker;//视频选择器
 
 @end
 
@@ -199,12 +202,24 @@ typedef enum {
     [self addBackButton];
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _nextButton.hidden = YES;
-    _nextButton.frame = CGRectMake(WIDTH-60, HEIGHT-120, 40, 30);
-//    [_nextButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
-    _nextButton.backgroundColor = [UIColor redColor];
+//    _nextButton.hidden = YES;
+    _nextButton.frame = CGRectMake(WIDTH-80, 20, 60, 30);
+    [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
+    _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    _nextButton.backgroundColor = [UIColor lightGrayColor];
+    _nextButton.layer.cornerRadius = 4.0;
     [_nextButton addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_nextButton];
+    
+    _updateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    _nextButton.hidden = YES;
+    _updateButton.frame = CGRectMake((_beautyButton.frame.origin.x-_fxSelectButton.frame.origin.x)*2+_fxSelectButton.frame.origin.x, _beautyButton.frame.origin.y, _beautyButton.frame.size.width, _beautyButton.frame.size.height);
+    [_updateButton setTitle:@"上传" forState:UIControlStateNormal];
+    _updateButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    _updateButton.backgroundColor = [UIColor lightGrayColor];
+    _updateButton.layer.cornerRadius = _beautyButton.frame.size.height/2;
+    [_updateButton addTarget:self action:@selector(updateButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_updateButton];
 }
 //返回按钮
 - (void)addBackButton {
@@ -348,7 +363,7 @@ typedef enum {
     if ([self getCurrentEngineState] != NvsStreamingEngineState_CaptureRecording) {
         // 获取输出文件路径
         NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *outputFilePath = [docPath stringByAppendingPathComponent:@"capture.mov"];
+        NSString *outputFilePath = [docPath stringByAppendingPathComponent:@"capture.mp4"];
         if ([[NSFileManager defaultManager] fileExistsAtPath:outputFilePath]) {
             NSError *error;
             if ([[NSFileManager defaultManager] removeItemAtPath:outputFilePath error:&error] == NO) {
@@ -378,14 +393,29 @@ typedef enum {
     if ([_context captureDeviceCount] > 1)
         [self.switchFacingButton setEnabled:YES];
 }
+
 //延时显示
 - (void)beganCapture:(NSTimer *)timer {
     _nextButton.hidden = NO;
 }
-//点击下一步
+#pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
     NSLog(@"------------ggoogggo");
 }
+#pragma mark - 点击上传
+- (void)updateButtonClick:(UIButton *)button {
+    [self presentViewController:self.moviePicker animated:YES completion:nil];
+}
+- (UIImagePickerController *)moviePicker {
+    if (_moviePicker == nil) {
+        _moviePicker = [[UIImagePickerController alloc] init];
+        _moviePicker.delegate = self;
+        _moviePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _moviePicker.mediaTypes = @[(NSString *)kUTTypeMovie];
+    }
+    return _moviePicker;
+}
+
 - (bool) startCapturePreview {
     if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
         NSLog(@"启动预览失败");
