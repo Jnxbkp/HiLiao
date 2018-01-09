@@ -618,7 +618,7 @@ typedef enum {
 - (BOOL)startCapturePreviewForLiveStreaming:(unsigned int)captureDeviceIndex
                               videoResGrade:(NvsVideoCaptureResolutionGrade)videoResGrade
                                       flags:(int)flags
-                                aspectRatio:(const NvsRational *)aspectRatio
+                                aspectRatio:(const NvsRational *)aspectRatiostartCapturePreview
                       liveStreamingEndPoint:(NSString *)liveStreamingEndPoint;
 
 /*!
