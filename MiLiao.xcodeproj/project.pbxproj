@@ -121,7 +121,6 @@
 		E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F7F200457BB0092BA11 /* HLUploadVideoViewController.m */; };
 		E2620F83200458AC0092BA11 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E2620F81200458AB0092BA11 /* 1.mp4 */; };
 		E2620F84200458AC0092BA11 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E2620F82200458AB0092BA11 /* 1.png */; };
-		E2620F88200458CF0092BA11 /* VODUploadDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F87200458CF0092BA11 /* VODUploadDemo.m */; };
 		E2620F8C20045D480092BA11 /* PublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F8B20045D480092BA11 /* PublicManager.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
@@ -390,8 +389,6 @@
 		E2620F7F200457BB0092BA11 /* HLUploadVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLUploadVideoViewController.m; sourceTree = "<group>"; };
 		E2620F81200458AB0092BA11 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
 		E2620F82200458AB0092BA11 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		E2620F86200458CF0092BA11 /* VODUploadDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VODUploadDemo.h; sourceTree = "<group>"; };
-		E2620F87200458CF0092BA11 /* VODUploadDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VODUploadDemo.m; sourceTree = "<group>"; };
 		E2620F8A20045D480092BA11 /* PublicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicManager.h; sourceTree = "<group>"; };
 		E2620F8B20045D480092BA11 /* PublicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicManager.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
@@ -1157,15 +1154,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		E2620F85200458CF0092BA11 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				E2620F86200458CF0092BA11 /* VODUploadDemo.h */,
-				E2620F87200458CF0092BA11 /* VODUploadDemo.m */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		E2620F8920045D240092BA11 /* PublicManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1289,7 +1277,6 @@
 		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
-				E2620F85200458CF0092BA11 /* src */,
 				E2620F81200458AB0092BA11 /* 1.mp4 */,
 				E2620F82200458AB0092BA11 /* 1.png */,
 				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
@@ -1303,6 +1290,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D194E420033D0400EAEE57 /* QBImagePickerController.h */,
+				E2D194F520033D0400EAEE57 /* QBImagePickerController.m */,
 				E2D194E520033D0400EAEE57 /* QBImagePicker.strings */,
 				E2D194E720033D0400EAEE57 /* QBAssetsViewController.h */,
 				E2D194E820033D0400EAEE57 /* QBAlbumsViewController.h */,
@@ -1311,6 +1299,7 @@
 				E2D194EB20033D0400EAEE57 /* QBCheckmarkView.h */,
 				E2D194EC20033D0400EAEE57 /* QBImagePicker.h */,
 				E2D194ED20033D0400EAEE57 /* QBAssetCell.h */,
+				E2D194F920033D0400EAEE57 /* QBAssetCell.m */,
 				E2D194EE20033D0400EAEE57 /* QBSlomoIconView.h */,
 				E2D194EF20033D0400EAEE57 /* QBAlbumCell.m */,
 				E2D194F020033D0400EAEE57 /* QBImagePicker.storyboard */,
@@ -1318,11 +1307,9 @@
 				E2D194F220033D0400EAEE57 /* QBAlbumsViewController.m */,
 				E2D194F320033D0400EAEE57 /* QBVideoIconView.h */,
 				E2D194F420033D0400EAEE57 /* QBAssetsViewController.m */,
-				E2D194F520033D0400EAEE57 /* QBImagePickerController.m */,
 				E2D194F620033D0400EAEE57 /* QBCheckmarkView.m */,
 				E2D194F720033D0400EAEE57 /* QBAlbumCell.h */,
 				E2D194F820033D0400EAEE57 /* QBSlomoIconView.m */,
-				E2D194F920033D0400EAEE57 /* QBAssetCell.m */,
 			);
 			path = QBImagePicker;
 			sourceTree = "<group>";
@@ -1682,7 +1669,6 @@
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
-				E2620F88200458CF0092BA11 /* VODUploadDemo.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
 				186CBF182004B2D50023924D /* messageView.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,

@@ -19,6 +19,11 @@
 #import "VideoViewController.h"
 #import "ChatListController.h"
 #import "ChatRoomController.h"
+
+#import <RongCallKit/RongCallKit.h>
+#import <RongIMKit/RongIMKit.h>
+
+
 #define downButtonTag   2000
 @interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     UIButton        *_backButton;
@@ -122,6 +127,8 @@
 //        chat.automaticallyAdjustsScrollViewInsets = NO;
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
+    } else {
+        [[RCCall sharedRCCall] startSingleCall:@"znYvFrOa3" mediaType:RCCallMediaVideo];
     }
 }
 - (void)insertRowAtTop

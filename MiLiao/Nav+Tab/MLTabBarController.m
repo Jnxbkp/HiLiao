@@ -13,7 +13,9 @@
 #import "MeViewController.h"
 #import "HLTabBar.h"
 #import "ViewController.h"
+
 #import "ChatListController.h"
+
 @interface MLTabBarController ()<UITabBarControllerDelegate>
 
 @end
@@ -56,8 +58,7 @@
    
 
     [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
-    
-    
+        
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
     MeViewController *meViewController = [story instantiateViewControllerWithIdentifier:@"MeViewController"];
     [self addChildViewController:meViewController title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
@@ -116,7 +117,7 @@
     } else if (tabBarController.selectedIndex == 1) {
         itemSelect = @"Shop";
     } else if (tabBarController.selectedIndex == 2) {
-        itemSelect = @"Search";
+        NSLog(@"----------------%@",viewController.view.subviews);
     } else {
         
     }
