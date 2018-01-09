@@ -231,7 +231,7 @@ typedef enum {
     
     _updateButton = [UIButton buttonWithType:UIButtonTypeCustom];
     //    _nextButton.hidden = YES;
-    _updateButton.frame = CGRectMake(WIDTH-100, _beautyButton.frame.origin.y, _beautyButton.frame.size.width, _beautyButton.frame.size.height);
+    _updateButton.frame = CGRectMake(WIDTH-_beautyButton.frame.origin.x-_beautyButton.frame.size.width, _beautyButton.frame.origin.y, _beautyButton.frame.size.width, _beautyButton.frame.size.height);
     [_updateButton setTitle:@"上传" forState:UIControlStateNormal];
     _updateButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     _updateButton.backgroundColor = [UIColor lightGrayColor];
@@ -410,14 +410,12 @@ typedef enum {
 
         // 开始录制
 //        if(_captureWithFx) {
-//            NSLog(@"111111111");
             [_context startRecordingWithFx:outputFilePath];
 //        }else {
-//            NSLog(@"222222");
 //            [_context startRecording:outputFilePath];
 //        }
         
-        
+        _updateButton.hidden = YES;
         
         
 //        _nextButton.hidden = YES;
@@ -430,7 +428,7 @@ typedef enum {
     }
     // 停止录制
     [_context stopRecording];
-    
+    _updateButton.hidden = NO;
     [_timer invalidate];
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
@@ -445,27 +443,27 @@ typedef enum {
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
   
-    NSLog(@"----------------.>>>>>生成");
+//    NSLog(@"----------------.>>>>>生成");
 
-        generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
-        generationView.delegate = self;
-        [self.view addSubview:generationView];
-        NSFileManager *fm = [NSFileManager defaultManager];
-        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
-        [_videoTrack removeAllClips];
-        for (NSString *file in fileDir) {
-            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
-        }
-        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
-
-        if ([fm fileExistsAtPath:compileVideo]) {
-            [fm removeItemAtPath:compileVideo error:nil];
-        }
-        _context.delegate = self;
-    NSLog(@"-----------------%@-------%lld",compileVideo,_timeline.duration);
-
-       [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
+//        generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
+//        generationView.delegate = self;
+//        [self.view addSubview:generationView];
+//        NSFileManager *fm = [NSFileManager defaultManager];
+//        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+//        [_videoTrack removeAllClips];
+//        for (NSString *file in fileDir) {
+//            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+//        }
+//        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+//        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+//
+//        if ([fm fileExistsAtPath:compileVideo]) {
+//            [fm removeItemAtPath:compileVideo error:nil];
+//        }
+//        _context.delegate = self;
+//    NSLog(@"-----------------%@-------%lld",compileVideo,_timeline.duration);
+//
+//       [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
    
 }
 #pragma mark - 点击上传
