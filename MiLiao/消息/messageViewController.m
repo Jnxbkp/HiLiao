@@ -31,7 +31,7 @@
 }
 - (void)setTableview
 {
-    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -30, WIDTH, HEIGHT-64) style:UITableViewStyleGrouped];
+    UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-64) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.backgroundColor = ML_Color(230, 230, 230, 1);
