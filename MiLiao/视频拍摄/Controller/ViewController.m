@@ -24,6 +24,8 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
+#import "HLUploadVideoViewController.h"
+
 
 #define NS_TIMELINE_WIDTH 720
 #define NS_TIMELINE_HEIGHT 1280
@@ -472,6 +474,9 @@ typedef enum {
 //    imagePickerController.prompt = @"请选择视频";
 //    imagePickerController.showsNumberOfSelectedAssets = YES;
 //    [self presentViewController:imagePickerController animated:YES completion:nil];
+  
+    
+    
 }
 #pragma mark - 界面
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
@@ -596,6 +601,9 @@ typedef enum {
     NSLog(@"打包完成");
     [generationView finish];
     UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
+    uploadVC.videoPath = compileVideo;
+    [self presentViewController:uploadVC animated:YES completion:nil];
 }
 
 - (void)didCompileCompleted:(NvsTimeline *)timeline isCanceled:(BOOL)isCanceled {
