@@ -19,9 +19,3 @@
 
 @end
 
-@interface VideoCellModel : NSObject
-
-@property (copy, nonatomic) NSString *path;
-@property (strong, nonatomic) UIImage *thumb;
-
-@end

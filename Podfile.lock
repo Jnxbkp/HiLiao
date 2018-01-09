@@ -21,6 +21,7 @@ PODS:
   - SDWebImage (4.2.3):
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
+  - TTGTagCollectionView (1.8.2)
   - UMengUShare/Core (6.4.8):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.8)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15.1)
   - SDCycleScrollView (~> 1.75)
   - SDWebImage (~> 4.2.2)
+  - TTGTagCollectionView
   - UMengUShare/Social/ReducedQQ
   - UMengUShare/Social/ReducedSina
   - UMengUShare/Social/ReducedWeChat
@@ -56,10 +58,11 @@ SPEC CHECKSUMS:
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  TTGTagCollectionView: 20cf236b538ea9a17d1f0538968148c8d304414a
   UMengUShare: 7a0ab762ccd445ccfcf11bde8e7f81b29b9f5e1c
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: c47108eb188426859fe0cffb269aa33e2efcef24
+PODFILE CHECKSUM: 15d722ed5f78df78b2dda083c2a5e1c82ac3b2aa
 
 COCOAPODS: 1.2.1

@@ -987,6 +987,7 @@
                         <outlet property="fiveBtn" destination="f8q-3Q-RY7" id="feC-gs-lmb"/>
                         <outlet property="fourBtn" destination="tq6-ck-YB8" id="Zv7-FA-7Gn"/>
                         <outlet property="hetght" destination="nT8-gA-bwT" id="YXC-xs-rQk"/>
+                        <outlet property="nickName" destination="m1K-h9-tvt" id="mcG-Tz-bPa"/>
                         <outlet property="oneBtn" destination="7ST-HJ-aYZ" id="ySL-g7-CsP"/>
                         <outlet property="peopleJieshao" destination="laf-2R-U2p" id="T0n-MJ-Fcd"/>
                         <outlet property="sevenBtn" destination="eyR-8C-7BJ" id="8wS-Ub-luv"/>

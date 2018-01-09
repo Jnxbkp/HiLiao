@@ -14,4 +14,5 @@ pod 'UMengUShare/Social/ReducedSina'
 
 pod 'YYText'
 pod 'AliyunOSSiOS'
+pod "TTGTagCollectionView"
 end

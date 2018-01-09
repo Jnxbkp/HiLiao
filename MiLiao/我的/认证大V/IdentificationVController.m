@@ -8,6 +8,12 @@
 
 #import "IdentificationVController.h"
 #import "IQActionSheetPickerView.h"
+#import "HXProvincialCitiesCountiesPickerview.h"
+
+#import "HXAddressManager.h"
+#import "introduceViewController.h"
+#import "signViewController.h"
+#import "TagViewController.h"
 static NSString *kTempFolder = @"touxiang";
 
 @interface IdentificationVController ()<IQActionSheetPickerViewDelegate,UIImagePickerControllerDelegate>
@@ -15,7 +21,8 @@ static NSString *kTempFolder = @"touxiang";
     OSSClient * client;
     NSUserDefaults *_userDefaults;
     NSMutableArray *posters;
-
+    NSString *provincename;
+    NSString *cityname;
 }
 @property(nonatomic,strong)NSData *imageData;
 
@@ -28,6 +35,9 @@ static NSString *kTempFolder = @"touxiang";
 //体重
 @property (nonatomic, copy) NSString * weighOne;
 @property (nonatomic, copy) NSString * weighTwo;
+
+////////
+@property(nonatomic,strong)NSString *country;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *oneBtn;
@@ -44,7 +54,9 @@ static NSString *kTempFolder = @"touxiang";
 @property (weak, nonatomic) IBOutlet UILabel *city;
 @property (weak, nonatomic) IBOutlet UILabel *peopleJieshao;
 @property (weak, nonatomic) IBOutlet UILabel *sign;
+@property (weak, nonatomic) IBOutlet UITextField *nickName;
 
+@property (nonatomic,strong) HXProvincialCitiesCountiesPickerview *regionPickerView;
 
 @end
 
@@ -57,8 +69,7 @@ static NSString *kTempFolder = @"touxiang";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"编辑认证资料"];
-   self.title = @"编辑认证资料";
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"编辑认证资料"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
    posters = [[NSMutableArray alloc]init];//图片集合
 
@@ -68,8 +79,8 @@ static NSString *kTempFolder = @"touxiang";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [self.navigationController setNavigationBarHidden:NO];
+
    
 }
 - (void)loData
@@ -90,7 +101,23 @@ static NSString *kTempFolder = @"touxiang";
         
     }];
 }
+//提交认证申请
 - (IBAction)commit:(id)sender {
+    if ([self.country isEqualToString:@"国外"]) {
+        [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }else{
+        [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+   
+    
 }
 
 //上传图片
@@ -260,7 +287,74 @@ static NSString *kTempFolder = @"touxiang";
         [picker setTitlesForComponents:@[@[@"白羊座",@"金牛座",@"双子座",@"巨蟹座",@"狮子座",@"处女座",@"天秤座",@"天蝎座",@"射手座",@"摩羯座",@"水瓶座",@"双鱼座"]]];
         [picker show];
     }
+    if (indexPath.row == 5) {
+        NSString *address = @"北京";
+        NSArray *array = [address componentsSeparatedByString:@" "];
+        
+        NSString *province = @"";//省
+        NSString *city = @"";//市
+        NSString *county = @"";//县
+        if (array.count > 2) {
+            province = array[0];
+            city = array[1];
+            county = array[2];
+        } else if (array.count > 1) {
+            province = array[0];
+            city = array[1];
+        } else if (array.count > 0) {
+            province = array[0];
+        }
+        [self.regionPickerView showPickerWithProvinceName:province cityName:city countyName:county];
+
+    }
+    if (indexPath.row == 6) {
+        introduceViewController *intro = [[introduceViewController alloc]init];
+        intro.backBlock = ^(NSString *text) {
+            self.peopleJieshao.text = text;
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+        };
+        [self.navigationController pushViewController:intro animated:YES];
+    }
+    if (indexPath.row == 7) {
+        //形象标签
+        TagViewController *tag = [[TagViewController alloc]init];
+        [self.navigationController pushViewController:tag animated:YES];
+    }
+    if (indexPath.row == 8) {
+        signViewController *sign = [[signViewController alloc]init];
+        sign.backBlock = ^(NSString *text) {
+            self.sign.text = text;
+        };
+        [self.navigationController pushViewController:sign animated:YES];
+    }
 }
+- (HXProvincialCitiesCountiesPickerview *)regionPickerView {
+    if (!_regionPickerView) {
+        _regionPickerView = [[HXProvincialCitiesCountiesPickerview alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        
+        __weak typeof(self) wself = self;
+        _regionPickerView.completion = ^(NSString *provinceName,NSString *cityName,NSString *countyName) {
+            __strong typeof(wself) self = wself;
+            if ([provinceName isEqualToString:@"国外"]) {
+                self.country = @"国外";
+                provincename = cityName;
+             
+                self.city.text = [NSString stringWithFormat:@"%@%@",self.country,cityName];
+
+            }else{
+                self.country = @"中国";
+                provincename = provinceName;
+                cityname = cityName;
+                self.city.text = [NSString stringWithFormat:@"%@%@%@",self.country,provinceName,cityName];
+
+            }
+        };
+        [self.navigationController.view addSubview:_regionPickerView];
+    }
+    return _regionPickerView;
+}
+
 #pragma mark - IQActionSheetPickerViewDelegate
 
 -(void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectTitles:(NSArray *)titles

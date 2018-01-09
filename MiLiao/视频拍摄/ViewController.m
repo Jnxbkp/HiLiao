@@ -19,16 +19,14 @@
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
 #import "NvsFxDescription.h"
+
 #import "QBImagePickerController.h"
+#import "NvsVideoTrack.h"
+#import "GenerationView.h"
 
 
-static CGSize CGSizeScale(CGSize size, CGFloat scale) {
-    return CGSizeMake(size.width * scale, size.height * scale);
-}
-
-@implementation VideoCellModel
-
-@end
+#define NS_TIMELINE_WIDTH 720
+#define NS_TIMELINE_HEIGHT 1280
 
 typedef enum {
     EDIT_TYPE_NONE = 0,
@@ -38,8 +36,14 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate> {
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate> {
+    
     NSTimer             *_timer;
+    NvsVideoTrack       *_videoTrack;
+    NSString *outputFilePath;//最后一段录制的视频路径
+    GenerationView   *generationView;
+    NSString *compileVideo;//打包生成的视频
+    NvsTimeline *_timeline;
 }
 
 @property (weak, nonatomic) IBOutlet NvsLiveWindow *liveWindow;
@@ -144,6 +148,8 @@ typedef enum {
     _useBeauty = false;
     _captureWithFx = false;
     
+    //每次进来清空目录
+    [self clearDir];
     // 初始化NvsStreamingContext
     _context = [NvsStreamingContext sharedInstance];
     if (!_context)
@@ -231,6 +237,8 @@ typedef enum {
     [_updateButton addTarget:self action:@selector(updateButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_updateButton];
 }
+
+
 //返回按钮
 - (void)addBackButton {
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -368,12 +376,28 @@ typedef enum {
         [self.exposeSlider setEnabled:YES];
     }
 }
-
+- (NSString *)capturePath {
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    return captureDir;
+}
+- (NSString *)captureVideoPath {
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *files = [fm contentsOfDirectoryAtPath:captureDir error:nil];
+    NSString *videoPath = [captureDir stringByAppendingPathComponent:@"capture_1.mov"];
+    if (files.count == 0) {
+        return videoPath;
+    }
+    NSString *videoName = [NSString stringWithFormat:@"capture_%d.mov",(int)(files.count+1)];
+    videoPath = [captureDir stringByAppendingPathComponent:videoName];
+    return videoPath;
+}
 - (IBAction)startRecording:(id)sender {
     if ([self getCurrentEngineState] != NvsStreamingEngineState_CaptureRecording) {
         // 获取输出文件路径
-        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *outputFilePath = [docPath stringByAppendingPathComponent:@"capture.mp4"];
+        outputFilePath = [self captureVideoPath];
         if ([[NSFileManager defaultManager] fileExistsAtPath:outputFilePath]) {
             NSError *error;
             if ([[NSFileManager defaultManager] removeItemAtPath:outputFilePath error:&error] == NO) {
@@ -381,6 +405,7 @@ typedef enum {
                 return;
             }
         }
+
         // 开始录制
         if(_captureWithFx)
             [_context startRecordingWithFx:outputFilePath];
@@ -410,18 +435,43 @@ typedef enum {
 }
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
-    NSLog(@"------------ggoogggo");
+  
+    NSLog(@"----------------.>>>>>生成");
+
+        generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
+        generationView.delegate = self;
+        [self.view addSubview:generationView];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+        [_videoTrack removeAllClips];
+        for (NSString *file in fileDir) {
+            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+        }
+        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+
+        if ([fm fileExistsAtPath:compileVideo]) {
+            [fm removeItemAtPath:compileVideo error:nil];
+        }
+        _context.delegate = self;
+    NSLog(@"-----------------%@-------%lld",compileVideo,_timeline.duration);
+
+       [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
+   
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.maximumNumberOfSelection = 1;
-    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
-    imagePickerController.prompt = @"请选择视频";
-    imagePickerController.showsNumberOfSelectedAssets = YES;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    [_context clearCachedResources:YES];
+     [self preparePlay];
+    
+//    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+//    imagePickerController.delegate = self;
+//    imagePickerController.allowsMultipleSelection = YES;
+//    imagePickerController.maximumNumberOfSelection = 1;
+//    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
+//    imagePickerController.prompt = @"请选择视频";
+//    imagePickerController.showsNumberOfSelectedAssets = YES;
+//    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 #pragma mark - 界面
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
@@ -429,58 +479,174 @@ typedef enum {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
-//    @autoreleasepool {
-//        NSLog(@"-------------22222222");
-//        for (PHAsset *asset in assets) {
-//            __weak __typeof(self) weakSelf = self;
-//            NSUInteger index = _lstVideos.count;
-//
-//            VideoCellModel *model = [[VideoCellModel alloc] init];
-//            model.path = @"";
-//            model.thumb = nil;
-//            [_lstVideos addObject:model];
-//
-//            if (asset.mediaType == PHAssetMediaTypeImage) {             // 图片
-//                [_videoTrack appendClip:asset.localIdentifier];         // 追加片段
-//                model.path = asset.localIdentifier;
-//            } else {                                                    // 视频
-//                // 异步获取文件路径之后再添加片段
-//                [[PHImageManager defaultManager] requestAVAssetForVideo:asset
-//                                                                options:[PHVideoRequestOptions new] resultHandler:^(AVAsset * avAsset, AVAudioMix * audioMix, NSDictionary * info) {
-//                                                                    dispatch_async(dispatch_get_main_queue(), ^{
-//                                                                        [weakSelf addClip:avAsset withIndex:index];
-//                                                                    });
-//                                                                }];
-//            }
-//
-//            // 设置视频列表的封面
-//            CGSize size  = CGSizeMake(100, 100);
-//            CGSize targetSize = CGSizeScale(size, [[UIScreen mainScreen] scale]);
-//            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-//            options.resizeMode = PHImageRequestOptionsResizeModeExact;
-//            options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-//
-//            [self.imageManager requestImageForAsset:asset
-//                                         targetSize:targetSize
-//                                        contentMode:PHImageContentModeAspectFill
-//                                            options:options
-//                                      resultHandler:^(UIImage *thumb, NSDictionary *info) {
-//                                          if ([[info valueForKey:@"PHImageResultIsDegradedKey"]integerValue] == 0) {
-//                                              // Do something with the FULL SIZED image
-//                                              dispatch_async(dispatch_get_main_queue(), ^{
-//                                                  [weakSelf setThumb:thumb withIndex:index];
-//                                              });
-//                                          }
-//                                      }];
-//        }
-//    }
-//
-//    self.buttonPreview.enabled = true;
-//    self.buttonEditOrder.enabled = true;
-//
+//    NSMutableArray* descArray = [NSMutableArray array];
+    [_videoTrack removeAllClips];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    @autoreleasepool {
+        for (PHAsset *asset in assets) {
+            if (asset.mediaType == PHAssetMediaTypeImage)
+                [_videoTrack appendClip:asset.localIdentifier];
+            else {
+                __weak __typeof(self) weakSelf = self;
+                [[PHImageManager defaultManager] requestAVAssetForVideo:asset
+                                                                options:[PHVideoRequestOptions new] resultHandler:^(AVAsset * avAsset, AVAudioMix * audioMix, NSDictionary * info) {
+
+                                                                    dispatch_async(queue, ^{
+
+                                        [weakSelf addClip:avAsset withIndex:0];
+
+                                                                        dispatch_semaphore_signal(semaphore);
+                                                                    });
+                                                                }];
+            }
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        }
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)addClip:(AVAsset *)avAsset withIndex:(NSUInteger)index {
+    NSLog(@"-----------------insert asset");
+    // 在指定位置插入片段
+    AVURLAsset *urlAsset = (AVURLAsset *)avAsset;
+    [_videoTrack insertClip:urlAsset.URL.absoluteString clipIndex:(unsigned int)index];
+    
+}
+#pragma mark - 视频保存
+//-(void)bottomView:(BottomView*)bottomView scBtnClick:(UIButton*)scBtn {
+//    NSLog(@"----------------.>>>>>生成");
+//    generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
+//    generationView.delegate = self;
+//    [self.view addSubview:generationView];
+//    bottomView.hidden = YES;
+//    NSFileManager *fm = [NSFileManager defaultManager];
+//    NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+//    [_videoTrack removeAllClips];
+//    for (NSString *file in fileDir) {
+//        [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+//    }
+//    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+//    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+//    if ([fm fileExistsAtPath:compileVideo]) {
+//        [fm removeItemAtPath:compileVideo error:nil];
+//    }
+//    _context.delegate = self;
+//    [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
+//}
+- (void)preparePlay{
+     [self stopCapturePreview];
+    //创建timeline
+    if (!_timeline) {
+        NvsVideoResolution videoEditRes;
+        videoEditRes.imageWidth = NS_TIMELINE_WIDTH;
+        videoEditRes.imageHeight = NS_TIMELINE_HEIGHT;
+        videoEditRes.imagePAR = (NvsRational){1, 1};
+        NvsRational videoFps = {25, 1};
+        NvsAudioResolution audioEditRes;
+        audioEditRes.sampleRate = 48000;
+        audioEditRes.channelCount = 2;
+        audioEditRes.sampleFormat = NvsAudSmpFmt_S16;
+        _timeline = [_context createTimeline:&videoEditRes videoFps:&videoFps audioEditRes:&audioEditRes];
+    }
+    //连接livewindow
+    [_context connectTimeline:_timeline withLiveWindow:_liveWindow];
+    //添加视频
+    if (!_videoTrack) {
+        _videoTrack = [_timeline appendVideoTrack];
+    }
+    [_videoTrack removeAllClips];
+    [_videoTrack appendClip:outputFilePath];
+    NSLog(@"--------->>>video%lld---%@",_videoTrack.duration,outputFilePath);
+    [_context seekTimeline:_timeline timestamp:0 videoSizeMode:NvsVideoPreviewSizeModeLiveWindowSize flags:0];
+   
+}
+- (void)stopCapturePreview{
+    if(!_context)
+        return;
+    
+//    if(_stHumanAction)
+//        [_stHumanAction setCurrentParticleEffect:nil effectDesc:nil];
+    
+    [_context removeAllCaptureVideoFx];
+    [_context stop];
+}
+- (void)clearDir {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+    if ([fm fileExistsAtPath:compileVideo]) {
+        [fm removeItemAtPath:compileVideo error:nil];
+    }
+    
+    NSString *videosPath = [self capturePath];
+    NSArray *videosName = [fm contentsOfDirectoryAtPath:videosPath error:nil];
+    for (NSString *fileName in videosName) {
+        NSString *filePath = [videosPath stringByAppendingPathComponent:fileName];
+        [fm removeItemAtPath:filePath error:nil];
+    }
+}
+- (void)didCompileProgress:(NvsTimeline *)timeline progress:(int)progress {
+    NSLog(@"%d",progress);
+    [generationView setProgress:progress];
+}
 
+- (void)didCompileFinished:(NvsTimeline *)timeline {
+    NSLog(@"打包完成");
+    [generationView finish];
+    UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)didCompileCompleted:(NvsTimeline *)timeline isCanceled:(BOOL)isCanceled {
+    NSLog(@"finish and is Canceled");
+    [generationView fail];
+}
+
+- (void)didCompileFailed:(NvsTimeline *)timeline {
+    NSLog(@"打包失败！");
+    [generationView fail];
+}
+#pragma - mark save Video to album
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (!error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存成功" message:@"已保存到相册" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存失败" message:@"保存到相册失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+#pragma - mark GenrerationViewDelegate
+- (void)generationView:(GenerationView*)generationView finishClick:(Boolean)isFinish {
+    
+    if (isFinish) {
+        
+        //清空目录
+        [self clearDir];
+        
+        [_context connectCapturePreviewWithLiveWindow:_liveWindow];
+        if (![self startCapturePreview]) {
+            return;
+        }
+        if ([_context captureDeviceCount] > 1)
+            [self.switchFacingButton setEnabled:YES];
+        // 是否为前置摄像头
+        if ([_context isCaptureDeviceBackFacing:0])
+            _currentDeviceIndex = 0;
+        else
+            _currentDeviceIndex = 1;
+        
+        [self.recordButton setEnabled:YES];
+        // 给NvsStreamingContext设置回调接口
+        _context.delegate = self;
+    } else {
+       
+        [self stopCapturePreview];
+    }
+    [generationView removeFromSuperview];
+    
+}
 - (bool) startCapturePreview {
     if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
         NSLog(@"启动预览失败");

@@ -46,19 +46,26 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>VTMagic.xcscheme</key>
+		<key>TTGTagCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>YYText.xcscheme</key>
+		<key>VTMagic.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
+		</dict>
+		<key>YYText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
