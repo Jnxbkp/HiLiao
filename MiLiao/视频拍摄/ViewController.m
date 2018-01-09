@@ -617,6 +617,36 @@ typedef enum {
         [alert show];
     }
 }
+#pragma - mark GenrerationViewDelegate
+- (void)generationView:(GenerationView*)generationView finishClick:(Boolean)isFinish {
+    
+    if (isFinish) {
+        
+        //清空目录
+        [self clearDir];
+        
+        [_context connectCapturePreviewWithLiveWindow:_liveWindow];
+        if (![self startCapturePreview]) {
+            return;
+        }
+        if ([_context captureDeviceCount] > 1)
+            [self.switchFacingButton setEnabled:YES];
+        // 是否为前置摄像头
+        if ([_context isCaptureDeviceBackFacing:0])
+            _currentDeviceIndex = 0;
+        else
+            _currentDeviceIndex = 1;
+        
+        [self.recordButton setEnabled:YES];
+        // 给NvsStreamingContext设置回调接口
+        _context.delegate = self;
+    } else {
+       
+        [self stopCapturePreview];
+    }
+    [generationView removeFromSuperview];
+    
+}
 - (bool) startCapturePreview {
     if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
         NSLog(@"启动预览失败");
