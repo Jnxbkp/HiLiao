@@ -2190,7 +2190,7 @@
 /* Begin XCBuildConfiguration section */
 		009D0F5FEE9AD9D400AFC005729E1F8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29E68E98EEC1546C6B2AF523CCA7AB79 /* VTMagic.xcconfig */;
+			baseConfigurationReference = 14CF53B39AC2BD59033AE06B8F2B104C /* VTMagic.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2212,7 +2212,7 @@
 		};
 		2327F603FFCB5D5608EDAA1C630348EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E914C62C5244E190462B48AF1D56C30A /* YYText.xcconfig */;
+			baseConfigurationReference = 6BB6B54A20B676A7DF584370C3AF4094 /* YYText.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2234,7 +2234,7 @@
 		};
 		33DF0FA83BC141E0E573AE5ECCBA31F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29E68E98EEC1546C6B2AF523CCA7AB79 /* VTMagic.xcconfig */;
+			baseConfigurationReference = 14CF53B39AC2BD59033AE06B8F2B104C /* VTMagic.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2276,7 +2276,7 @@
 		};
 		4C4B93F85C81EB18103D64311621EADD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F36F9E54A72CFE5F157BB151D04A71B /* TTGTagCollectionView.xcconfig */;
+			baseConfigurationReference = 84259D6A6E513FFA39C6BA770C37DB79 /* TTGTagCollectionView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2297,7 +2297,7 @@
 		};
 		5403CB947ED72BD789353EE9D9D58376 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11E96F330253001577226F2E25483710 /* AFNetworking.xcconfig */;
+			baseConfigurationReference = 89CA03A4C3E46B89240A4D32F22A7CFF /* AFNetworking.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2319,7 +2319,7 @@
 		};
 		54943E8D97B00973FEDCD94202A92CB5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F36F9E54A72CFE5F157BB151D04A71B /* TTGTagCollectionView.xcconfig */;
+			baseConfigurationReference = 84259D6A6E513FFA39C6BA770C37DB79 /* TTGTagCollectionView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2341,7 +2341,7 @@
 		};
 		55FBD671968FA4CF66880F45ED37C796 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66DFBFF79108693F748C9253B4078159 /* SDCycleScrollView.xcconfig */;
+			baseConfigurationReference = CF2D92C696658EFD9823A1E12A11B0BA /* SDCycleScrollView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2437,7 +2437,7 @@
 		};
 		7C246F7AA69D78A801B26483203E4806 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11E96F330253001577226F2E25483710 /* AFNetworking.xcconfig */;
+			baseConfigurationReference = 89CA03A4C3E46B89240A4D32F22A7CFF /* AFNetworking.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2458,7 +2458,7 @@
 		};
 		7E735C2672630DDA5A31F639BD6FB96C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A8DDB2DE1E9E53399B2D6252744024E /* MJRefresh.xcconfig */;
+			baseConfigurationReference = 7EC4A49B987AD03E800AA0A2F2DFD398 /* MJRefresh.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2479,7 +2479,7 @@
 		};
 		80C05625D0C612D42AD896EB1C32DDD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66DFBFF79108693F748C9253B4078159 /* SDCycleScrollView.xcconfig */;
+			baseConfigurationReference = CF2D92C696658EFD9823A1E12A11B0BA /* SDCycleScrollView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2501,7 +2501,7 @@
 		};
 		8274C2743A7E277F3A2D72173E2E6700 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E914C62C5244E190462B48AF1D56C30A /* YYText.xcconfig */;
+			baseConfigurationReference = 6BB6B54A20B676A7DF584370C3AF4094 /* YYText.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2522,7 +2522,7 @@
 		};
 		8A1189C6B5D119FB271ABEEB67D1375C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6346B61AD301A6EB5F30C4BE708B02F /* AliyunOSSiOS.xcconfig */;
+			baseConfigurationReference = 9377C8F3F5D1A9FD59081E97B38067D5 /* AliyunOSSiOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2543,7 +2543,7 @@
 		};
 		9F2AECAB2EEAB72F747C21A2DCA2C618 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF06D0E8FB88F7EFAAEE8E8A97A41E31 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = CB55D46D0263597473E8B90B936E82AF /* SDWebImage.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2564,7 +2564,7 @@
 		};
 		AA4B1B7999CB4C7305F3F36F6DB4311B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A8DDB2DE1E9E53399B2D6252744024E /* MJRefresh.xcconfig */;
+			baseConfigurationReference = 7EC4A49B987AD03E800AA0A2F2DFD398 /* MJRefresh.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2646,7 +2646,7 @@
 		};
 		C5C0F1497C061F23AB94CFEAF783FEDD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6346B61AD301A6EB5F30C4BE708B02F /* AliyunOSSiOS.xcconfig */;
+			baseConfigurationReference = 9377C8F3F5D1A9FD59081E97B38067D5 /* AliyunOSSiOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2668,7 +2668,7 @@
 		};
 		EF22A62C4BB00EEDBC5CB45C87C1F6D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF06D0E8FB88F7EFAAEE8E8A97A41E31 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = CB55D46D0263597473E8B90B936E82AF /* SDWebImage.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
