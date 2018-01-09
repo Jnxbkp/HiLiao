@@ -61,6 +61,9 @@
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
+		186CBF15200497530023924D /* MessageeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF14200497530023924D /* MessageeViewController.m */; };
+		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
+		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
 		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
 		1877240D2000789000A93345 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240B2000789000A93345 /* NickNameViewController.m */; };
 		1877240E2000789000A93345 /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1877240C2000789000A93345 /* NickNameViewController.xib */; };
@@ -280,6 +283,11 @@
 		185A9F001FFE58A800110182 /* forgetNextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetNextViewController.h; sourceTree = "<group>"; };
 		185A9F011FFE58A800110182 /* forgetNextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetNextViewController.m; sourceTree = "<group>"; };
 		185A9F021FFE58A800110182 /* forgetNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetNextViewController.xib; sourceTree = "<group>"; };
+		186CBF13200497530023924D /* MessageeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageeViewController.h; sourceTree = "<group>"; };
+		186CBF14200497530023924D /* MessageeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageeViewController.m; sourceTree = "<group>"; };
+		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
+		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
+		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
 		1877240220005E2500A93345 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
 		1877240320005E2500A93345 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -1063,6 +1071,8 @@
 				E2B77BCF1FFDD61400597326 /* view */,
 				E25929541FFCA97200B6502D /* messageViewController.h */,
 				E25929531FFCA97200B6502D /* messageViewController.m */,
+				186CBF13200497530023924D /* MessageeViewController.h */,
+				186CBF14200497530023924D /* MessageeViewController.m */,
 			);
 			path = "消息";
 			sourceTree = "<group>";
@@ -1239,6 +1249,9 @@
 				E2B77BD21FFDD64900597326 /* messageCell.h */,
 				E2B77BD31FFDD64900597326 /* messageCell.m */,
 				E2B77BD11FFDD64900597326 /* messageCell.xib */,
+				186CBF162004B2D50023924D /* messageView.h */,
+				186CBF172004B2D50023924D /* messageView.m */,
+				186CBF192004B2FB0023924D /* messageView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1535,6 +1548,7 @@
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
+				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
@@ -1642,6 +1656,7 @@
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
+				186CBF15200497530023924D /* MessageeViewController.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
@@ -1669,6 +1684,7 @@
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				E2620F88200458CF0092BA11 /* VODUploadDemo.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
+				186CBF182004B2D50023924D /* messageView.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */,
@@ -1918,7 +1934,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1970,7 +1986,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoKing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1982,7 +1998,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2034,7 +2050,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoKing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -8,6 +8,7 @@
 
 #import "ChatListController.h"
 #import "ChatRoomController.h"
+#import "messageView.h"
 //#import "DatingModel.h"
 @interface ChatListController ()<RCIMUserInfoDataSource>
 
@@ -17,17 +18,34 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
-    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
-                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
-    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
-    self.navigationController.navigationBar.alpha = 1.00;
-}
+    [self.navigationController setNavigationBarHidden:NO];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+//    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
+//    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
+//                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
+//    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
+//    self.navigationController.navigationBar.alpha = 1.00;
+}
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    
+    [super viewWillDisappear:animated];
+    
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self setNeedsStatusBarAppearanceUpdate];
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"消息"];
     // Do any additional setup after loading the view.
     //重写显示相关的接口，必须先调用super，否则会屏蔽SDK默认的处理
     //设置需要显示哪些类型的会话
@@ -42,10 +60,14 @@
     //设置需要将哪些类型的会话在会话列表中聚合显示
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
                                           @(ConversationType_GROUP)]];
-    self.title = @"聊天";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.conversationListTableView.frame = CGRectMake(0, 64, WIDTH, HEIGHT - 64);
+    messageView *vc = [[NSBundle mainBundle] loadNibNamed:
+                       @"messageView" owner:nil options:nil ].lastObject;
+    self.conversationListTableView.tableHeaderView = vc;
+   
+    
+//    self.conversationListTableView.tableHeaderView
     if ([self.conversationListTableView respondsToSelector:@selector (setSeparatorInset:)]) {
         [self.conversationListTableView setSeparatorInset:UIEdgeInsetsZero ];
         [self.conversationListTableView setSeparatorColor:[UIColor colorWithHexString:@"EEEEEE"]];

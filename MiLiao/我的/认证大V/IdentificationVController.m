@@ -23,6 +23,8 @@ static NSString *kTempFolder = @"touxiang";
     NSMutableArray *posters;
     NSString *provincename;
     NSString *cityname;
+    NSUInteger BtnTag;
+    OSSGetBucketResult * result;
 }
 @property(nonatomic,strong)NSData *imageData;
 
@@ -65,6 +67,16 @@ static NSString *kTempFolder = @"touxiang";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto:) name:@"photo" object:nil];
+    [self.oneBtn setTag:1];
+    [self.twoBtn setTag:2];
+    [self.threeBtn setTag:3];
+    [self.fourBtn setTag:4];
+    [self.fiveBtn setTag:5];
+    [self.sixBtn setTag:6];
+    [self.sevenBtn setTag:7];
+    [self.eightBtn setTag:8];
+
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
@@ -122,6 +134,8 @@ static NSString *kTempFolder = @"touxiang";
 
 //上传图片
 - (IBAction)photo:(UIButton *)sender {
+     BtnTag = [sender tag];
+
     UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
@@ -169,7 +183,7 @@ static NSString *kTempFolder = @"touxiang";
     client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
     OSSPutObjectRequest * put = [OSSPutObjectRequest new];
     put.bucketName = @"xbkp-nihao";
-    NSString *fileName = [NSString stringWithFormat:@"touxiang/%ld%c%c.jpg", (long)[[NSDate date] timeIntervalSince1970], arc4random_uniform(26) + 'a', arc4random_uniform(26) + 'a'];
+    NSString *fileName = [NSString stringWithFormat:@"renzhengdav/%ld%c%c.jpg", (long)[[NSDate date] timeIntervalSince1970], arc4random_uniform(26) + 'a', arc4random_uniform(26) + 'a'];
     put.objectKey = fileName;
     put.uploadingData = self.imageData;
     put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
@@ -181,15 +195,12 @@ static NSString *kTempFolder = @"touxiang";
                                         withObjectKey:fileName];
         NSLog(@"objectKey: %@", put.objectKey);
         if (!task.error) {
-            OSSGetBucketResult * result = task.result;
+            result = task.result;
             NSLog(@"%@",result);
             //把图片路径添加到数组
             [posters addObject:result];
             NSLog(@"%@",posters);
-//            self.headerUrl = [NSString stringWithFormat:@"%@",result];
-//            [_userDefaults setObject:self.headerUrl forKey:@"headUrl"];
-//            NSLog(@"------>>>%@",self.headerUrl);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"qqq" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"photo" object:nil userInfo:nil];
             //            for (NSDictionary * objectInfo in result.contents) {
             //                NSLog(@"list object: %@", objectInfo);
             //            }
@@ -202,6 +213,78 @@ static NSString *kTempFolder = @"touxiang";
         return nil;
     }];
 }
+- (void)takePhoto:(NSNotification *)note {
+    if (BtnTag == 1) {
+        NSString *strOne = [NSString stringWithFormat:@"%@",[posters objectAtIndex:0]];
+        if (strOne.length >0) {
+            [posters replaceObjectAtIndex:0 withObject:result];
+            [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:0]]] forState:UIControlStateNormal];
+        }else{
+            [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:0]]] forState:UIControlStateNormal];
+        }
+        
+   }
+    if (BtnTag == 2) {
+        NSString *strTwo = [NSString stringWithFormat:@"%@",[posters objectAtIndex:1]];
+        if (strTwo.length>0) {
+            [posters replaceObjectAtIndex:1 withObject:result];
+            [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:1]]] forState:UIControlStateNormal];
+        }else{
+            [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:1]]] forState:UIControlStateNormal];
+        }
+    }
+    if (BtnTag == 3) {
+        NSString *strThree = [NSString stringWithFormat:@"%@",[posters objectAtIndex:2]];
+        if (strThree.length>0) {
+            [posters replaceObjectAtIndex:2 withObject:result];
+            [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:2]]] forState:UIControlStateNormal];
+
+        }else{
+            [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:2]]] forState:UIControlStateNormal];
+
+        }
+    }
+    if (BtnTag == 4) {
+        NSString *strFour = [NSString stringWithFormat:@"%@",[posters objectAtIndex:3]];
+        if (strFour.length>0) {
+            [posters replaceObjectAtIndex:3 withObject:result];
+            [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:3]]] forState:UIControlStateNormal];
+
+        }else{
+            [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:3]]] forState:UIControlStateNormal];
+
+        }
+
+    }
+    if (BtnTag == 5) {
+        NSString *strFive = [NSString stringWithFormat:@"%@",[posters objectAtIndex:4]];
+        if (strFive.length>0) {
+            [posters replaceObjectAtIndex:4 withObject:result];
+            [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:4]]] forState:UIControlStateNormal];
+        }else{
+            [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:4]]] forState:UIControlStateNormal];
+        }
+   }
+    if (BtnTag == 6) {
+        NSString *strSix = [NSString stringWithFormat:@"%@",[posters objectAtIndex:5]];
+        if (strSix.length>0) {
+            [posters replaceObjectAtIndex:5 withObject:result];
+            [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:5]]] forState:UIControlStateNormal];
+        }else{
+            [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:5]]] forState:UIControlStateNormal];
+        }
+  }
+    if (BtnTag == 7) {
+            [self.sevenBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:6]]] forState:UIControlStateNormal];
+  }
+    if (BtnTag == 8) {
+            [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:7]]] forState:UIControlStateNormal];
+  }
+
+    [self.tableView reloadData];
+    
+}
+
 /**
  *  压缩图片尺寸
  *
@@ -260,7 +343,7 @@ static NSString *kTempFolder = @"touxiang";
 //        picker.titleFont = [UIFont systemFontOfSize:16];
         picker.toolbarButtonColor = [UIColor blackColor];
         [picker setIsRangePickerView:YES];
-        [picker setTitlesForComponents:@[@[@"1",@"2"],@[@"00", @"01", @"02", @"03", @"04",@"05", @"06", @"07", @"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50",@"51",@"52",@"53",@"54",@"55",@"56",@"57",@"58",@"59",@"60",@"61",@"62",@"63",@"64",@"65",@"66",@"67",@"68",@"69",@"70",@"71",@"72",@"73",@"74",@"75",@"76",@"77",@"78",@"79",@"80",@"81",@"82",@"83",@"84",@"85",@"86",@"87",@"88",@"89",@"90",@"91",@"92",@"93",@"94",@"95",@"96",@"97",@"98",@"99"],@[@"cm"]]];
+        [picker setTitlesForComponents:@[@[@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"cm"]]];
         [picker show];
     }
       if (indexPath.row == 3) {
@@ -272,7 +355,7 @@ static NSString *kTempFolder = @"touxiang";
           //        picker.titleFont = [UIFont systemFontOfSize:16];
           picker.toolbarButtonColor = [UIColor blackColor];
           [picker setIsRangePickerView:YES];
-          [picker setTitlesForComponents:@[@[@"0",@"1",@"2"],@[@"00", @"01", @"02", @"03", @"04",@"05", @"06", @"07", @"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50",@"51",@"52",@"53",@"54",@"55",@"56",@"57",@"58",@"59",@"60",@"61",@"62",@"63",@"64",@"65",@"66",@"67",@"68",@"69",@"70",@"71",@"72",@"73",@"74",@"75",@"76",@"77",@"78",@"79",@"80",@"81",@"82",@"83",@"84",@"85",@"86",@"87",@"88",@"89",@"90",@"91",@"92",@"93",@"94",@"95",@"96",@"97",@"98",@"99"],@[@"KG"]]];
+          [picker setTitlesForComponents:@[@[@"0",@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"KG"]]];
           [picker show];
       }
     if (indexPath.row == 4) {
@@ -397,3 +480,6 @@ static NSString *kTempFolder = @"touxiang";
 //    return YES;
 //}
 @end
+/*
+ @[@"00", @"01", @"02", @"03", @"04",@"05", @"06", @"07", @"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50",@"51",@"52",@"53",@"54",@"55",@"56",@"57",@"58",@"59",@"60",@"61",@"62",@"63",@"64",@"65",@"66",@"67",@"68",@"69",@"70",@"71",@"72",@"73",@"74",@"75",@"76",@"77",@"78",@"79",@"80",@"81",@"82",@"83",@"84",@"85",@"86",@"87",@"88",@"89",@"90",@"91",@"92",@"93",@"94",@"95",@"96",@"97",@"98",@"99"]
+ */

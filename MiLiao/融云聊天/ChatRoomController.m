@@ -17,12 +17,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
-    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
-                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
-    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+//    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
+//    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
+//                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
+//    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
 //    [IQKeyboardManager sharedManager].enable = NO;
 //    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
 }
@@ -36,7 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame  = CGRectMake(0, 0, 50, 30);
     leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

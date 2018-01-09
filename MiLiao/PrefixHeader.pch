@@ -42,6 +42,7 @@
 
 //三方引用
 #import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>

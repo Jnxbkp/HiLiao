@@ -13,7 +13,7 @@
 #import "MeViewController.h"
 #import "HLTabBar.h"
 #import "ViewController.h"
-
+#import "ChatListController.h"
 @interface MLTabBarController ()<UITabBarControllerDelegate>
 
 @end
@@ -51,10 +51,13 @@
     
     
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
+    
     [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
    
 
-    [self addChildViewController:[[messageViewController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
+    [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
+    
+    
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
     MeViewController *meViewController = [story instantiateViewControllerWithIdentifier:@"MeViewController"];
     [self addChildViewController:meViewController title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
