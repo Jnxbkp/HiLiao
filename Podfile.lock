@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - AliyunOSSiOS (2.8.0)
+  - AliyunVideoCore (1.0.1)
   - MJRefresh (3.1.15.1)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
@@ -33,6 +34,9 @@ PODS:
     - UMengUShare/Core
   - UMengUShare/UI (6.4.8):
     - UMengUShare/Core
+  - VODUpload (1.1.1):
+    - AliyunOSSiOS
+    - AliyunVideoCore (~> 1.0.0)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
@@ -49,20 +53,23 @@ DEPENDENCIES:
   - UMengUShare/Social/ReducedSina
   - UMengUShare/Social/ReducedWeChat
   - UMengUShare/UI
+  - VODUpload
   - VTMagic (~> 1.2.4)
   - YYText
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AliyunOSSiOS: e4668b7b2674da6c0aba1c8c09de7df879817407
+  AliyunVideoCore: 5d588e3cca7943f0fc1ce1cee91c90043dbceac3
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   TTGTagCollectionView: 20cf236b538ea9a17d1f0538968148c8d304414a
   UMengUShare: 7a0ab762ccd445ccfcf11bde8e7f81b29b9f5e1c
+  VODUpload: 462774ac27933fe591e90ff465a0bc6e105471c0
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 15d722ed5f78df78b2dda083c2a5e1c82ac3b2aa
+PODFILE CHECKSUM: ae6869a3a7023da181ad01913db5ac1316d3914a
 
 COCOAPODS: 1.3.1

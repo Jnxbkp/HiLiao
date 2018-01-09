@@ -24,6 +24,8 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
+#import "HLUploadVideoViewController.h"
+
 
 #define NS_TIMELINE_WIDTH 720
 #define NS_TIMELINE_HEIGHT 1280
@@ -472,6 +474,9 @@ typedef enum {
 //    imagePickerController.prompt = @"请选择视频";
 //    imagePickerController.showsNumberOfSelectedAssets = YES;
 //    [self presentViewController:imagePickerController animated:YES completion:nil];
+  
+    
+    
 }
 #pragma mark - 界面
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
@@ -596,6 +601,9 @@ typedef enum {
     NSLog(@"打包完成");
     [generationView finish];
     UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
+    uploadVC.videoPath = compileVideo;
+    [self presentViewController:uploadVC animated:YES completion:nil];
 }
 
 - (void)didCompileCompleted:(NvsTimeline *)timeline isCanceled:(BOOL)isCanceled {
@@ -616,6 +624,36 @@ typedef enum {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存失败" message:@"保存到相册失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+}
+#pragma - mark GenrerationViewDelegate
+- (void)generationView:(GenerationView*)generationView finishClick:(Boolean)isFinish {
+    
+    if (isFinish) {
+        
+        //清空目录
+        [self clearDir];
+        
+        [_context connectCapturePreviewWithLiveWindow:_liveWindow];
+        if (![self startCapturePreview]) {
+            return;
+        }
+        if ([_context captureDeviceCount] > 1)
+            [self.switchFacingButton setEnabled:YES];
+        // 是否为前置摄像头
+        if ([_context isCaptureDeviceBackFacing:0])
+            _currentDeviceIndex = 0;
+        else
+            _currentDeviceIndex = 1;
+        
+        [self.recordButton setEnabled:YES];
+        // 给NvsStreamingContext设置回调接口
+        _context.delegate = self;
+    } else {
+       
+        [self stopCapturePreview];
+    }
+    [generationView removeFromSuperview];
+    
 }
 - (bool) startCapturePreview {
     if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
