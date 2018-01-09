@@ -389,11 +389,11 @@ static NSString *kTempFolder = @"touxiang";
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0.01;
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];
-}
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.view endEditing:YES];
-    return YES;
-}
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    [self.view endEditing:YES];
+//}
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+//    [self.view endEditing:YES];
+//    return YES;
+//}
 @end

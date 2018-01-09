@@ -23,6 +23,7 @@
 #import "YZNavigationController.h"
 #import "UIImage+Color.h"
 #import "HLLoginManager.h"
+#import "PublicManager.h"
 
 #import "User.h"
 /**

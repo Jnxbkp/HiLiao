@@ -24,6 +24,8 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
+#import "HLUploadVideoViewController.h"
+
 
 #define NS_TIMELINE_WIDTH 720
 #define NS_TIMELINE_HEIGHT 1280
@@ -229,7 +231,7 @@ typedef enum {
     
     _updateButton = [UIButton buttonWithType:UIButtonTypeCustom];
     //    _nextButton.hidden = YES;
-    _updateButton.frame = CGRectMake((_beautyButton.frame.origin.x-_fxSelectButton.frame.origin.x)*2+_fxSelectButton.frame.origin.x, _beautyButton.frame.origin.y, _beautyButton.frame.size.width, _beautyButton.frame.size.height);
+    _updateButton.frame = CGRectMake(WIDTH-100, _beautyButton.frame.origin.y, _beautyButton.frame.size.width, _beautyButton.frame.size.height);
     [_updateButton setTitle:@"上传" forState:UIControlStateNormal];
     _updateButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     _updateButton.backgroundColor = [UIColor lightGrayColor];
@@ -407,10 +409,17 @@ typedef enum {
         }
 
         // 开始录制
-        if(_captureWithFx)
+//        if(_captureWithFx) {
+//            NSLog(@"111111111");
             [_context startRecordingWithFx:outputFilePath];
-        else
-            [_context startRecording:outputFilePath];
+//        }else {
+//            NSLog(@"222222");
+//            [_context startRecording:outputFilePath];
+//        }
+        
+        
+        
+        
 //        _nextButton.hidden = YES;
 //        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
         NSLog(@"------------->>>>>>>%@",outputFilePath);
@@ -472,6 +481,9 @@ typedef enum {
 //    imagePickerController.prompt = @"请选择视频";
 //    imagePickerController.showsNumberOfSelectedAssets = YES;
 //    [self presentViewController:imagePickerController animated:YES completion:nil];
+  
+    
+    
 }
 #pragma mark - 界面
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
@@ -596,6 +608,9 @@ typedef enum {
     NSLog(@"打包完成");
     [generationView finish];
     UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
+    uploadVC.videoPath = compileVideo;
+    [self presentViewController:uploadVC animated:YES completion:nil];
 }
 
 - (void)didCompileCompleted:(NvsTimeline *)timeline isCanceled:(BOOL)isCanceled {
@@ -648,10 +663,11 @@ typedef enum {
     
 }
 - (bool) startCapturePreview {
-    if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:0 aspectRatio:nil]) {
+    if(![_context startCapturePreview:_currentDeviceIndex videoResGrade:NvsVideoCaptureResolutionGradeHigh flags:NvsStreamingEngineCaptureFlag_CaptureBuddyHostVideoFrame aspectRatio:nil]) {
         NSLog(@"启动预览失败");
         [_recordButton setEnabled:false];
     }else {
+        NSLog(@"---------->>>");
         [_recordButton setEnabled:true];
     }
     return true;
