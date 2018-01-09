@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^BackBlock)(NSString * text);
 
 @interface TagViewController : UIViewController
+@property (nonatomic, copy) BackBlock backBlock;
 
 @end
