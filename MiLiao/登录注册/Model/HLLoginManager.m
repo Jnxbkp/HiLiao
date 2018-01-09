@@ -163,4 +163,31 @@
         failure(error);
     }];
 }
+//POST /v1/bigV/saveBigV 认证大V
++ (void)NetPostupdateV:(NSString *)country province:(NSString *)province city:(NSString *)city constellation :(NSString *)constellation  description:(NSString *)description height:(NSString *)height nickName:(NSString *)nickName personalSign:(NSString *)personalSign personalTags :(NSString *)personalTags posters:(NSArray *)posters token:(NSString *)token weight :(NSString *)weight  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"country"] = country;
+    param[@"province"] = province;
+    param[@"city"] = city;
+    param[@"constellation"] = constellation;
+    param[@"description"] = description;
+    param[@"height"] = height;
+    param[@"nickName"] = nickName;
+    param[@"personalSign"] = personalSign;
+    param[@"personalTags"] = personalTags;
+    param[@"weight"] = weight;
+    param[@"posters"]= posters;
+    param[@"token"] = token;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/bigV/saveBigV",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end

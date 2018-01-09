@@ -13,7 +13,7 @@
 #import "HXAddressManager.h"
 #import "introduceViewController.h"
 #import "signViewController.h"
-
+#import "TagViewController.h"
 static NSString *kTempFolder = @"touxiang";
 
 @interface IdentificationVController ()<IQActionSheetPickerViewDelegate,UIImagePickerControllerDelegate>
@@ -21,7 +21,8 @@ static NSString *kTempFolder = @"touxiang";
     OSSClient * client;
     NSUserDefaults *_userDefaults;
     NSMutableArray *posters;
-
+    NSString *provincename;
+    NSString *cityname;
 }
 @property(nonatomic,strong)NSData *imageData;
 
@@ -53,6 +54,7 @@ static NSString *kTempFolder = @"touxiang";
 @property (weak, nonatomic) IBOutlet UILabel *city;
 @property (weak, nonatomic) IBOutlet UILabel *peopleJieshao;
 @property (weak, nonatomic) IBOutlet UILabel *sign;
+@property (weak, nonatomic) IBOutlet UITextField *nickName;
 
 @property (nonatomic,strong) HXProvincialCitiesCountiesPickerview *regionPickerView;
 
@@ -101,7 +103,20 @@ static NSString *kTempFolder = @"touxiang";
 }
 //提交认证申请
 - (IBAction)commit:(id)sender {
-    
+    if ([self.country isEqualToString:@"国外"]) {
+        [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }else{
+        [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+   
     
 }
 
@@ -303,7 +318,8 @@ static NSString *kTempFolder = @"touxiang";
     }
     if (indexPath.row == 7) {
         //形象标签
-        
+        TagViewController *tag = [[TagViewController alloc]init];
+        [self.navigationController pushViewController:tag animated:YES];
     }
     if (indexPath.row == 8) {
         signViewController *sign = [[signViewController alloc]init];
@@ -322,10 +338,14 @@ static NSString *kTempFolder = @"touxiang";
             __strong typeof(wself) self = wself;
             if ([provinceName isEqualToString:@"国外"]) {
                 self.country = @"国外";
+                provincename = cityName;
+             
                 self.city.text = [NSString stringWithFormat:@"%@%@",self.country,cityName];
 
             }else{
                 self.country = @"中国";
+                provincename = provinceName;
+                cityname = cityName;
                 self.city.text = [NSString stringWithFormat:@"%@%@%@",self.country,provinceName,cityName];
 
             }
