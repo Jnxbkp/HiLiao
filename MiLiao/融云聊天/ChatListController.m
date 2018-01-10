@@ -93,12 +93,12 @@
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
     //通过刷新列表给cell赋值
-//    RtLog(@"userid ==== %@",userId);
+    NSLog(@"userid ==== %@",userId);
 //    [[APIManager ShardInstance] postGetUserMessageDataUser_id:userId resultBlock:^(NSDictionary *data, NSError *error) {
 //        if (error) return;
 //        UserChatMegModel *model = [UserChatMegModel mj_objectWithKeyValues:data[@"list"]];
-//     RCUserInfo *info = [[RCUserInfo alloc] initWithUserId:userId name:model.nickname portrait:model.face];
-//        completion(info);
+     RCUserInfo *info = [[RCUserInfo alloc] initWithUserId:userId name:@"" portrait:@""];
+        completion(info);
 //    }];
 }
 
