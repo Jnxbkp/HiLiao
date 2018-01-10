@@ -26,6 +26,9 @@
 
 #import "HLUploadVideoViewController.h"
 
+#import "AliyunMediaConfig.h"
+#import "AliyunCompositionViewController.h"
+
 
 #define NS_TIMELINE_WIDTH 720
 #define NS_TIMELINE_HEIGHT 1280
@@ -468,8 +471,8 @@ typedef enum {
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-    [_context clearCachedResources:YES];
-     [self preparePlay];
+//    [_context clearCachedResources:YES];
+//     [self preparePlay];
     
 //    QBImagePickerController *imagePickerController = [QBImagePickerController new];
 //    imagePickerController.delegate = self;
@@ -479,7 +482,21 @@ typedef enum {
 //    imagePickerController.prompt = @"请选择视频";
 //    imagePickerController.showsNumberOfSelectedAssets = YES;
 //    [self presentViewController:imagePickerController animated:YES completion:nil];
-  
+    AliyunMediaConfig  *mediaInfo = [[AliyunMediaConfig alloc] init];
+    mediaInfo.minDuration = 2.0;
+    mediaInfo.maxDuration = 10.0*60;
+    mediaInfo.fps = 25;
+    mediaInfo.gop = 5;
+    mediaInfo.videoQuality = 1;
+    mediaInfo.outputSize = CGSizeMake(540, 720);
+    mediaInfo.cutMode = AliyunMediaCutModeScaleAspectFill;
+    mediaInfo.videoOnly = YES;
+    //    mediaInfo.backgroundColor = [UIColor blackColor];
+    AliyunCompositionViewController *composVC = [[AliyunCompositionViewController alloc]init];
+//    UIViewController *vc = [[AliyunMediator shared] editModule];
+    [composVC setValue:mediaInfo forKey:@"compositionConfig"];
+    [self presentViewController:composVC animated:YES completion:nil];
+//    [self.navigationController pushViewController:composVC animated:YES];
     
     
 }

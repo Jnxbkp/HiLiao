@@ -122,6 +122,61 @@
 		E2620F83200458AC0092BA11 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E2620F81200458AB0092BA11 /* 1.mp4 */; };
 		E2620F84200458AC0092BA11 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E2620F82200458AB0092BA11 /* 1.png */; };
 		E2620F8C20045D480092BA11 /* PublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F8B20045D480092BA11 /* PublicManager.m */; };
+		E264E5F92005BFC600DFF4A5 /* AliyunVideoSDKPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */; };
+		E264E5FB2005BFD900DFF4A5 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */; };
+		E264E5FD2005C02100DFF4A5 /* AliyunVideoSDKPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5FC2005C02000DFF4A5 /* AliyunVideoSDKPro.framework */; };
+		E264E5FE2005C02100DFF4A5 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5FC2005C02000DFF4A5 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E264E6012005C03500DFF4A5 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E6002005C03400DFF4A5 /* QuCore-ThirdParty.framework */; };
+		E264E6022005C03500DFF4A5 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E264E6002005C03400DFF4A5 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E264E7542005E5A300DFF4A5 /* AliyunCompressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7472005E5A300DFF4A5 /* AliyunCompressManager.m */; };
+		E264E7552005E5A300DFF4A5 /* AliyunCompositionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E74A2005E5A300DFF4A5 /* AliyunCompositionInfo.m */; };
+		E264E7562005E5A300DFF4A5 /* AliyunCompositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7502005E5A300DFF4A5 /* AliyunCompositionCell.m */; };
+		E264E7572005E5A300DFF4A5 /* AliyunCompositionPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7512005E5A300DFF4A5 /* AliyunCompositionPickView.m */; };
+		E264E7582005E5A300DFF4A5 /* AliyunCompositionPickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7522005E5A300DFF4A5 /* AliyunCompositionPickCell.m */; };
+		E264E77F2005E5B300DFF4A5 /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E75C2005E5B300DFF4A5 /* AliyunAlbumModel.m */; };
+		E264E7802005E5B300DFF4A5 /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E75D2005E5B300DFF4A5 /* AliyunPhotoLibraryManager.m */; };
+		E264E7812005E5B300DFF4A5 /* AliyunImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7612005E5B300DFF4A5 /* AliyunImage.m */; };
+		E264E7822005E5B300DFF4A5 /* AliyunIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7622005E5B300DFF4A5 /* AliyunIConfig.m */; };
+		E264E7832005E5B300DFF4A5 /* AliyunPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7662005E5B300DFF4A5 /* AliyunPathManager.m */; };
+		E264E7842005E5B300DFF4A5 /* AliyunLibraryMusicImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7692005E5B300DFF4A5 /* AliyunLibraryMusicImport.m */; };
+		E264E7852005E5B300DFF4A5 /* AliyunMediaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E76C2005E5B300DFF4A5 /* AliyunMediaConfig.m */; };
+		E264E7862005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7702005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m */; };
+		E264E7872005E5B300DFF4A5 /* AliyunPhotoListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7732005E5B300DFF4A5 /* AliyunPhotoListViewCell.m */; };
+		E264E7882005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7762005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m */; };
+		E264E7892005E5B300DFF4A5 /* AliyunAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E7782005E5B300DFF4A5 /* AliyunAlbumViewController.m */; };
+		E264E78A2005E5B300DFF4A5 /* AliyunImportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E77A2005E5B300DFF4A5 /* AliyunImportHeaderView.m */; };
+		E264E78B2005E5B300DFF4A5 /* AliyunMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E77D2005E5B300DFF4A5 /* AliyunMediator.m */; };
+		E264E78E2005E61800DFF4A5 /* AliyunCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E78D2005E61700DFF4A5 /* AliyunCompositionViewController.m */; };
+		E264E81D2005E70000DFF4A5 /* AVAsset+VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */; };
+		E264E8212005E71900DFF4A5 /* QUMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */; };
+		E264E8252005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */; };
+		E264E9052005E8BD00DFF4A5 /* AliyunUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8F82005E8BC00DFF4A5 /* AliyunUploadViewController.m */; };
+		E264E9062005E8BD00DFF4A5 /* AliyunPublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8F92005E8BC00DFF4A5 /* AliyunPublishService.m */; };
+		E264E9072005E8BD00DFF4A5 /* AliyunPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FA2005E8BC00DFF4A5 /* AliyunPublishViewController.m */; };
+		E264E9082005E8BD00DFF4A5 /* AliyunCoverPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FB2005E8BC00DFF4A5 /* AliyunCoverPickViewController.m */; };
+		E264E9092005E8BD00DFF4A5 /* AliyunCoverPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FD2005E8BC00DFF4A5 /* AliyunCoverPickView.m */; };
+		E264E90A2005E8BD00DFF4A5 /* AliyunPublishTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FF2005E8BC00DFF4A5 /* AliyunPublishTopView.m */; };
+		E264E90B2005E8BD00DFF4A5 /* AliyunPublishProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9012005E8BC00DFF4A5 /* AliyunPublishProgressView.m */; };
+		E264E92E2005E8D100DFF4A5 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */; };
+		E264E92F2005E8D100DFF4A5 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */; };
+		E264E9302005E8D100DFF4A5 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9142005E8D000DFF4A5 /* JSONModel.m */; };
+		E264E9312005E8D100DFF4A5 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9152005E8D000DFF4A5 /* JSONModelError.m */; };
+		E264E9322005E8D100DFF4A5 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */; };
+		E264E9332005E8D100DFF4A5 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */; };
+		E264E9342005E8D100DFF4A5 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E91D2005E8D000DFF4A5 /* JSONAPI.m */; };
+		E264E9352005E8D100DFF4A5 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */; };
+		E264E9362005E8D100DFF4A5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */; };
+		E264E9372005E8D100DFF4A5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */; };
+		E264E9382005E8D100DFF4A5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9282005E8D000DFF4A5 /* FMDatabase.m */; };
+		E264E9392005E8D100DFF4A5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */; };
+		E264E93A2005E8D100DFF4A5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E92D2005E8D100DFF4A5 /* FMResultSet.m */; };
+		E264E93D2005E8EC00DFF4A5 /* UIButton+EnlargeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */; };
+		E264E94B2005EA0A00DFF4A5 /* QPSSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */; };
+		E264E94C2005EA0A00DFF4A5 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9412005EA0A00DFF4A5 /* unzip.c */; };
+		E264E94D2005EA0A00DFF4A5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9422005EA0A00DFF4A5 /* zip.c */; };
+		E264E94E2005EA0A00DFF4A5 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9432005EA0A00DFF4A5 /* ioapi.c */; };
+		E264E94F2005EA0A00DFF4A5 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9442005EA0A00DFF4A5 /* mztools.c */; };
+		E264E9532005EDEF00DFF4A5 /* QUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9522005EDEE00DFF4A5 /* QUProgressView.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -169,9 +224,6 @@
 		E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */; };
 		E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F320008194006E0B2A /* CoreMotion.framework */; };
 		E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F52000819C006E0B2A /* Accelerate.framework */; };
-		E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */; };
-		E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */; };
-		E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */; };
 		E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2D194E520033D0400EAEE57 /* QBImagePicker.strings */; };
 		E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194E920033D0400EAEE57 /* QBVideoIconView.m */; };
 		E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D194EA20033D0400EAEE57 /* QBVideoIndicatorView.m */; };
@@ -209,6 +261,21 @@
 			remoteInfo = MiLiao;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E264E5FF2005C02100DFF4A5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E264E6022005C03500DFF4A5 /* QuCore-ThirdParty.framework in Embed Frameworks */,
+				E264E5FE2005C02100DFF4A5 /* AliyunVideoSDKPro.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
@@ -305,8 +372,6 @@
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
-		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
-		E212272F1FFE0B4E005D543F /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../AliyunVideoSDKDemo_pro_iOS_3.4.0_20180103/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E212273D1FFE0C1A005D543F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E212273F1FFE0C29005D543F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E21227411FFE0C32005D543F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -317,7 +382,6 @@
 		E212274B1FFE0C58005D543F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E212274D1FFE0C60005D543F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E212274F1FFE0C68005D543F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		E21227521FFE1031005D543F /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E221B56B1FF5D6FF00353875 /* MiLiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiLiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E221B56E1FF5D6FF00353875 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E221B56F1FF5D6FF00353875 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -391,6 +455,112 @@
 		E2620F82200458AB0092BA11 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		E2620F8A20045D480092BA11 /* PublicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicManager.h; sourceTree = "<group>"; };
 		E2620F8B20045D480092BA11 /* PublicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicManager.m; sourceTree = "<group>"; };
+		E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/AliyunVideoSDKPro.framework"; sourceTree = "<group>"; };
+		E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		E264E5FC2005C02000DFF4A5 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
+		E264E6002005C03400DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		E264E7462005E5A300DFF4A5 /* AliyunCompressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompressManager.h; sourceTree = "<group>"; };
+		E264E7472005E5A300DFF4A5 /* AliyunCompressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompressManager.m; sourceTree = "<group>"; };
+		E264E74A2005E5A300DFF4A5 /* AliyunCompositionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionInfo.m; sourceTree = "<group>"; };
+		E264E74B2005E5A300DFF4A5 /* AliyunCompositionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionInfo.h; sourceTree = "<group>"; };
+		E264E74D2005E5A300DFF4A5 /* AliyunCompositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionCell.h; sourceTree = "<group>"; };
+		E264E74E2005E5A300DFF4A5 /* AliyunCompositionPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickView.h; sourceTree = "<group>"; };
+		E264E74F2005E5A300DFF4A5 /* AliyunCompositionPickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionPickCell.h; sourceTree = "<group>"; };
+		E264E7502005E5A300DFF4A5 /* AliyunCompositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionCell.m; sourceTree = "<group>"; };
+		E264E7512005E5A300DFF4A5 /* AliyunCompositionPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickView.m; sourceTree = "<group>"; };
+		E264E7522005E5A300DFF4A5 /* AliyunCompositionPickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionPickCell.m; sourceTree = "<group>"; };
+		E264E75C2005E5B300DFF4A5 /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
+		E264E75D2005E5B300DFF4A5 /* AliyunPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoLibraryManager.m; sourceTree = "<group>"; };
+		E264E75E2005E5B300DFF4A5 /* AliyunAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumModel.h; sourceTree = "<group>"; };
+		E264E75F2005E5B300DFF4A5 /* AliyunPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoLibraryManager.h; sourceTree = "<group>"; };
+		E264E7612005E5B300DFF4A5 /* AliyunImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImage.m; sourceTree = "<group>"; };
+		E264E7622005E5B300DFF4A5 /* AliyunIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunIConfig.m; sourceTree = "<group>"; };
+		E264E7632005E5B300DFF4A5 /* AliyunImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImage.h; sourceTree = "<group>"; };
+		E264E7642005E5B300DFF4A5 /* AliyunIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunIConfig.h; sourceTree = "<group>"; };
+		E264E7662005E5B300DFF4A5 /* AliyunPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPathManager.m; sourceTree = "<group>"; };
+		E264E7672005E5B300DFF4A5 /* AliyunPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPathManager.h; sourceTree = "<group>"; };
+		E264E7692005E5B300DFF4A5 /* AliyunLibraryMusicImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunLibraryMusicImport.m; sourceTree = "<group>"; };
+		E264E76A2005E5B300DFF4A5 /* AliyunLibraryMusicImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunLibraryMusicImport.h; sourceTree = "<group>"; };
+		E264E76C2005E5B300DFF4A5 /* AliyunMediaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediaConfig.m; sourceTree = "<group>"; };
+		E264E76D2005E5B300DFF4A5 /* AliyunMediaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediaConfig.h; sourceTree = "<group>"; };
+		E264E7702005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoAssetSelectedView.m; sourceTree = "<group>"; };
+		E264E7712005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoAssetSelectedView.h; sourceTree = "<group>"; };
+		E264E7722005E5B300DFF4A5 /* AliyunPhotoListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPhotoListViewCell.h; sourceTree = "<group>"; };
+		E264E7732005E5B300DFF4A5 /* AliyunPhotoListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoListViewCell.m; sourceTree = "<group>"; };
+		E264E7752005E5B300DFF4A5 /* AliyunAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumViewController.h; sourceTree = "<group>"; };
+		E264E7762005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumTableViewCell.m; sourceTree = "<group>"; };
+		E264E7772005E5B300DFF4A5 /* AliyunAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumTableViewCell.h; sourceTree = "<group>"; };
+		E264E7782005E5B300DFF4A5 /* AliyunAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumViewController.m; sourceTree = "<group>"; };
+		E264E77A2005E5B300DFF4A5 /* AliyunImportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunImportHeaderView.m; sourceTree = "<group>"; };
+		E264E77B2005E5B300DFF4A5 /* AliyunImportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunImportHeaderView.h; sourceTree = "<group>"; };
+		E264E77D2005E5B300DFF4A5 /* AliyunMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunMediator.m; sourceTree = "<group>"; };
+		E264E77E2005E5B300DFF4A5 /* AliyunMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediator.h; sourceTree = "<group>"; };
+		E264E78C2005E61700DFF4A5 /* AliyunCompositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionViewController.h; sourceTree = "<group>"; };
+		E264E78D2005E61700DFF4A5 /* AliyunCompositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionViewController.m; sourceTree = "<group>"; };
+		E264E81B2005E70000DFF4A5 /* AVAsset+VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+VideoInfo.h"; sourceTree = "<group>"; };
+		E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+VideoInfo.m"; sourceTree = "<group>"; };
+		E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUMBProgressHUD.m; sourceTree = "<group>"; };
+		E264E8202005E71900DFF4A5 /* QUMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUMBProgressHUD.h; sourceTree = "<group>"; };
+		E264E8232005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		E264E8F62005E8BC00DFF4A5 /* AliyunPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishViewController.h; sourceTree = "<group>"; };
+		E264E8F72005E8BC00DFF4A5 /* AliyunCoverPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickViewController.h; sourceTree = "<group>"; };
+		E264E8F82005E8BC00DFF4A5 /* AliyunUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunUploadViewController.m; sourceTree = "<group>"; };
+		E264E8F92005E8BC00DFF4A5 /* AliyunPublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishService.m; sourceTree = "<group>"; };
+		E264E8FA2005E8BC00DFF4A5 /* AliyunPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishViewController.m; sourceTree = "<group>"; };
+		E264E8FB2005E8BC00DFF4A5 /* AliyunCoverPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickViewController.m; sourceTree = "<group>"; };
+		E264E8FD2005E8BC00DFF4A5 /* AliyunCoverPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCoverPickView.m; sourceTree = "<group>"; };
+		E264E8FE2005E8BC00DFF4A5 /* AliyunPublishProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishProgressView.h; sourceTree = "<group>"; };
+		E264E8FF2005E8BC00DFF4A5 /* AliyunPublishTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishTopView.m; sourceTree = "<group>"; };
+		E264E9002005E8BC00DFF4A5 /* AliyunCoverPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickView.h; sourceTree = "<group>"; };
+		E264E9012005E8BC00DFF4A5 /* AliyunPublishProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPublishProgressView.m; sourceTree = "<group>"; };
+		E264E9022005E8BC00DFF4A5 /* AliyunPublishTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishTopView.h; sourceTree = "<group>"; };
+		E264E9032005E8BC00DFF4A5 /* AliyunUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunUploadViewController.h; sourceTree = "<group>"; };
+		E264E9042005E8BC00DFF4A5 /* AliyunPublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishService.h; sourceTree = "<group>"; };
+		E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		E264E90F2005E8D000DFF4A5 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		E264E9102005E8D000DFF4A5 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		E264E9122005E8D000DFF4A5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		E264E9142005E8D000DFF4A5 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		E264E9152005E8D000DFF4A5 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		E264E9162005E8D000DFF4A5 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		E264E9172005E8D000DFF4A5 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		E264E9192005E8D000DFF4A5 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		E264E91A2005E8D000DFF4A5 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		E264E91D2005E8D000DFF4A5 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		E264E91E2005E8D000DFF4A5 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		E264E91F2005E8D000DFF4A5 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		E264E9202005E8D000DFF4A5 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		E264E9232005E8D000DFF4A5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E264E9252005E8D000DFF4A5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E264E9262005E8D000DFF4A5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E264E9282005E8D000DFF4A5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E264E9292005E8D100DFF4A5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E264E92A2005E8D100DFF4A5 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		E264E92B2005E8D100DFF4A5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E264E92D2005E8D100DFF4A5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeArea.m"; sourceTree = "<group>"; };
+		E264E93C2005E8EB00DFF4A5 /* UIButton+EnlargeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeArea.h"; sourceTree = "<group>"; };
+		E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPSSZipArchive.m; sourceTree = "<group>"; };
+		E264E9412005EA0A00DFF4A5 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		E264E9422005EA0A00DFF4A5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		E264E9432005EA0A00DFF4A5 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		E264E9442005EA0A00DFF4A5 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		E264E9452005EA0A00DFF4A5 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		E264E9462005EA0A00DFF4A5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		E264E9472005EA0A00DFF4A5 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		E264E9482005EA0A00DFF4A5 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		E264E9492005EA0A00DFF4A5 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		E264E94A2005EA0A00DFF4A5 /* QPSSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPSSZipArchive.h; sourceTree = "<group>"; };
+		E264E9512005EDEE00DFF4A5 /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
+		E264E9522005EDEE00DFF4A5 /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
 		E27E9F441FFA5CF300096A6E /* NSStringSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringSize.m; sourceTree = "<group>"; };
 		E27E9F461FFA5FE400096A6E /* PriceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceView.h; sourceTree = "<group>"; };
@@ -474,9 +644,6 @@
 		E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E2C6B9F320008194006E0B2A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		E2C6B9F52000819C006E0B2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkCore.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkCore.a; sourceTree = "<group>"; };
-		E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps.a; sourceTree = "<group>"; };
-		E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNvStreamingSdkDeps2.a; path = ../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios/libNvStreamingSdkDeps2.a; sourceTree = "<group>"; };
 		E2C6BA0320025B2F006E0B2A /* FSScrollContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSScrollContentViewController.h; sourceTree = "<group>"; };
 		E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSScrollContentViewController.m; sourceTree = "<group>"; };
 		E2D194E420033D0400EAEE57 /* QBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerController.h; sourceTree = "<group>"; };
@@ -551,6 +718,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */,
+				E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */,
+				E264E5FB2005BFD900DFF4A5 /* QuCore-ThirdParty.framework in Frameworks */,
+				E264E5F92005BFC600DFF4A5 /* AliyunVideoSDKPro.framework in Frameworks */,
 				18567F7420020BB8003F1985 /* SafariServices.framework in Frameworks */,
 				E2C6B9F02000817F006E0B2A /* Photos.framework in Frameworks */,
 				18567F7220020BA4003F1985 /* UIKit.framework in Frameworks */,
@@ -572,30 +743,27 @@
 				18567F5E20020AFC003F1985 /* CoreGraphics.framework in Frameworks */,
 				18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */,
 				18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */,
+				E264E6012005C03500DFF4A5 /* QuCore-ThirdParty.framework in Frameworks */,
 				E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */,
 				E2D1950C2003510500EAEE57 /* libNvStreamingSdkCore.a in Frameworks */,
 				E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */,
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
 				18567F58200207C8003F1985 /* RongCallKit.framework in Frameworks */,
-				E2C6B9FC200081BE006E0B2A /* libNvStreamingSdkDeps2.a in Frameworks */,
-				E2C6B9FA200081B4006E0B2A /* libNvStreamingSdkDeps.a in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
-				E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */,
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
 				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
 				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
 				18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
+				E264E5FD2005C02100DFF4A5 /* AliyunVideoSDKPro.framework in Frameworks */,
 				18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
 				18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */,
 				18567F46200207C7003F1985 /* AgoraRtcEngineKit.framework in Frameworks */,
-				E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */,
 				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
 				E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
-				E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */,
 				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
 				18567F52200207C8003F1985 /* JrmfPacketKit.framework in Frameworks */,
 				8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */,
@@ -780,6 +948,8 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */,
+				E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */,
 				18567F7320020BB7003F1985 /* SafariServices.framework */,
 				18567F7120020BA4003F1985 /* UIKit.framework */,
 				18567F6F20020B9B003F1985 /* SystemConfiguration.framework */,
@@ -794,9 +964,6 @@
 				18567F5D20020AFC003F1985 /* CoreGraphics.framework */,
 				18567F5B20020AF3003F1985 /* CoreAudio.framework */,
 				18567F5920020AE1003F1985 /* CFNetwork.framework */,
-				E2C6B9FB200081BE006E0B2A /* libNvStreamingSdkDeps2.a */,
-				E2C6B9F9200081B4006E0B2A /* libNvStreamingSdkDeps.a */,
-				E2C6B9F7200081A9006E0B2A /* libNvStreamingSdkCore.a */,
 				E2C6B9F52000819C006E0B2A /* Accelerate.framework */,
 				E2C6B9F320008194006E0B2A /* CoreMotion.framework */,
 				E2C6B9F12000818A006E0B2A /* AudioToolbox.framework */,
@@ -804,7 +971,6 @@
 				E2C6B9ED20008178006E0B2A /* MobileCoreServices.framework */,
 				E2C6B9EB2000816F006E0B2A /* AssetsLibrary.framework */,
 				E2C6B9E920008169006E0B2A /* AVFoundation.framework */,
-				E21227521FFE1031005D543F /* QuCore-ThirdParty.framework */,
 				E212274F1FFE0C68005D543F /* libiconv.tbd */,
 				E212274D1FFE0C60005D543F /* libsqlite3.tbd */,
 				E212274B1FFE0C58005D543F /* libc++.tbd */,
@@ -815,8 +981,6 @@
 				E21227411FFE0C32005D543F /* CoreMedia.framework */,
 				E212273F1FFE0C29005D543F /* ImageIO.framework */,
 				E212273D1FFE0C1A005D543F /* libz.tbd */,
-				E212272F1FFE0B4E005D543F /* QuCore-ThirdParty.framework */,
-				E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */,
 				42A0607256A5A3252358EB13 /* libPods-MiLiao.a */,
 			);
 			name = Frameworks;
@@ -834,6 +998,8 @@
 		E221B5621FF5D6FF00353875 = {
 			isa = PBXGroup;
 			children = (
+				E264E6002005C03400DFF4A5 /* QuCore-ThirdParty.framework */,
+				E264E5FC2005C02000DFF4A5 /* AliyunVideoSDKPro.framework */,
 				E221B56D1FF5D6FF00353875 /* MiLiao */,
 				E221B5861FF5D70000353875 /* MiLiaoTests */,
 				E221B5911FF5D70000353875 /* MiLiaoUITests */,
@@ -1163,6 +1329,354 @@
 			path = PublicManager;
 			sourceTree = "<group>";
 		};
+		E264E7432005E58200DFF4A5 /* 阿里云 */ = {
+			isa = PBXGroup;
+			children = (
+				E264E78F2005E67E00DFF4A5 /* Vendor */,
+				E264E75A2005E5B300DFF4A5 /* Tools */,
+				E264E7442005E5A300DFF4A5 /* Composition */,
+				E264E8F52005E8BC00DFF4A5 /* Publish */,
+			);
+			path = "阿里云";
+			sourceTree = "<group>";
+		};
+		E264E7442005E5A300DFF4A5 /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7452005E5A300DFF4A5 /* Compress */,
+				E264E7492005E5A300DFF4A5 /* Model */,
+				E264E74C2005E5A300DFF4A5 /* View */,
+				E264E78C2005E61700DFF4A5 /* AliyunCompositionViewController.h */,
+				E264E78D2005E61700DFF4A5 /* AliyunCompositionViewController.m */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		E264E7452005E5A300DFF4A5 /* Compress */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7462005E5A300DFF4A5 /* AliyunCompressManager.h */,
+				E264E7472005E5A300DFF4A5 /* AliyunCompressManager.m */,
+			);
+			path = Compress;
+			sourceTree = "<group>";
+		};
+		E264E7492005E5A300DFF4A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E264E74A2005E5A300DFF4A5 /* AliyunCompositionInfo.m */,
+				E264E74B2005E5A300DFF4A5 /* AliyunCompositionInfo.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E264E74C2005E5A300DFF4A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E264E74D2005E5A300DFF4A5 /* AliyunCompositionCell.h */,
+				E264E7502005E5A300DFF4A5 /* AliyunCompositionCell.m */,
+				E264E74E2005E5A300DFF4A5 /* AliyunCompositionPickView.h */,
+				E264E7512005E5A300DFF4A5 /* AliyunCompositionPickView.m */,
+				E264E74F2005E5A300DFF4A5 /* AliyunCompositionPickCell.h */,
+				E264E7522005E5A300DFF4A5 /* AliyunCompositionPickCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E264E75A2005E5B300DFF4A5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E264E75B2005E5B300DFF4A5 /* PhotoLibrary */,
+				E264E7602005E5B300DFF4A5 /* UIConfig */,
+				E264E7652005E5B300DFF4A5 /* PathManager */,
+				E264E7682005E5B300DFF4A5 /* MusicImport */,
+				E264E76B2005E5B300DFF4A5 /* MediaConfig */,
+				E264E76E2005E5B300DFF4A5 /* Import */,
+				E264E77C2005E5B300DFF4A5 /* Mediator */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E264E75B2005E5B300DFF4A5 /* PhotoLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				E264E75C2005E5B300DFF4A5 /* AliyunAlbumModel.m */,
+				E264E75D2005E5B300DFF4A5 /* AliyunPhotoLibraryManager.m */,
+				E264E75E2005E5B300DFF4A5 /* AliyunAlbumModel.h */,
+				E264E75F2005E5B300DFF4A5 /* AliyunPhotoLibraryManager.h */,
+			);
+			path = PhotoLibrary;
+			sourceTree = "<group>";
+		};
+		E264E7602005E5B300DFF4A5 /* UIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7612005E5B300DFF4A5 /* AliyunImage.m */,
+				E264E7622005E5B300DFF4A5 /* AliyunIConfig.m */,
+				E264E7632005E5B300DFF4A5 /* AliyunImage.h */,
+				E264E7642005E5B300DFF4A5 /* AliyunIConfig.h */,
+			);
+			path = UIConfig;
+			sourceTree = "<group>";
+		};
+		E264E7652005E5B300DFF4A5 /* PathManager */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7662005E5B300DFF4A5 /* AliyunPathManager.m */,
+				E264E7672005E5B300DFF4A5 /* AliyunPathManager.h */,
+			);
+			path = PathManager;
+			sourceTree = "<group>";
+		};
+		E264E7682005E5B300DFF4A5 /* MusicImport */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7692005E5B300DFF4A5 /* AliyunLibraryMusicImport.m */,
+				E264E76A2005E5B300DFF4A5 /* AliyunLibraryMusicImport.h */,
+			);
+			path = MusicImport;
+			sourceTree = "<group>";
+		};
+		E264E76B2005E5B300DFF4A5 /* MediaConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E264E76C2005E5B300DFF4A5 /* AliyunMediaConfig.m */,
+				E264E76D2005E5B300DFF4A5 /* AliyunMediaConfig.h */,
+			);
+			path = MediaConfig;
+			sourceTree = "<group>";
+		};
+		E264E76E2005E5B300DFF4A5 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				E264E76F2005E5B300DFF4A5 /* SelectView */,
+				E264E7722005E5B300DFF4A5 /* AliyunPhotoListViewCell.h */,
+				E264E7732005E5B300DFF4A5 /* AliyunPhotoListViewCell.m */,
+				E264E7742005E5B300DFF4A5 /* Album */,
+				E264E7792005E5B300DFF4A5 /* Header */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		E264E76F2005E5B300DFF4A5 /* SelectView */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7702005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m */,
+				E264E7712005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.h */,
+			);
+			path = SelectView;
+			sourceTree = "<group>";
+		};
+		E264E7742005E5B300DFF4A5 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				E264E7752005E5B300DFF4A5 /* AliyunAlbumViewController.h */,
+				E264E7762005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m */,
+				E264E7772005E5B300DFF4A5 /* AliyunAlbumTableViewCell.h */,
+				E264E7782005E5B300DFF4A5 /* AliyunAlbumViewController.m */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		E264E7792005E5B300DFF4A5 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E264E77A2005E5B300DFF4A5 /* AliyunImportHeaderView.m */,
+				E264E77B2005E5B300DFF4A5 /* AliyunImportHeaderView.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E264E77C2005E5B300DFF4A5 /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				E264E77D2005E5B300DFF4A5 /* AliyunMediator.m */,
+				E264E77E2005E5B300DFF4A5 /* AliyunMediator.h */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
+		E264E78F2005E67E00DFF4A5 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E264E93C2005E8EB00DFF4A5 /* UIButton+EnlargeArea.h */,
+				E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */,
+				E264E8222005E74800DFF4A5 /* LXReorderableFlowLayout */,
+				E264E81E2005E71900DFF4A5 /* MBProgressHUD */,
+				E264E81A2005E70000DFF4A5 /* Avasset+VideoSize */,
+				E264E9222005E8D000DFF4A5 /* fmdb */,
+				E264E90C2005E8D000DFF4A5 /* JSONModel */,
+				E264E93E2005EA0A00DFF4A5 /* unzip */,
+				E264E9502005EDEE00DFF4A5 /* ProgressView */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		E264E81A2005E70000DFF4A5 /* Avasset+VideoSize */ = {
+			isa = PBXGroup;
+			children = (
+				E264E81B2005E70000DFF4A5 /* AVAsset+VideoInfo.h */,
+				E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */,
+			);
+			name = "Avasset+VideoSize";
+			path = "../../../../../demo/qusdk/Vendor/Avasset+VideoSize";
+			sourceTree = "<group>";
+		};
+		E264E81E2005E71900DFF4A5 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */,
+				E264E8202005E71900DFF4A5 /* QUMBProgressHUD.h */,
+			);
+			name = MBProgressHUD;
+			path = ../MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E264E8222005E74800DFF4A5 /* LXReorderableFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E264E8232005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.h */,
+				E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */,
+			);
+			name = LXReorderableFlowLayout;
+			path = ../../../../../demo/qusdk/Vendor/LXReorderableFlowLayout;
+			sourceTree = "<group>";
+		};
+		E264E8F52005E8BC00DFF4A5 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				E264E8FC2005E8BC00DFF4A5 /* View */,
+				E264E8F62005E8BC00DFF4A5 /* AliyunPublishViewController.h */,
+				E264E8FA2005E8BC00DFF4A5 /* AliyunPublishViewController.m */,
+				E264E8F72005E8BC00DFF4A5 /* AliyunCoverPickViewController.h */,
+				E264E8FB2005E8BC00DFF4A5 /* AliyunCoverPickViewController.m */,
+				E264E9042005E8BC00DFF4A5 /* AliyunPublishService.h */,
+				E264E8F92005E8BC00DFF4A5 /* AliyunPublishService.m */,
+				E264E9032005E8BC00DFF4A5 /* AliyunUploadViewController.h */,
+				E264E8F82005E8BC00DFF4A5 /* AliyunUploadViewController.m */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		E264E8FC2005E8BC00DFF4A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E264E9002005E8BC00DFF4A5 /* AliyunCoverPickView.h */,
+				E264E8FD2005E8BC00DFF4A5 /* AliyunCoverPickView.m */,
+				E264E9022005E8BC00DFF4A5 /* AliyunPublishTopView.h */,
+				E264E8FF2005E8BC00DFF4A5 /* AliyunPublishTopView.m */,
+				E264E8FE2005E8BC00DFF4A5 /* AliyunPublishProgressView.h */,
+				E264E9012005E8BC00DFF4A5 /* AliyunPublishProgressView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E264E90C2005E8D000DFF4A5 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E264E90D2005E8D000DFF4A5 /* JSONModelTransformations */,
+				E264E9122005E8D000DFF4A5 /* module.modulemap */,
+				E264E9132005E8D000DFF4A5 /* JSONModel */,
+				E264E91A2005E8D000DFF4A5 /* JSONModelLib.h */,
+				E264E91B2005E8D000DFF4A5 /* JSONModelNetworking */,
+			);
+			name = JSONModel;
+			path = ../../../../../demo/qusdk/Vendor/JSONModel;
+			sourceTree = "<group>";
+		};
+		E264E90D2005E8D000DFF4A5 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */,
+				E264E90F2005E8D000DFF4A5 /* JSONKeyMapper.h */,
+				E264E9102005E8D000DFF4A5 /* JSONValueTransformer.h */,
+				E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+		E264E9132005E8D000DFF4A5 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E264E9142005E8D000DFF4A5 /* JSONModel.m */,
+				E264E9152005E8D000DFF4A5 /* JSONModelError.m */,
+				E264E9162005E8D000DFF4A5 /* JSONModelClassProperty.h */,
+				E264E9172005E8D000DFF4A5 /* JSONModel.h */,
+				E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */,
+				E264E9192005E8D000DFF4A5 /* JSONModelError.h */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		E264E91B2005E8D000DFF4A5 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */,
+				E264E91D2005E8D000DFF4A5 /* JSONAPI.m */,
+				E264E91E2005E8D000DFF4A5 /* JSONModel+networking.h */,
+				E264E91F2005E8D000DFF4A5 /* JSONHTTPClient.h */,
+				E264E9202005E8D000DFF4A5 /* JSONAPI.h */,
+				E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		E264E9222005E8D000DFF4A5 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				E264E9232005E8D000DFF4A5 /* FMDatabase.h */,
+				E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */,
+				E264E9252005E8D000DFF4A5 /* FMResultSet.h */,
+				E264E9262005E8D000DFF4A5 /* FMDatabasePool.h */,
+				E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */,
+				E264E9282005E8D000DFF4A5 /* FMDatabase.m */,
+				E264E9292005E8D100DFF4A5 /* FMDatabaseQueue.h */,
+				E264E92A2005E8D100DFF4A5 /* FMDB.h */,
+				E264E92B2005E8D100DFF4A5 /* FMDatabaseAdditions.h */,
+				E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */,
+				E264E92D2005E8D100DFF4A5 /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = ../../../../../demo/qusdk/Vendor/fmdb;
+			sourceTree = "<group>";
+		};
+		E264E93E2005EA0A00DFF4A5 /* unzip */ = {
+			isa = PBXGroup;
+			children = (
+				E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */,
+				E264E9402005EA0A00DFF4A5 /* minizip */,
+				E264E94A2005EA0A00DFF4A5 /* QPSSZipArchive.h */,
+			);
+			name = unzip;
+			path = ../../../../../demo/qusdk/Vendor/unzip;
+			sourceTree = "<group>";
+		};
+		E264E9402005EA0A00DFF4A5 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				E264E9412005EA0A00DFF4A5 /* unzip.c */,
+				E264E9422005EA0A00DFF4A5 /* zip.c */,
+				E264E9432005EA0A00DFF4A5 /* ioapi.c */,
+				E264E9442005EA0A00DFF4A5 /* mztools.c */,
+				E264E9452005EA0A00DFF4A5 /* crypt.h */,
+				E264E9462005EA0A00DFF4A5 /* zip.h */,
+				E264E9472005EA0A00DFF4A5 /* unzip.h */,
+				E264E9482005EA0A00DFF4A5 /* mztools.h */,
+				E264E9492005EA0A00DFF4A5 /* ioapi.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		E264E9502005EDEE00DFF4A5 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				E264E9512005EDEE00DFF4A5 /* QUProgressView.h */,
+				E264E9522005EDEE00DFF4A5 /* QUProgressView.m */,
+			);
+			name = ProgressView;
+			path = ../../../../../demo/qusdk/Vendor/ProgressView;
+			sourceTree = "<group>";
+		};
 		E27E9F491FFB1E0C00096A6E /* SGPageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1796,7 @@
 				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 				E2620F7C200457530092BA11 /* View */,
 				E2620F7D2004576E0092BA11 /* Controller */,
+				E264E7432005E58200DFF4A5 /* 阿里云 */,
 			);
 			path = "视频拍摄";
 			sourceTree = "<group>";
@@ -1417,6 +1932,7 @@
 				E221B5691FF5D6FF00353875 /* Resources */,
 				C15C18F7950216FCBA8A992A /* [CP] Embed Pods Frameworks */,
 				D11AC3B0544B6B1558384B6D /* [CP] Copy Pods Resources */,
+				E264E5FF2005C02100DFF4A5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1632,11 +2148,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
+				E264E8212005E71900DFF4A5 /* QUMBProgressHUD.m in Sources */,
+				E264E7552005E5A300DFF4A5 /* AliyunCompositionInfo.m in Sources */,
+				E264E9342005E8D100DFF4A5 /* JSONAPI.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
+				E264E7812005E5B300DFF4A5 /* AliyunImage.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				E264E7562005E5A300DFF4A5 /* AliyunCompositionCell.m in Sources */,
 				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
+				E264E7802005E5B300DFF4A5 /* AliyunPhotoLibraryManager.m in Sources */,
+				E264E7822005E5B300DFF4A5 /* AliyunIConfig.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -1644,47 +2167,69 @@
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				186CBF15200497530023924D /* MessageeViewController.m in Sources */,
+				E264E78B2005E5B300DFF4A5 /* AliyunMediator.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
+				E264E94F2005EA0A00DFF4A5 /* mztools.c in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
 				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
+				E264E7882005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */,
+				E264E9082005E8BD00DFF4A5 /* AliyunCoverPickViewController.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
+				E264E7862005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
+				E264E92F2005E8D100DFF4A5 /* JSONKeyMapper.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				E264E9302005E8D100DFF4A5 /* JSONModel.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
+				E264E9392005E8D100DFF4A5 /* FMDatabasePool.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
+				E264E92E2005E8D100DFF4A5 /* JSONValueTransformer.m in Sources */,
 				E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */,
+				E264E94D2005EA0A00DFF4A5 /* zip.c in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
+				E264E94B2005EA0A00DFF4A5 /* QPSSZipArchive.m in Sources */,
+				E264E9052005E8BD00DFF4A5 /* AliyunUploadViewController.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
+				E264E7892005E5B300DFF4A5 /* AliyunAlbumViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
+				E264E9382005E8D100DFF4A5 /* FMDatabase.m in Sources */,
 				186CBF182004B2D50023924D /* messageView.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
+				E264E7842005E5B300DFF4A5 /* AliyunLibraryMusicImport.m in Sources */,
+				E264E9372005E8D100DFF4A5 /* FMDatabaseAdditions.m in Sources */,
 				E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
+				E264E78E2005E61800DFF4A5 /* AliyunCompositionViewController.m in Sources */,
+				E264E93A2005E8D100DFF4A5 /* FMResultSet.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
+				E264E9362005E8D100DFF4A5 /* FMDatabaseQueue.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
+				E264E90A2005E8BD00DFF4A5 /* AliyunPublishTopView.m in Sources */,
 				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E259297E1FFCBC3900B6502D /* FSLoopScrollView.m in Sources */,
 				E221B5A91FF5DE9B00353875 /* MLDiscoverViewController.m in Sources */,
+				E264E9352005E8D100DFF4A5 /* JSONModel+networking.m in Sources */,
+				E264E8252005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */,
 				E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				18567F222001F568003F1985 /* BoardButton.m in Sources */,
@@ -1694,40 +2239,60 @@
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
+				E264E7832005E5B300DFF4A5 /* AliyunPathManager.m in Sources */,
+				E264E77F2005E5B300DFF4A5 /* AliyunAlbumModel.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
 				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
 				E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
+				E264E9332005E8D100DFF4A5 /* JSONHTTPClient.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
+				E264E94E2005EA0A00DFF4A5 /* ioapi.c in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
 				E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */,
+				E264E9092005E8BD00DFF4A5 /* AliyunCoverPickView.m in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
+				E264E9532005EDEF00DFF4A5 /* QUProgressView.m in Sources */,
 				E2D1950020033D0400EAEE57 /* QBAssetsViewController.m in Sources */,
+				E264E9312005E8D100DFF4A5 /* JSONModelError.m in Sources */,
 				18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */,
 				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
+				E264E7872005E5B300DFF4A5 /* AliyunPhotoListViewCell.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
 				18567F202001F568003F1985 /* BoardImageView.m in Sources */,
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
+				E264E9072005E8BD00DFF4A5 /* AliyunPublishViewController.m in Sources */,
 				18567F212001F568003F1985 /* BoardView.m in Sources */,
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
 				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
 				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
+				E264E7572005E5A300DFF4A5 /* AliyunCompositionPickView.m in Sources */,
+				E264E78A2005E5B300DFF4A5 /* AliyunImportHeaderView.m in Sources */,
+				E264E90B2005E8BD00DFF4A5 /* AliyunPublishProgressView.m in Sources */,
+				E264E94C2005EA0A00DFF4A5 /* unzip.c in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
+				E264E93D2005E8EC00DFF4A5 /* UIButton+EnlargeArea.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */,
+				E264E7542005E5A300DFF4A5 /* AliyunCompressManager.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
+				E264E81D2005E70000DFF4A5 /* AVAsset+VideoInfo.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
+				E264E7582005E5A300DFF4A5 /* AliyunCompositionPickCell.m in Sources */,
+				E264E9322005E8D100DFF4A5 /* JSONModelClassProperty.m in Sources */,
+				E264E7852005E5B300DFF4A5 /* AliyunMediaConfig.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
 				1877240D2000789000A93345 /* NickNameViewController.m in Sources */,
+				E264E9062005E8BD00DFF4A5 /* AliyunPublishService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1920,7 +2485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1984,7 +2549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
