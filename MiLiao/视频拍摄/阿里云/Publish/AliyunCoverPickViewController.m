@@ -28,9 +28,14 @@
 @end
 
 @implementation AliyunCoverPickViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.view.backgroundColor = [UIColor blackColor];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     _userDefaults = [NSUserDefaults standardUserDefaults];
      [self addNotifications];
     [self setupSubviews];
@@ -138,8 +143,8 @@
 #pragma mark - top view delegate
 
 -(void)cancelButtonClicked {
-    [self dismissViewControllerAnimated:YES completion:nil];
-//    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)finishButtonClicked {
@@ -197,7 +202,8 @@
     NSLog(@"wz successvid:%@, imageurl:%@",vid, imageUrl);
     dispatch_async(dispatch_get_main_queue(), ^{
         _stateLabel.text = [NSString stringWithFormat:@"success:%@",vid];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self dismissViewControllerAnimated:YES completion:nil];
     });
 }
 

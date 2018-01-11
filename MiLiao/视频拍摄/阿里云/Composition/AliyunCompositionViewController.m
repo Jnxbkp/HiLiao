@@ -62,7 +62,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)fetchImages {
@@ -208,8 +208,8 @@
 #pragma mark - AliyunImportHeaderViewDelegate
 
 -(void)headerViewDidCancel {
-    [self dismissViewControllerAnimated:YES completion:nil];
-//    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)headerViewDidSelect {
@@ -296,7 +296,8 @@
         //        _coverImageView.image = image;
         //        _backgroundView.image = image;
     };
-    [self presentViewController:pickVC animated:YES completion:nil];
+    [self.navigationController pushViewController:pickVC animated:YES];
+//    [self presentViewController:pickVC animated:YES completion:nil];
 //        // set video param
 //        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
 //        param.fps = _compositionConfig.fps;

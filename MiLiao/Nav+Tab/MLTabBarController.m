@@ -71,9 +71,10 @@
     [tabBar setDidMiddBtn:^{
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         ViewController *VC = [story instantiateViewControllerWithIdentifier:@"ViewController"];
-        [self presentViewController:VC animated:YES completion:^{
-            
-        }];
+        UINavigationController *ANavigationController = [[UINavigationController alloc] initWithRootViewController:VC];
+        ANavigationController.navigationBarHidden = YES;
+        [self presentViewController:ANavigationController animated:YES completion:nil];
+//        [self presentViewController:VC animated:YES completion:nil];
     }];
 }
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {

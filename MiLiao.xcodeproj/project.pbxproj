@@ -142,9 +142,6 @@
 		E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929791FFCBC3800B6502D /* NSTimer+FSLoop.m */; };
 		E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25929801FFCBC4100B6502D /* home_ic_hot@2x.png */; };
 		E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25929811FFCBC4200B6502D /* home_ic_new@2x.png */; };
-		E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F7F200457BB0092BA11 /* HLUploadVideoViewController.m */; };
-		E2620F83200458AC0092BA11 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E2620F81200458AB0092BA11 /* 1.mp4 */; };
-		E2620F84200458AC0092BA11 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E2620F82200458AB0092BA11 /* 1.png */; };
 		E2620F8C20045D480092BA11 /* PublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F8B20045D480092BA11 /* PublicManager.m */; };
 		E264E5F92005BFC600DFF4A5 /* AliyunVideoSDKPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */; };
 		E264E5FB2005BFD900DFF4A5 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */; };
@@ -502,10 +499,6 @@
 		E259297B1FFCBC3800B6502D /* NSTimer+FSLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+FSLoop.h"; sourceTree = "<group>"; };
 		E25929801FFCBC4100B6502D /* home_ic_hot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_ic_hot@2x.png"; sourceTree = "<group>"; };
 		E25929811FFCBC4200B6502D /* home_ic_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_ic_new@2x.png"; sourceTree = "<group>"; };
-		E2620F7E200457BA0092BA11 /* HLUploadVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLUploadVideoViewController.h; sourceTree = "<group>"; };
-		E2620F7F200457BB0092BA11 /* HLUploadVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLUploadVideoViewController.m; sourceTree = "<group>"; };
-		E2620F81200458AB0092BA11 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
-		E2620F82200458AB0092BA11 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		E2620F8A20045D480092BA11 /* PublicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicManager.h; sourceTree = "<group>"; };
 		E2620F8B20045D480092BA11 /* PublicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicManager.m; sourceTree = "<group>"; };
 		E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/AliyunVideoSDKPro.framework"; sourceTree = "<group>"; };
@@ -1455,8 +1448,6 @@
 				E2C6B9E120008075006E0B2A /* ViewController.h */,
 				E2C6B9DA20008075006E0B2A /* ViewController.m */,
 				E2C6B9DC20008075006E0B2A /* Main.storyboard */,
-				E2620F7E200457BA0092BA11 /* HLUploadVideoViewController.h */,
-				E2620F7F200457BB0092BA11 /* HLUploadVideoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1797,8 +1788,6 @@
 		E2C6B9D620008075006E0B2A /* 视频拍摄 */ = {
 			isa = PBXGroup;
 			children = (
-				E2620F81200458AB0092BA11 /* 1.mp4 */,
-				E2620F82200458AB0092BA11 /* 1.png */,
 				E2C6B9DE20008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx */,
 				E2620F7C200457530092BA11 /* View */,
 				E2620F7D2004576E0092BA11 /* Controller */,
@@ -2043,9 +2032,7 @@
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
-				E2620F83200458AC0092BA11 /* 1.mp4 in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
-				E2620F84200458AC0092BA11 /* 1.png in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
@@ -2216,7 +2203,6 @@
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E264E7842005E5B300DFF4A5 /* AliyunLibraryMusicImport.m in Sources */,
-				E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
 				E264E78E2005E61800DFF4A5 /* AliyunCompositionViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,

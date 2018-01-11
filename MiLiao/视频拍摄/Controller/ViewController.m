@@ -24,8 +24,6 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
-#import "HLUploadVideoViewController.h"
-
 #import "AliyunMediaConfig.h"
 #import "AliyunCompositionViewController.h"
 
@@ -58,7 +56,7 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate> {
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate,UINavigationControllerDelegate> {
     
     NSTimer             *_timer;
     NvsVideoTrack       *_videoTrack;
@@ -163,7 +161,10 @@ typedef enum {
     _context = nil;
     [NvsStreamingContext destroyInstance];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -496,8 +497,8 @@ typedef enum {
 //        _coverImageView.image = image;
 //        _backgroundView.image = image;
     };
-    [self presentViewController:vc animated:YES completion:nil];
-    
+//    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
     
 //    [_context clearCachedResources:YES];
 //    [self preparePlay];
@@ -512,8 +513,8 @@ typedef enum {
     AliyunCompositionViewController *composVC = [[AliyunCompositionViewController alloc]init];
 //    UIViewController *vc = [[AliyunMediator shared] editModule];
     [composVC setValue:_compositionConfig forKey:@"compositionConfig"];
-    [self presentViewController:composVC animated:YES completion:nil];
-//    [self.navigationController pushViewController:composVC animated:YES];
+
+    [self.navigationController pushViewController:composVC animated:YES];
     
     
 }
@@ -1133,6 +1134,7 @@ typedef enum {
     return max;
     
 }
+
 //返回
 - (void)backBarButtonSelect:(UIButton *)but {
     [self dismissViewControllerAnimated:YES completion:^{
