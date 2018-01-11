@@ -24,7 +24,27 @@
 #import "NvsVideoTrack.h"
 #import "GenerationView.h"
 
-#import "HLUploadVideoViewController.h"
+#import "AliyunMediaConfig.h"
+#import "AliyunCompositionViewController.h"
+
+#import "AliyunImportHeaderView.h"
+#import "AliyunAlbumViewController.h"
+#import "AliyunCompositionCell.h"
+#import "AliyunCompositionPickView.h"
+#import "AliyunPhotoLibraryManager.h"
+#import "AliyunCompositionInfo.h"
+#import "AliyunPathManager.h"
+#import "AVAsset+VideoInfo.h"
+#import "AliyunCompressManager.h"
+#import <AliyunVideoSDKPro/AliyunEditor.h>
+#import <AliyunVideoSDKPro/AliyunImporter.h>
+#import "QUMBProgressHUD.h"
+#import "AliyunMediator.h"
+#import <sys/utsname.h>
+
+#import "AliyunCoverPickViewController.h"
+#import "QUProgressView.h"
+
 
 
 #define NS_TIMELINE_WIDTH 720
@@ -38,13 +58,14 @@ typedef enum {
     EDIT_TYPE_FX
 }EDIT_TYPE;
 
-@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate> {
+@interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate,UINavigationControllerDelegate> {
     
     NSTimer             *_timer;
     NvsVideoTrack       *_videoTrack;
     NSString *outputFilePath;//最后一段录制的视频路径
     GenerationView   *generationView;
     NSString *compileVideo;//打包生成的视频
+    NSString *_compileVideoDir;
     NvsTimeline *_timeline;
 }
 
@@ -93,6 +114,9 @@ typedef enum {
 @property (nonatomic, strong)UIButton   *updateButton;
 @property (strong, nonatomic) UIImagePickerController *moviePicker;//视频选择器
 
+@property (nonatomic, strong) AliyunMediaConfig *compositionConfig;
+@property (nonatomic, strong) QUProgressView *progressView;//进度条
+
 @end
 
 @implementation ViewController {
@@ -110,6 +134,8 @@ typedef enum {
     NSIndexPath *_selectedIndexPath;
     NSString *_currentFxName;
     NSTimer *_autoFocusViewVisibleTimer;
+    
+    NSString *_captureDir;
 }
 
 // 恢复采集预览状态
@@ -138,7 +164,10 @@ typedef enum {
     _context = nil;
     [NvsStreamingContext destroyInstance];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -220,7 +249,7 @@ typedef enum {
     [self addBackButton];
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _nextButton.hidden = YES;
+    _nextButton.hidden = YES;
     _nextButton.frame = CGRectMake(WIDTH-80, 20, 60, 30);
     [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
     _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
@@ -238,6 +267,30 @@ typedef enum {
     _updateButton.layer.cornerRadius = _beautyButton.frame.size.height/2;
     [_updateButton addTarget:self action:@selector(updateButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_updateButton];
+    
+    [self setupParamData];
+//    _progressView = [[QUProgressView alloc]initWithFrame:CGRectMake(0, 20, WIDTH, 5)];
+//    _progressView.maxDuration = 30.0;
+//    _progressView.minDuration = 2.0;
+//    _progressView.showBlink = YES;
+//    _progressView.showNoticePoint = YES;
+//    [self.view addSubview:_progressView];
+    
+//    // 创建一个时间线
+//    NvsVideoResolution videoEditRes;
+//    videoEditRes.imageWidth = 1280;
+//    videoEditRes.imageHeight = 720;
+//    videoEditRes.imagePAR = (NvsRational){1, 1};
+//    NvsRational videoFps = {25, 1};
+//    NvsAudioResolution audioEditRes;
+//    audioEditRes.sampleRate = 48000;
+//    audioEditRes.channelCount = 2;
+//    audioEditRes.sampleFormat = NvsAudSmpFmt_S16;
+//    _timeline = [_context createTimeline:&videoEditRes videoFps:&videoFps audioEditRes:&audioEditRes];
+//    if (!_timeline) {
+//        NSLog(@"Timeline is null!");
+//        return;
+//    }
 }
 
 
@@ -248,6 +301,18 @@ typedef enum {
     [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
+}
+#pragma mark - 设置录制参数
+- (void)setupParamData {
+    _compositionConfig = [[AliyunMediaConfig alloc] init];
+    _compositionConfig.minDuration = 2.0;
+    _compositionConfig.maxDuration = 10*60.0;
+    _compositionConfig.fps = 25;
+    _compositionConfig.gop = 5;
+    _compositionConfig.videoQuality = 1;
+    _compositionConfig.outputSize = CGSizeMake(540, 720);
+    _compositionConfig.cutMode = AliyunMediaCutModeScaleAspectFill;
+    _compositionConfig.videoOnly = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -385,15 +450,15 @@ typedef enum {
 }
 - (NSString *)captureVideoPath {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    _captureDir = [docPath stringByAppendingPathComponent:@"capture"];
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray *files = [fm contentsOfDirectoryAtPath:captureDir error:nil];
-    NSString *videoPath = [captureDir stringByAppendingPathComponent:@"capture_1.mov"];
+    NSArray *files = [fm contentsOfDirectoryAtPath:_captureDir error:nil];
+    NSString *videoPath = [_captureDir stringByAppendingPathComponent:@"capture_1.mov"];
     if (files.count == 0) {
         return videoPath;
     }
     NSString *videoName = [NSString stringWithFormat:@"capture_%d.mov",(int)(files.count+1)];
-    videoPath = [captureDir stringByAppendingPathComponent:videoName];
+    videoPath = [_captureDir stringByAppendingPathComponent:videoName];
     return videoPath;
 }
 - (IBAction)startRecording:(id)sender {
@@ -409,77 +474,111 @@ typedef enum {
         }
 
         // 开始录制
-//        if(_captureWithFx) {
-            [_context startRecordingWithFx:outputFilePath];
-//        }else {
-//            [_context startRecording:outputFilePath];
-//        }
+        [_context startRecordingWithFx:outputFilePath];
+        [self recorderViewHidden];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
         
-        _updateButton.hidden = YES;
-        
-        
-//        _nextButton.hidden = YES;
-//        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
-        NSLog(@"------------->>>>>>>%@",outputFilePath);
+
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         [self.switchFacingButton setEnabled:NO];
         return;
     }
+    
     // 停止录制
     [_context stopRecording];
-    _updateButton.hidden = NO;
+    [self recorderViewShow];
     [_timer invalidate];
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     if ([_context captureDeviceCount] > 1)
         [self.switchFacingButton setEnabled:YES];
 }
-
+//点击录制隐藏按钮
+- (void)recorderViewHidden {
+    _nextButton.hidden = YES;
+    _updateButton.hidden = YES;
+    _functionButtonContainerView.hidden = YES;
+    _fxSelectButton.hidden = YES;
+    _fxSelectImageView.hidden = YES;
+    _beautyImageView.hidden = YES;
+    _beautyButton.hidden = YES;
+    
+//    if (_beautyButton.selected) {
+//        _beautyContainerView.hidden = NO;
+//    } else {
+        _beautyContainerView.hidden = YES;
+//    }
+//    if (_fxSelectButton.selected) {
+//        _fxTableView.hidden = NO;
+//    } else {
+        _fxTableView.hidden = YES;
+//    }
+}
+//录制完成
+- (void)recorderViewShow {
+    _updateButton.hidden = NO;
+    _functionButtonContainerView.hidden = NO;
+    _fxSelectButton.hidden = NO;
+    _fxSelectImageView.hidden = NO;
+    _beautyImageView.hidden = NO;
+    _beautyButton.hidden = NO;
+    [self setEditType:EDIT_TYPE_NONE];
+    
+}
 //延时显示
 - (void)beganCapture:(NSTimer *)timer {
     _nextButton.hidden = NO;
 }
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
-  
-//    NSLog(@"----------------.>>>>>生成");
-
-//        generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
-//        generationView.delegate = self;
-//        [self.view addSubview:generationView];
-//        NSFileManager *fm = [NSFileManager defaultManager];
-//        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
-//        [_videoTrack removeAllClips];
-//        for (NSString *file in fileDir) {
-//            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
-//        }
-//        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-//        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
-//
-//        if ([fm fileExistsAtPath:compileVideo]) {
-//            [fm removeItemAtPath:compileVideo error:nil];
-//        }
-//        _context.delegate = self;
-//    NSLog(@"-----------------%@-------%lld",compileVideo,_timeline.duration);
-//
-//       [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
+ 
+    [_context stopRecording];
+    [self recorderViewShow];
+    [_timer invalidate];
+    _nextButton.hidden = YES;
+    [self.recordLabel setText:@"开始拍"];
+    [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+    
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    _compositionConfig.outputPath = outputFilePath;
+    CGSize _outputSize = [_compositionConfig fixedSize];
+    
+    AliyunCoverPickViewController *vc = [AliyunCoverPickViewController new];
+    vc.outputSize = _outputSize;
+    vc.taskPath = captureDir;
+    vc.videoPath = outputFilePath;
+    vc.finishHandler = ^(UIImage *image) {
+//        _image = image;
+//        _coverImageView.image = image;
+//        _backgroundView.image = image;
+    };
+//    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+//    [_context clearCachedResources:YES];
+//    [self preparePlay];
+    
+    
    
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-    [_context clearCachedResources:YES];
-     [self preparePlay];
     
-//    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-//    imagePickerController.delegate = self;
-//    imagePickerController.allowsMultipleSelection = YES;
-//    imagePickerController.maximumNumberOfSelection = 1;
-//    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
-//    imagePickerController.prompt = @"请选择视频";
-//    imagePickerController.showsNumberOfSelectedAssets = YES;
-//    [self presentViewController:imagePickerController animated:YES completion:nil];
-  
+    [_context stopRecording];
+    [self recorderViewShow];
+    _nextButton.hidden = YES;
+    [_timer invalidate];
+    [self.recordLabel setText:@"开始拍"];
+    [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+    
+    //    mediaInfo.backgroundColor = [UIColor blackColor];
+    AliyunCompositionViewController *composVC = [[AliyunCompositionViewController alloc]init];
+//    UIViewController *vc = [[AliyunMediator shared] editModule];
+    [composVC setValue:_compositionConfig forKey:@"compositionConfig"];
+
+    [self.navigationController pushViewController:composVC animated:YES];
     
     
 }
@@ -570,6 +669,26 @@ typedef enum {
     [_videoTrack appendClip:outputFilePath];
     NSLog(@"--------->>>video%lld---%@",_videoTrack.duration,outputFilePath);
     [_context seekTimeline:_timeline timestamp:0 videoSizeMode:NvsVideoPreviewSizeModeLiveWindowSize flags:0];
+    
+    generationView = [[GenerationView alloc] initWithFrame:self.view.frame];
+    generationView.delegate = self;
+    [self.view addSubview:generationView];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+    [_videoTrack removeAllClips];
+    for (NSString *file in fileDir) {
+        [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+    }
+    _compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+    compileVideo = [_compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+    
+    if ([fm fileExistsAtPath:compileVideo]) {
+        [fm removeItemAtPath:compileVideo error:nil];
+    }
+    _context.delegate = self;
+    NSLog(@"-----------------%@-------%lld",compileVideo,_timeline.duration);
+    
+    [_context compileTimeline:_timeline startTime:0 endTime:_timeline.duration outputFilePath:compileVideo videoResolutionGrade:NvsCompileVideoResolutionGrade720 videoBitrateGrade:NvsCompileBitrateGradeMedium flags:0];
    
 }
 - (void)stopCapturePreview{
@@ -584,8 +703,8 @@ typedef enum {
 }
 - (void)clearDir {
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+    _compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+    compileVideo = [_compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
     if ([fm fileExistsAtPath:compileVideo]) {
         [fm removeItemAtPath:compileVideo error:nil];
     }
@@ -606,9 +725,63 @@ typedef enum {
     NSLog(@"打包完成");
     [generationView finish];
     UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
-    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
-    uploadVC.videoPath = compileVideo;
-    [self presentViewController:uploadVC animated:YES completion:nil];
+    
+//        QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
+//
+////        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+////        NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+////    //    NSString *root = [AliyunPathManager compositionRootDir];
+////        NSString *root = captureDir;
+////        NSFileManager *fm = [NSFileManager defaultManager];
+////        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+////        [_videoTrack removeAllClips];
+////        for (NSString *file in fileDir) {
+////            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+////        }
+//        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+////        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+//
+//        NSLog(@"------------------->>>%@------%@-----%@",outputFilePath,compileVideoDir,compileVideo);
+//         CGSize _outputSize = [_compositionConfig fixedSize];
+//        AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:_compileVideoDir outputSize:_outputSize];
+//
+//        AliyunCompositionInfo *info = [[AliyunCompositionInfo alloc]init];
+//        info.type = AliyunCompositionInfoTypeVideo;
+//    //    info.asset =
+//
+//        [importor addVideoWithPath:compileVideo animDuration:0];
+//
+//        // set video param
+//        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
+//        param.fps = _compositionConfig.fps;
+//        param.gop = _compositionConfig.gop;
+//        param.bitrate = _compositionConfig.bitrate;
+//        param.videoQuality = (AliyunVideoQuality)_compositionConfig.videoQuality;
+//        param.scaleMode = (AliyunScaleMode)_compositionConfig.cutMode;
+//        [importor setVideoParam:param];
+//        // generate config
+//        [importor generateProjectConfigure];
+//     //output path
+////            _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir]
+////                                              stringByAppendingPathComponent:[AliyunPathManager uuidString]]
+////                                             stringByAppendingPathExtension:@"mp4"];
+//        _compositionConfig.outputPath = compileVideo;
+//        // edit view controller
+//
+//        // 发布页面合成视频
+//        AliyunPublishViewController *vc = [[AliyunPublishViewController alloc] init];
+//        vc.taskPath = _compileVideoDir;
+//        vc.config = _compositionConfig;
+//        vc.outputSize = _outputSize;
+//        NSLog(@"-------------%@--------%@----%@",_compileVideoDir,_compositionConfig.outputPath,outputFilePath);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+////            [hud hideAnimated:YES];
+//            [self presentViewController:vc animated:YES completion:nil];
+//            //            [self.navigationController pushViewController:editVC animated:YES];
+//        });
+//    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
+//    uploadVC.videoPath = compileVideo;
+//    [self presentViewController:uploadVC animated:YES completion:nil];
 }
 
 - (void)didCompileCompleted:(NvsTimeline *)timeline isCanceled:(BOOL)isCanceled {
@@ -1006,6 +1179,26 @@ typedef enum {
 - (void)handleProgressTimer:(NSTimer *)timer {
     [self removeAutoFocusVisibleTimer];
 }
+
+- (NSInteger)maxVideoSize{
+    NSInteger max = 1080*1920;
+    
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    
+    if ([deviceString isEqualToString:@"iPhone4,1"]||[deviceString isEqualToString:@"iPhone3,1"]){
+        max = 720*960;
+    }
+    if ([deviceString isEqualToString:@"iPhone5,2"]){
+        max = 1080*1080;
+        
+    }
+    return max;
+    
+}
+
 //返回
 - (void)backBarButtonSelect:(UIButton *)but {
     [self dismissViewControllerAnimated:YES completion:^{

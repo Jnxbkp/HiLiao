@@ -142,6 +142,20 @@
         failure(error);
     }];
 }
+//GET /v1/user/getUserInfo
++ (void)NetGetgetUserInfoToken:(NSString *)token UserId:(NSString *)userId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    [manager GET:[NSString stringWithFormat:@"%@/v1/oss/getRongYunToken?token=%@?userId=%@",HLRequestUrl,token,userId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 // GET /v1/oss/getRongYunToken 获取融云Token
 + (void)NetGetupdateRongYunToken:(NSString *)token  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {

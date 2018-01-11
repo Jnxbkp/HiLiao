@@ -275,10 +275,26 @@ static NSString *kTempFolder = @"touxiang";
         }
   }
     if (BtnTag == 7) {
+        NSString *strSeven = [NSString stringWithFormat:@"%@",[posters objectAtIndex:6]];
+        if (strSeven.length>0) {
+            [posters replaceObjectAtIndex:6 withObject:result];
             [self.sevenBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:6]]] forState:UIControlStateNormal];
+
+        }else{
+            [self.sevenBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:6]]] forState:UIControlStateNormal];
+
+        }
   }
     if (BtnTag == 8) {
+        NSString *strEight = [NSString stringWithFormat:@"%@",[posters objectAtIndex:7]];
+        if (strEight.length>0) {
+            [posters replaceObjectAtIndex:7 withObject:result];
             [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:7]]] forState:UIControlStateNormal];
+
+        }else{
+            [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:7]]] forState:UIControlStateNormal];
+
+        }
   }
 
     [self.tableView reloadData];

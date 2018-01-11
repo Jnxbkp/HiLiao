@@ -9,6 +9,8 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#ifdef __OBJC__
+
 #import "MenuInfo.h"
 #import "DataManager.h"
 //#import "NSStringSize.h"
@@ -46,6 +48,7 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
+
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
 
@@ -87,6 +90,8 @@
 #define ML_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 //粉红色
 #define NavColor [UIColor colorWithRed:152/255.0 green:68/255.0 blue:130/255.0 alpha:1.0]
+
+
 // 设置字体
 #define YZFont(f)  [UIFont systemFontOfSize:f]
 //导航栏背景色
@@ -102,4 +107,36 @@
 #define CurrentUserToken @"CurrentUserToken"
 //极光推送注册 id
 #define jpush_id @"jpush_id"
+
+
+
+//阿里云的
+
+#import "AliyunIConfig.h"
+#import "AliyunImage.h"
+
+// 注释为Release版
+//#define kQPEnableDevNetwork
+#define BundleID [[NSBundle mainBundle] bundleIdentifier]
+//#ifdef kQPEnableDevNetwork
+//#define kQPResourceHostUrl @"http://m.api.inner.alibaba.net"
+//#else
+#define kQPResourceHostUrl @"https://m-api.qupaicloud.com"
+//#endif
+
+#define RGBToColor(R,G,B)  [UIColor colorWithRed:(R * 1.0) / 255.0 green:(G * 1.0) / 255.0 blue:(B * 1.0) / 255.0 alpha:1.0]
+#define rgba(R,G,B,A)  [UIColor colorWithRed:(R * 1.0) / 255.0 green:(G * 1.0) / 255.0 blue:(B * 1.0) / 255.0 alpha:A]
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define SizeWidth(W) (W *CGRectGetWidth([[UIScreen mainScreen] bounds])/320)
+#define SizeHeight(H) (H *(ScreenHeight)/568)
+
+
+
+#define IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
+#define SafeTop (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 44)
+#define SafeBottom (([[UIScreen mainScreen] bounds].size.height-812) ? 0 : 43)
+#define StatusBarHeight (([[UIScreen mainScreen] bounds].size.height-812) ? 20 : 44)
+
+#endif
 #endif /* PrefixHeader_pch */
