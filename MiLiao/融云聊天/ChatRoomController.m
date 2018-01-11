@@ -59,7 +59,7 @@
 
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
-    NSLog(@"userid ==== %@",userId);
+    NSLog(@"userid 聊天聊天室啊==== %@",userId);
 //    [[APIManager ShardInstance] postGetUserMessageDataUser_id:userId resultBlock:^(NSDictionary *data, NSError *error) {
 //        if (error) return;
 //        UserChatMegModel *model = [UserChatMegModel mj_objectWithKeyValues:data[@"list"]];

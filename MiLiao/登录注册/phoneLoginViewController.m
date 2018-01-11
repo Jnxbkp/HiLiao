@@ -201,10 +201,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
         [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-//            NSLog(@"%@",);
             //把自己信息存起来
-//            [[UserDataManager ShardInstance] RCIM_currentUserInfo:userId];
-            
+            [self RCIM_currentUserInfo:userId];
         } error:^(RCConnectErrorCode status) {
             NSLog(@"登陆的错误码为:%ld", (long)status);
         } tokenIncorrect:^{
@@ -217,5 +215,17 @@
         
     }];
 }
-
+- (void)RCIM_currentUserInfo:(NSString *)userId {
+    [HLLoginManager NetGetgetUserInfoToken:[_userDefaults objectForKey:@"token"] UserId:userId success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        //nickname headUrl
+        RCUserInfo *_currentUserInfo =
+        [[RCUserInfo alloc] initWithUserId:userId
+                                      name:[_userDefaults objectForKey:@"nickname"]
+                                  portrait:[_userDefaults objectForKey:@"headUrl"]];
+        [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
+    } failure:^(NSError *error) {
+        
+    }];
+}
 @end

@@ -8,6 +8,8 @@
 
 #import "edttViewController.h"
 #import "NickNameViewController.h"
+#import <RongIMKit/RongIMKit.h>
+
 #define iconImageWH 60
 
 static NSString *kTempFolder = @"touxiang";
@@ -78,12 +80,28 @@ static NSString *kTempFolder = @"touxiang";
 }
 - (void)LogoutButtonClick
 {
+    //id
     [HLLoginManager NetPostupdateHeadUrl:[_userDefaults objectForKey:@"headUrl"] nickName:self.nickName token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         NSLog(@"----------------%@",info);
         if (resultCode == SUCCESS) {
+            //把自己信息存起来
+//            [self RCIM_currentUserInfo:info[@"data"][@"id"]];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+- (void)RCIM_currentUserInfo:(NSString *)userId {
+    [HLLoginManager NetGetgetUserInfoToken:[_userDefaults objectForKey:@"token"] UserId:userId success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        //nickname headUrl
+        RCUserInfo *_currentUserInfo =
+        [[RCUserInfo alloc] initWithUserId:userId
+                                      name:[_userDefaults objectForKey:@"nickname"]
+                                  portrait:[_userDefaults objectForKey:@"headUrl"]];
+        [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
     } failure:^(NSError *error) {
         
     }];
@@ -296,7 +314,7 @@ static NSString *kTempFolder = @"touxiang";
 /**
  *  返回当前时间
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 - (NSString *)getTimeNow
 {
