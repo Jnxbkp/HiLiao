@@ -67,8 +67,8 @@
         width = heigt / factor;
     }
     CGFloat offset = (maxheight-heigt)/2;
-    
-    self.coverView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth-width)/2, StatusBarHeight+44+offset, width, heigt)];
+   
+    self.coverView = [[UIImageView alloc] initWithFrame:CGRectMake((WIDTH-(WIDTH*heigt)/HEIGHT)/2, StatusBarHeight+44+offset, (WIDTH*heigt)/HEIGHT, heigt)];
     [self.view addSubview:self.coverView];
     
     
@@ -153,7 +153,7 @@
     NSString *coverPath = [_taskPath stringByAppendingPathComponent:@"cover.png"];
     NSData *data = UIImagePNGRepresentation(_coverView.image);
     [data writeToFile:coverPath atomically:YES];
-    NSLog(@"---------------%@",_coverView.image);
+//    NSLog(@"---------------%@",_coverView.image);
     [PublicManager NetGetgetOSSVideoToken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         NSLog(@"-----%@",info);

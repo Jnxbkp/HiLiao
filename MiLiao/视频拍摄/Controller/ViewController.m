@@ -43,6 +43,8 @@
 #import <sys/utsname.h>
 
 #import "AliyunCoverPickViewController.h"
+#import "QUProgressView.h"
+
 
 
 #define NS_TIMELINE_WIDTH 720
@@ -113,6 +115,7 @@ typedef enum {
 @property (strong, nonatomic) UIImagePickerController *moviePicker;//视频选择器
 
 @property (nonatomic, strong) AliyunMediaConfig *compositionConfig;
+@property (nonatomic, strong) QUProgressView *progressView;//进度条
 
 @end
 
@@ -246,7 +249,7 @@ typedef enum {
     [self addBackButton];
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _nextButton.hidden = YES;
+    _nextButton.hidden = YES;
     _nextButton.frame = CGRectMake(WIDTH-80, 20, 60, 30);
     [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
     _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
@@ -265,8 +268,29 @@ typedef enum {
     [_updateButton addTarget:self action:@selector(updateButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_updateButton];
     
-     [self setupParamData];
+    [self setupParamData];
+//    _progressView = [[QUProgressView alloc]initWithFrame:CGRectMake(0, 20, WIDTH, 5)];
+//    _progressView.maxDuration = 30.0;
+//    _progressView.minDuration = 2.0;
+//    _progressView.showBlink = YES;
+//    _progressView.showNoticePoint = YES;
+//    [self.view addSubview:_progressView];
     
+//    // 创建一个时间线
+//    NvsVideoResolution videoEditRes;
+//    videoEditRes.imageWidth = 1280;
+//    videoEditRes.imageHeight = 720;
+//    videoEditRes.imagePAR = (NvsRational){1, 1};
+//    NvsRational videoFps = {25, 1};
+//    NvsAudioResolution audioEditRes;
+//    audioEditRes.sampleRate = 48000;
+//    audioEditRes.channelCount = 2;
+//    audioEditRes.sampleFormat = NvsAudSmpFmt_S16;
+//    _timeline = [_context createTimeline:&videoEditRes videoFps:&videoFps audioEditRes:&audioEditRes];
+//    if (!_timeline) {
+//        NSLog(@"Timeline is null!");
+//        return;
+//    }
 }
 
 
@@ -282,7 +306,7 @@ typedef enum {
 - (void)setupParamData {
     _compositionConfig = [[AliyunMediaConfig alloc] init];
     _compositionConfig.minDuration = 2.0;
-    _compositionConfig.maxDuration = 10.0*60;
+    _compositionConfig.maxDuration = 10*60.0;
     _compositionConfig.fps = 25;
     _compositionConfig.gop = 5;
     _compositionConfig.videoQuality = 1;
@@ -450,39 +474,72 @@ typedef enum {
         }
 
         // 开始录制
-//        if(_captureWithFx) {
-            [_context startRecordingWithFx:outputFilePath];
-//        }else {
-//            [_context startRecording:outputFilePath];
-//        }
+        [_context startRecordingWithFx:outputFilePath];
+        [self recorderViewHidden];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
         
-        _updateButton.hidden = YES;
-        
-        
-//        _nextButton.hidden = YES;
-//        _timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
-        NSLog(@"------------->>>>>>>%@",outputFilePath);
+
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         [self.switchFacingButton setEnabled:NO];
         return;
     }
+    
     // 停止录制
     [_context stopRecording];
-    _updateButton.hidden = NO;
+    [self recorderViewShow];
     [_timer invalidate];
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     if ([_context captureDeviceCount] > 1)
         [self.switchFacingButton setEnabled:YES];
 }
-
+//点击录制隐藏按钮
+- (void)recorderViewHidden {
+    _nextButton.hidden = YES;
+    _updateButton.hidden = YES;
+    _functionButtonContainerView.hidden = YES;
+    _fxSelectButton.hidden = YES;
+    _fxSelectImageView.hidden = YES;
+    _beautyImageView.hidden = YES;
+    _beautyButton.hidden = YES;
+    
+//    if (_beautyButton.selected) {
+//        _beautyContainerView.hidden = NO;
+//    } else {
+        _beautyContainerView.hidden = YES;
+//    }
+//    if (_fxSelectButton.selected) {
+//        _fxTableView.hidden = NO;
+//    } else {
+        _fxTableView.hidden = YES;
+//    }
+}
+//录制完成
+- (void)recorderViewShow {
+    _updateButton.hidden = NO;
+    _functionButtonContainerView.hidden = NO;
+    _fxSelectButton.hidden = NO;
+    _fxSelectImageView.hidden = NO;
+    _beautyImageView.hidden = NO;
+    _beautyButton.hidden = NO;
+    [self setEditType:EDIT_TYPE_NONE];
+    
+}
 //延时显示
 - (void)beganCapture:(NSTimer *)timer {
     _nextButton.hidden = NO;
 }
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
+ 
+    [_context stopRecording];
+    [self recorderViewShow];
+    [_timer invalidate];
+    _nextButton.hidden = YES;
+    [self.recordLabel setText:@"开始拍"];
+    [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+    
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
     _compositionConfig.outputPath = outputFilePath;
@@ -508,7 +565,14 @@ typedef enum {
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-  
+    
+    [_context stopRecording];
+    [self recorderViewShow];
+    _nextButton.hidden = YES;
+    [_timer invalidate];
+    [self.recordLabel setText:@"开始拍"];
+    [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+    
     //    mediaInfo.backgroundColor = [UIColor blackColor];
     AliyunCompositionViewController *composVC = [[AliyunCompositionViewController alloc]init];
 //    UIViewController *vc = [[AliyunMediator shared] editModule];
