@@ -10,7 +10,9 @@
 //#import "PersonHomepageController.h"
 //#import "DatingModel.h"
 @interface ChatRoomController ()<RCIMUserInfoDataSource>
-
+{
+    NSUserDefaults *_userDefaults;
+}
 @end
 
 @implementation ChatRoomController
@@ -51,6 +53,7 @@
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
     
     [RCIM sharedRCIM].userInfoDataSource = self;
+    
 
 }
 - (void)leftButtonDidClick {
@@ -60,12 +63,13 @@
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
     NSLog(@"userid 聊天聊天室啊==== %@",userId);
-//    [[APIManager ShardInstance] postGetUserMessageDataUser_id:userId resultBlock:^(NSDictionary *data, NSError *error) {
-//        if (error) return;
-//        UserChatMegModel *model = [UserChatMegModel mj_objectWithKeyValues:data[@"list"]];
-//        RCUserInfo *info = [[RCUserInfo alloc] initWithUserId:userId name:model.nickname portrait:model.face];
-//        completion(info);
-//    }];
+    [HLLoginManager NetGetgetUserInfoToken:[_userDefaults objectForKey:@"token"] UserId:userId success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        RCUserInfo *infoo = [[RCUserInfo alloc] initWithUserId:userId name:info[@"data"][@"nickName"] portrait:info[@"data"][@"headUrl"]];
+        completion(infoo);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

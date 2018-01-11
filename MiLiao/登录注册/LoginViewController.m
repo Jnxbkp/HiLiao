@@ -159,7 +159,7 @@
     
             //把自己信息存起来
             //            [[UserDataManager ShardInstance] RCIM_currentUserInfo:userId];
-            
+            [self RCIM_currentUserInfo:userId];
         } error:^(RCConnectErrorCode status) {
             NSLog(@"登陆的错误码为:%ld", (long)status);
         } tokenIncorrect:^{
@@ -172,5 +172,14 @@
         
     }];
 }
-
+- (void)RCIM_currentUserInfo:(NSString *)userId {
+    //自己的信息
+    RCUserInfo *_currentUserInfo =
+    [[RCUserInfo alloc] initWithUserId:userId
+                                  name:[_userDefaults objectForKey:@"nickname"]
+                              portrait:[_userDefaults objectForKey:@"headUrl"]];
+    [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
+    [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
+    
+}
 @end

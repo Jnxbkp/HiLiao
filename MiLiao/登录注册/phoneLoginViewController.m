@@ -197,7 +197,7 @@
     if (!token) return;
     [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
-        
+         NSLog(@"获取融云token!!!!!!：%@", info);
         [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
         [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
@@ -216,16 +216,13 @@
     }];
 }
 - (void)RCIM_currentUserInfo:(NSString *)userId {
-    [HLLoginManager NetGetgetUserInfoToken:[_userDefaults objectForKey:@"token"] UserId:userId success:^(NSDictionary *info) {
-        NSLog(@"%@",info);
-        //nickname headUrl
-        RCUserInfo *_currentUserInfo =
-        [[RCUserInfo alloc] initWithUserId:userId
-                                      name:[_userDefaults objectForKey:@"nickname"]
-                                  portrait:[_userDefaults objectForKey:@"headUrl"]];
-        [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
-    } failure:^(NSError *error) {
-        
-    }];
+    //自己的信息
+    RCUserInfo *_currentUserInfo =
+    [[RCUserInfo alloc] initWithUserId:userId
+                                  name:[_userDefaults objectForKey:@"nickname"]
+                              portrait:[_userDefaults objectForKey:@"headUrl"]];
+    [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
+    [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
+    
 }
 @end
