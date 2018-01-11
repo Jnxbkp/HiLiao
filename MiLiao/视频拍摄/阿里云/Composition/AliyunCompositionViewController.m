@@ -23,6 +23,8 @@
 #import <sys/utsname.h>
 
 #import "AliyunPublishViewController.h"
+#import "AliyunCoverPickViewController.h"
+
 
 @interface AliyunCompositionViewController () <AliyunImportHeaderViewDelegate, AliyunCompositionPickViewDelegate,UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) AliyunEditor *editor;
@@ -253,27 +255,27 @@
 }
 //点击下一步
 -(void)pickViewDidFinishWithAssets:(NSArray<AliyunCompositionInfo *> *)assets duration:(CGFloat)duration {
-    QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
-
-//    [self compressVideoIfNeededWithAssets:assets completion:^(BOOL failed){
-//        if (failed) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [hud hideAnimated:YES];
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频压缩取消" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:nil, nil];
-//                [alert show];
-//            });
-//            return;
-//        }
+//    QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
+//
+////    [self compressVideoIfNeededWithAssets:assets completion:^(BOOL failed){
+////        if (failed) {
+////            dispatch_async(dispatch_get_main_queue(), ^{
+////                [hud hideAnimated:YES];
+////                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频压缩取消" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:nil, nil];
+////                [alert show];
+////            });
+////            return;
+////        }
         NSString *root = [AliyunPathManager compositionRootDir];
         AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:root outputSize:_compositionConfig.outputSize];
         // add paths
         for (int i = 0; i < assets.count; i++) {
             AliyunCompositionInfo *info = assets[i];
-            
+
             if (info.type == AliyunCompositionInfoTypePhoto) {
                 UIImage *image = [UIImage imageWithContentsOfFile:info.sourcePath];
                 NSString *imagePath = [importor addImage:image duration:info.duration animDuration:i == 0 ? 0 : 1];
-                
+
                 info.sourcePath = imagePath;
                 if (!info.isFromCrop) {//从裁剪过来的图片 暂时保留在内存
                     info.phImage = nil;
@@ -281,38 +283,49 @@
                 image = nil;
             } else {
                 [importor addVideoWithPath:info.sourcePath animDuration:i == 0 ? 0 : 1];
-                NSLog(@"------>>><<<<>><<><><%@--",info.sourcePath);
-//                [importor addVideoWithPath:info.sourcePath startTime:info.startTime duration:info.duration animDuration:i == 0 ? 0 : 1];
+                _compositionConfig.outputPath = info.sourcePath;
             }
         }
-        // set video param
-        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
-        param.fps = _compositionConfig.fps;
-        param.gop = _compositionConfig.gop;
-        param.bitrate = _compositionConfig.bitrate;
-        param.videoQuality = (AliyunVideoQuality)_compositionConfig.videoQuality;
-        param.scaleMode = (AliyunScaleMode)_compositionConfig.cutMode;
-        [importor setVideoParam:param];
-        // generate config
-        [importor generateProjectConfigure];
-        // output path
-        _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir] stringByAppendingPathComponent:[AliyunPathManager uuidString]] stringByAppendingPathExtension:@"mp4"];
-        // edit view controller
-        CGSize _outputSize = [_compositionConfig fixedSize];
-        // 发布页面合成视频
-        AliyunPublishViewController *vc = [[AliyunPublishViewController alloc] init];
-        vc.taskPath = root;
-        vc.config = _compositionConfig;
-        vc.outputSize = _outputSize;
-//        UIViewController *editVC = [[AliyunMediator shared] editViewController];
-//        [editVC setValue:root forKey:@"taskPath"];
-//        [editVC setValue:_compositionConfig forKey:@"config"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-            [self presentViewController:vc animated:YES completion:nil];
-//            [self.navigationController pushViewController:editVC animated:YES];
-        });
+    CGSize _outputSize = [_compositionConfig fixedSize];
+    AliyunCoverPickViewController *pickVC = [AliyunCoverPickViewController new];
+    pickVC.outputSize = _outputSize;
+    pickVC.videoPath = _compositionConfig.outputPath;
+    pickVC.taskPath = root;
+    pickVC.finishHandler = ^(UIImage *image) {
+        //        _image = image;
+        //        _coverImageView.image = image;
+        //        _backgroundView.image = image;
+    };
+    [self presentViewController:pickVC animated:YES completion:nil];
+//        // set video param
+//        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
+//        param.fps = _compositionConfig.fps;
+//        param.gop = _compositionConfig.gop;
+//        param.bitrate = _compositionConfig.bitrate;
+//        param.videoQuality = (AliyunVideoQuality)_compositionConfig.videoQuality;
+//        param.scaleMode = (AliyunScaleMode)_compositionConfig.cutMode;
+//        [importor setVideoParam:param];
+//        // generate config
+//        [importor generateProjectConfigure];
+//        // output path
+//        _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir] stringByAppendingPathComponent:[AliyunPathManager uuidString]] stringByAppendingPathExtension:@"mp4"];
+//        // edit view controller
+    
+//        // 发布页面合成视频
+//        AliyunPublishViewController *vc = [[AliyunPublishViewController alloc] init];
+//        vc.taskPath = root;
+//        vc.config = _compositionConfig;
+//        vc.outputSize = _outputSize;
+////        UIViewController *editVC = [[AliyunMediator shared] editViewController];
+////        [editVC setValue:root forKey:@"taskPath"];
+////        [editVC setValue:_compositionConfig forKey:@"config"];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [hud hideAnimated:YES];
+//            [self presentViewController:vc animated:YES completion:nil];
+////            [self.navigationController pushViewController:editVC animated:YES];
+//        });
 //    }];
+   
     
 }
 

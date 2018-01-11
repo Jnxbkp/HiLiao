@@ -44,7 +44,8 @@
 #import "AliyunMediator.h"
 #import <sys/utsname.h>
 
-#import "AliyunPublishViewController.h"
+#import "AliyunCoverPickViewController.h"
+
 
 #define NS_TIMELINE_WIDTH 720
 #define NS_TIMELINE_HEIGHT 1280
@@ -64,6 +65,7 @@ typedef enum {
     NSString *outputFilePath;//最后一段录制的视频路径
     GenerationView   *generationView;
     NSString *compileVideo;//打包生成的视频
+    NSString *_compileVideoDir;
     NvsTimeline *_timeline;
 }
 
@@ -131,6 +133,8 @@ typedef enum {
     NSIndexPath *_selectedIndexPath;
     NSString *_currentFxName;
     NSTimer *_autoFocusViewVisibleTimer;
+    
+    NSString *_captureDir;
 }
 
 // 恢复采集预览状态
@@ -421,15 +425,15 @@ typedef enum {
 }
 - (NSString *)captureVideoPath {
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    _captureDir = [docPath stringByAppendingPathComponent:@"capture"];
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray *files = [fm contentsOfDirectoryAtPath:captureDir error:nil];
-    NSString *videoPath = [captureDir stringByAppendingPathComponent:@"capture_1.mov"];
+    NSArray *files = [fm contentsOfDirectoryAtPath:_captureDir error:nil];
+    NSString *videoPath = [_captureDir stringByAppendingPathComponent:@"capture_1.mov"];
     if (files.count == 0) {
         return videoPath;
     }
     NSString *videoName = [NSString stringWithFormat:@"capture_%d.mov",(int)(files.count+1)];
-    videoPath = [captureDir stringByAppendingPathComponent:videoName];
+    videoPath = [_captureDir stringByAppendingPathComponent:videoName];
     return videoPath;
 }
 - (IBAction)startRecording:(id)sender {
@@ -478,84 +482,31 @@ typedef enum {
 }
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+    _compositionConfig.outputPath = outputFilePath;
+    CGSize _outputSize = [_compositionConfig fixedSize];
+    
+    AliyunCoverPickViewController *vc = [AliyunCoverPickViewController new];
+    vc.outputSize = _outputSize;
+    vc.taskPath = captureDir;
+    vc.videoPath = outputFilePath;
+    vc.finishHandler = ^(UIImage *image) {
+//        _image = image;
+//        _coverImageView.image = image;
+//        _backgroundView.image = image;
+    };
+    [self presentViewController:vc animated:YES completion:nil];
+    
     
 //    [_context clearCachedResources:YES];
 //    [self preparePlay];
     
     
-    QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
-
-//    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//    NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
-////    NSString *root = [AliyunPathManager compositionRootDir];
-//    NSString *root = captureDir;
-//    NSFileManager *fm = [NSFileManager defaultManager];
-//    NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
-//    [_videoTrack removeAllClips];
-//    for (NSString *file in fileDir) {
-//        [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
-//    }
-    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
-
-    NSLog(@"------------------->>>%@------%@-----%@",outputFilePath,compileVideoDir,compileVideo);
-     CGSize _outputSize = [_compositionConfig fixedSize];
-    AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:compileVideoDir outputSize:_outputSize];
-    
-    AliyunCompositionInfo *info = [[AliyunCompositionInfo alloc]init];
-    info.type = AliyunCompositionInfoTypeVideo;
-//    info.asset =
-    
-    [importor addVideoWithPath:info.sourcePath animDuration:0];
-
-    // set video param
-    AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
-    param.fps = _compositionConfig.fps;
-    param.gop = _compositionConfig.gop;
-    param.bitrate = _compositionConfig.bitrate;
-    param.videoQuality = (AliyunVideoQuality)_compositionConfig.videoQuality;
-    param.scaleMode = (AliyunScaleMode)_compositionConfig.cutMode;
-    [importor setVideoParam:param];
-    // generate config
-    [importor generateProjectConfigure];
-    // output path
-    //        _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir]
-    //                                          stringByAppendingPathComponent:[AliyunPathManager uuidString]]
-    //                                         stringByAppendingPathExtension:@"mp4"];
-    _compositionConfig.outputPath = compileVideo;
-    // edit view controller
-
-    // 发布页面合成视频
-    AliyunPublishViewController *vc = [[AliyunPublishViewController alloc] init];
-    vc.taskPath = compileVideoDir;
-    vc.config = _compositionConfig;
-    vc.outputSize = _outputSize;
-    NSLog(@"-------------%@--------%@----%@",compileVideoDir,_compositionConfig.outputPath,outputFilePath);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [hud hideAnimated:YES];
-        [self presentViewController:vc animated:YES completion:nil];
-        //            [self.navigationController pushViewController:editVC animated:YES];
-    });
-  
-    
-//    NSLog(@"----------------.>>>>>生成");
-
-    
    
 }
 #pragma mark - 点击上传
 - (void)updateButtonClick:(UIButton *)button {
-//    [_context clearCachedResources:YES];
-//     [self preparePlay];
-    
-//    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-//    imagePickerController.delegate = self;
-//    imagePickerController.allowsMultipleSelection = YES;
-//    imagePickerController.maximumNumberOfSelection = 1;
-//    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
-//    imagePickerController.prompt = @"请选择视频";
-//    imagePickerController.showsNumberOfSelectedAssets = YES;
-//    [self presentViewController:imagePickerController animated:YES completion:nil];
   
     //    mediaInfo.backgroundColor = [UIColor blackColor];
     AliyunCompositionViewController *composVC = [[AliyunCompositionViewController alloc]init];
@@ -663,8 +614,8 @@ typedef enum {
     for (NSString *file in fileDir) {
         [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
     }
-    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+    _compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+    compileVideo = [_compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
     
     if ([fm fileExistsAtPath:compileVideo]) {
         [fm removeItemAtPath:compileVideo error:nil];
@@ -687,8 +638,8 @@ typedef enum {
 }
 - (void)clearDir {
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
-    compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+    _compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+    compileVideo = [_compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
     if ([fm fileExistsAtPath:compileVideo]) {
         [fm removeItemAtPath:compileVideo error:nil];
     }
@@ -710,7 +661,59 @@ typedef enum {
     [generationView finish];
     UISaveVideoAtPathToSavedPhotosAlbum(compileVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     
-    
+//        QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
+//
+////        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+////        NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+////    //    NSString *root = [AliyunPathManager compositionRootDir];
+////        NSString *root = captureDir;
+////        NSFileManager *fm = [NSFileManager defaultManager];
+////        NSArray *fileDir = [fm contentsOfDirectoryAtPath:[self capturePath] error:nil];
+////        [_videoTrack removeAllClips];
+////        for (NSString *file in fileDir) {
+////            [_videoTrack appendClip:[[self capturePath] stringByAppendingPathComponent:file]];
+////        }
+//        NSString *compileVideoDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]  stringByAppendingPathComponent:@"compileVideoDir"];
+////        compileVideo = [compileVideoDir stringByAppendingPathComponent:@"compileVideo.mp4"];
+//
+//        NSLog(@"------------------->>>%@------%@-----%@",outputFilePath,compileVideoDir,compileVideo);
+//         CGSize _outputSize = [_compositionConfig fixedSize];
+//        AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:_compileVideoDir outputSize:_outputSize];
+//
+//        AliyunCompositionInfo *info = [[AliyunCompositionInfo alloc]init];
+//        info.type = AliyunCompositionInfoTypeVideo;
+//    //    info.asset =
+//
+//        [importor addVideoWithPath:compileVideo animDuration:0];
+//
+//        // set video param
+//        AliyunVideoParam *param = [[AliyunVideoParam alloc] init];
+//        param.fps = _compositionConfig.fps;
+//        param.gop = _compositionConfig.gop;
+//        param.bitrate = _compositionConfig.bitrate;
+//        param.videoQuality = (AliyunVideoQuality)_compositionConfig.videoQuality;
+//        param.scaleMode = (AliyunScaleMode)_compositionConfig.cutMode;
+//        [importor setVideoParam:param];
+//        // generate config
+//        [importor generateProjectConfigure];
+//     //output path
+////            _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir]
+////                                              stringByAppendingPathComponent:[AliyunPathManager uuidString]]
+////                                             stringByAppendingPathExtension:@"mp4"];
+//        _compositionConfig.outputPath = compileVideo;
+//        // edit view controller
+//
+//        // 发布页面合成视频
+//        AliyunPublishViewController *vc = [[AliyunPublishViewController alloc] init];
+//        vc.taskPath = _compileVideoDir;
+//        vc.config = _compositionConfig;
+//        vc.outputSize = _outputSize;
+//        NSLog(@"-------------%@--------%@----%@",_compileVideoDir,_compositionConfig.outputPath,outputFilePath);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+////            [hud hideAnimated:YES];
+//            [self presentViewController:vc animated:YES completion:nil];
+//            //            [self.navigationController pushViewController:editVC animated:YES];
+//        });
 //    HLUploadVideoViewController *uploadVC = [[HLUploadVideoViewController alloc]init];
 //    uploadVC.videoPath = compileVideo;
 //    [self presentViewController:uploadVC animated:YES completion:nil];

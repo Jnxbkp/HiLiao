@@ -11,5 +11,6 @@
 @interface AliyunCoverPickViewController : UIViewController
 @property (nonatomic, assign) CGSize outputSize;
 @property (nonatomic, strong) NSString *videoPath;
+@property (nonatomic, strong) NSString *taskPath;
 @property (nonatomic, strong) void(^finishHandler)(UIImage *image);
 @end

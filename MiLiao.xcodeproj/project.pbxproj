@@ -2544,7 +2544,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2608,7 +2608,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

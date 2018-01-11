@@ -72,6 +72,7 @@
     [self.view addSubview:_backButton];
 }
 - (void)uploadClicked {
+    
     [PublicManager NetGetgetOSSVideoToken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
          NSLog(@"-----%@",info);
