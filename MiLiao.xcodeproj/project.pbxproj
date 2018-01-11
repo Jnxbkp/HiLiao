@@ -72,13 +72,28 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C10E3162007080800F46F00 /* FUAPIDemoBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C723CDB200621990024F2BC /* FUAPIDemoBar.framework */; };
+		3C10E3172007080800F46F00 /* FUAPIDemoBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C723CDB200621990024F2BC /* FUAPIDemoBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3C723C7A2005E3690024F2BC /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723C782005E3690024F2BC /* VideoCallViewController.m */; };
+		3C723CA0200612200024F2BC /* AppDelegate+SetupBeauty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723C9F200612200024F2BC /* AppDelegate+SetupBeauty.m */; };
+		3C723CDE2006219A0024F2BC /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CCC200621990024F2BC /* yazui.bundle */; };
+		3C723CDF2006219A0024F2BC /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CCD200621990024F2BC /* yuguan.bundle */; };
+		3C723CE02006219A0024F2BC /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CCE200621990024F2BC /* EatRabbi.bundle */; };
+		3C723CE12006219A0024F2BC /* mask_matianyu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CCF200621990024F2BC /* mask_matianyu.bundle */; };
+		3C723CE22006219A0024F2BC /* Mood.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CD0200621990024F2BC /* Mood.bundle */; };
+		3C723CE32006219A0024F2BC /* lixiaolong.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CD1200621990024F2BC /* lixiaolong.bundle */; };
+		3C723CE42006219A0024F2BC /* release_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CD3200621990024F2BC /* release_note.txt */; };
+		3C723CE52006219A0024F2BC /* libnama.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C723CD4200621990024F2BC /* libnama.a */; };
+		3C723CE62006219A0024F2BC /* v3.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CD6200621990024F2BC /* v3.bundle */; };
+		3C723CE72006219A0024F2BC /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C723CD7200621990024F2BC /* face_beautification.bundle */; };
+		3C723CE92006219A0024F2BC /* FUVideoFrameObserverManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C723CDC200621990024F2BC /* FUVideoFrameObserverManager.mm */; };
+		3C723CEA2006219A0024F2BC /* FUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723CDD200621990024F2BC /* FUManager.m */; };
 		8811E7833075436743736C4C /* libPods-MiLiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A0607256A5A3252358EB13 /* libPods-MiLiao.a */; };
 		E212273E1FFE0C1A005D543F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273D1FFE0C1A005D543F /* libz.tbd */; };
 		E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E212273F1FFE0C29005D543F /* ImageIO.framework */; };
 		E21227421FFE0C32005D543F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227411FFE0C32005D543F /* CoreMedia.framework */; };
 		E21227441FFE0C39005D543F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227431FFE0C39005D543F /* CoreVideo.framework */; };
 		E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227451FFE0C40005D543F /* VideoToolbox.framework */; };
-		E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227471FFE0C48005D543F /* MediaPlayer.framework */; };
 		E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227491FFE0C50005D543F /* OpenAL.framework */; };
 		E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212274B1FFE0C58005D543F /* libc++.tbd */; };
 		E212274E1FFE0C60005D543F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E212274D1FFE0C60005D543F /* libsqlite3.tbd */; };
@@ -210,6 +225,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3C10E3182007080800F46F00 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C10E3172007080800F46F00 /* FUAPIDemoBar.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C723CEB200622040024F2BC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
@@ -303,6 +341,28 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
+		3C723C792005E3690024F2BC /* VideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
+		3C723C9E200612200024F2BC /* AppDelegate+SetupBeauty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+SetupBeauty.h"; sourceTree = "<group>"; };
+		3C723C9F200612200024F2BC /* AppDelegate+SetupBeauty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+SetupBeauty.m"; sourceTree = "<group>"; };
+		3C723CC7200621990024F2BC /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
+		3C723CC8200621990024F2BC /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
+		3C723CCA200621990024F2BC /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
+		3C723CCC200621990024F2BC /* yazui.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yazui.bundle; sourceTree = "<group>"; };
+		3C723CCD200621990024F2BC /* yuguan.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yuguan.bundle; sourceTree = "<group>"; };
+		3C723CCE200621990024F2BC /* EatRabbi.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = EatRabbi.bundle; sourceTree = "<group>"; };
+		3C723CCF200621990024F2BC /* mask_matianyu.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = mask_matianyu.bundle; sourceTree = "<group>"; };
+		3C723CD0200621990024F2BC /* Mood.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mood.bundle; sourceTree = "<group>"; };
+		3C723CD1200621990024F2BC /* lixiaolong.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = lixiaolong.bundle; sourceTree = "<group>"; };
+		3C723CD3200621990024F2BC /* release_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_note.txt; sourceTree = "<group>"; };
+		3C723CD4200621990024F2BC /* libnama.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnama.a; sourceTree = "<group>"; };
+		3C723CD6200621990024F2BC /* v3.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = v3.bundle; sourceTree = "<group>"; };
+		3C723CD7200621990024F2BC /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_beautification.bundle; sourceTree = "<group>"; };
+		3C723CD9200621990024F2BC /* funama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = funama.h; sourceTree = "<group>"; };
+		3C723CDA200621990024F2BC /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
+		3C723CDB200621990024F2BC /* FUAPIDemoBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FUAPIDemoBar.framework; sourceTree = "<group>"; };
+		3C723CDC200621990024F2BC /* FUVideoFrameObserverManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FUVideoFrameObserverManager.mm; sourceTree = "<group>"; };
+		3C723CDD200621990024F2BC /* FUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUManager.m; sourceTree = "<group>"; };
 		42A0607256A5A3252358EB13 /* libPods-MiLiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiLiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3E587188D2FAD1AB00C63 /* Pods-MiLiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiLiao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao.debug.xcconfig"; sourceTree = "<group>"; };
 		E212272B1FFE0ACD005D543F /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunVideoSDKPro.framework; path = ../AliyunVideoSDK_pro_iOS_3.4.0_20180103/Debug/AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
@@ -551,6 +611,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
 				18567F7420020BB8003F1985 /* SafariServices.framework in Frameworks */,
 				E2C6B9F02000817F006E0B2A /* Photos.framework in Frameworks */,
 				18567F7220020BA4003F1985 /* UIKit.framework in Frameworks */,
@@ -582,18 +643,18 @@
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
 				E2C6B9F8200081A9006E0B2A /* libNvStreamingSdkCore.a in Frameworks */,
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
-				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
 				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
 				E2C6B9F420008194006E0B2A /* CoreMotion.framework in Frameworks */,
+				3C10E3162007080800F46F00 /* FUAPIDemoBar.framework in Frameworks */,
 				18567F54200207C8003F1985 /* JrmfWalletKit.framework in Frameworks */,
 				E2C6B9EE20008178006E0B2A /* MobileCoreServices.framework in Frameworks */,
+				3C723CE52006219A0024F2BC /* libnama.a in Frameworks */,
 				18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */,
 				18567F47200207C7003F1985 /* RongIMLib.framework in Frameworks */,
 				18567F4C200207C7003F1985 /* RongIMKit.framework in Frameworks */,
 				18567F46200207C7003F1985 /* AgoraRtcEngineKit.framework in Frameworks */,
 				E21227501FFE0C68005D543F /* libiconv.tbd in Frameworks */,
 				E212274A1FFE0C50005D543F /* OpenAL.framework in Frameworks */,
-				E21227481FFE0C48005D543F /* MediaPlayer.framework in Frameworks */,
 				18567F48200207C7003F1985 /* libopencore-amrnb.a in Frameworks */,
 				E21227461FFE0C40005D543F /* VideoToolbox.framework in Frameworks */,
 				E2D1950B2003510500EAEE57 /* libNvStreamingSdkDeps2.a in Frameworks */,
@@ -822,6 +883,80 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C723C772005E3690024F2BC /* 视频通话 */ = {
+			isa = PBXGroup;
+			children = (
+				3C723C792005E3690024F2BC /* VideoCallViewController.h */,
+				3C723C782005E3690024F2BC /* VideoCallViewController.m */,
+			);
+			path = "视频通话";
+			sourceTree = "<group>";
+		};
+		3C723CC6200621990024F2BC /* FaceUnity */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CC7200621990024F2BC /* FUVideoFrameObserverManager.h */,
+				3C723CDC200621990024F2BC /* FUVideoFrameObserverManager.mm */,
+				3C723CC8200621990024F2BC /* FUManager.h */,
+				3C723CDD200621990024F2BC /* FUManager.m */,
+				3C723CC9200621990024F2BC /* Faceunity */,
+				3C723CDB200621990024F2BC /* FUAPIDemoBar.framework */,
+			);
+			path = FaceUnity;
+			sourceTree = "<group>";
+		};
+		3C723CC9200621990024F2BC /* Faceunity */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CCA200621990024F2BC /* authpack.h */,
+				3C723CCB200621990024F2BC /* items */,
+				3C723CD2200621990024F2BC /* FaceUnity-SDK-iOS */,
+			);
+			path = Faceunity;
+			sourceTree = "<group>";
+		};
+		3C723CCB200621990024F2BC /* items */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CCC200621990024F2BC /* yazui.bundle */,
+				3C723CCD200621990024F2BC /* yuguan.bundle */,
+				3C723CCE200621990024F2BC /* EatRabbi.bundle */,
+				3C723CCF200621990024F2BC /* mask_matianyu.bundle */,
+				3C723CD0200621990024F2BC /* Mood.bundle */,
+				3C723CD1200621990024F2BC /* lixiaolong.bundle */,
+			);
+			path = items;
+			sourceTree = "<group>";
+		};
+		3C723CD2200621990024F2BC /* FaceUnity-SDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CD3200621990024F2BC /* release_note.txt */,
+				3C723CD4200621990024F2BC /* libnama.a */,
+				3C723CD5200621990024F2BC /* Resources */,
+				3C723CD8200621990024F2BC /* Headers */,
+			);
+			path = "FaceUnity-SDK-iOS";
+			sourceTree = "<group>";
+		};
+		3C723CD5200621990024F2BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CD6200621990024F2BC /* v3.bundle */,
+				3C723CD7200621990024F2BC /* face_beautification.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3C723CD8200621990024F2BC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3C723CD9200621990024F2BC /* funama.h */,
+				3C723CDA200621990024F2BC /* FURenderer.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		7F412446D3B4BF1832BBE150 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +993,8 @@
 			children = (
 				E221B56E1FF5D6FF00353875 /* AppDelegate.h */,
 				E221B56F1FF5D6FF00353875 /* AppDelegate.m */,
+				3C723C9E200612200024F2BC /* AppDelegate+SetupBeauty.h */,
+				3C723C9F200612200024F2BC /* AppDelegate+SetupBeauty.m */,
 				E221B5A01FF5DB9600353875 /* PrefixHeader.pch */,
 				1856878F2002136D003F1985 /* 融云聊天 */,
 				E221B5A31FF5DE5200353875 /* Nav+Tab */,
@@ -970,6 +1107,7 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
+				3C723C772005E3690024F2BC /* 视频通话 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -1009,6 +1147,7 @@
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
+				3C723CC6200621990024F2BC /* FaceUnity */,
 				E2D1950D2003510B00EAEE57 /* include */,
 				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
@@ -1417,6 +1556,8 @@
 				E221B5691FF5D6FF00353875 /* Resources */,
 				C15C18F7950216FCBA8A992A /* [CP] Embed Pods Frameworks */,
 				D11AC3B0544B6B1558384B6D /* [CP] Copy Pods Resources */,
+				3C723CEB200622040024F2BC /* CopyFiles */,
+				3C10E3182007080800F46F00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1514,6 +1655,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C723CE22006219A0024F2BC /* Mood.bundle in Resources */,
 				1877240E2000789000A93345 /* NickNameViewController.xib in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
@@ -1524,12 +1666,16 @@
 				E2620F83200458AC0092BA11 /* 1.mp4 in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				E2620F84200458AC0092BA11 /* 1.png in Resources */,
+				3C723CE72006219A0024F2BC /* face_beautification.bundle in Resources */,
+				3C723CE62006219A0024F2BC /* v3.bundle in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
+				3C723CE32006219A0024F2BC /* lixiaolong.bundle in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
+				3C723CDE2006219A0024F2BC /* yazui.bundle in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
@@ -1538,18 +1684,22 @@
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
+				3C723CE02006219A0024F2BC /* EatRabbi.bundle in Resources */,
+				3C723CE42006219A0024F2BC /* release_note.txt in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
+				3C723CE12006219A0024F2BC /* mask_matianyu.bundle in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
 				18567F50200207C8003F1985 /* WalletResource.bundle in Resources */,
+				3C723CDF2006219A0024F2BC /* yuguan.bundle in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1667,6 +1817,7 @@
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
+				3C723C7A2005E3690024F2BC /* VideoCallViewController.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
@@ -1676,6 +1827,7 @@
 				E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
+				3C723CE92006219A0024F2BC /* FUVideoFrameObserverManager.mm in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
@@ -1683,6 +1835,7 @@
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
 				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
+				3C723CA0200612200024F2BC /* AppDelegate+SetupBeauty.m in Sources */,
 				E259297E1FFCBC3900B6502D /* FSLoopScrollView.m in Sources */,
 				E221B5A91FF5DE9B00353875 /* MLDiscoverViewController.m in Sources */,
 				E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */,
@@ -1720,6 +1873,7 @@
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
+				3C723CEA2006219A0024F2BC /* FUManager.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				E2D518AA1FFE35B500A548DA /* MeViewController.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
@@ -1920,7 +2074,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1932,6 +2086,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/JrmfIMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/AlipaySDK",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallKit",
+					"$(PROJECT_DIR)/MiLiao/Tools/FaceUnity",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
@@ -1971,8 +2126,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
+					"$(PROJECT_DIR)/MiLiao/Tools/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoKKKk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1984,7 +2140,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1996,6 +2152,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/JrmfIMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/AlipaySDK",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallKit",
+					"$(PROJECT_DIR)/MiLiao/Tools/FaceUnity",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MiLiao/PrefixHeader.pch";
@@ -2035,8 +2192,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
 					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
+					"$(PROJECT_DIR)/MiLiao/Tools/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoKKKk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

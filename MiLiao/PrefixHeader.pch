@@ -50,6 +50,8 @@
 #import <AliyunOSSiOS/OSSService.h>
 
 
+#import "Masonry.h"
+
 
 //网络请求成功
 #define SUCCESS 200
