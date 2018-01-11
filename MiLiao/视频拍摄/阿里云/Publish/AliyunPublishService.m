@@ -42,7 +42,7 @@
 }
 
 - (BOOL)exportWithTaskPath:(NSString *)taskPath outputPath:(NSString *)outputPath {
-//    NSLog(@"------------>>>%@-----%@-------%@",taskPath,outputPath,[_manager exportWithTaskPath:taskPath outputPath:outputPath]);
+    NSLog(@"--------<><>---->>>%@-----%@-------",taskPath,outputPath);
     return [_manager exportWithTaskPath:taskPath outputPath:outputPath];
 //    return YES;
 }

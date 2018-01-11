@@ -99,6 +99,30 @@
 		E221B5C91FF60EB600353875 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5C71FF60EB600353875 /* DataManager.m */; };
 		E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5CB1FF6182B00353875 /* MLDiscoverCollectionViewController.m */; };
 		E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */; };
+		E22C38892007052100AD19A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C382B2007052000AD19A5 /* QUReorderableCollectionViewFlowLayout.m */; };
+		E22C388A2007052100AD19A5 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C382E2007052000AD19A5 /* JSONValueTransformer.m */; };
+		E22C388B2007052100AD19A5 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38312007052000AD19A5 /* JSONKeyMapper.m */; };
+		E22C388C2007052100AD19A5 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38342007052000AD19A5 /* JSONModel.m */; };
+		E22C388D2007052100AD19A5 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38352007052000AD19A5 /* JSONModelError.m */; };
+		E22C388E2007052100AD19A5 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38382007052000AD19A5 /* JSONModelClassProperty.m */; };
+		E22C388F2007052100AD19A5 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C383C2007052000AD19A5 /* JSONHTTPClient.m */; };
+		E22C38902007052100AD19A5 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C383D2007052000AD19A5 /* JSONAPI.m */; };
+		E22C38912007052100AD19A5 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38412007052000AD19A5 /* JSONModel+networking.m */; };
+		E22C38922007052100AD19A5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38442007052000AD19A5 /* FMDatabaseQueue.m */; };
+		E22C38932007052100AD19A5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38472007052000AD19A5 /* FMDatabaseAdditions.m */; };
+		E22C38942007052100AD19A5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38482007052000AD19A5 /* FMDatabase.m */; };
+		E22C38952007052100AD19A5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C384C2007052000AD19A5 /* FMDatabasePool.m */; };
+		E22C38962007052100AD19A5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C384D2007052000AD19A5 /* FMResultSet.m */; };
+		E22C38972007052100AD19A5 /* QUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38502007052000AD19A5 /* QUProgressView.m */; };
+		E22C38982007052100AD19A5 /* QUMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38522007052100AD19A5 /* QUMBProgressHUD.m */; };
+		E22C38A92007052100AD19A5 /* QPSSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38772007052100AD19A5 /* QPSSZipArchive.m */; };
+		E22C38AA2007052100AD19A5 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E22C38792007052100AD19A5 /* unzip.c */; };
+		E22C38AB2007052100AD19A5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E22C387A2007052100AD19A5 /* zip.c */; };
+		E22C38AC2007052100AD19A5 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = E22C387B2007052100AD19A5 /* ioapi.c */; };
+		E22C38AD2007052100AD19A5 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = E22C387C2007052100AD19A5 /* mztools.c */; };
+		E22C38AE2007052100AD19A5 /* UIView+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38852007052100AD19A5 /* UIView+Progress.m */; };
+		E22C38AF2007052100AD19A5 /* AVAsset+VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38882007052100AD19A5 /* AVAsset+VideoInfo.m */; };
+		E22C38B22007055300AD19A5 /* UIButton+EnlargeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C38B12007055300AD19A5 /* UIButton+EnlargeArea.m */; };
 		E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */; };
 		E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E259293B1FFCA96600B6502D /* phoneLoginViewController.xib */; };
 		E25929441FFCA96700B6502D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293C1FFCA96600B6502D /* LoginViewController.m */; };
@@ -147,9 +171,6 @@
 		E264E78A2005E5B300DFF4A5 /* AliyunImportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E77A2005E5B300DFF4A5 /* AliyunImportHeaderView.m */; };
 		E264E78B2005E5B300DFF4A5 /* AliyunMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E77D2005E5B300DFF4A5 /* AliyunMediator.m */; };
 		E264E78E2005E61800DFF4A5 /* AliyunCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E78D2005E61700DFF4A5 /* AliyunCompositionViewController.m */; };
-		E264E81D2005E70000DFF4A5 /* AVAsset+VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */; };
-		E264E8212005E71900DFF4A5 /* QUMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */; };
-		E264E8252005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */; };
 		E264E9052005E8BD00DFF4A5 /* AliyunUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8F82005E8BC00DFF4A5 /* AliyunUploadViewController.m */; };
 		E264E9062005E8BD00DFF4A5 /* AliyunPublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8F92005E8BC00DFF4A5 /* AliyunPublishService.m */; };
 		E264E9072005E8BD00DFF4A5 /* AliyunPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FA2005E8BC00DFF4A5 /* AliyunPublishViewController.m */; };
@@ -157,26 +178,6 @@
 		E264E9092005E8BD00DFF4A5 /* AliyunCoverPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FD2005E8BC00DFF4A5 /* AliyunCoverPickView.m */; };
 		E264E90A2005E8BD00DFF4A5 /* AliyunPublishTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E8FF2005E8BC00DFF4A5 /* AliyunPublishTopView.m */; };
 		E264E90B2005E8BD00DFF4A5 /* AliyunPublishProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9012005E8BC00DFF4A5 /* AliyunPublishProgressView.m */; };
-		E264E92E2005E8D100DFF4A5 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */; };
-		E264E92F2005E8D100DFF4A5 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */; };
-		E264E9302005E8D100DFF4A5 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9142005E8D000DFF4A5 /* JSONModel.m */; };
-		E264E9312005E8D100DFF4A5 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9152005E8D000DFF4A5 /* JSONModelError.m */; };
-		E264E9322005E8D100DFF4A5 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */; };
-		E264E9332005E8D100DFF4A5 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */; };
-		E264E9342005E8D100DFF4A5 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E91D2005E8D000DFF4A5 /* JSONAPI.m */; };
-		E264E9352005E8D100DFF4A5 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */; };
-		E264E9362005E8D100DFF4A5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */; };
-		E264E9372005E8D100DFF4A5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */; };
-		E264E9382005E8D100DFF4A5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9282005E8D000DFF4A5 /* FMDatabase.m */; };
-		E264E9392005E8D100DFF4A5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */; };
-		E264E93A2005E8D100DFF4A5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E92D2005E8D100DFF4A5 /* FMResultSet.m */; };
-		E264E93D2005E8EC00DFF4A5 /* UIButton+EnlargeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */; };
-		E264E94B2005EA0A00DFF4A5 /* QPSSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */; };
-		E264E94C2005EA0A00DFF4A5 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9412005EA0A00DFF4A5 /* unzip.c */; };
-		E264E94D2005EA0A00DFF4A5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9422005EA0A00DFF4A5 /* zip.c */; };
-		E264E94E2005EA0A00DFF4A5 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9432005EA0A00DFF4A5 /* ioapi.c */; };
-		E264E94F2005EA0A00DFF4A5 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = E264E9442005EA0A00DFF4A5 /* mztools.c */; };
-		E264E9532005EDEF00DFF4A5 /* QUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E264E9522005EDEE00DFF4A5 /* QUProgressView.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -415,6 +416,58 @@
 		E221B5CB1FF6182B00353875 /* MLDiscoverCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverCollectionViewController.m; sourceTree = "<group>"; };
 		E221B5CD1FF6184A00353875 /* MLDiscoverListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDiscoverListCollectionViewCell.h; sourceTree = "<group>"; };
 		E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverListCollectionViewCell.m; sourceTree = "<group>"; };
+		E22C382A2007052000AD19A5 /* QUReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		E22C382B2007052000AD19A5 /* QUReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		E22C382E2007052000AD19A5 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		E22C382F2007052000AD19A5 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		E22C38302007052000AD19A5 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		E22C38312007052000AD19A5 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		E22C38322007052000AD19A5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		E22C38342007052000AD19A5 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		E22C38352007052000AD19A5 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		E22C38362007052000AD19A5 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		E22C38372007052000AD19A5 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		E22C38382007052000AD19A5 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		E22C38392007052000AD19A5 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		E22C383A2007052000AD19A5 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		E22C383C2007052000AD19A5 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		E22C383D2007052000AD19A5 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		E22C383E2007052000AD19A5 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		E22C383F2007052000AD19A5 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		E22C38402007052000AD19A5 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		E22C38412007052000AD19A5 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		E22C38432007052000AD19A5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E22C38442007052000AD19A5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E22C38452007052000AD19A5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E22C38462007052000AD19A5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E22C38472007052000AD19A5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E22C38482007052000AD19A5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E22C38492007052000AD19A5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E22C384A2007052000AD19A5 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		E22C384B2007052000AD19A5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E22C384C2007052000AD19A5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E22C384D2007052000AD19A5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		E22C384F2007052000AD19A5 /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
+		E22C38502007052000AD19A5 /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
+		E22C38522007052100AD19A5 /* QUMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUMBProgressHUD.m; sourceTree = "<group>"; };
+		E22C38532007052100AD19A5 /* QUMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUMBProgressHUD.h; sourceTree = "<group>"; };
+		E22C38772007052100AD19A5 /* QPSSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPSSZipArchive.m; sourceTree = "<group>"; };
+		E22C38792007052100AD19A5 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		E22C387A2007052100AD19A5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		E22C387B2007052100AD19A5 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		E22C387C2007052100AD19A5 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		E22C387D2007052100AD19A5 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		E22C387E2007052100AD19A5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		E22C387F2007052100AD19A5 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		E22C38802007052100AD19A5 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		E22C38812007052100AD19A5 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		E22C38822007052100AD19A5 /* QPSSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPSSZipArchive.h; sourceTree = "<group>"; };
+		E22C38842007052100AD19A5 /* UIView+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Progress.h"; sourceTree = "<group>"; };
+		E22C38852007052100AD19A5 /* UIView+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Progress.m"; sourceTree = "<group>"; };
+		E22C38872007052100AD19A5 /* AVAsset+VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+VideoInfo.h"; sourceTree = "<group>"; };
+		E22C38882007052100AD19A5 /* AVAsset+VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+VideoInfo.m"; sourceTree = "<group>"; };
+		E22C38B02007055300AD19A5 /* UIButton+EnlargeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeArea.h"; sourceTree = "<group>"; };
+		E22C38B12007055300AD19A5 /* UIButton+EnlargeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeArea.m"; sourceTree = "<group>"; };
 		E25929361FFC8DAC00B6502D /* HLSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLSearchTableViewCell.h; sourceTree = "<group>"; };
 		E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLSearchTableViewCell.m; sourceTree = "<group>"; };
 		E259293A1FFCA96600B6502D /* phoneLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneLoginViewController.h; sourceTree = "<group>"; };
@@ -497,12 +550,6 @@
 		E264E77E2005E5B300DFF4A5 /* AliyunMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunMediator.h; sourceTree = "<group>"; };
 		E264E78C2005E61700DFF4A5 /* AliyunCompositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCompositionViewController.h; sourceTree = "<group>"; };
 		E264E78D2005E61700DFF4A5 /* AliyunCompositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunCompositionViewController.m; sourceTree = "<group>"; };
-		E264E81B2005E70000DFF4A5 /* AVAsset+VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+VideoInfo.h"; sourceTree = "<group>"; };
-		E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+VideoInfo.m"; sourceTree = "<group>"; };
-		E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUMBProgressHUD.m; sourceTree = "<group>"; };
-		E264E8202005E71900DFF4A5 /* QUMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUMBProgressHUD.h; sourceTree = "<group>"; };
-		E264E8232005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		E264E8F62005E8BC00DFF4A5 /* AliyunPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishViewController.h; sourceTree = "<group>"; };
 		E264E8F72005E8BC00DFF4A5 /* AliyunCoverPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunCoverPickViewController.h; sourceTree = "<group>"; };
 		E264E8F82005E8BC00DFF4A5 /* AliyunUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunUploadViewController.m; sourceTree = "<group>"; };
@@ -517,50 +564,6 @@
 		E264E9022005E8BC00DFF4A5 /* AliyunPublishTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishTopView.h; sourceTree = "<group>"; };
 		E264E9032005E8BC00DFF4A5 /* AliyunUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunUploadViewController.h; sourceTree = "<group>"; };
 		E264E9042005E8BC00DFF4A5 /* AliyunPublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunPublishService.h; sourceTree = "<group>"; };
-		E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
-		E264E90F2005E8D000DFF4A5 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
-		E264E9102005E8D000DFF4A5 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
-		E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
-		E264E9122005E8D000DFF4A5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		E264E9142005E8D000DFF4A5 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
-		E264E9152005E8D000DFF4A5 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
-		E264E9162005E8D000DFF4A5 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
-		E264E9172005E8D000DFF4A5 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
-		E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
-		E264E9192005E8D000DFF4A5 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
-		E264E91A2005E8D000DFF4A5 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
-		E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
-		E264E91D2005E8D000DFF4A5 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
-		E264E91E2005E8D000DFF4A5 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
-		E264E91F2005E8D000DFF4A5 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
-		E264E9202005E8D000DFF4A5 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
-		E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
-		E264E9232005E8D000DFF4A5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		E264E9252005E8D000DFF4A5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		E264E9262005E8D000DFF4A5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		E264E9282005E8D000DFF4A5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		E264E9292005E8D100DFF4A5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		E264E92A2005E8D100DFF4A5 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		E264E92B2005E8D100DFF4A5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		E264E92D2005E8D100DFF4A5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EnlargeArea.m"; sourceTree = "<group>"; };
-		E264E93C2005E8EB00DFF4A5 /* UIButton+EnlargeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EnlargeArea.h"; sourceTree = "<group>"; };
-		E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPSSZipArchive.m; sourceTree = "<group>"; };
-		E264E9412005EA0A00DFF4A5 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		E264E9422005EA0A00DFF4A5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		E264E9432005EA0A00DFF4A5 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		E264E9442005EA0A00DFF4A5 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		E264E9452005EA0A00DFF4A5 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		E264E9462005EA0A00DFF4A5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		E264E9472005EA0A00DFF4A5 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		E264E9482005EA0A00DFF4A5 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		E264E9492005EA0A00DFF4A5 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		E264E94A2005EA0A00DFF4A5 /* QPSSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPSSZipArchive.h; sourceTree = "<group>"; };
-		E264E9512005EDEE00DFF4A5 /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
-		E264E9522005EDEE00DFF4A5 /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
 		E27E9F441FFA5CF300096A6E /* NSStringSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringSize.m; sourceTree = "<group>"; };
 		E27E9F461FFA5FE400096A6E /* PriceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceView.h; sourceTree = "<group>"; };
@@ -1205,6 +1208,144 @@
 			path = PublicView;
 			sourceTree = "<group>";
 		};
+		E22C38292007052000AD19A5 /* LXReorderableFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				E22C382A2007052000AD19A5 /* QUReorderableCollectionViewFlowLayout.h */,
+				E22C382B2007052000AD19A5 /* QUReorderableCollectionViewFlowLayout.m */,
+			);
+			path = LXReorderableFlowLayout;
+			sourceTree = "<group>";
+		};
+		E22C382C2007052000AD19A5 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E22C382D2007052000AD19A5 /* JSONModelTransformations */,
+				E22C38322007052000AD19A5 /* module.modulemap */,
+				E22C38332007052000AD19A5 /* JSONModel */,
+				E22C383A2007052000AD19A5 /* JSONModelLib.h */,
+				E22C383B2007052000AD19A5 /* JSONModelNetworking */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		E22C382D2007052000AD19A5 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				E22C382E2007052000AD19A5 /* JSONValueTransformer.m */,
+				E22C382F2007052000AD19A5 /* JSONKeyMapper.h */,
+				E22C38302007052000AD19A5 /* JSONValueTransformer.h */,
+				E22C38312007052000AD19A5 /* JSONKeyMapper.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
+		E22C38332007052000AD19A5 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38342007052000AD19A5 /* JSONModel.m */,
+				E22C38352007052000AD19A5 /* JSONModelError.m */,
+				E22C38362007052000AD19A5 /* JSONModelClassProperty.h */,
+				E22C38372007052000AD19A5 /* JSONModel.h */,
+				E22C38382007052000AD19A5 /* JSONModelClassProperty.m */,
+				E22C38392007052000AD19A5 /* JSONModelError.h */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		E22C383B2007052000AD19A5 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				E22C383C2007052000AD19A5 /* JSONHTTPClient.m */,
+				E22C383D2007052000AD19A5 /* JSONAPI.m */,
+				E22C383E2007052000AD19A5 /* JSONModel+networking.h */,
+				E22C383F2007052000AD19A5 /* JSONHTTPClient.h */,
+				E22C38402007052000AD19A5 /* JSONAPI.h */,
+				E22C38412007052000AD19A5 /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		E22C38422007052000AD19A5 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38432007052000AD19A5 /* FMDatabase.h */,
+				E22C38442007052000AD19A5 /* FMDatabaseQueue.m */,
+				E22C38452007052000AD19A5 /* FMResultSet.h */,
+				E22C38462007052000AD19A5 /* FMDatabasePool.h */,
+				E22C38472007052000AD19A5 /* FMDatabaseAdditions.m */,
+				E22C38482007052000AD19A5 /* FMDatabase.m */,
+				E22C38492007052000AD19A5 /* FMDatabaseQueue.h */,
+				E22C384A2007052000AD19A5 /* FMDB.h */,
+				E22C384B2007052000AD19A5 /* FMDatabaseAdditions.h */,
+				E22C384C2007052000AD19A5 /* FMDatabasePool.m */,
+				E22C384D2007052000AD19A5 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		E22C384E2007052000AD19A5 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				E22C384F2007052000AD19A5 /* QUProgressView.h */,
+				E22C38502007052000AD19A5 /* QUProgressView.m */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		E22C38512007052100AD19A5 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38522007052100AD19A5 /* QUMBProgressHUD.m */,
+				E22C38532007052100AD19A5 /* QUMBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E22C38762007052100AD19A5 /* unzip */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38772007052100AD19A5 /* QPSSZipArchive.m */,
+				E22C38782007052100AD19A5 /* minizip */,
+				E22C38822007052100AD19A5 /* QPSSZipArchive.h */,
+			);
+			path = unzip;
+			sourceTree = "<group>";
+		};
+		E22C38782007052100AD19A5 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38792007052100AD19A5 /* unzip.c */,
+				E22C387A2007052100AD19A5 /* zip.c */,
+				E22C387B2007052100AD19A5 /* ioapi.c */,
+				E22C387C2007052100AD19A5 /* mztools.c */,
+				E22C387D2007052100AD19A5 /* crypt.h */,
+				E22C387E2007052100AD19A5 /* zip.h */,
+				E22C387F2007052100AD19A5 /* unzip.h */,
+				E22C38802007052100AD19A5 /* mztools.h */,
+				E22C38812007052100AD19A5 /* ioapi.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		E22C38832007052100AD19A5 /* UIView+Progress */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38842007052100AD19A5 /* UIView+Progress.h */,
+				E22C38852007052100AD19A5 /* UIView+Progress.m */,
+			);
+			path = "UIView+Progress";
+			sourceTree = "<group>";
+		};
+		E22C38862007052100AD19A5 /* Avasset+VideoSize */ = {
+			isa = PBXGroup;
+			children = (
+				E22C38872007052100AD19A5 /* AVAsset+VideoInfo.h */,
+				E22C38882007052100AD19A5 /* AVAsset+VideoInfo.m */,
+			);
+			path = "Avasset+VideoSize";
+			sourceTree = "<group>";
+		};
 		E25929391FFCA96600B6502D /* 登录注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1499,47 +1640,18 @@
 		E264E78F2005E67E00DFF4A5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				E264E93C2005E8EB00DFF4A5 /* UIButton+EnlargeArea.h */,
-				E264E93B2005E8EB00DFF4A5 /* UIButton+EnlargeArea.m */,
-				E264E8222005E74800DFF4A5 /* LXReorderableFlowLayout */,
-				E264E81E2005E71900DFF4A5 /* MBProgressHUD */,
-				E264E81A2005E70000DFF4A5 /* Avasset+VideoSize */,
-				E264E9222005E8D000DFF4A5 /* fmdb */,
-				E264E90C2005E8D000DFF4A5 /* JSONModel */,
-				E264E93E2005EA0A00DFF4A5 /* unzip */,
-				E264E9502005EDEE00DFF4A5 /* ProgressView */,
+				E22C38B02007055300AD19A5 /* UIButton+EnlargeArea.h */,
+				E22C38B12007055300AD19A5 /* UIButton+EnlargeArea.m */,
+				E22C38862007052100AD19A5 /* Avasset+VideoSize */,
+				E22C38422007052000AD19A5 /* fmdb */,
+				E22C382C2007052000AD19A5 /* JSONModel */,
+				E22C38292007052000AD19A5 /* LXReorderableFlowLayout */,
+				E22C38512007052100AD19A5 /* MBProgressHUD */,
+				E22C384E2007052000AD19A5 /* ProgressView */,
+				E22C38832007052100AD19A5 /* UIView+Progress */,
+				E22C38762007052100AD19A5 /* unzip */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		E264E81A2005E70000DFF4A5 /* Avasset+VideoSize */ = {
-			isa = PBXGroup;
-			children = (
-				E264E81B2005E70000DFF4A5 /* AVAsset+VideoInfo.h */,
-				E264E81C2005E70000DFF4A5 /* AVAsset+VideoInfo.m */,
-			);
-			name = "Avasset+VideoSize";
-			path = "../../../../../demo/qusdk/Vendor/Avasset+VideoSize";
-			sourceTree = "<group>";
-		};
-		E264E81E2005E71900DFF4A5 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				E264E81F2005E71900DFF4A5 /* QUMBProgressHUD.m */,
-				E264E8202005E71900DFF4A5 /* QUMBProgressHUD.h */,
-			);
-			name = MBProgressHUD;
-			path = ../MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		E264E8222005E74800DFF4A5 /* LXReorderableFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				E264E8232005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.h */,
-				E264E8242005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m */,
-			);
-			name = LXReorderableFlowLayout;
-			path = ../../../../../demo/qusdk/Vendor/LXReorderableFlowLayout;
 			sourceTree = "<group>";
 		};
 		E264E8F52005E8BC00DFF4A5 /* Publish */ = {
@@ -1569,112 +1681,6 @@
 				E264E9012005E8BC00DFF4A5 /* AliyunPublishProgressView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E264E90C2005E8D000DFF4A5 /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				E264E90D2005E8D000DFF4A5 /* JSONModelTransformations */,
-				E264E9122005E8D000DFF4A5 /* module.modulemap */,
-				E264E9132005E8D000DFF4A5 /* JSONModel */,
-				E264E91A2005E8D000DFF4A5 /* JSONModelLib.h */,
-				E264E91B2005E8D000DFF4A5 /* JSONModelNetworking */,
-			);
-			name = JSONModel;
-			path = ../../../../../demo/qusdk/Vendor/JSONModel;
-			sourceTree = "<group>";
-		};
-		E264E90D2005E8D000DFF4A5 /* JSONModelTransformations */ = {
-			isa = PBXGroup;
-			children = (
-				E264E90E2005E8D000DFF4A5 /* JSONValueTransformer.m */,
-				E264E90F2005E8D000DFF4A5 /* JSONKeyMapper.h */,
-				E264E9102005E8D000DFF4A5 /* JSONValueTransformer.h */,
-				E264E9112005E8D000DFF4A5 /* JSONKeyMapper.m */,
-			);
-			path = JSONModelTransformations;
-			sourceTree = "<group>";
-		};
-		E264E9132005E8D000DFF4A5 /* JSONModel */ = {
-			isa = PBXGroup;
-			children = (
-				E264E9142005E8D000DFF4A5 /* JSONModel.m */,
-				E264E9152005E8D000DFF4A5 /* JSONModelError.m */,
-				E264E9162005E8D000DFF4A5 /* JSONModelClassProperty.h */,
-				E264E9172005E8D000DFF4A5 /* JSONModel.h */,
-				E264E9182005E8D000DFF4A5 /* JSONModelClassProperty.m */,
-				E264E9192005E8D000DFF4A5 /* JSONModelError.h */,
-			);
-			path = JSONModel;
-			sourceTree = "<group>";
-		};
-		E264E91B2005E8D000DFF4A5 /* JSONModelNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				E264E91C2005E8D000DFF4A5 /* JSONHTTPClient.m */,
-				E264E91D2005E8D000DFF4A5 /* JSONAPI.m */,
-				E264E91E2005E8D000DFF4A5 /* JSONModel+networking.h */,
-				E264E91F2005E8D000DFF4A5 /* JSONHTTPClient.h */,
-				E264E9202005E8D000DFF4A5 /* JSONAPI.h */,
-				E264E9212005E8D000DFF4A5 /* JSONModel+networking.m */,
-			);
-			path = JSONModelNetworking;
-			sourceTree = "<group>";
-		};
-		E264E9222005E8D000DFF4A5 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				E264E9232005E8D000DFF4A5 /* FMDatabase.h */,
-				E264E9242005E8D000DFF4A5 /* FMDatabaseQueue.m */,
-				E264E9252005E8D000DFF4A5 /* FMResultSet.h */,
-				E264E9262005E8D000DFF4A5 /* FMDatabasePool.h */,
-				E264E9272005E8D000DFF4A5 /* FMDatabaseAdditions.m */,
-				E264E9282005E8D000DFF4A5 /* FMDatabase.m */,
-				E264E9292005E8D100DFF4A5 /* FMDatabaseQueue.h */,
-				E264E92A2005E8D100DFF4A5 /* FMDB.h */,
-				E264E92B2005E8D100DFF4A5 /* FMDatabaseAdditions.h */,
-				E264E92C2005E8D100DFF4A5 /* FMDatabasePool.m */,
-				E264E92D2005E8D100DFF4A5 /* FMResultSet.m */,
-			);
-			name = fmdb;
-			path = ../../../../../demo/qusdk/Vendor/fmdb;
-			sourceTree = "<group>";
-		};
-		E264E93E2005EA0A00DFF4A5 /* unzip */ = {
-			isa = PBXGroup;
-			children = (
-				E264E93F2005EA0A00DFF4A5 /* QPSSZipArchive.m */,
-				E264E9402005EA0A00DFF4A5 /* minizip */,
-				E264E94A2005EA0A00DFF4A5 /* QPSSZipArchive.h */,
-			);
-			name = unzip;
-			path = ../../../../../demo/qusdk/Vendor/unzip;
-			sourceTree = "<group>";
-		};
-		E264E9402005EA0A00DFF4A5 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				E264E9412005EA0A00DFF4A5 /* unzip.c */,
-				E264E9422005EA0A00DFF4A5 /* zip.c */,
-				E264E9432005EA0A00DFF4A5 /* ioapi.c */,
-				E264E9442005EA0A00DFF4A5 /* mztools.c */,
-				E264E9452005EA0A00DFF4A5 /* crypt.h */,
-				E264E9462005EA0A00DFF4A5 /* zip.h */,
-				E264E9472005EA0A00DFF4A5 /* unzip.h */,
-				E264E9482005EA0A00DFF4A5 /* mztools.h */,
-				E264E9492005EA0A00DFF4A5 /* ioapi.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
-		E264E9502005EDEE00DFF4A5 /* ProgressView */ = {
-			isa = PBXGroup;
-			children = (
-				E264E9512005EDEE00DFF4A5 /* QUProgressView.h */,
-				E264E9522005EDEE00DFF4A5 /* QUProgressView.m */,
-			);
-			name = ProgressView;
-			path = ../../../../../demo/qusdk/Vendor/ProgressView;
 			sourceTree = "<group>";
 		};
 		E27E9F491FFB1E0C00096A6E /* SGPageView */ = {
@@ -2148,9 +2154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
-				E264E8212005E71900DFF4A5 /* QUMBProgressHUD.m in Sources */,
 				E264E7552005E5A300DFF4A5 /* AliyunCompositionInfo.m in Sources */,
-				E264E9342005E8D100DFF4A5 /* JSONAPI.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				E264E7812005E5B300DFF4A5 /* AliyunImage.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
@@ -2166,74 +2170,75 @@
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
+				E22C38972007052100AD19A5 /* QUProgressView.m in Sources */,
 				186CBF15200497530023924D /* MessageeViewController.m in Sources */,
+				E22C388A2007052100AD19A5 /* JSONValueTransformer.m in Sources */,
 				E264E78B2005E5B300DFF4A5 /* AliyunMediator.m in Sources */,
+				E22C38AC2007052100AD19A5 /* ioapi.c in Sources */,
+				E22C388F2007052100AD19A5 /* JSONHTTPClient.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
-				E264E94F2005EA0A00DFF4A5 /* mztools.c in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
+				E22C38982007052100AD19A5 /* QUMBProgressHUD.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
 				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
 				E264E7882005E5B300DFF4A5 /* AliyunAlbumTableViewCell.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
+				E22C38AE2007052100AD19A5 /* UIView+Progress.m in Sources */,
 				E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */,
 				E264E9082005E8BD00DFF4A5 /* AliyunCoverPickViewController.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
+				E22C38AF2007052100AD19A5 /* AVAsset+VideoInfo.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
 				E264E7862005E5B300DFF4A5 /* AliyunPhotoAssetSelectedView.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
-				E264E92F2005E8D100DFF4A5 /* JSONKeyMapper.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
+				E22C38A92007052100AD19A5 /* QPSSZipArchive.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
-				E264E9302005E8D100DFF4A5 /* JSONModel.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
-				E264E9392005E8D100DFF4A5 /* FMDatabasePool.m in Sources */,
 				E2B497E71FFF56770017A5B6 /* MyObject.m in Sources */,
-				E264E92E2005E8D100DFF4A5 /* JSONValueTransformer.m in Sources */,
 				E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */,
-				E264E94D2005EA0A00DFF4A5 /* zip.c in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
-				E264E94B2005EA0A00DFF4A5 /* QPSSZipArchive.m in Sources */,
 				E264E9052005E8BD00DFF4A5 /* AliyunUploadViewController.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				E264E7892005E5B300DFF4A5 /* AliyunAlbumViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */,
-				E264E9382005E8D100DFF4A5 /* FMDatabase.m in Sources */,
 				186CBF182004B2D50023924D /* messageView.m in Sources */,
+				E22C388C2007052100AD19A5 /* JSONModel.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E264E7842005E5B300DFF4A5 /* AliyunLibraryMusicImport.m in Sources */,
-				E264E9372005E8D100DFF4A5 /* FMDatabaseAdditions.m in Sources */,
 				E2620F80200457BB0092BA11 /* HLUploadVideoViewController.m in Sources */,
 				E25929471FFCA96700B6502D /* phoneLoginViewController.m in Sources */,
 				E264E78E2005E61800DFF4A5 /* AliyunCompositionViewController.m in Sources */,
-				E264E93A2005E8D100DFF4A5 /* FMResultSet.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
-				E264E9362005E8D100DFF4A5 /* FMDatabaseQueue.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
+				E22C38922007052100AD19A5 /* FMDatabaseQueue.m in Sources */,
+				E22C388E2007052100AD19A5 /* JSONModelClassProperty.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
 				E264E90A2005E8BD00DFF4A5 /* AliyunPublishTopView.m in Sources */,
 				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E259297E1FFCBC3900B6502D /* FSLoopScrollView.m in Sources */,
 				E221B5A91FF5DE9B00353875 /* MLDiscoverViewController.m in Sources */,
-				E264E9352005E8D100DFF4A5 /* JSONModel+networking.m in Sources */,
-				E264E8252005E74800DFF4A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */,
 				E2D194FB20033D0400EAEE57 /* QBVideoIconView.m in Sources */,
+				E22C38902007052100AD19A5 /* JSONAPI.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				18567F222001F568003F1985 /* BoardButton.m in Sources */,
+				E22C38932007052100AD19A5 /* FMDatabaseAdditions.m in Sources */,
 				E2B77BCC1FFDD4BA00597326 /* YZNavigationController.m in Sources */,
+				E22C38892007052100AD19A5 /* QUReorderableCollectionViewFlowLayout.m in Sources */,
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
@@ -2246,26 +2251,31 @@
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
 				E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
-				E264E9332005E8D100DFF4A5 /* JSONHTTPClient.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
-				E264E94E2005EA0A00DFF4A5 /* ioapi.c in Sources */,
+				E22C38942007052100AD19A5 /* FMDatabase.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
 				E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */,
 				E264E9092005E8BD00DFF4A5 /* AliyunCoverPickView.m in Sources */,
+				E22C38AB2007052100AD19A5 /* zip.c in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
+				E22C38AD2007052100AD19A5 /* mztools.c in Sources */,
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */,
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
-				E264E9532005EDEF00DFF4A5 /* QUProgressView.m in Sources */,
+				E22C38952007052100AD19A5 /* FMDatabasePool.m in Sources */,
+				E22C38B22007055300AD19A5 /* UIButton+EnlargeArea.m in Sources */,
 				E2D1950020033D0400EAEE57 /* QBAssetsViewController.m in Sources */,
-				E264E9312005E8D100DFF4A5 /* JSONModelError.m in Sources */,
+				E22C388D2007052100AD19A5 /* JSONModelError.m in Sources */,
 				18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */,
 				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
 				E264E7872005E5B300DFF4A5 /* AliyunPhotoListViewCell.m in Sources */,
+				E22C38AA2007052100AD19A5 /* unzip.c in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
 				18567F202001F568003F1985 /* BoardImageView.m in Sources */,
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
 				E264E9072005E8BD00DFF4A5 /* AliyunPublishViewController.m in Sources */,
+				E22C38962007052100AD19A5 /* FMResultSet.m in Sources */,
+				E22C388B2007052100AD19A5 /* JSONKeyMapper.m in Sources */,
 				18567F212001F568003F1985 /* BoardView.m in Sources */,
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
@@ -2274,9 +2284,7 @@
 				E264E7572005E5A300DFF4A5 /* AliyunCompositionPickView.m in Sources */,
 				E264E78A2005E5B300DFF4A5 /* AliyunImportHeaderView.m in Sources */,
 				E264E90B2005E8BD00DFF4A5 /* AliyunPublishProgressView.m in Sources */,
-				E264E94C2005EA0A00DFF4A5 /* unzip.c in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
-				E264E93D2005E8EC00DFF4A5 /* UIButton+EnlargeArea.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
@@ -2285,10 +2293,9 @@
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				E259297F1FFCBC3900B6502D /* NSTimer+FSLoop.m in Sources */,
-				E264E81D2005E70000DFF4A5 /* AVAsset+VideoInfo.m in Sources */,
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
 				E264E7582005E5A300DFF4A5 /* AliyunCompositionPickCell.m in Sources */,
-				E264E9322005E8D100DFF4A5 /* JSONModelClassProperty.m in Sources */,
+				E22C38912007052100AD19A5 /* JSONModel+networking.m in Sources */,
 				E264E7852005E5B300DFF4A5 /* AliyunMediaConfig.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
 				1877240D2000789000A93345 /* NickNameViewController.m in Sources */,

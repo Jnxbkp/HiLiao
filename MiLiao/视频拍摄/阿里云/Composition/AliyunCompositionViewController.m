@@ -251,24 +251,25 @@
 //    [cropVC setValue:self forKey:@"delegate"];
 //    [self.navigationController pushViewController:cropVC animated:YES];
 }
-//点击下一波
+//点击下一步
 -(void)pickViewDidFinishWithAssets:(NSArray<AliyunCompositionInfo *> *)assets duration:(CGFloat)duration {
     QUMBProgressHUD *hud = [QUMBProgressHUD showHUDAddedTo:self.view animated:YES];
 
-    [self compressVideoIfNeededWithAssets:assets completion:^(BOOL failed){
-        if (failed) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [hud hideAnimated:YES];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频压缩取消" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:nil, nil];
-                [alert show];
-            });
-            return;
-        }
+//    [self compressVideoIfNeededWithAssets:assets completion:^(BOOL failed){
+//        if (failed) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [hud hideAnimated:YES];
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"视频压缩取消" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:nil, nil];
+//                [alert show];
+//            });
+//            return;
+//        }
         NSString *root = [AliyunPathManager compositionRootDir];
         AliyunImporter *importor = [[AliyunImporter alloc] initWithPath:root outputSize:_compositionConfig.outputSize];
         // add paths
         for (int i = 0; i < assets.count; i++) {
             AliyunCompositionInfo *info = assets[i];
+            
             if (info.type == AliyunCompositionInfoTypePhoto) {
                 UIImage *image = [UIImage imageWithContentsOfFile:info.sourcePath];
                 NSString *imagePath = [importor addImage:image duration:info.duration animDuration:i == 0 ? 0 : 1];
@@ -280,6 +281,7 @@
                 image = nil;
             } else {
                 [importor addVideoWithPath:info.sourcePath animDuration:i == 0 ? 0 : 1];
+                NSLog(@"------>>><<<<>><<><><%@--",info.sourcePath);
 //                [importor addVideoWithPath:info.sourcePath startTime:info.startTime duration:info.duration animDuration:i == 0 ? 0 : 1];
             }
         }
@@ -294,9 +296,7 @@
         // generate config
         [importor generateProjectConfigure];
         // output path
-        _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir]
-                                          stringByAppendingPathComponent:[AliyunPathManager uuidString]]
-                                         stringByAppendingPathExtension:@"mp4"];
+        _compositionConfig.outputPath = [[[AliyunPathManager compositionRootDir] stringByAppendingPathComponent:[AliyunPathManager uuidString]] stringByAppendingPathExtension:@"mp4"];
         // edit view controller
         CGSize _outputSize = [_compositionConfig fixedSize];
         // 发布页面合成视频
@@ -312,7 +312,7 @@
             [self presentViewController:vc animated:YES completion:nil];
 //            [self.navigationController pushViewController:editVC animated:YES];
         });
-    }];
+//    }];
     
 }
 
