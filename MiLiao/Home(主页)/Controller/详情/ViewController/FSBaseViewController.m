@@ -23,9 +23,14 @@
 #import <RongCallKit/RongCallKit.h>
 #import <RongIMKit/RongIMKit.h>
 
+#import "VideoCallViewController.h"
+
+#import "FUManager.h"
+#import <FUAPIDemoBar/FUAPIDemoBar.h>
+
 
 #define downButtonTag   2000
-@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
+@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate, FUAPIDemoBarDelegate> {
     UIButton        *_backButton;
     UIButton        *_stateButton;
     UIButton        *_focusButton;
@@ -36,9 +41,41 @@
 @property (nonatomic, strong) FSBottomTableViewCell *contentCell;
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, assign) BOOL canScroll;
+@property (nonatomic, strong) FUAPIDemoBar *bar;
 @end
 
 @implementation FSBaseViewController
+
+
+/**
+ Faceunity道具美颜工具条
+ 初始化 FUAPIDemoBar，设置初始美颜参数
+ 
+ @param bar
+ */
+-(FUAPIDemoBar *)bar {
+    if (!_bar ) {
+        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 380, self.view.frame.size.width, 208)];
+        
+        _bar.itemsDataSource =  [FUManager shareManager].itemsDataSource;
+        _bar.filtersDataSource = [FUManager shareManager].filtersDataSource;
+        
+        _bar.selectedItem = [FUManager shareManager].selectedItem;
+        _bar.selectedFilter = [FUManager shareManager].selectedFilter;
+        _bar.selectedBlur = [FUManager shareManager].selectedBlur;
+        _bar.beautyLevel = [FUManager shareManager].beautyLevel;
+        _bar.thinningLevel = [FUManager shareManager].thinningLevel;
+        _bar.enlargingLevel = [FUManager shareManager].enlargingLevel;
+        _bar.faceShapeLevel = [FUManager shareManager].faceShapeLevel;
+        _bar.faceShape = [FUManager shareManager].faceShape;
+        _bar.redLevel = [FUManager shareManager].redLevel;
+        _bar.delegate = self;
+        
+        
+    }
+    return _bar ;
+}
+
 
 - (void)dealloc
 {
@@ -122,9 +159,7 @@
 //        [self.navigationController pushViewController:chat animated:YES];
         
         //新建一个聊天会话View Controller对象,建议这样初始化
-        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"15698096707"];
-//        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.personModel.user.user_id];
-
+        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18678899778"];
         chat.title = @"hehehe";
 //        chat.title = [NSString stringWithFormat:@"%@",self.personModel.user.nickname];
 
@@ -132,9 +167,57 @@
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     } else {
-        [[RCCall sharedRCCall] startSingleCall:@"znYvFrOa3" mediaType:RCCallMediaVideo];
+        
+//        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
+//
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//            // 将 FUAPIDemoBar 添加到页面上
+//            [[UIApplication sharedApplication].keyWindow addSubview:self.bar];
+//            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.bar];
+//
+//            // 初始化Faceunity
+//            [[FUManager shareManager] setUpFaceunity];
+//
+//        });
+//        // 初始化Faceunity
+//        [[FUManager shareManager] setUpFaceunity];
+        
+        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+        [self presentViewController:callViewController animated:YES completion:nil];
+
     }
 }
+
+// 贴纸
+- (void)demoBarDidSelectedItem:(NSString *)item {
+    
+    [[FUManager shareManager] loadItem:item];
+}
+// 滤镜
+- (void)demoBarDidSelectedFilter:(NSString *)filter {
+    
+    [FUManager shareManager].selectedFilter = filter ;
+}
+// 美颜
+- (void)demoBarBeautyParamChanged {
+    
+    [self syncBeautyParams];
+}
+
+- (void)syncBeautyParams {
+    
+    [FUManager shareManager].selectedBlur = self.bar.selectedBlur;
+    [FUManager shareManager].redLevel = self.bar.redLevel ;
+    [FUManager shareManager].faceShapeLevel = self.bar.faceShapeLevel ;
+    [FUManager shareManager].faceShape = self.bar.faceShape ;
+    [FUManager shareManager].beautyLevel = self.bar.beautyLevel ;
+    [FUManager shareManager].thinningLevel = self.bar.thinningLevel ;
+    [FUManager shareManager].enlargingLevel = self.bar.enlargingLevel ;
+    [FUManager shareManager].selectedFilter = self.bar.selectedFilter ;
+}
+
+
 - (void)insertRowAtTop
 {
     NSArray *sortTitles = @[@"资料",@"视频",@"评论"];

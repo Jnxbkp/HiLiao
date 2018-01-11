@@ -48,9 +48,12 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
+
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
 
+
+#import "Masonry.h"
 
 
 //网络请求成功
@@ -109,7 +112,7 @@
 
 //阿里云的
 
-#import "AliyunIConfig.h"
+//#import "AliyunIConfig.h"
 #import "AliyunImage.h"
 
 // 注释为Release版
