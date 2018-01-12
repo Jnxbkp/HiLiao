@@ -112,7 +112,7 @@
 
 //阿里云的
 
-//#import "AliyunIConfig.h"
+#import "AliyunIConfig.h"
 #import "AliyunImage.h"
 
 // 注释为Release版

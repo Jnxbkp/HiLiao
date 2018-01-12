@@ -27,7 +27,7 @@
 
 #import "FUManager.h"
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
-
+#import "FUVideoFrameObserverManager.h"
 
 #define downButtonTag   2000
 @interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate, FUAPIDemoBarDelegate> {
@@ -170,6 +170,8 @@
         
         [[RCCall sharedRCCall] startSingleCall:@"18678899778"
                                      mediaType:RCCallMediaVideo];
+        
+         [FUVideoFrameObserverManager registerVideoFrameObserver];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             

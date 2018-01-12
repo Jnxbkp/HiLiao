@@ -52,7 +52,7 @@
     
     [self confitUShareSettings];
     
-    [FUVideoFrameObserverManager registerVideoFrameObserver];
+   
     
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
