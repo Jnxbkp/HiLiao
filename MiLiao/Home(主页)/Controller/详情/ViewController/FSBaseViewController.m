@@ -24,13 +24,13 @@
 #import <RongIMKit/RongIMKit.h>
 
 #import "VideoCallViewController.h"
-
-#import "FUManager.h"
-#import <FUAPIDemoBar/FUAPIDemoBar.h>
-#import "FUVideoFrameObserverManager.h"
+//
+//#import "FUManager.h"
+//#import <FUAPIDemoBar/FUAPIDemoBar.h>
+//#import "FUVideoFrameObserverManager.h"
 
 #define downButtonTag   2000
-@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate, FUAPIDemoBarDelegate> {
+@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     UIButton        *_backButton;
     UIButton        *_stateButton;
     UIButton        *_focusButton;
@@ -41,7 +41,7 @@
 @property (nonatomic, strong) FSBottomTableViewCell *contentCell;
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, assign) BOOL canScroll;
-@property (nonatomic, strong) FUAPIDemoBar *bar;
+//@property (nonatomic, strong) FUAPIDemoBar *bar;
 @end
 
 @implementation FSBaseViewController
@@ -53,29 +53,29 @@
  
  @param bar
  */
--(FUAPIDemoBar *)bar {
-    if (!_bar ) {
-        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 380, self.view.frame.size.width, 208)];
-        
-        _bar.itemsDataSource =  [FUManager shareManager].itemsDataSource;
-        _bar.filtersDataSource = [FUManager shareManager].filtersDataSource;
-        
-        _bar.selectedItem = [FUManager shareManager].selectedItem;
-        _bar.selectedFilter = [FUManager shareManager].selectedFilter;
-        _bar.selectedBlur = [FUManager shareManager].selectedBlur;
-        _bar.beautyLevel = [FUManager shareManager].beautyLevel;
-        _bar.thinningLevel = [FUManager shareManager].thinningLevel;
-        _bar.enlargingLevel = [FUManager shareManager].enlargingLevel;
-        _bar.faceShapeLevel = [FUManager shareManager].faceShapeLevel;
-        _bar.faceShape = [FUManager shareManager].faceShape;
-        _bar.redLevel = [FUManager shareManager].redLevel;
-        _bar.delegate = self;
-        
-        
-    }
-    return _bar ;
-}
-
+//-(FUAPIDemoBar *)bar {
+//    if (!_bar ) {
+//        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 380, self.view.frame.size.width, 208)];
+//
+//        _bar.itemsDataSource =  [FUManager shareManager].itemsDataSource;
+//        _bar.filtersDataSource = [FUManager shareManager].filtersDataSource;
+//
+//        _bar.selectedItem = [FUManager shareManager].selectedItem;
+//        _bar.selectedFilter = [FUManager shareManager].selectedFilter;
+//        _bar.selectedBlur = [FUManager shareManager].selectedBlur;
+//        _bar.beautyLevel = [FUManager shareManager].beautyLevel;
+//        _bar.thinningLevel = [FUManager shareManager].thinningLevel;
+//        _bar.enlargingLevel = [FUManager shareManager].enlargingLevel;
+//        _bar.faceShapeLevel = [FUManager shareManager].faceShapeLevel;
+//        _bar.faceShape = [FUManager shareManager].faceShape;
+//        _bar.redLevel = [FUManager shareManager].redLevel;
+//        _bar.delegate = self;
+//
+//
+//    }
+//    return _bar ;
+//}
+//
 
 - (void)dealloc
 {
@@ -191,32 +191,32 @@
 }
 
 // 贴纸
-- (void)demoBarDidSelectedItem:(NSString *)item {
-    
-    [[FUManager shareManager] loadItem:item];
-}
-// 滤镜
-- (void)demoBarDidSelectedFilter:(NSString *)filter {
-    
-    [FUManager shareManager].selectedFilter = filter ;
-}
-// 美颜
-- (void)demoBarBeautyParamChanged {
-    
-    [self syncBeautyParams];
-}
-
-- (void)syncBeautyParams {
-    
-    [FUManager shareManager].selectedBlur = self.bar.selectedBlur;
-    [FUManager shareManager].redLevel = self.bar.redLevel ;
-    [FUManager shareManager].faceShapeLevel = self.bar.faceShapeLevel ;
-    [FUManager shareManager].faceShape = self.bar.faceShape ;
-    [FUManager shareManager].beautyLevel = self.bar.beautyLevel ;
-    [FUManager shareManager].thinningLevel = self.bar.thinningLevel ;
-    [FUManager shareManager].enlargingLevel = self.bar.enlargingLevel ;
-    [FUManager shareManager].selectedFilter = self.bar.selectedFilter ;
-}
+//- (void)demoBarDidSelectedItem:(NSString *)item {
+//    
+//    [[FUManager shareManager] loadItem:item];
+//}
+//// 滤镜
+//- (void)demoBarDidSelectedFilter:(NSString *)filter {
+//    
+//    [FUManager shareManager].selectedFilter = filter ;
+//}
+//// 美颜
+//- (void)demoBarBeautyParamChanged {
+//    
+//    [self syncBeautyParams];
+//}
+//
+//- (void)syncBeautyParams {
+//    
+//    [FUManager shareManager].selectedBlur = self.bar.selectedBlur;
+//    [FUManager shareManager].redLevel = self.bar.redLevel ;
+//    [FUManager shareManager].faceShapeLevel = self.bar.faceShapeLevel ;
+//    [FUManager shareManager].faceShape = self.bar.faceShape ;
+//    [FUManager shareManager].beautyLevel = self.bar.beautyLevel ;
+//    [FUManager shareManager].thinningLevel = self.bar.thinningLevel ;
+//    [FUManager shareManager].enlargingLevel = self.bar.enlargingLevel ;
+//    [FUManager shareManager].selectedFilter = self.bar.selectedFilter ;
+//}
 
 
 - (void)insertRowAtTop

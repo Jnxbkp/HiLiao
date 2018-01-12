@@ -150,6 +150,15 @@
 		3CC753552008828700C03C6B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CC7533F2008828700C03C6B /* Info.plist */; };
 		3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753412008828700C03C6B /* RCCallKitUtility.m */; };
 		3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753432008828700C03C6B /* RCCallFloatingBoard.m */; };
+		3CCBAFC32008A256003071D2 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC12008A256003071D2 /* PlayViewController.m */; };
+		3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC22008A256003071D2 /* PlayViewController.xib */; };
+		3CCBAFC82008A542003071D2 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
+		3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */; };
+		3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFE2008D772003071D2 /* mask_matianyu.png */; };
+		3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFF2008D773003071D2 /* EatRabbi.png */; };
+		3CCBB0052008D773003071D2 /* yazui.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0002008D773003071D2 /* yazui.png */; };
+		3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0012008D773003071D2 /* lixiaolong.png */; };
+		3CCBB0072008D773003071D2 /* yuguan.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0022008D773003071D2 /* yuguan.png */; };
 		3CFF061620078D4600E20FDE /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060420078D4600E20FDE /* yazui.bundle */; };
 		3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060520078D4600E20FDE /* yuguan.bundle */; };
 		3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060620078D4600E20FDE /* EatRabbi.bundle */; };
@@ -555,6 +564,17 @@
 		3CC753422008828700C03C6B /* RCCallFloatingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallFloatingBoard.h; sourceTree = "<group>"; };
 		3CC753432008828700C03C6B /* RCCallFloatingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallFloatingBoard.m; sourceTree = "<group>"; };
 		3CC753442008828700C03C6B /* RCCallKitUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallKitUtility.h; sourceTree = "<group>"; };
+		3CCBAFC02008A256003071D2 /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		3CCBAFC12008A256003071D2 /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		3CCBAFC22008A256003071D2 /* PlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
+		3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
+		3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayCollectionViewCell.m; sourceTree = "<group>"; };
+		3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayCollectionViewCell.xib; sourceTree = "<group>"; };
+		3CCBAFFE2008D772003071D2 /* mask_matianyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_matianyu.png; sourceTree = "<group>"; };
+		3CCBAFFF2008D773003071D2 /* EatRabbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EatRabbi.png; sourceTree = "<group>"; };
+		3CCBB0002008D773003071D2 /* yazui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yazui.png; sourceTree = "<group>"; };
+		3CCBB0012008D773003071D2 /* lixiaolong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lixiaolong.png; sourceTree = "<group>"; };
+		3CCBB0022008D773003071D2 /* yuguan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuguan.png; sourceTree = "<group>"; };
 		3CFF05FF20078D4600E20FDE /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
 		3CFF060020078D4600E20FDE /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		3CFF060220078D4600E20FDE /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
@@ -1565,6 +1585,11 @@
 		3CFF060120078D4600E20FDE /* Faceunity */ = {
 			isa = PBXGroup;
 			children = (
+				3CCBAFFF2008D773003071D2 /* EatRabbi.png */,
+				3CCBB0012008D773003071D2 /* lixiaolong.png */,
+				3CCBAFFE2008D772003071D2 /* mask_matianyu.png */,
+				3CCBB0002008D773003071D2 /* yazui.png */,
+				3CCBB0022008D773003071D2 /* yuguan.png */,
 				3CFF060220078D4600E20FDE /* authpack.h */,
 				3CFF060320078D4600E20FDE /* items */,
 				3CFF060A20078D4600E20FDE /* FaceUnity-SDK-iOS */,
@@ -1778,6 +1803,9 @@
 				E221B5CB1FF6182B00353875 /* MLDiscoverCollectionViewController.m */,
 				E221B5A71FF5DE9B00353875 /* MLDiscoverViewController.h */,
 				E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */,
+				3CCBAFC02008A256003071D2 /* PlayViewController.h */,
+				3CCBAFC12008A256003071D2 /* PlayViewController.m */,
+				3CCBAFC22008A256003071D2 /* PlayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1787,6 +1815,9 @@
 			children = (
 				E221B5CD1FF6184A00353875 /* MLDiscoverListCollectionViewCell.h */,
 				E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */,
+				3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */,
+				3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */,
+				3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2318,6 +2349,7 @@
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
+				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
@@ -2328,6 +2360,7 @@
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
+				3CCBB0072008D773003071D2 /* yuguan.png in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
@@ -2337,16 +2370,21 @@
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
+				3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */,
 				3CFF061F20078D4600E20FDE /* face_beautification.bundle in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
 				3CFF061920078D4600E20FDE /* mask_matianyu.bundle in Resources */,
 				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
+				3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
+				3CCBB0052008D773003071D2 /* yazui.png in Resources */,
+				3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */,
 				3CC753552008828700C03C6B /* Info.plist in Resources */,
 				3CFF061620078D4600E20FDE /* yazui.bundle in Resources */,
+				3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
@@ -2418,6 +2456,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MiLiao/Pods-MiLiao-resources.sh",
 				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunLanguageSource.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
@@ -2512,6 +2551,7 @@
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
+				3CCBAFC82008A542003071D2 /* PlayCollectionViewCell.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				3CC752A12008499D00C03C6B /* AliyunCompressManager.m in Sources */,
@@ -2586,6 +2626,7 @@
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,
 				3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */,
+				3CCBAFC32008A256003071D2 /* PlayViewController.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
@@ -2850,7 +2891,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2919,7 +2960,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
