@@ -28,7 +28,6 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = NO;
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, WIDTH-10, 44)];
-//    titleView.backgroundColor = [UIColor blueColor];
     
     UIButton *searchBut = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateNormal];
@@ -71,7 +70,7 @@
     [super updateViewConstraints];
 }
 
-//
+//跳转搜索页
 - (void)pushSearchVC:(UIButton *)button {
     MLSearchViewController *searchVC = [[MLSearchViewController alloc]init];
     [self.navigationController pushViewController:searchVC animated:YES];
@@ -123,11 +122,11 @@
         _magicController.view.translatesAutoresizingMaskIntoConstraints = NO;
         _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _magicController.magicView.navigationColor = [UIColor whiteColor];
-        _magicController.magicView.sliderColor = RGBCOLOR(169, 37, 37);
+        _magicController.magicView.sliderColor = NavColor;
         _magicController.magicView.switchStyle = VTSwitchStyleStiff;
         _magicController.magicView.layoutStyle = VTLayoutStyleDivide;
         _magicController.magicView.navigationHeight = 40.f;
-//        _magicController.magicView.againstStatusBar = YES;
+//        _magicController.magicView.
         _magicController.magicView.sliderExtension = 10.f;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
