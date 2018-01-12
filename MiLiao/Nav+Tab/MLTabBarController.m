@@ -9,7 +9,6 @@
 #import "MLTabBarController.h"
 #import "MLHomeViewController.h"
 #import "MLDiscoverViewController.h"
-#import "messageViewController.h"
 #import "MeViewController.h"
 #import "HLTabBar.h"
 #import "ViewController.h"

@@ -15,7 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - AliyunOSSiOS (2.8.0)
+  - AliyunPlayer_iOS/AliyunPlayerSDK (3.3.0)
+  - AliyunPlayer_iOS/AliyunVodPlayerSDK (3.3.0):
+    - AliyunPlayer_iOS/AliyunPlayerSDK
   - AliyunVideoCore (1.0.1)
+  - IQKeyboardManager (5.0.7)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
   - SDCycleScrollView (1.75):
@@ -46,6 +50,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - AliyunOSSiOS
+  - AliyunPlayer_iOS/AliyunVodPlayerSDK
+  - IQKeyboardManager
   - Masonry
   - MJRefresh (~> 3.1.15.1)
   - SDCycleScrollView (~> 1.75)
@@ -62,7 +68,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AliyunOSSiOS: e4668b7b2674da6c0aba1c8c09de7df879817407
+  AliyunPlayer_iOS: fe756e8c9ce19ab809fdaf479326469a3e174ff9
   AliyunVideoCore: 5d588e3cca7943f0fc1ce1cee91c90043dbceac3
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
@@ -73,6 +81,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: ca6c45002844aa733dba3873906b1037ef153d7d
+PODFILE CHECKSUM: 189778c3d9e3180c17f28f57ab5cb7b7b0509c8a
 
 COCOAPODS: 1.3.1

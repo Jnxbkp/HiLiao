@@ -22,23 +22,11 @@
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-//    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor:[UIColor colorWithHexString:@"7DC157"]] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
-//    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:17.0],
-//                                     NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]};
-//    self.navigationController.navigationBar.titleTextAttributes = textAttributes; // 导航栏标题字体大小及颜色
-//    self.navigationController.navigationBar.alpha = 1.00;
 }
 -(void)viewWillDisappear:(BOOL)animated
-
 {
-    
     [super viewWillDisappear:animated];
-    
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,10 +59,23 @@
     
     messageView *vc = [[NSBundle mainBundle] loadNibNamed:
                        @"messageView" owner:nil options:nil ].lastObject;
+    vc.tonghuaBlock = ^{
+        //我的通话
+        NSLog(@"我的通话");
+    };
+    vc.MBlock = ^{
+        //我的M币
+        NSLog(@"我的M币");
+
+    };
+    vc.xitongBlock = ^{
+        //系统通知
+        NSLog(@"系统通知");
+
+    };
     self.conversationListTableView.tableHeaderView = vc;
    
     
-//    self.conversationListTableView.tableHeaderView
     if ([self.conversationListTableView respondsToSelector:@selector (setSeparatorInset:)]) {
         [self.conversationListTableView setSeparatorInset:UIEdgeInsetsZero ];
         [self.conversationListTableView setSeparatorColor:[UIColor colorWithHexString:@"EEEEEE"]];

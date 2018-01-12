@@ -43,16 +43,22 @@
 //注册
 - (IBAction)registe:(id)sender {
     registerViewController *registerVC = [[registerViewController alloc]init];
-    [self presentViewController:registerVC animated:YES completion:^{
-        
-    }];
+//    [self presentViewController:registerVC animated:YES completion:^{
+    
+//    }];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 //登录
 - (IBAction)login:(id)sender {
+<<<<<<< HEAD
     
     [_password resignFirstResponder];
     [_phoneNum resignFirstResponder];
     
+=======
+    [self.view endEditing:YES];
+
+>>>>>>> 8c3ea693b74031a69479f1700dc2472d6f9e3552
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];

@@ -7,6 +7,11 @@
 //
 
 #import "MLDiscoverCollectionViewController.h"
+
+/**** Controller ****/
+#import "PlayViewController.h"
+
+
 #import "MLDiscoverListCollectionViewCell.h"
 
 #define IPHONELESS6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? 640 == [[UIScreen mainScreen] currentMode].size.width : NO)
@@ -93,6 +98,11 @@ static NSString *reuseIdentifier = @"grid.reuse.identifier";
 //    VTDetailViewController *detailViewController = [[VTDetailViewController alloc] init];
 //    detailViewController.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    PlayViewController *playController = [[PlayViewController alloc] init];
+    [self.navigationController pushViewController:playController animated:YES];
+    
+    
 }
 
 #pragma mark - VTMagicReuseProtocol
