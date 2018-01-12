@@ -61,6 +61,7 @@
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
+		185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */; };
 		186CBF15200497530023924D /* MessageeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF14200497530023924D /* MessageeViewController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
@@ -367,6 +368,8 @@
 		185A9F001FFE58A800110182 /* forgetNextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetNextViewController.h; sourceTree = "<group>"; };
 		185A9F011FFE58A800110182 /* forgetNextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetNextViewController.m; sourceTree = "<group>"; };
 		185A9F021FFE58A800110182 /* forgetNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetNextViewController.xib; sourceTree = "<group>"; };
+		185DC3BF20085763004E3842 /* RCDCustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDCustomerServiceViewController.h; sourceTree = "<group>"; };
+		185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDCustomerServiceViewController.m; sourceTree = "<group>"; };
 		186CBF13200497530023924D /* MessageeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageeViewController.h; sourceTree = "<group>"; };
 		186CBF14200497530023924D /* MessageeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageeViewController.m; sourceTree = "<group>"; };
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
@@ -943,6 +946,8 @@
 				185687912002138B003F1985 /* ChatListController.m */,
 				185687902002138B003F1985 /* ChatRoomController.h */,
 				185687932002138B003F1985 /* ChatRoomController.m */,
+				185DC3BF20085763004E3842 /* RCDCustomerServiceViewController.h */,
+				185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */,
 			);
 			path = "融云聊天";
 			sourceTree = "<group>";
@@ -2282,6 +2287,7 @@
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
 				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
+				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
 				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
@@ -2604,7 +2610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2659,7 +2665,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2671,7 +2677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2726,7 +2732,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

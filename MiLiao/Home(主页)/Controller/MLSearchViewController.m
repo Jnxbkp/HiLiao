@@ -9,49 +9,113 @@
 #import "MLSearchViewController.h"
 #import "HLSearchTableViewCell.h"
 
+#define searchTabTag        101
+#define likeTabTag          102
+
 @interface MLSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate> {
     UISearchBar     *_searchBar;
     UITableView     *_searchTableView;
-    UITableView     *_tableView;
+     UITableView    *_likeTableView;
     NSMutableArray  *_sugMuArr;
+    NSUserDefaults  *_userDefaults;
+    NSMutableArray  *_likeMuArr;
+    UIView  *_hisView;
+    NSMutableArray *_hisMuArr;
 }
 
 @end
 
 @implementation MLSearchViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     _sugMuArr = [NSMutableArray array];
+    _likeMuArr = [NSMutableArray array];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    _hisMuArr = [NSMutableArray arrayWithArray:[_userDefaults objectForKey:@"historyArr"]];
+    
+    [self addHisView];
     
     _searchBar = [[UISearchBar alloc] init];
     _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     _searchBar.delegate = self;
-    _searchBar.placeholder = @"请输入你想搜索的名字";
-    _searchBar.frame = CGRectMake(0, 22, WIDTH-60, 35);
+    _searchBar.placeholder = @"请输入";
+    _searchBar.frame = CGRectMake(10, 22, WIDTH-94, 35);
     _searchBar.layer.cornerRadius = 14.0;
     _searchBar.layer.masksToBounds = YES;
     _searchBar.tintColor = [UIColor blackColor];
     
     UIButton *cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancleButton.frame = CGRectMake(WIDTH-50, 22, 40, 35);
-    [cancleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    cancleButton.frame = CGRectMake(WIDTH-72, 22, 60, 35);
+    [cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    cancleButton.layer.cornerRadius = 6.0;
+    cancleButton.backgroundColor = NavColor;
     [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
-    cancleButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    cancleButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [cancleButton addTarget:self action:@selector(cancleClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_searchBar];
     [self.view addSubview:cancleButton];
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, WIDTH  , HEIGHT-64) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.rowHeight = 90;
-    _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _likeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, ML_TopHeight, WIDTH  , HEIGHT-ML_TopHeight) style:UITableViewStylePlain];
+    _likeTableView.tag = likeTabTag;
+    _likeTableView.delegate = self;
+    _likeTableView.dataSource = self;
+    _likeTableView.rowHeight = 90;
+    _likeTableView.backgroundColor = [UIColor whiteColor];
+    _likeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.view addSubview:_tableView];
+    [self.view addSubview:_likeTableView];
+    
+    _searchTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, ML_TopHeight, WIDTH  , HEIGHT-ML_TopHeight) style:UITableViewStylePlain];
+    _searchTableView.tag = searchTabTag;
+    _searchTableView.delegate = self;
+    _searchTableView.hidden = YES;
+    _searchTableView.dataSource = self;
+    _searchTableView.rowHeight = 90;
+    _searchTableView.backgroundColor = [UIColor whiteColor];
+    _searchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.view addSubview:_searchTableView];
+    
+    
+}
+- (void)addHisView {
+    
+    
+    
+    if (_hisMuArr.count == 0) {
+        
+    } else {
+        _hisView = [[UIView alloc]init];
+        _hisView.backgroundColor = [UIColor clearColor];
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 0, 100, 20)];
+        titleLabel.text = @"历史记录";
+        titleLabel.font = [UIFont systemFontOfSize:20.0 weight:0.6];
+        
+        UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        clearButton.frame = CGRectMake(WIDTH-72, 0, 60, 30);
+        clearButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
+        clearButton.backgroundColor = [UIColor redColor];
+        [clearButton addTarget:self action:@selector(clearButton:) forControlEvents:UIControlEventTouchUpInside];
+        [clearButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        
+        
+        [_hisView addSubview:titleLabel];
+        [_hisView addSubview:clearButton];
+    }
+    
+}
+//点击清空按钮
+- (void)clearButton:(UIButton *)butt {
+    [_userDefaults removeObjectForKey:@"historyArr"];
+    _hisMuArr = [NSMutableArray array];
+    _hisView.hidden = YES;
 }
 #pragma mark - tableview的组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,10 +123,25 @@
 }
 #pragma mark  tablecell每组个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectio {
-//    return _sugMuArr.count;
+    if (tableView.tag == likeTabTag) {
+        return 5;
+    }
     return 10;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (tableView.tag == likeTabTag) {
+        return 10;
+    }
+    return 0;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headView = [[UIView alloc]init];
+    headView.backgroundColor = [UIColor clearColor];
+    if (tableView.tag == likeTabTag) {
+        
+    }
+    return headView;
+}
 #pragma mark 添加tabelcell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"cell";
@@ -78,13 +157,16 @@
 }
 #pragma mark 点击tablecell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.tag == likeTabTag) {
+        
+    } else {
+        
+    }
     
 }
 - (void)cancleClick:(UIButton *)button {
-    [self dismissViewControllerAnimated:NO completion:^{
-        
-    }];
-
+    [self.navigationController popViewControllerAnimated:YES];
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
