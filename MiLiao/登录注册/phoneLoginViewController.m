@@ -49,7 +49,10 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-     
+    
+    [_password resignFirstResponder];
+    [_phoneNum resignFirstResponder];
+    
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];

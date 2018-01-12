@@ -182,12 +182,12 @@
 		E221B5931FF5D70000353875 /* MiLiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5921FF5D70000353875 /* MiLiaoUITests.m */; };
 		E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */; };
 		E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5BA1FF5DFD000353875 /* MLTabBarController.m */; };
-		E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5BD1FF5E83E00353875 /* MLHomeListTableViewController.m */; };
 		E221B5C11FF5E86300353875 /* MLHomeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */; };
 		E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5C51FF60EB500353875 /* MenuInfo.m */; };
 		E221B5C91FF60EB600353875 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5C71FF60EB600353875 /* DataManager.m */; };
 		E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5CB1FF6182B00353875 /* MLDiscoverCollectionViewController.m */; };
 		E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */; };
+		E24824EF20089B33000F1EC7 /* MainMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E24824EE20089B33000F1EC7 /* MainMananger.m */; };
 		E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */; };
 		E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E259293B1FFCA96600B6502D /* phoneLoginViewController.xib */; };
 		E25929441FFCA96700B6502D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293C1FFCA96600B6502D /* LoginViewController.m */; };
@@ -609,8 +609,6 @@
 		E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverViewController.m; sourceTree = "<group>"; };
 		E221B5B91FF5DFD000353875 /* MLTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLTabBarController.h; sourceTree = "<group>"; };
 		E221B5BA1FF5DFD000353875 /* MLTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLTabBarController.m; sourceTree = "<group>"; };
-		E221B5BC1FF5E83E00353875 /* MLHomeListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLHomeListTableViewController.h; sourceTree = "<group>"; };
-		E221B5BD1FF5E83E00353875 /* MLHomeListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLHomeListTableViewController.m; sourceTree = "<group>"; };
 		E221B5BF1FF5E86300353875 /* MLHomeListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLHomeListTableViewCell.h; sourceTree = "<group>"; };
 		E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLHomeListTableViewCell.m; sourceTree = "<group>"; };
 		E221B5C41FF60EB500353875 /* MenuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuInfo.h; sourceTree = "<group>"; };
@@ -621,6 +619,8 @@
 		E221B5CB1FF6182B00353875 /* MLDiscoverCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverCollectionViewController.m; sourceTree = "<group>"; };
 		E221B5CD1FF6184A00353875 /* MLDiscoverListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDiscoverListCollectionViewCell.h; sourceTree = "<group>"; };
 		E221B5CE1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDiscoverListCollectionViewCell.m; sourceTree = "<group>"; };
+		E24824ED20089B33000F1EC7 /* MainMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMananger.h; sourceTree = "<group>"; };
+		E24824EE20089B33000F1EC7 /* MainMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMananger.m; sourceTree = "<group>"; };
 		E25929361FFC8DAC00B6502D /* HLSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLSearchTableViewCell.h; sourceTree = "<group>"; };
 		E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLSearchTableViewCell.m; sourceTree = "<group>"; };
 		E259293A1FFCA96600B6502D /* phoneLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneLoginViewController.h; sourceTree = "<group>"; };
@@ -1747,6 +1747,8 @@
 				E221B5C51FF60EB500353875 /* MenuInfo.m */,
 				E221B5C61FF60EB600353875 /* DataManager.h */,
 				E221B5C71FF60EB600353875 /* DataManager.m */,
+				E24824ED20089B33000F1EC7 /* MainMananger.h */,
+				E24824EE20089B33000F1EC7 /* MainMananger.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1767,8 +1769,6 @@
 		E221B5B51FF5DF2800353875 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E221B5BC1FF5E83E00353875 /* MLHomeListTableViewController.h */,
-				E221B5BD1FF5E83E00353875 /* MLHomeListTableViewController.m */,
 				E221B5A41FF5DE8B00353875 /* MLHomeViewController.h */,
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
@@ -2578,7 +2578,7 @@
 				E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */,
 				3CC752A02008499D00C03C6B /* AliyunMediator.m in Sources */,
 				18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */,
-				E221B5BE1FF5E83E00353875 /* MLHomeListTableViewController.m in Sources */,
+				E24824EF20089B33000F1EC7 /* MainMananger.m in Sources */,
 				E2B77BD51FFDD64900597326 /* messageCell.m in Sources */,
 				18567F202001F568003F1985 /* BoardImageView.m in Sources */,
 				E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */,
@@ -2855,7 +2855,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2922,7 +2922,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
