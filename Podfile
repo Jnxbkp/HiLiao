@@ -17,4 +17,6 @@ pod 'AliyunOSSiOS'
 pod 'TTGTagCollectionView'
 pod 'VODUpload'
 
+pod 'Masonry'
+
 end

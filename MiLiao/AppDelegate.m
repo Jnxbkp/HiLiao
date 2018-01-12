@@ -12,6 +12,13 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
+
+#import "AppDelegate+SetupBeauty.h"
+
+#import "FUVideoFrameObserverManager.h"
+
+
+
 @interface AppDelegate () {
     NSUserDefaults *_userDefaults;
 }
@@ -50,7 +57,13 @@
     //融云
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
+    
+    [RCIM sharedRCIM].enableMessageAttachUserInfo =YES;
     [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
+//    [self setupBeauty];
+    
+    [FUVideoFrameObserverManager registerVideoFrameObserver];
+    
     return YES;
 }
 

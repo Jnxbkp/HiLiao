@@ -44,11 +44,9 @@ static NSString *kTempFolder = @"touxiang";
 
 @property (weak, nonatomic) IBOutlet UIButton *oneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *twoBtn;
-@property (weak, nonatomic) IBOutlet UIButton *threeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fourBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fiveBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sixBtn;
-@property (weak, nonatomic) IBOutlet UIButton *sevenBtn;
 @property (weak, nonatomic) IBOutlet UIButton *eightBtn;
 @property (weak, nonatomic) IBOutlet UILabel *hetght;
 @property (weak, nonatomic) IBOutlet UILabel *weight;
@@ -70,12 +68,10 @@ static NSString *kTempFolder = @"touxiang";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto:) name:@"photo" object:nil];
     [self.oneBtn setTag:1];
     [self.twoBtn setTag:2];
-    [self.threeBtn setTag:3];
-    [self.fourBtn setTag:4];
-    [self.fiveBtn setTag:5];
-    [self.sixBtn setTag:6];
-    [self.sevenBtn setTag:7];
-    [self.eightBtn setTag:8];
+    [self.fourBtn setTag:3];
+    [self.fiveBtn setTag:4];
+    [self.sixBtn setTag:5];
+    [self.eightBtn setTag:6];
 
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
@@ -215,86 +211,42 @@ static NSString *kTempFolder = @"touxiang";
 }
 - (void)takePhoto:(NSNotification *)note {
     if (BtnTag == 1) {
-        NSString *strOne = [NSString stringWithFormat:@"%@",[posters objectAtIndex:0]];
-        if (strOne.length >0) {
-            [posters replaceObjectAtIndex:0 withObject:result];
-            [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:0]]] forState:UIControlStateNormal];
-        }else{
-            [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:0]]] forState:UIControlStateNormal];
-        }
-        
+//        [posters replaceObjectAtIndex:0 withObject:result];
+
+        NSString *strOne = [NSString stringWithFormat:@"%@",result];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strOne]] forState:UIControlStateNormal];
    }
     if (BtnTag == 2) {
-        NSString *strTwo = [NSString stringWithFormat:@"%@",[posters objectAtIndex:1]];
-        if (strTwo.length>0) {
-            [posters replaceObjectAtIndex:1 withObject:result];
-            [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:1]]] forState:UIControlStateNormal];
-        }else{
-            [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:1]]] forState:UIControlStateNormal];
-        }
+//        [posters replaceObjectAtIndex:1 withObject:result];
+
+        NSString *strTwo = [NSString stringWithFormat:@"%@",result];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strTwo]] forState:UIControlStateNormal];
     }
+
     if (BtnTag == 3) {
-        NSString *strThree = [NSString stringWithFormat:@"%@",[posters objectAtIndex:2]];
-        if (strThree.length>0) {
-            [posters replaceObjectAtIndex:2 withObject:result];
-            [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:2]]] forState:UIControlStateNormal];
+//        [posters replaceObjectAtIndex:2 withObject:result];
 
-        }else{
-            [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:2]]] forState:UIControlStateNormal];
-
-        }
+        NSString *strFour = [NSString stringWithFormat:@"%@",result];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strFour]] forState:UIControlStateNormal];
     }
     if (BtnTag == 4) {
-        NSString *strFour = [NSString stringWithFormat:@"%@",[posters objectAtIndex:3]];
-        if (strFour.length>0) {
-            [posters replaceObjectAtIndex:3 withObject:result];
-            [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:3]]] forState:UIControlStateNormal];
+//        [posters replaceObjectAtIndex:3 withObject:result];
 
-        }else{
-            [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:3]]] forState:UIControlStateNormal];
-
-        }
-
-    }
-    if (BtnTag == 5) {
-        NSString *strFive = [NSString stringWithFormat:@"%@",[posters objectAtIndex:4]];
-        if (strFive.length>0) {
-            [posters replaceObjectAtIndex:4 withObject:result];
-            [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:4]]] forState:UIControlStateNormal];
-        }else{
-            [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:4]]] forState:UIControlStateNormal];
-        }
+        NSString *strFive = [NSString stringWithFormat:@"%@",result];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strFive]] forState:UIControlStateNormal];
    }
+    if (BtnTag == 5) {
+//        [posters replaceObjectAtIndex:4 withObject:result];
+
+        NSString *strSix = [NSString stringWithFormat:@"%@",result];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strSix]] forState:UIControlStateNormal];
+  }
+
     if (BtnTag == 6) {
-        NSString *strSix = [NSString stringWithFormat:@"%@",[posters objectAtIndex:5]];
-        if (strSix.length>0) {
-            [posters replaceObjectAtIndex:5 withObject:result];
-            [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:5]]] forState:UIControlStateNormal];
-        }else{
-            [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:5]]] forState:UIControlStateNormal];
-        }
-  }
-    if (BtnTag == 7) {
-        NSString *strSeven = [NSString stringWithFormat:@"%@",[posters objectAtIndex:6]];
-        if (strSeven.length>0) {
-            [posters replaceObjectAtIndex:6 withObject:result];
-            [self.sevenBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:6]]] forState:UIControlStateNormal];
+//        [posters replaceObjectAtIndex:5 withObject:result];
 
-        }else{
-            [self.sevenBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:6]]] forState:UIControlStateNormal];
-
-        }
-  }
-    if (BtnTag == 8) {
-        NSString *strEight = [NSString stringWithFormat:@"%@",[posters objectAtIndex:7]];
-        if (strEight.length>0) {
-            [posters replaceObjectAtIndex:7 withObject:result];
-            [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:7]]] forState:UIControlStateNormal];
-
-        }else{
-            [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[posters objectAtIndex:7]]] forState:UIControlStateNormal];
-
-        }
+        NSString *strEight = [NSString stringWithFormat:@"%@",result];
+        [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strEight]] forState:UIControlStateNormal];
   }
 
     [self.tableView reloadData];
