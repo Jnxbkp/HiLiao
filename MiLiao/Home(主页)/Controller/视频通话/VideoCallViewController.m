@@ -120,23 +120,6 @@
 }
 
 
-- (instancetype)initWithActiveCall:(RCCallSession *)callSession {
-    self = [super initWithActiveCall:callSession];
-    if (self) {
-        
-    }
-    return self;
-}
-
-
-- (instancetype)initWithIncomingCall:(RCCallSession *)callSession {
-    self = [super initWithIncomingCall:callSession];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -145,14 +128,6 @@
     
     //加载底部的美颜bar 并默认隐藏
     [self addBottomBar];
-    
-    //注册监听 美颜视频流
-    [FUVideoFrameObserverManager registerVideoFrameObserver];
-    
-    //初始化美颜
-    [[FUManager shareManager] setUpFaceunity];
-    
-
 }
 #pragma mark - 手势相关
 ///添加手势
@@ -181,8 +156,6 @@
     } else {
        self.closeControl = !self.isCloseControl;
     }
-   
-    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
