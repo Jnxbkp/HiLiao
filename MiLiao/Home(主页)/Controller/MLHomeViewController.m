@@ -26,13 +26,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, WIDTH-10, 44)];
+//    titleView.backgroundColor = [UIColor blueColor];
+    
+    UIButton *searchBut = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateNormal];
+    [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateHighlighted];
+    searchBut.frame = CGRectMake(19, 10, WIDTH-48, 28);
+
+    [searchBut addTarget:self action:@selector(pushSearchVC:) forControlEvents:UIControlEventTouchUpInside];
+    [titleView addSubview:searchBut];
+    self.navigationItem.titleView = titleView;
     
     self.view.backgroundColor = [UIColor grayColor];
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
-//    _magicController.magicView.layoutStyle = VTLayoutStyleDivide;
     [self.view setNeedsUpdateConstraints];
 //    [self integrateComponents];
     
@@ -60,23 +71,12 @@
     [super updateViewConstraints];
 }
 
-#pragma mark - functional methods
-- (void)integrateComponents {
-    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.backgroundColor = [UIColor redColor];
-    [searchButton addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
-    searchButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    searchButton.frame = CGRectMake(0, 0, kSearchBarWidth*5, 30);
-    [self.magicController.magicView setRightNavigatoinItem:searchButton];
+//
+- (void)pushSearchVC:(UIButton *)button {
+    MLSearchViewController *searchVC = [[MLSearchViewController alloc]init];
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
-#pragma mark - actions
-- (void)searchAction:(UIButton *)sender {
-    MLSearchViewController *searchVC = [[MLSearchViewController alloc]init];
-    [self presentViewController:searchVC animated:NO completion:^{
-        
-    }];
-}
 
 #pragma mark - VTMagicViewDataSource
 - (NSArray<NSString *> *)menuTitlesForMagicView:(VTMagicView *)magicView {
