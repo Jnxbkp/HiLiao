@@ -7,7 +7,7 @@
 //
 
 #import "FUVideoFrameObserverManager.h"
-#import <RongCallKit/RongCallKit.h>
+#import "RongCallKit.h"
 
 #ifndef FUVideoFrameObserver_hpp
 #define FUVideoFrameObserver_hpp

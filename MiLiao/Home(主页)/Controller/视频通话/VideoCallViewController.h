@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Jarvan-zhang. All rights reserved.
 //
 
-#import <RongCallKit/RCCallSingleCallViewController.h>
+#import "RCCallSingleCallViewController.h"
 
 @interface VideoCallViewController : RCCallSingleCallViewController
 
