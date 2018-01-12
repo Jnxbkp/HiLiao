@@ -39,7 +39,6 @@
 		18567F55200207C8003F1985 /* JResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F3F200207C7003F1985 /* JResource.bundle */; };
 		18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18567F41200207C7003F1985 /* AlipaySDK.bundle */; };
 		18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F42200207C7003F1985 /* AlipaySDK.framework */; };
-		18567F58200207C8003F1985 /* RongCallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F44200207C7003F1985 /* RongCallKit.framework */; };
 		18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5920020AE1003F1985 /* CFNetwork.framework */; };
 		18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5B20020AF3003F1985 /* CoreAudio.framework */; };
 		18567F5E20020AFC003F1985 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5D20020AFC003F1985 /* CoreGraphics.framework */; };
@@ -133,6 +132,25 @@
 		3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929781FFCBC3800B6502D /* FSLoopScrollView.m */; };
 		3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293F1FFCA96600B6502D /* phoneLoginViewController.m */; };
 		3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723C782005E3690024F2BC /* VideoCallViewController.m */; };
+		3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */; };
+		3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753172008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m */; };
+		3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753182008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m */; };
+		3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7531D2008828700C03C6B /* RCDAudioFrameObserver.mm */; };
+		3CC753492008828700C03C6B /* RCCallVideoMultiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7531F2008828700C03C6B /* RCCallVideoMultiCallViewController.m */; };
+		3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753212008828700C03C6B /* RCCallSingleCallViewController.m */; };
+		3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753232008828700C03C6B /* RCCallSelectMemberViewController.m */; };
+		3CC7534C2008828700C03C6B /* RCCallBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753242008828700C03C6B /* RCCallBaseViewController.m */; };
+		3CC7534D2008828700C03C6B /* RCCallAudioMultiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753262008828700C03C6B /* RCCallAudioMultiCallViewController.m */; };
+		3CC7534E2008828700C03C6B /* RCCallTipMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7532A2008828700C03C6B /* RCCallTipMessageCell.m */; };
+		3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7532C2008828700C03C6B /* RCCallMultiCallUserCell.m */; };
+		3CC753502008828700C03C6B /* RCCallSelectingMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7532D2008828700C03C6B /* RCCallSelectingMemberCell.m */; };
+		3CC753512008828700C03C6B /* RCCallDetailMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7532E2008828700C03C6B /* RCCallDetailMessageCell.m */; };
+		3CC753522008828700C03C6B /* RCCallUserCallInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753332008828700C03C6B /* RCCallUserCallInfoModel.m */; };
+		3CC753532008828700C03C6B /* RCCall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753352008828700C03C6B /* RCCall.mm */; };
+		3CC753542008828700C03C6B /* RCDVideoFrameObserver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753382008828700C03C6B /* RCDVideoFrameObserver.mm */; };
+		3CC753552008828700C03C6B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CC7533F2008828700C03C6B /* Info.plist */; };
+		3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753412008828700C03C6B /* RCCallKitUtility.m */; };
+		3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753432008828700C03C6B /* RCCallFloatingBoard.m */; };
 		3CFF061620078D4600E20FDE /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060420078D4600E20FDE /* yazui.bundle */; };
 		3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060520078D4600E20FDE /* yuguan.bundle */; };
 		3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060620078D4600E20FDE /* EatRabbi.bundle */; };
@@ -341,7 +359,6 @@
 		18567F3F200207C7003F1985 /* JResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JResource.bundle; sourceTree = "<group>"; };
 		18567F41200207C7003F1985 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		18567F42200207C7003F1985 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
-		18567F44200207C7003F1985 /* RongCallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongCallKit.framework; sourceTree = "<group>"; };
 		18567F5920020AE1003F1985 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18567F5B20020AF3003F1985 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		18567F5D20020AFC003F1985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -500,6 +517,48 @@
 		3CC752902008499D00C03C6B /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
 		3CC752922008499D00C03C6B /* QUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUProgressView.h; sourceTree = "<group>"; };
 		3CC752932008499D00C03C6B /* QUProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUProgressView.m; sourceTree = "<group>"; };
+		3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallKitExtensionModule.m; sourceTree = "<group>"; };
+		3CC753142008828700C03C6B /* RCCallKitExtensionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallKitExtensionModule.h; sourceTree = "<group>"; };
+		3CC753162008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCVideoMultiCallUserCollectionLayout.h; sourceTree = "<group>"; };
+		3CC753172008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAudioMultiCallUserCollectionLayout.m; sourceTree = "<group>"; };
+		3CC753182008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCVideoMultiCallUserCollectionLayout.m; sourceTree = "<group>"; };
+		3CC753192008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAudioMultiCallUserCollectionLayout.h; sourceTree = "<group>"; };
+		3CC7531A2008828700C03C6B /* RongCallKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongCallKit.h; sourceTree = "<group>"; };
+		3CC7531C2008828700C03C6B /* RCDAudioFrameObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDAudioFrameObserver.h; sourceTree = "<group>"; };
+		3CC7531D2008828700C03C6B /* RCDAudioFrameObserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCDAudioFrameObserver.mm; sourceTree = "<group>"; };
+		3CC7531F2008828700C03C6B /* RCCallVideoMultiCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallVideoMultiCallViewController.m; sourceTree = "<group>"; };
+		3CC753202008828700C03C6B /* RCCallBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallBaseViewController.h; sourceTree = "<group>"; };
+		3CC753212008828700C03C6B /* RCCallSingleCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallSingleCallViewController.m; sourceTree = "<group>"; };
+		3CC753222008828700C03C6B /* RCCallAudioMultiCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallAudioMultiCallViewController.h; sourceTree = "<group>"; };
+		3CC753232008828700C03C6B /* RCCallSelectMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallSelectMemberViewController.m; sourceTree = "<group>"; };
+		3CC753242008828700C03C6B /* RCCallBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallBaseViewController.m; sourceTree = "<group>"; };
+		3CC753252008828700C03C6B /* RCCallVideoMultiCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallVideoMultiCallViewController.h; sourceTree = "<group>"; };
+		3CC753262008828700C03C6B /* RCCallAudioMultiCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallAudioMultiCallViewController.m; sourceTree = "<group>"; };
+		3CC753272008828700C03C6B /* RCCallSingleCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallSingleCallViewController.h; sourceTree = "<group>"; };
+		3CC753282008828700C03C6B /* RCCallSelectMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallSelectMemberViewController.h; sourceTree = "<group>"; };
+		3CC7532A2008828700C03C6B /* RCCallTipMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallTipMessageCell.m; sourceTree = "<group>"; };
+		3CC7532B2008828700C03C6B /* RCCallDetailMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallDetailMessageCell.h; sourceTree = "<group>"; };
+		3CC7532C2008828700C03C6B /* RCCallMultiCallUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallMultiCallUserCell.m; sourceTree = "<group>"; };
+		3CC7532D2008828700C03C6B /* RCCallSelectingMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallSelectingMemberCell.m; sourceTree = "<group>"; };
+		3CC7532E2008828700C03C6B /* RCCallDetailMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallDetailMessageCell.m; sourceTree = "<group>"; };
+		3CC7532F2008828700C03C6B /* RCCallTipMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallTipMessageCell.h; sourceTree = "<group>"; };
+		3CC753302008828700C03C6B /* RCCallSelectingMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallSelectingMemberCell.h; sourceTree = "<group>"; };
+		3CC753312008828700C03C6B /* RCCallMultiCallUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallMultiCallUserCell.h; sourceTree = "<group>"; };
+		3CC753332008828700C03C6B /* RCCallUserCallInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallUserCallInfoModel.m; sourceTree = "<group>"; };
+		3CC753342008828700C03C6B /* RCCallUserCallInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallUserCallInfoModel.h; sourceTree = "<group>"; };
+		3CC753352008828700C03C6B /* RCCall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCCall.mm; sourceTree = "<group>"; };
+		3CC753362008828700C03C6B /* RCCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCall.h; sourceTree = "<group>"; };
+		3CC753382008828700C03C6B /* RCDVideoFrameObserver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCDVideoFrameObserver.mm; sourceTree = "<group>"; };
+		3CC753392008828700C03C6B /* RCDVideoFrameObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDVideoFrameObserver.h; sourceTree = "<group>"; };
+		3CC7533B2008828700C03C6B /* RongIMKitExtensionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongIMKitExtensionModel.h; sourceTree = "<group>"; };
+		3CC7533C2008828700C03C6B /* RCUserInfoCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserInfoCacheManager.h; sourceTree = "<group>"; };
+		3CC7533D2008828700C03C6B /* RCloudImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCloudImageLoader.h; sourceTree = "<group>"; };
+		3CC7533E2008828700C03C6B /* RCloudImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCloudImageView.h; sourceTree = "<group>"; };
+		3CC7533F2008828700C03C6B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CC753412008828700C03C6B /* RCCallKitUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallKitUtility.m; sourceTree = "<group>"; };
+		3CC753422008828700C03C6B /* RCCallFloatingBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallFloatingBoard.h; sourceTree = "<group>"; };
+		3CC753432008828700C03C6B /* RCCallFloatingBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCallFloatingBoard.m; sourceTree = "<group>"; };
+		3CC753442008828700C03C6B /* RCCallKitUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCallKitUtility.h; sourceTree = "<group>"; };
 		3CFF05FF20078D4600E20FDE /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
 		3CFF060020078D4600E20FDE /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		3CFF060220078D4600E20FDE /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
@@ -786,7 +845,6 @@
 				E2C6B9F22000818A006E0B2A /* AudioToolbox.framework in Frameworks */,
 				3CFF062020078D4600E20FDE /* FUAPIDemoBar.framework in Frameworks */,
 				E2C6B9EC20008170006E0B2A /* AssetsLibrary.framework in Frameworks */,
-				18567F58200207C8003F1985 /* RongCallKit.framework in Frameworks */,
 				18567F45200207C7003F1985 /* RongCallLib.framework in Frameworks */,
 				E2D1950A2003510500EAEE57 /* libNvStreamingSdkDeps.a in Frameworks */,
 				18567F53200207C8003F1985 /* JYangToolKit.framework in Frameworks */,
@@ -857,12 +915,12 @@
 		18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */ = {
 			isa = PBXGroup;
 			children = (
+				3CC753112008828700C03C6B /* RongCallKit */,
 				18567F26200207C7003F1985 /* CallLib */,
 				18567F29200207C7003F1985 /* IMLib */,
 				18567F2D200207C7003F1985 /* release_notes_ios.txt */,
 				18567F2E200207C7003F1985 /* IMKit */,
 				18567F35200207C7003F1985 /* RedPacket */,
-				18567F43200207C7003F1985 /* CallKit */,
 			);
 			path = Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable;
 			sourceTree = "<group>";
@@ -927,14 +985,6 @@
 				18567F42200207C7003F1985 /* AlipaySDK.framework */,
 			);
 			path = AlipaySDK;
-			sourceTree = "<group>";
-		};
-		18567F43200207C7003F1985 /* CallKit */ = {
-			isa = PBXGroup;
-			children = (
-				18567F44200207C7003F1985 /* RongCallKit.framework */,
-			);
-			path = CallKit;
 			sourceTree = "<group>";
 		};
 		1856878F2002136D003F1985 /* 融云聊天 */ = {
@@ -1384,6 +1434,127 @@
 				3CC752932008499D00C03C6B /* QUProgressView.m */,
 			);
 			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		3CC753112008828700C03C6B /* RongCallKit */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753122008828700C03C6B /* Extension */,
+				3CC753152008828700C03C6B /* Layout */,
+				3CC7531A2008828700C03C6B /* RongCallKit.h */,
+				3CC7531B2008828700C03C6B /* AudioObserver */,
+				3CC7531E2008828700C03C6B /* Controller */,
+				3CC753292008828700C03C6B /* Cell */,
+				3CC753322008828700C03C6B /* Model */,
+				3CC753352008828700C03C6B /* RCCall.mm */,
+				3CC753362008828700C03C6B /* RCCall.h */,
+				3CC753372008828700C03C6B /* VideoObserver */,
+				3CC7533A2008828700C03C6B /* Header */,
+				3CC7533F2008828700C03C6B /* Info.plist */,
+				3CC753402008828700C03C6B /* Utility */,
+			);
+			path = RongCallKit;
+			sourceTree = "<group>";
+		};
+		3CC753122008828700C03C6B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753142008828700C03C6B /* RCCallKitExtensionModule.h */,
+				3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3CC753152008828700C03C6B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753162008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.h */,
+				3CC753182008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m */,
+				3CC753172008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m */,
+				3CC753192008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.h */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		3CC7531B2008828700C03C6B /* AudioObserver */ = {
+			isa = PBXGroup;
+			children = (
+				3CC7531C2008828700C03C6B /* RCDAudioFrameObserver.h */,
+				3CC7531D2008828700C03C6B /* RCDAudioFrameObserver.mm */,
+			);
+			path = AudioObserver;
+			sourceTree = "<group>";
+		};
+		3CC7531E2008828700C03C6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3CC7531F2008828700C03C6B /* RCCallVideoMultiCallViewController.m */,
+				3CC753202008828700C03C6B /* RCCallBaseViewController.h */,
+				3CC753212008828700C03C6B /* RCCallSingleCallViewController.m */,
+				3CC753222008828700C03C6B /* RCCallAudioMultiCallViewController.h */,
+				3CC753232008828700C03C6B /* RCCallSelectMemberViewController.m */,
+				3CC753242008828700C03C6B /* RCCallBaseViewController.m */,
+				3CC753252008828700C03C6B /* RCCallVideoMultiCallViewController.h */,
+				3CC753262008828700C03C6B /* RCCallAudioMultiCallViewController.m */,
+				3CC753272008828700C03C6B /* RCCallSingleCallViewController.h */,
+				3CC753282008828700C03C6B /* RCCallSelectMemberViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3CC753292008828700C03C6B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3CC7532A2008828700C03C6B /* RCCallTipMessageCell.m */,
+				3CC7532B2008828700C03C6B /* RCCallDetailMessageCell.h */,
+				3CC7532C2008828700C03C6B /* RCCallMultiCallUserCell.m */,
+				3CC7532D2008828700C03C6B /* RCCallSelectingMemberCell.m */,
+				3CC7532E2008828700C03C6B /* RCCallDetailMessageCell.m */,
+				3CC7532F2008828700C03C6B /* RCCallTipMessageCell.h */,
+				3CC753302008828700C03C6B /* RCCallSelectingMemberCell.h */,
+				3CC753312008828700C03C6B /* RCCallMultiCallUserCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3CC753322008828700C03C6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753332008828700C03C6B /* RCCallUserCallInfoModel.m */,
+				3CC753342008828700C03C6B /* RCCallUserCallInfoModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3CC753372008828700C03C6B /* VideoObserver */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753382008828700C03C6B /* RCDVideoFrameObserver.mm */,
+				3CC753392008828700C03C6B /* RCDVideoFrameObserver.h */,
+			);
+			path = VideoObserver;
+			sourceTree = "<group>";
+		};
+		3CC7533A2008828700C03C6B /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				3CC7533B2008828700C03C6B /* RongIMKitExtensionModel.h */,
+				3CC7533C2008828700C03C6B /* RCUserInfoCacheManager.h */,
+				3CC7533D2008828700C03C6B /* RCloudImageLoader.h */,
+				3CC7533E2008828700C03C6B /* RCloudImageView.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		3CC753402008828700C03C6B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3CC753412008828700C03C6B /* RCCallKitUtility.m */,
+				3CC753422008828700C03C6B /* RCCallFloatingBoard.h */,
+				3CC753432008828700C03C6B /* RCCallFloatingBoard.m */,
+				3CC753442008828700C03C6B /* RCCallKitUtility.h */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		3CFF05FE20078D4600E20FDE /* FaceUnity */ = {
@@ -2184,6 +2355,7 @@
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
+				3CC753552008828700C03C6B /* Info.plist in Resources */,
 				3CFF061620078D4600E20FDE /* yazui.bundle in Resources */,
 				E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
@@ -2272,6 +2444,7 @@
 			files = (
 				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
+				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
@@ -2280,8 +2453,10 @@
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				3CC753492008828700C03C6B /* RCCallVideoMultiCallViewController.m in Sources */,
 				3CC7529E2008499D00C03C6B /* AliyunAlbumViewController.m in Sources */,
 				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
+				3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */,
 				3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
@@ -2290,13 +2465,16 @@
 				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
 				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
+				3CC753542008828700C03C6B /* RCDVideoFrameObserver.mm in Sources */,
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */,
+				3CC753502008828700C03C6B /* RCCallSelectingMemberCell.m in Sources */,
 				3CC752AE2008499E00C03C6B /* QPSSZipArchive.m in Sources */,
+				3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */,
 				3CC752BA2008499E00C03C6B /* FMDatabase.m in Sources */,
 				186CBF15200497530023924D /* MessageeViewController.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
@@ -2312,19 +2490,24 @@
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E221B5CC1FF6182B00353875 /* MLDiscoverCollectionViewController.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
+				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
 				3CC752992008499D00C03C6B /* AliyunLibraryMusicImport.m in Sources */,
 				3CC752BB2008499E00C03C6B /* FMDatabasePool.m in Sources */,
 				3CC752B92008499E00C03C6B /* FMDatabaseAdditions.m in Sources */,
+				3CC7534D2008828700C03C6B /* RCCallAudioMultiCallViewController.m in Sources */,
 				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
 				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
 				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
+				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
+				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */,
+				3CC753512008828700C03C6B /* RCCallDetailMessageCell.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
@@ -2342,16 +2525,19 @@
 				186CBF182004B2D50023924D /* messageView.m in Sources */,
 				3CC752B22008499E00C03C6B /* mztools.c in Sources */,
 				3CC752C22008499E00C03C6B /* JSONHTTPClient.m in Sources */,
+				3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
+				3CC753522008828700C03C6B /* RCCallUserCallInfoModel.m in Sources */,
 				3CC7529A2008499D00C03C6B /* AliyunMediaConfig.m in Sources */,
 				3CC752A42008499D00C03C6B /* AliyunCompositionPickView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
+				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
@@ -2364,6 +2550,7 @@
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
 				3CC752C42008499E00C03C6B /* JSONModel+networking.m in Sources */,
+				3CC7534E2008828700C03C6B /* RCCallTipMessageCell.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
@@ -2379,6 +2566,7 @@
 				3CC752B02008499E00C03C6B /* zip.c in Sources */,
 				E2D1953120035DD400EAEE57 /* GenerationView.m in Sources */,
 				E221B57E1FF5D6FF00353875 /* main.m in Sources */,
+				3CC7534C2008828700C03C6B /* RCCallBaseViewController.m in Sources */,
 				3CC752A82008499E00C03C6B /* AliyunPublishService.m in Sources */,
 				E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
@@ -2403,6 +2591,7 @@
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,
+				3CC7534F2008828700C03C6B /* RCCallMultiCallUserCell.m in Sources */,
 				E2C6B9E420008075006E0B2A /* UIView+Frame.m in Sources */,
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
@@ -2416,6 +2605,7 @@
 				E221B5701FF5D6FF00353875 /* AppDelegate.m in Sources */,
 				E221B5A61FF5DE8B00353875 /* MLHomeViewController.m in Sources */,
 				1877240D2000789000A93345 /* NickNameViewController.m in Sources */,
+				3CC753532008828700C03C6B /* RCCall.mm in Sources */,
 				3CC752BF2008499E00C03C6B /* JSONModel.m in Sources */,
 				3CC752B82008499E00C03C6B /* FMDatabaseQueue.m in Sources */,
 			);
@@ -2610,7 +2800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2665,7 +2855,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2677,7 +2867,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2732,7 +2922,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -20,7 +20,7 @@
 #import "ChatListController.h"
 #import "ChatRoomController.h"
 
-#import <RongCallKit/RongCallKit.h>
+#import "RongCallKit.h"
 #import <RongIMKit/RongIMKit.h>
 
 #import "VideoCallViewController.h"
