@@ -16,7 +16,7 @@
 #import "FUManager.h"
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
 
-@interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate>
+@interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong) RCUserInfo *remoteUserInfo;
 
@@ -130,11 +130,24 @@
     //加载手势
     [self loadGesture];
     
+    //加载底部的美颜bar 并默认隐藏
+    [self addBottomBar];
+    
     //注册监听 美颜视频流
     [FUVideoFrameObserverManager registerVideoFrameObserver];
     
     //初始化美颜
     [[FUManager shareManager] setUpFaceunity];
+}
+
+//加载底部的美颜bar,并默认隐藏
+- (void)addBottomBar {
+    [self.view addSubview:self.bar];
+    [self.bar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@208);
+    }];
+    self.bar.hidden = YES;
 }
 
 #pragma mark - FUAPIDemoBarDelegate
@@ -183,6 +196,26 @@
         self.closeControl = !self.isCloseControl;
     }
 }
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
+
+#pragma mark - 控件点击方法
+//静音按钮
+- (void)didTapMuteButton {
+    //隐藏相关控件
+    self.closeControl = YES;
+    //显示底部的美颜bar
+    self.showBar = YES;
+}
+
+//点击切换前后摄像头
+- (void)didTapCameraSwitchButton {
+    [[FUManager shareManager] onCameraChange];
+}
+
+
 
 - (RCloudImageView *)remotePortraitView {
     if (!_remotePortraitView) {
@@ -383,6 +416,9 @@
             self.remotePortraitView.alpha = 1.0;
         }
     }
+    
+    //将最小化按钮移除 暂时用不到此按钮
+    self.minimizeButton.hidden = YES;
 }
 
 - (void)resetRemoteUserInfoIfNeed {
@@ -421,6 +457,8 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[FUManager shareManager] destoryFaceunityItems];
 }
 
 @end
