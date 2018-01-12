@@ -13,6 +13,8 @@
 #import "FUManager.h"
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
 
+#import "FUVideoFrameObserverManager.h"
+
 
 @interface VideoCallViewController ()<RCCallReceiveDelegate, FUAPIDemoBarDelegate, UIGestureRecognizerDelegate>
 
@@ -53,7 +55,7 @@
  */
 -(FUAPIDemoBar *)bar {
     if (!_bar ) {
-        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 208)];
+        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 208)];
         
         _bar.itemsDataSource =  [FUManager shareManager].itemsDataSource;
         _bar.filtersDataSource = [FUManager shareManager].filtersDataSource;
@@ -83,6 +85,8 @@
     }
 }
 
+
+///显示或隐藏底部的美颜bar
 - (void)setShowBar:(BOOL)showBar {
     _showBar = showBar;
     self.bar.hidden = !showBar;
@@ -116,37 +120,38 @@
 }
 
 
+- (instancetype)initWithActiveCall:(RCCallSession *)callSession {
+    self = [super initWithActiveCall:callSession];
+    if (self) {
+        
+    }
+    return self;
+}
+
+
+- (instancetype)initWithIncomingCall:(RCCallSession *)callSession {
+    self = [super initWithIncomingCall:callSession];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //加载手势
-//    [self loadGesture];
-//    //加载底部的美颜bar
-//    [self addBottomBar];
+    [self loadGesture];
     
-//    UILabel *label = [[UILabel alloc] init];
-//    label.font = [UIFont systemFontOfSize:12];
-//    label.textColor = [UIColor orangeColor];
-//    [self.mainVideoView addSubview:label];
-//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.mainVideoView).offset(20);
-//        make.centerX.equalTo(self.mainVideoView);
-//    }];
+    //加载底部的美颜bar 并默认隐藏
+    [self addBottomBar];
     
-//    NSLog(@"\n\n\n 通话时长label%p", self.timeLabel);
+    //注册监听 美颜视频流
+    [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-        // 将 FUAPIDemoBar 添加到页面上
-        [[UIApplication sharedApplication].keyWindow addSubview:self.bar];
-        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.bar];
-
-        // 初始化Faceunity
-        [[FUManager shareManager] setUpFaceunity];
-        [FUManager shareManager].enableGesture = YES;
-
-
-
-    });
+    //初始化美颜
+    [[FUManager shareManager] setUpFaceunity];
+    
 
 }
 #pragma mark - 手势相关
