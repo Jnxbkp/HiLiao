@@ -17,5 +17,17 @@
     // Drawing code
 }
 */
+- (IBAction)btn:(UIButton *)sender {
+    if (sender == self.btnTonghua) {
+        
+    }
+    if (sender == self.btnM) {
+        
+    }
+    if (sender == self.xitongBtn) {
+        
+    }
+}
+
 
 @end
