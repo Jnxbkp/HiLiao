@@ -1439,9 +1439,9 @@
 		3CC753112008828700C03C6B /* RongCallKit */ = {
 			isa = PBXGroup;
 			children = (
+				3CC7531A2008828700C03C6B /* RongCallKit.h */,
 				3CC753122008828700C03C6B /* Extension */,
 				3CC753152008828700C03C6B /* Layout */,
-				3CC7531A2008828700C03C6B /* RongCallKit.h */,
 				3CC7531B2008828700C03C6B /* AudioObserver */,
 				3CC7531E2008828700C03C6B /* Controller */,
 				3CC753292008828700C03C6B /* Cell */,
