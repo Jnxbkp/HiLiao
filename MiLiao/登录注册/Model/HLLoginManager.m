@@ -148,7 +148,7 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
-    [manager GET:[NSString stringWithFormat:@"%@/v1/oss/getRongYunToken?token=%@?userId=%@",HLRequestUrl,token,userId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@/v1/user/getUserInfo?token=%@?userId=%@",HLRequestUrl,token,userId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
@@ -156,7 +156,7 @@
         failure(error);
     }];
 }
-// GET /v1/oss/getRongYunToken 获取融云Token
+// GET /v1/oss/getRongYunToken 获取融云Token /v1/oss/getRongYunToken
 + (void)NetGetupdateRongYunToken:(NSString *)token  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];

@@ -11,7 +11,9 @@
 #import "messageView.h"
 //#import "DatingModel.h"
 @interface ChatListController ()<RCIMUserInfoDataSource>
-
+{
+    NSUserDefaults *_userDefaults;
+}
 @end
 
 @implementation ChatListController
@@ -46,6 +48,8 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"消息"];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+
     // Do any additional setup after loading the view.
     //重写显示相关的接口，必须先调用super，否则会屏蔽SDK默认的处理
     //设置需要显示哪些类型的会话
@@ -94,12 +98,16 @@
                    completion:(void (^)(RCUserInfo *userInfo))completion {
     //通过刷新列表给cell赋值
     NSLog(@"userid 聊天聊天列表 ==== %@",userId);
-//    [[APIManager ShardInstance] postGetUserMessageDataUser_id:userId resultBlock:^(NSDictionary *data, NSError *error) {
-//        if (error) return;
-//        UserChatMegModel *model = [UserChatMegModel mj_objectWithKeyValues:data[@"list"]];
-     RCUserInfo *info = [[RCUserInfo alloc] initWithUserId:userId name:@"网玉玉" portrait:@"http://xbkp-nihao.oss-cn-beijing.aliyuncs.com/touxiang/1515226320jv.jpg"];
-        completion(info);
-//    }];
+    [HLLoginManager NetGetgetUserInfoToken:[_userDefaults objectForKey:@"token"] UserId:userId success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        RCUserInfo *infoo = [[RCUserInfo alloc] initWithUserId:userId name:info[@"data"][@"nickName"] portrait:info[@"data"][@"headUrl"]];
+        completion(infoo);
+    } failure:^(NSError *error) {
+        
+    }];
+
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

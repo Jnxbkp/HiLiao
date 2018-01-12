@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor grayColor];
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -33,7 +34,7 @@
     [self.view addSubview:_magicController.view];
 //    _magicController.magicView.layoutStyle = VTLayoutStyleDivide;
     [self.view setNeedsUpdateConstraints];
-    [self integrateComponents];
+//    [self integrateComponents];
     
     [self generateTestData];
     [_magicController.magicView reloadData];
@@ -42,7 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)updateViewConstraints {
@@ -63,7 +64,6 @@
 - (void)integrateComponents {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.backgroundColor = [UIColor redColor];
-//    [searchButton setImage:[UIImage imageNamed:@"magic_search"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
     searchButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     searchButton.frame = CGRectMake(0, 0, kSearchBarWidth*5, 30);
@@ -121,13 +121,14 @@
     if (!_magicController) {
         _magicController = [[VTMagicController alloc] init];
         _magicController.view.translatesAutoresizingMaskIntoConstraints = NO;
-        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, kSearchBarWidth, 0, 0);
+        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _magicController.magicView.navigationColor = [UIColor whiteColor];
         _magicController.magicView.sliderColor = RGBCOLOR(169, 37, 37);
-        _magicController.magicView.switchStyle = VTSwitchStyleDefault;
+        _magicController.magicView.switchStyle = VTSwitchStyleStiff;
         _magicController.magicView.layoutStyle = VTLayoutStyleDivide;
-        _magicController.magicView.navigationHeight = 44.f;
-        _magicController.magicView.againstStatusBar = YES;
+        _magicController.magicView.navigationHeight = 40.f;
+//        _magicController.magicView.againstStatusBar = YES;
+        _magicController.magicView.sliderExtension = 10.f;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
     }
