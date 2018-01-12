@@ -10,6 +10,7 @@
 #import "MyMoneyViewController.h"
 #import "edttViewController.h"
 #import "IdentificationVController.h"
+#import "RCDCustomerServiceViewController.h"
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
@@ -87,7 +88,12 @@
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //客服
-            
+            RCDCustomerServiceViewController *chatService = [[RCDCustomerServiceViewController alloc] init];
+            chatService.userName = @"客服";
+            chatService.conversationType = ConversationType_CUSTOMERSERVICE;
+            chatService.targetId = @"KEFU151540013396895";
+            chatService.title = chatService.userName;
+            [self.navigationController pushViewController :chatService animated:YES];
         }
         if (indexPath.row == 1) {
             //帮助
