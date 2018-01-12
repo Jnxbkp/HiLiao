@@ -19,13 +19,19 @@
 */
 - (IBAction)btn:(UIButton *)sender {
     if (sender == self.btnTonghua) {
-        
+        if (self.tonghuaBlock) {
+            self.tonghuaBlock();
+        }
     }
     if (sender == self.btnM) {
-        
+        if (self.MBlock) {
+            self.MBlock();
+        }
     }
     if (sender == self.xitongBtn) {
-        
+        if (self.xitongBlock) {
+            self.xitongBlock();
+        }
     }
 }
 

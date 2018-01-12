@@ -26,29 +26,28 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUr-p7-Bl3">
                     <rect key="frame" x="42" y="110" width="291" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x4W-UV-Zt8">
-                            <rect key="frame" x="8" y="8" width="25" height="27"/>
-                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="P6v-fy-Ba6"/>
-                            </constraints>
-                        </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TL4-Fy-SNu">
                             <rect key="frame" x="41" y="8" width="242" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mima" translatesAutoresizingMaskIntoConstraints="NO" id="x4W-UV-Zt8">
+                            <rect key="frame" x="8" y="13" width="15" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="P6v-fy-Ba6"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="TL4-Fy-SNu" firstAttribute="top" secondItem="QUr-p7-Bl3" secondAttribute="top" constant="8" id="5ek-Nv-RwW"/>
-                        <constraint firstItem="x4W-UV-Zt8" firstAttribute="top" secondItem="QUr-p7-Bl3" secondAttribute="top" constant="8" id="6Md-Vd-ckL"/>
+                        <constraint firstItem="x4W-UV-Zt8" firstAttribute="top" secondItem="QUr-p7-Bl3" secondAttribute="top" constant="13" id="6Md-Vd-ckL"/>
                         <constraint firstAttribute="height" constant="44" id="BWy-On-cvo"/>
-                        <constraint firstItem="TL4-Fy-SNu" firstAttribute="leading" secondItem="x4W-UV-Zt8" secondAttribute="trailing" constant="8" id="H3O-oB-9D0"/>
+                        <constraint firstItem="TL4-Fy-SNu" firstAttribute="leading" secondItem="x4W-UV-Zt8" secondAttribute="trailing" constant="18" id="H3O-oB-9D0"/>
                         <constraint firstAttribute="trailing" secondItem="TL4-Fy-SNu" secondAttribute="trailing" constant="8" id="YOp-aQ-cFj"/>
                         <constraint firstAttribute="width" constant="291" id="fXC-OT-O5r"/>
-                        <constraint firstAttribute="bottom" secondItem="x4W-UV-Zt8" secondAttribute="bottom" constant="9" id="jD9-6F-a94"/>
+                        <constraint firstAttribute="bottom" secondItem="x4W-UV-Zt8" secondAttribute="bottom" constant="13" id="jD9-6F-a94"/>
                         <constraint firstAttribute="bottom" secondItem="TL4-Fy-SNu" secondAttribute="bottom" constant="6" id="uoh-yd-30J"/>
                         <constraint firstItem="x4W-UV-Zt8" firstAttribute="leading" secondItem="QUr-p7-Bl3" secondAttribute="leading" constant="8" id="vDq-Qa-zMj"/>
                     </constraints>
@@ -81,7 +80,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVl-vU-ofN">
                     <rect key="frame" x="221" y="162" width="112" height="44"/>
-                    <color key="backgroundColor" red="0.8901960784313725" green="0.33725490196078434" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="gGx-nf-7Ow"/>
                     </constraints>
@@ -125,10 +124,8 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="12D-iK-pPy">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-        </button>
     </objects>
+    <resources>
+        <image name="mima" width="14" height="18"/>
+    </resources>
 </document>

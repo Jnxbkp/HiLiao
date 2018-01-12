@@ -71,10 +71,18 @@
     
     messageView *vc = [[NSBundle mainBundle] loadNibNamed:
                        @"messageView" owner:nil options:nil ].lastObject;
+    vc.tonghuaBlock = ^{
+        
+    };
+    vc.MBlock = ^{
+        
+    };
+    vc.xitongBlock = ^{
+        
+    };
     self.conversationListTableView.tableHeaderView = vc;
    
     
-//    self.conversationListTableView.tableHeaderView
     if ([self.conversationListTableView respondsToSelector:@selector (setSeparatorInset:)]) {
         [self.conversationListTableView setSeparatorInset:UIEdgeInsetsZero ];
         [self.conversationListTableView setSeparatorColor:[UIColor colorWithHexString:@"EEEEEE"]];

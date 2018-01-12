@@ -24,30 +24,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTl-c4-8OS">
                     <rect key="frame" x="47" y="96" width="280" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ywe-50-ZHu">
-                            <rect key="frame" x="8" y="9" width="25" height="27"/>
-                            <color key="backgroundColor" red="0.89019607840000003" green="0.33725490200000002" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="jVr-cf-lqv"/>
-                            </constraints>
-                        </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="al6-1j-kdc">
                             <rect key="frame" x="41" y="9" width="239" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mima" translatesAutoresizingMaskIntoConstraints="NO" id="ywe-50-ZHu">
+                            <rect key="frame" x="8" y="14" width="14" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="14" id="jVr-cf-lqv"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="ywe-50-ZHu" secondAttribute="bottom" constant="8" id="8t3-sf-khM"/>
+                        <constraint firstAttribute="bottom" secondItem="ywe-50-ZHu" secondAttribute="bottom" constant="10" id="8t3-sf-khM"/>
                         <constraint firstItem="ywe-50-ZHu" firstAttribute="leading" secondItem="TTl-c4-8OS" secondAttribute="leading" constant="8" id="9xa-yH-qQF"/>
-                        <constraint firstItem="al6-1j-kdc" firstAttribute="leading" secondItem="ywe-50-ZHu" secondAttribute="trailing" constant="8" id="H2A-TH-3Sd"/>
+                        <constraint firstItem="al6-1j-kdc" firstAttribute="leading" secondItem="ywe-50-ZHu" secondAttribute="trailing" constant="19" id="H2A-TH-3Sd"/>
                         <constraint firstAttribute="bottom" secondItem="al6-1j-kdc" secondAttribute="bottom" constant="5" id="IQQ-dY-5e8"/>
                         <constraint firstAttribute="width" constant="280" id="JhU-Kt-ODQ"/>
                         <constraint firstAttribute="trailing" secondItem="al6-1j-kdc" secondAttribute="trailing" id="QCs-ho-j5W"/>
                         <constraint firstAttribute="height" constant="44" id="bgC-xh-sDB"/>
-                        <constraint firstItem="ywe-50-ZHu" firstAttribute="top" secondItem="TTl-c4-8OS" secondAttribute="top" constant="9" id="nQ8-aq-E45"/>
+                        <constraint firstItem="ywe-50-ZHu" firstAttribute="top" secondItem="TTl-c4-8OS" secondAttribute="top" constant="14" id="nQ8-aq-E45"/>
                         <constraint firstItem="al6-1j-kdc" firstAttribute="top" secondItem="TTl-c4-8OS" secondAttribute="top" constant="9" id="vyK-n6-T7n"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -66,7 +65,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKR-WN-eXo">
                     <rect key="frame" x="47" y="222" width="280" height="44"/>
-                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="7IL-Lb-7YH"/>
                         <constraint firstAttribute="width" constant="280" id="AHe-XH-3yQ"/>
@@ -95,4 +94,7 @@
             <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="mima" width="14" height="18"/>
+    </resources>
 </document>
