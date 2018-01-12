@@ -168,23 +168,24 @@
         [self.navigationController pushViewController:chat animated:YES];
     } else {
         
-//        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
-//
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//            // 将 FUAPIDemoBar 添加到页面上
-//            [[UIApplication sharedApplication].keyWindow addSubview:self.bar];
-//            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.bar];
-//
-//            // 初始化Faceunity
-//            [[FUManager shareManager] setUpFaceunity];
-//
-//        });
+        [[RCCall sharedRCCall] startSingleCall:@"18678899778"
+                                     mediaType:RCCallMediaVideo];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            // 将 FUAPIDemoBar 添加到页面上
+            [[UIApplication sharedApplication].keyWindow addSubview:self.bar];
+            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.bar];
+            
+            // 初始化Faceunity
+            [[FUManager shareManager] setUpFaceunity];
+            
+        });
 //        // 初始化Faceunity
 //        [[FUManager shareManager] setUpFaceunity];
         
-        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-        [self presentViewController:callViewController animated:YES completion:nil];
+//        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+//        [self presentViewController:callViewController animated:YES completion:nil];
 
     }
 }
