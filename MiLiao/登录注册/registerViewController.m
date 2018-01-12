@@ -29,12 +29,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"注册"];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    
+    [self.navigationController setNavigationBarHidden:NO];
+
 }
 //- (void)viewWillDisappear:(BOOL)animated{
 //    self.navigationController.navigationBarHidden = NO;

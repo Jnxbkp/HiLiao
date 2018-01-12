@@ -43,9 +43,10 @@
 //注册
 - (IBAction)registe:(id)sender {
     registerViewController *registerVC = [[registerViewController alloc]init];
-    [self presentViewController:registerVC animated:YES completion:^{
-        
-    }];
+//    [self presentViewController:registerVC animated:YES completion:^{
+    
+//    }];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 //登录
 - (IBAction)login:(id)sender {
