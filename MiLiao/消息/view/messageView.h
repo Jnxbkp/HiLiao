@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^BackBlock)(NSString * text);
 
 @interface messageView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *btnTonghua;
+@property (weak, nonatomic) IBOutlet UIButton *btnM;
+@property (weak, nonatomic) IBOutlet UIButton *xitongBtn;
+@property (nonatomic, copy) BackBlock backBlock;
 
 @end
