@@ -61,7 +61,6 @@
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
 		185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */; };
-		186CBF15200497530023924D /* MessageeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF14200497530023924D /* MessageeViewController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
 		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
@@ -194,7 +193,6 @@
 		E25929451FFCA96700B6502D /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293D1FFCA96600B6502D /* registerViewController.m */; };
 		E25929461FFCA96700B6502D /* registerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E259293E1FFCA96600B6502D /* registerViewController.xib */; };
 		E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25929401FFCA96600B6502D /* LoginViewController.xib */; };
-		E25929551FFCA97200B6502D /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929531FFCA97200B6502D /* messageViewController.m */; };
 		E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295A1FFCBC1700B6502D /* FSBaseTopTableViewCell.m */; };
 		E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295B1FFCBC1700B6502D /* FSBaselineTableViewCell.m */; };
 		E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E259295E1FFCBC1700B6502D /* FSBottomTableViewCell.m */; };
@@ -387,8 +385,6 @@
 		185A9F021FFE58A800110182 /* forgetNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetNextViewController.xib; sourceTree = "<group>"; };
 		185DC3BF20085763004E3842 /* RCDCustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDCustomerServiceViewController.h; sourceTree = "<group>"; };
 		185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDCustomerServiceViewController.m; sourceTree = "<group>"; };
-		186CBF13200497530023924D /* MessageeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageeViewController.h; sourceTree = "<group>"; };
-		186CBF14200497530023924D /* MessageeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageeViewController.m; sourceTree = "<group>"; };
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
 		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
 		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
@@ -632,8 +628,6 @@
 		E25929401FFCA96600B6502D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E25929411FFCA96600B6502D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E25929421FFCA96600B6502D /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
-		E25929531FFCA97200B6502D /* messageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageViewController.m; sourceTree = "<group>"; };
-		E25929541FFCA97200B6502D /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
 		E259295A1FFCBC1700B6502D /* FSBaseTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseTopTableViewCell.m; sourceTree = "<group>"; };
 		E259295B1FFCBC1700B6502D /* FSBaselineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaselineTableViewCell.m; sourceTree = "<group>"; };
 		E259295C1FFCBC1700B6502D /* FSBottomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBottomTableViewCell.h; sourceTree = "<group>"; };
@@ -992,8 +986,6 @@
 			children = (
 				18568797200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.h */,
 				18568796200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m */,
-				185687922002138B003F1985 /* ChatListController.h */,
-				185687912002138B003F1985 /* ChatListController.m */,
 				185687902002138B003F1985 /* ChatRoomController.h */,
 				185687932002138B003F1985 /* ChatRoomController.m */,
 				185DC3BF20085763004E3842 /* RCDCustomerServiceViewController.h */,
@@ -1870,10 +1862,8 @@
 			isa = PBXGroup;
 			children = (
 				E2B77BCF1FFDD61400597326 /* view */,
-				E25929541FFCA97200B6502D /* messageViewController.h */,
-				E25929531FFCA97200B6502D /* messageViewController.m */,
-				186CBF13200497530023924D /* MessageeViewController.h */,
-				186CBF14200497530023924D /* MessageeViewController.m */,
+				185687922002138B003F1985 /* ChatListController.h */,
+				185687912002138B003F1985 /* ChatListController.m */,
 			);
 			path = "消息";
 			sourceTree = "<group>";
@@ -2482,7 +2472,6 @@
 				3CC752AE2008499E00C03C6B /* QPSSZipArchive.m in Sources */,
 				3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */,
 				3CC752BA2008499E00C03C6B /* FMDatabase.m in Sources */,
-				186CBF15200497530023924D /* MessageeViewController.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
@@ -2503,7 +2492,6 @@
 				3CC752BB2008499E00C03C6B /* FMDatabasePool.m in Sources */,
 				3CC752B92008499E00C03C6B /* FMDatabaseAdditions.m in Sources */,
 				3CC7534D2008828700C03C6B /* RCCallAudioMultiCallViewController.m in Sources */,
-				E25929551FFCA97200B6502D /* messageViewController.m in Sources */,
 				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
 				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
 				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
@@ -2861,7 +2849,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2928,7 +2916,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2966,6 +2954,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				INFOPLIST_FILE = MiLiaoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoUITests;
@@ -2979,6 +2968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				INFOPLIST_FILE = MiLiaoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xbkp.MiLiaoUITests;
