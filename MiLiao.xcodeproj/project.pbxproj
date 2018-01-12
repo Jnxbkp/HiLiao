@@ -154,6 +154,11 @@
 		3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC22008A256003071D2 /* PlayViewController.xib */; };
 		3CCBAFC82008A542003071D2 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */; };
+		3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFE2008D772003071D2 /* mask_matianyu.png */; };
+		3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFF2008D773003071D2 /* EatRabbi.png */; };
+		3CCBB0052008D773003071D2 /* yazui.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0002008D773003071D2 /* yazui.png */; };
+		3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0012008D773003071D2 /* lixiaolong.png */; };
+		3CCBB0072008D773003071D2 /* yuguan.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBB0022008D773003071D2 /* yuguan.png */; };
 		3CFF061620078D4600E20FDE /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060420078D4600E20FDE /* yazui.bundle */; };
 		3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060520078D4600E20FDE /* yuguan.bundle */; };
 		3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF060620078D4600E20FDE /* EatRabbi.bundle */; };
@@ -565,6 +570,11 @@
 		3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayCollectionViewCell.h; sourceTree = "<group>"; };
 		3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayCollectionViewCell.m; sourceTree = "<group>"; };
 		3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayCollectionViewCell.xib; sourceTree = "<group>"; };
+		3CCBAFFE2008D772003071D2 /* mask_matianyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask_matianyu.png; sourceTree = "<group>"; };
+		3CCBAFFF2008D773003071D2 /* EatRabbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EatRabbi.png; sourceTree = "<group>"; };
+		3CCBB0002008D773003071D2 /* yazui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yazui.png; sourceTree = "<group>"; };
+		3CCBB0012008D773003071D2 /* lixiaolong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lixiaolong.png; sourceTree = "<group>"; };
+		3CCBB0022008D773003071D2 /* yuguan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuguan.png; sourceTree = "<group>"; };
 		3CFF05FF20078D4600E20FDE /* FUVideoFrameObserverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUVideoFrameObserverManager.h; sourceTree = "<group>"; };
 		3CFF060020078D4600E20FDE /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		3CFF060220078D4600E20FDE /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
@@ -1575,6 +1585,11 @@
 		3CFF060120078D4600E20FDE /* Faceunity */ = {
 			isa = PBXGroup;
 			children = (
+				3CCBAFFF2008D773003071D2 /* EatRabbi.png */,
+				3CCBB0012008D773003071D2 /* lixiaolong.png */,
+				3CCBAFFE2008D772003071D2 /* mask_matianyu.png */,
+				3CCBB0002008D773003071D2 /* yazui.png */,
+				3CCBB0022008D773003071D2 /* yuguan.png */,
 				3CFF060220078D4600E20FDE /* authpack.h */,
 				3CFF060320078D4600E20FDE /* items */,
 				3CFF060A20078D4600E20FDE /* FaceUnity-SDK-iOS */,
@@ -2334,6 +2349,7 @@
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
+				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
@@ -2344,6 +2360,7 @@
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
+				3CCBB0072008D773003071D2 /* yuguan.png in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
@@ -2360,8 +2377,11 @@
 				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
+				3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
+				3CCBB0052008D773003071D2 /* yazui.png in Resources */,
+				3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */,
 				3CC753552008828700C03C6B /* Info.plist in Resources */,
 				3CFF061620078D4600E20FDE /* yazui.bundle in Resources */,
 				3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */,
