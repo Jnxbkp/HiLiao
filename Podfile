@@ -18,5 +18,5 @@ pod 'TTGTagCollectionView'
 pod 'VODUpload'
 
 pod 'Masonry'
-
+pod 'AliyunPlayer_iOS/AliyunVodPlayerSDK'
 end
