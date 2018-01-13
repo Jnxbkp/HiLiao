@@ -168,7 +168,6 @@
 		3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753432008828700C03C6B /* RCCallFloatingBoard.m */; };
 		3CCBAFC32008A256003071D2 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC12008A256003071D2 /* PlayViewController.m */; };
 		3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC22008A256003071D2 /* PlayViewController.xib */; };
-		3CCBAFC82008A542003071D2 /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */; };
 		3CCBB0032008D773003071D2 /* mask_matianyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFE2008D772003071D2 /* mask_matianyu.png */; };
 		3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCBAFFF2008D773003071D2 /* EatRabbi.png */; };
@@ -229,6 +228,8 @@
 		E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25929801FFCBC4100B6502D /* home_ic_hot@2x.png */; };
 		E25929831FFCBC4200B6502D /* home_ic_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25929811FFCBC4200B6502D /* home_ic_new@2x.png */; };
 		E2620F8C20045D480092BA11 /* PublicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2620F8B20045D480092BA11 /* PublicManager.m */; };
+		E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
+		E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -2578,6 +2579,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
+				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
 				3C12A3FE200A044F0044A6A2 /* CommentVideoView.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
@@ -2658,7 +2661,6 @@
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
-				3CCBAFC82008A542003071D2 /* PlayCollectionViewCell.m in Sources */,
 				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				185820422009AC3E0020C232 /* MyMoneyViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
@@ -2946,7 +2948,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3015,7 +3017,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

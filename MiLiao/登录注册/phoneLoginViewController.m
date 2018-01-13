@@ -50,16 +50,21 @@
 }
 //登录
 - (IBAction)login:(id)sender {
+<<<<<<< HEAD
+
+    [self.view endEditing:YES];
+=======
     
     [self.view endEditing:YES];
 
+>>>>>>> 1deedbf583ade2850bf6110971b09149be2db411
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
