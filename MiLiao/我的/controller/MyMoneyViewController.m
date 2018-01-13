@@ -22,26 +22,46 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
-    self.title = @"我的钱包";
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的钱包"];
 
 
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:RGBA(48,59,76,1)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController setNavigationBarHidden:NO];
+
     
 }
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarBackgroundColor] forBarMetrics:UIBarMetricsDefault];
-   
-    
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            //充值
+        }
+        if (indexPath.row == 1) {
+            //提现
+        }
+    }
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            //收入明细
+        }
+        if (indexPath.row == 1) {
+            //支出明细
+        }
+        if (indexPath.row == 2) {
+            //提现明细
+        }
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
+    if (section == 0) {
+        return 8;
+    }
+    if (section == 1) {
+        return 8;
+    }
     return 0.01;
 }
 @end

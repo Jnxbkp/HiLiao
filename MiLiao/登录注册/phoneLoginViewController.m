@@ -50,15 +50,8 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-<<<<<<< HEAD
-    
-    [_password resignFirstResponder];
-    [_phoneNum resignFirstResponder];
-    
-=======
-    [self.view endEditing:YES];
 
->>>>>>> 8c3ea693b74031a69479f1700dc2472d6f9e3552
+    [self.view endEditing:YES];
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
@@ -70,9 +63,14 @@
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
-            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
+            NSString *token = info[@"data"][@"token"];
+            [_userDefaults setObject:token forKey:@"token"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
+            [_userDefaults setObject:self.phoneNum.text forKey:@"phoneNum"];
+            [_userDefaults setObject:self.password.text forKey:@"password"];
+
+            [_userDefaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             //融云登录操作
             [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
@@ -207,8 +205,10 @@
     [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
          NSLog(@"获取融云token!!!!!!：%@", info);
-        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
+        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+
+//        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
+        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"] success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             //把自己信息存起来
             [self RCIM_currentUserInfo:userId];

@@ -39,7 +39,8 @@
     }
     
     [self.window makeKeyAndVisible];
-    
+    [self autoLogin];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchRootViewController:) name:@"KSwitchRootViewControllerNotification" object:nil];
     
     /* 打开调试日志 */
@@ -58,14 +59,21 @@
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
-    [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
+    [self settingRCIMToken:[_userDefaults objectForKey:@"token"]];
 
     
     
     return YES;
 }
 
+- (void)autoLogin{
+    [HLLoginManager NetPostLoginMobile:[_userDefaults objectForKey:@"phoneNum"] password:[_userDefaults objectForKey:@"password"] success:^(NSDictionary *info) {
+        [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
 
+    } failure:^(NSError *error) {
+        
+    }];
+}
 /*!
  接收消息的回调方法
  
@@ -85,9 +93,9 @@
     if (!token) return;
     [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
-        
-        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
+        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+
+        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"]  success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             
             //把自己信息存起来
