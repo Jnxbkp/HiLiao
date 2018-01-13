@@ -168,55 +168,37 @@
         [self.navigationController pushViewController:chat animated:YES];
     } else {
         
-//        [[RCCall sharedRCCall] startSingleCall:@"18678899778"
-//                                     mediaType:RCCallMediaVideo];
-//        
-//         [FUVideoFrameObserverManager registerVideoFrameObserver];
-//        
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            
-//            // 将 FUAPIDemoBar 添加到页面上
-//            [[UIApplication sharedApplication].keyWindow addSubview:self.bar];
-//            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.bar];
-//            
-//            // 初始化Faceunity
-//            [[FUManager shareManager] setUpFaceunity];
-//            
-//        });
-        
-        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-        [self presentViewController:callViewController animated:YES completion:nil];
+        __weak typeof(self) weakSelf = self;
+        [self showPayAlertController:^{
+            
+        } continueCall:^{
+            VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+            [self presentViewController:callViewController animated:YES completion:nil];
+        }];
+    
+       
 
     }
 }
 
-// 贴纸
-//- (void)demoBarDidSelectedItem:(NSString *)item {
-//    
-//    [[FUManager shareManager] loadItem:item];
-//}
-//// 滤镜
-//- (void)demoBarDidSelectedFilter:(NSString *)filter {
-//    
-//    [FUManager shareManager].selectedFilter = filter ;
-//}
-//// 美颜
-//- (void)demoBarBeautyParamChanged {
-//    
-//    [self syncBeautyParams];
-//}
-//
-//- (void)syncBeautyParams {
-//    
-//    [FUManager shareManager].selectedBlur = self.bar.selectedBlur;
-//    [FUManager shareManager].redLevel = self.bar.redLevel ;
-//    [FUManager shareManager].faceShapeLevel = self.bar.faceShapeLevel ;
-//    [FUManager shareManager].faceShape = self.bar.faceShape ;
-//    [FUManager shareManager].beautyLevel = self.bar.beautyLevel ;
-//    [FUManager shareManager].thinningLevel = self.bar.thinningLevel ;
-//    [FUManager shareManager].enlargingLevel = self.bar.enlargingLevel ;
-//    [FUManager shareManager].selectedFilter = self.bar.selectedFilter ;
-//}
+///弹出是否充值的alert
+- (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)())continueCall {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
+    //继续通话
+    UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        !continueCall?:continueCall();
+    }];
+    
+    //充值
+    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        !pay?:pay();
+    }];
+    [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
+    
+    [alertController addAction:continueCallAction];
+    [alertController addAction:payAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 
 - (void)insertRowAtTop
