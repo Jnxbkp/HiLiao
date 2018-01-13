@@ -50,13 +50,9 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-<<<<<<< HEAD
-
+    
     [self.view endEditing:YES];
 
-=======
-    [self.view endEditing:YES];
->>>>>>> 6c6c77684465fb532148a8a71836ca82c72007ad
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
