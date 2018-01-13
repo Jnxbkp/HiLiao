@@ -17,12 +17,6 @@
     
         //设置请求头
     
-    //设置返回StatusCodes422为成功标志
-//    NSMutableIndexSet *indexSet=[[NSMutableIndexSet alloc] initWithIndexSet:manager.responseSerializer.acceptableStatusCodes];
-//
-//    [indexSet addIndex:422];
-//    manager.responseSerializer.acceptableStatusCodes=indexSet;
-    
     [manager GET:[NSString stringWithFormat:@"%@/v1/user/getVerifyCode?mobile=%@",HLRequestUrl,mobile] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
