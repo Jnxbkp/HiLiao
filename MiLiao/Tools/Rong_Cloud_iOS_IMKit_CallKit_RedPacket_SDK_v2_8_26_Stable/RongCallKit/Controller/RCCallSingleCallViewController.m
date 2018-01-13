@@ -29,6 +29,8 @@
 ///控件容器数组
 @property (nonatomic, strong) NSArray *controlContainerArray;
 
+@property (nonatomic, strong) dispatch_source_t timer;
+
 
 @end
 
@@ -120,6 +122,14 @@
                                                object:nil];
 
     RCUserInfo *userInfo = [[RCUserInfoCacheManager sharedManager] getUserInfo:self.callSession.targetId];
+   
+    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
+        NSLog(@"我发起的通话");
+        //检查M币
+        [self checkMoney];
+    } else {
+        NSLog(@"我收到的通话");
+    }
     if (!userInfo) {
         userInfo = [[RCUserInfo alloc] initWithUserId:self.callSession.targetId name:nil portrait:nil];
     }
@@ -149,6 +159,16 @@
     }];
     self.bar.hidden = YES;
 }
+
+- (void)checkMoney {
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(self.timer, ^{
+        NSLog(@"=======");
+    });
+    dispatch_resume(self.timer);
+}
+
 
 #pragma mark - FUAPIDemoBarDelegate
 - (void)demoBarDidSelectedItem:(NSString *)item {

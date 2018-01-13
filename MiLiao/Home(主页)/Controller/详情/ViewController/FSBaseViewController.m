@@ -154,21 +154,12 @@
         //新建一个聊天会话View Controller对象,建议这样初始化
         ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18678899778"];
         chat.title = @"hehehe";
-        //        chat.title = [NSString stringWithFormat:@"%@",self.personModel.user.nickname];
-        
         chat.automaticallyAdjustsScrollViewInsets = NO;
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     } else {
-        
-        __weak typeof(self) weakSelf = self;
-        [self showPayAlertController:^{
-            
-        } continueCall:^{
-            VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-            [weakSelf presentViewController:callViewController animated:YES completion:nil];
-        }];
-        
+        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+        [self presentViewController:callViewController animated:YES completion:nil];
     }
 }
 
