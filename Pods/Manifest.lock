@@ -21,6 +21,7 @@ PODS:
   - AliyunVideoCore (1.0.1)
   - IQKeyboardManager (5.0.7)
   - Masonry (1.1.0)
+  - MJExtension (3.0.13)
   - MJRefresh (3.1.15.1)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - AliyunPlayer_iOS/AliyunVodPlayerSDK
   - IQKeyboardManager
   - Masonry
+  - MJExtension
   - MJRefresh (~> 3.1.15.1)
   - SDCycleScrollView (~> 1.75)
   - SDWebImage (~> 4.2.2)
@@ -72,6 +74,7 @@ SPEC CHECKSUMS:
   AliyunVideoCore: 5d588e3cca7943f0fc1ce1cee91c90043dbceac3
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
@@ -81,6 +84,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 189778c3d9e3180c17f28f57ab5cb7b7b0509c8a
+PODFILE CHECKSUM: 51f711414ee9b6c7037e156ec015b6e90b00f424
 
 COCOAPODS: 1.3.1
