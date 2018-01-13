@@ -82,7 +82,6 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
-		3C12A3FE200A044F0044A6A2 /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
@@ -2582,7 +2581,6 @@
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
-				3C12A3FE200A044F0044A6A2 /* CommentVideoView.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
@@ -2948,7 +2946,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2996,10 +2994,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/samples/ios/particle/STMobileDetected",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
-					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
@@ -3017,7 +3011,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3065,10 +3059,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
 					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/samples/ios/particle/STMobileDetected",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios",
-					"$(PROJECT_DIR)/MiLiao/Tools/NvStreamingSdk_IOS_1.15.1_20180102_195552/extrasdk/sdk",
-					"$(PROJECT_DIR)/MiLiao/Tools/Nvlib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);

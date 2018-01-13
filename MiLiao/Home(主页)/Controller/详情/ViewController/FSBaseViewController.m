@@ -46,7 +46,8 @@
 @property (nonatomic, assign) BOOL canScroll;
 ///当前用户的M币
 @property (nonatomic, assign) CGFloat balance;
-//@property (nonatomic, strong) FUAPIDemoBar *bar;
+///当前网红的价格
+@property (nonatomic, assign) CGFloat netHotPrice;
 @end
 
 @implementation FSBaseViewController
@@ -77,8 +78,6 @@
     [self addBackButton];
     [self addFootView];
     [self setupSubViews];
-    [self getUserInfo];
-
 }
 
 - (void)setupSubViews
@@ -130,16 +129,33 @@
 }
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
+    
+    __weak typeof(self) weakSelf = self;
+    
+    //计算可通话时长
+    [self calculatorCallTime:^(BOOL canCall) {
+        if (canCall) {
+            [weakSelf downButtonClickAction:but];
+        } else {
+            [weakSelf showPayAlertController:^{
+                //跳转充值
+            } continueCall:^{
+                [weakSelf downButtonClickAction:but];
+            }];
+        }
+    }];
+    
+    
+}
+
+- (void)downButtonClickAction:(UIButton *)but {
     if (but.tag == downButtonTag) {
-//        ChatListController *chat = [[ChatListController alloc] init];
-////        [chat setHidesBottomBarWhenPushed:YES];
-//        [self.navigationController pushViewController:chat animated:YES];
         
         //新建一个聊天会话View Controller对象,建议这样初始化
         ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18678899778"];
         chat.title = @"hehehe";
-//        chat.title = [NSString stringWithFormat:@"%@",self.personModel.user.nickname];
-
+        //        chat.title = [NSString stringWithFormat:@"%@",self.personModel.user.nickname];
+        
         chat.automaticallyAdjustsScrollViewInsets = NO;
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
@@ -152,14 +168,41 @@
             VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
             [weakSelf presentViewController:callViewController animated:YES completion:nil];
         }];
-    
-       
-
+        
     }
 }
 
+#pragma mark - 计算可通话时长
+//计算可通话时长
+- (void)calculatorCallTime:(void(^)(BOOL canCall))canCall {
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_enter(group);
+    [UserInfoNet getUserBalance:^(CGFloat balance) {
+        self.balance = balance;
+        dispatch_group_leave(group);
+    }];
+    
+     dispatch_group_enter(group);
+    [self getNetHotPrice:^(CGFloat price) {
+        weakSelf.netHotPrice = price;
+        dispatch_group_leave(group);
+    }];
+   
+    dispatch_group_notify(group, queue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
+            
+        });
+    });
+    
+}
+
 ///弹出是否充值的alert
-- (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)())continueCall {
+- (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)(void))continueCall {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
     //继续通话
     UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"继续通话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -316,11 +359,10 @@
 
 
 #pragma mark - 网络方法
-- (void)getUserInfo {
-    
-    [UserInfoNet getUserBalance:^(CGFloat balance) {
-        self.balance = balance;
-    }];
+///获取当前网红的价格
+- (void)getNetHotPrice:(void(^)(CGFloat price))price {
+//    sleep(0.5);
+    !price?:price(5);
 }
 
 #pragma mark LazyLoad
