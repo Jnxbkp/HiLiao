@@ -24,6 +24,9 @@
 #import <RongIMKit/RongIMKit.h>
 
 #import "VideoCallViewController.h"
+
+#import "UserInfoNet.h"
+
 //
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
@@ -41,41 +44,13 @@
 @property (nonatomic, strong) FSBottomTableViewCell *contentCell;
 @property (nonatomic, strong) FSSegmentTitleView *titleView;
 @property (nonatomic, assign) BOOL canScroll;
+///当前用户的M币
+@property (nonatomic, assign) CGFloat balance;
 //@property (nonatomic, strong) FUAPIDemoBar *bar;
 @end
 
 @implementation FSBaseViewController
 
-
-/**
- Faceunity道具美颜工具条
- 初始化 FUAPIDemoBar，设置初始美颜参数
- 
- @param bar
- */
-//-(FUAPIDemoBar *)bar {
-//    if (!_bar ) {
-//        _bar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 380, self.view.frame.size.width, 208)];
-//
-//        _bar.itemsDataSource =  [FUManager shareManager].itemsDataSource;
-//        _bar.filtersDataSource = [FUManager shareManager].filtersDataSource;
-//
-//        _bar.selectedItem = [FUManager shareManager].selectedItem;
-//        _bar.selectedFilter = [FUManager shareManager].selectedFilter;
-//        _bar.selectedBlur = [FUManager shareManager].selectedBlur;
-//        _bar.beautyLevel = [FUManager shareManager].beautyLevel;
-//        _bar.thinningLevel = [FUManager shareManager].thinningLevel;
-//        _bar.enlargingLevel = [FUManager shareManager].enlargingLevel;
-//        _bar.faceShapeLevel = [FUManager shareManager].faceShapeLevel;
-//        _bar.faceShape = [FUManager shareManager].faceShape;
-//        _bar.redLevel = [FUManager shareManager].redLevel;
-//        _bar.delegate = self;
-//
-//
-//    }
-//    return _bar ;
-//}
-//
 
 - (void)dealloc
 {
@@ -102,12 +77,8 @@
     [self addBackButton];
     [self addFootView];
     [self setupSubViews];
-    
+    [self getUserInfo];
 
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [userDefaults objectForKey:@"token"];
-    NSLog(@"token is : \n%@", token);
-    
 }
 
 - (void)setupSubViews
@@ -341,6 +312,15 @@
         }
     }
     self.tableView.showsVerticalScrollIndicator = _canScroll?YES:NO;
+}
+
+
+#pragma mark - 网络方法
+- (void)getUserInfo {
+    
+    [UserInfoNet getUserBalance:^(CGFloat balance) {
+        self.balance = balance;
+    }];
 }
 
 #pragma mark LazyLoad

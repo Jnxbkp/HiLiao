@@ -113,10 +113,19 @@
     failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    // 防止解析不出来
+   
     NSLog(@"%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
-    manager.responseSerializer.acceptableContentTypes = \
-    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    
+    manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10;
+    
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+    AFSecurityPolicy *security = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [security setValidatesDomainName:NO];
+    security.allowInvalidCertificates = YES;
+    manager.securityPolicy = security;
+    
     [manager GET:[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

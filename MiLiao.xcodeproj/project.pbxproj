@@ -67,7 +67,6 @@
 		1858204C2009AC970020C232 /* MyQianBaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820472009AC960020C232 /* MyQianBaoTableViewCell.m */; };
 		1858204D2009AC970020C232 /* CardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820482009AC970020C232 /* CardCollectionViewCell.m */; };
 		185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858204F2009B3DD0020C232 /* GoPayTableViewController.m */; };
-        185820542009B4DA0020C232 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */; };
 		185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */; };
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
@@ -83,10 +82,10 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C12A3FE200A044F0044A6A2 /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
+		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
-        3C77AF962009B0E40029778B /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
-        3C77AF982009B0ED0029778B /* CommentVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF972009B0ED0029778B /* CommentVideoView.xib */; };
 		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
 		3C77AF9F2009D7DF0029778B /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9E2009D7DF0029778B /* Networking.m */; };
 		3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227451FFE0C40005D543F /* VideoToolbox.framework */; };
@@ -445,6 +444,8 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
+		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
 		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
 		3C723C792005E3690024F2BC /* VideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
@@ -1157,6 +1158,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C12A3FF200A13EC0044A6A2 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				3C12A400200A140A0044A6A2 /* UserInfoNet.h */,
+				3C12A401200A140A0044A6A2 /* UserInfoNet.m */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
 		3C723C772005E3690024F2BC /* 视频通话 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1815,6 +1825,7 @@
 		E221B5A11FF5DDF400353875 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
+				3C12A3FF200A13EC0044A6A2 /* Net */,
 				E221B5B31FF5DF1600353875 /* Model */,
 				E221B5B41FF5DF1E00353875 /* View */,
 				E221B5B51FF5DF2800353875 /* Controller */,
@@ -2568,6 +2579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
+				3C12A3FE200A044F0044A6A2 /* CommentVideoView.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
@@ -2729,6 +2741,7 @@
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
 				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
+				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,

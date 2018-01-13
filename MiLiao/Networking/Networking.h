@@ -51,7 +51,7 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
  @param modelClass model Class
  @param modelResult 返回的模型
  */
-+ (void)Post:(NSString *)urtString parameters:(id)parameters modelClass:(NSString *)modelClass modelResult:(RequestModelResult)modelResult;
++ (void)Post:(NSString *)urtString parameters:(id)parameters modelClass:(Class)modelClass modelResult:(RequestModelResult)modelResult;
 
 
 
@@ -66,5 +66,25 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
 + (void)Post:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete;
 
 
+
+/**
+ get请求 返回单个模型
+
+ @param urlString url
+ @param parameters paramenter
+ @param modelClass 模型类
+ @param modelResult 返回的模型
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters modelClass:(Class)modelClass modelResult:(RequestModelResult)modelResult;
+
+
+/**
+ Get请求 返回一个字典
+
+ @param urlString url
+ @param parameters parameter
+ @param result 返回的字典
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result;
 
 @end
