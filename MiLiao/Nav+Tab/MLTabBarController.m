@@ -51,16 +51,16 @@
 //    }
     
     
-    [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
+    [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
-    [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
+    [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"tab_discover_nomal" navigationIsHidden:@"yes"];
    
 
-    [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"heart_white" navigationIsHidden:@"no"];
+    [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"tab_message_nomal" navigationIsHidden:@"no"];
         
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
     MeViewController *meViewController = [story instantiateViewControllerWithIdentifier:@"MeViewController"];
-    [self addChildViewController:meViewController title:nil imageName:@"heart_white" navigationIsHidden:@"yes"];
+    [self addChildViewController:meViewController title:nil imageName:@"tab_my_nomal" navigationIsHidden:@"yes"];
     
 }
 - (void)InitMiddleView
@@ -78,25 +78,18 @@
 }
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {
     
-//    childController.tabBarItem.title = title;
-    
     childController.tabBarItem.image = [UIImage imageNamed:imageName];
-//    [childController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -2)];
-//    childController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     
     NSString *selectedImageName = [NSString string];
-    if ([imageName isEqualToString:@"heart_white"]) {
-        selectedImageName = @"heart_blue";
-    }
-//    else if ([imageName isEqualToString:@"home_default_icon"]) {
-//        selectedImageName = @"event_default_icon";
-//    } else if ([imageName isEqualToString:@"home_default_icon"]) {
-//        selectedImageName = @"event_default_icon";
-//    } else if ([imageName isEqualToString:@"home_default_icon"]) {
-//        selectedImageName = @"event_default_icon";
-//    } else if ([imageName isEqualToString:@"home_default_icon"]) {
-//        selectedImageName = @"event_default_icon";
-//    }
+    if ([imageName isEqualToString:@"tab_main_nomal"]) {
+        selectedImageName = @"tab_main";
+    } else if ([imageName isEqualToString:@"tab_discover_nomal"]) {
+        selectedImageName = @"tab_discover";
+    } else if ([imageName isEqualToString:@"tab_message_nomal"]) {
+        selectedImageName = @"tab_message";
+    } else if ([imageName isEqualToString:@"tab_my_nomal"]) {
+        selectedImageName = @"tab_my";
+    } 
     
     UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
     selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

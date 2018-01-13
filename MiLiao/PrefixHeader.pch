@@ -48,6 +48,7 @@
 #import <AFNetworking.h>
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
+#import <MJRefresh.h>
 
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
