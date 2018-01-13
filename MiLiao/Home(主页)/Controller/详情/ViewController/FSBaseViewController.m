@@ -102,6 +102,12 @@
     [self addBackButton];
     [self addFootView];
     [self setupSubViews];
+    
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [userDefaults objectForKey:@"token"];
+    NSLog(@"token is : \n%@", token);
+    
 }
 
 - (void)setupSubViews
@@ -173,7 +179,7 @@
             
         } continueCall:^{
             VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-            [self presentViewController:callViewController animated:YES completion:nil];
+            [weakSelf presentViewController:callViewController animated:YES completion:nil];
         }];
     
        
@@ -185,12 +191,12 @@
 - (void)showPayAlertController:(void(^)(void))pay continueCall:(void(^)())continueCall {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足不够与大V通话5分钟" message:@"是否去充值" preferredStyle:UIAlertControllerStyleAlert];
     //继续通话
-    UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *continueCallAction = [UIAlertAction actionWithTitle:@"继续通话" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         !continueCall?:continueCall();
     }];
     
     //充值
-    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         !pay?:pay();
     }];
     [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
