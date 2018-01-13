@@ -130,6 +130,7 @@
                             NSLog(@"------>>%@",info);
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
@@ -152,9 +153,10 @@
     if (!token) return;
     [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
-        
-        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:info[@"data"][@"RongYunToken"][@"token"] success:^(NSString *userId) {
+        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+
+//        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"] success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
     
             //把自己信息存起来

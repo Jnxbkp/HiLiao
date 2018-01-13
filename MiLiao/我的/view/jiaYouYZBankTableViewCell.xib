@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="jiaYouYZBankTableViewCell" rowHeight="64" id="KGk-i7-Jjw" userLabel="jiaYouYZBankTableViewCell" customClass="jiaYouYZBankTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="支付宝" translatesAutoresizingMaskIntoConstraints="NO" id="OYX-Mn-Nvy">
+                        <rect key="frame" x="10" y="17" width="29" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="29" id="r5z-Od-o4U"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xph-iJ-PcA">
+                        <rect key="frame" x="49" y="23" width="38" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="0H7-qg-rfq"/>
+                            <constraint firstAttribute="width" constant="38" id="M7m-2v-0KJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0H7-qg-rfq"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="选中1.png" translatesAutoresizingMaskIntoConstraints="NO" id="fEg-mA-Cs1">
+                        <rect key="frame" x="329" y="24" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="28c-SK-efl"/>
+                            <constraint firstAttribute="width" constant="21" id="X2U-gp-MYL"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzY-hE-gEe">
+                        <rect key="frame" x="99" y="27" width="28" height="12"/>
+                        <color key="backgroundColor" red="1" green="0.32941176470588235" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="AdX-SK-Y95"/>
+                            <constraint firstAttribute="width" constant="28" id="bAq-Pz-ZWJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xph-iJ-PcA" firstAttribute="centerY" secondItem="OYX-Mn-Nvy" secondAttribute="centerY" id="68Q-tF-f6C"/>
+                    <constraint firstItem="fEg-mA-Cs1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="2.5" id="8tv-pD-Uo0"/>
+                    <constraint firstItem="fEg-mA-Cs1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="9Fz-wi-smZ"/>
+                    <constraint firstItem="OYX-Mn-Nvy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BsB-Kq-dHy"/>
+                    <constraint firstItem="xph-iJ-PcA" firstAttribute="leading" secondItem="OYX-Mn-Nvy" secondAttribute="trailing" constant="10" id="BvS-XQ-Vup"/>
+                    <constraint firstItem="OYX-Mn-Nvy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ltx-dB-fz3"/>
+                    <constraint firstItem="PzY-hE-gEe" firstAttribute="leading" secondItem="xph-iJ-PcA" secondAttribute="trailing" constant="12" id="MZS-Pc-eVx"/>
+                    <constraint firstAttribute="bottom" secondItem="fEg-mA-Cs1" secondAttribute="bottom" constant="15" id="Tqo-NS-Doq"/>
+                    <constraint firstItem="PzY-hE-gEe" firstAttribute="centerY" secondItem="xph-iJ-PcA" secondAttribute="centerY" constant="1" id="ZJn-XK-jRn"/>
+                    <constraint firstItem="xph-iJ-PcA" firstAttribute="centerY" secondItem="OYX-Mn-Nvy" secondAttribute="centerY" id="bmT-xi-sGN"/>
+                    <constraint firstItem="fEg-mA-Cs1" firstAttribute="leading" secondItem="PzY-hE-gEe" secondAttribute="trailing" constant="202" id="e58-xc-cnt"/>
+                    <constraint firstItem="OYX-Mn-Nvy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hoA-kr-7vq"/>
+                    <constraint firstAttribute="trailing" secondItem="fEg-mA-Cs1" secondAttribute="trailing" constant="10" id="mKL-vi-5fm"/>
+                    <constraint firstAttribute="bottom" secondItem="OYX-Mn-Nvy" secondAttribute="bottom" constant="10" id="zvn-bw-2qM"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="BsB-Kq-dHy"/>
+                        <exclude reference="zvn-bw-2qM"/>
+                        <exclude reference="bmT-xi-sGN"/>
+                        <exclude reference="9Fz-wi-smZ"/>
+                        <exclude reference="Tqo-NS-Doq"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bankImage" destination="OYX-Mn-Nvy" id="SdW-AN-KW9"/>
+                <outlet property="bankSelect" destination="fEg-mA-Cs1" id="S89-Ft-5cJ"/>
+                <outlet property="bankTitle" destination="xph-iJ-PcA" id="xNt-uA-Z10"/>
+                <outlet property="tuijian" destination="PzY-hE-gEe" id="RkN-Di-mAv"/>
+            </connections>
+            <point key="canvasLocation" x="366" y="327"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="支付宝" width="29" height="29"/>
+        <image name="选中1.png" width="32" height="32"/>
+    </resources>
+</document>

@@ -21,4 +21,5 @@ pod 'Masonry'
 pod 'AliyunPlayer_iOS/AliyunVodPlayerSDK'
 
 pod 'IQKeyboardManager'
+pod 'MJExtension'
 end
