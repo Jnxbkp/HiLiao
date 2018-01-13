@@ -72,6 +72,12 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
+		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
+		3C77AF962009B0E40029778B /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
+		3C77AF982009B0ED0029778B /* CommentVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF972009B0ED0029778B /* CommentVideoView.xib */; };
+		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
+		3C77AF9F2009D7DF0029778B /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9E2009D7DF0029778B /* Networking.m */; };
 		3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21227451FFE0C40005D543F /* VideoToolbox.framework */; };
 		3C80D6A7200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; };
 		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -416,6 +422,16 @@
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
 		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
 		3C723C792005E3690024F2BC /* VideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
+		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
+		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
+		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
+		3C77AF942009B0E40029778B /* CommentVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoView.h; sourceTree = "<group>"; };
+		3C77AF952009B0E40029778B /* CommentVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoView.m; sourceTree = "<group>"; };
+		3C77AF972009B0ED0029778B /* CommentVideoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoView.xib; sourceTree = "<group>"; };
+		3C77AF9A2009BB840029778B /* BaseNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetworking.h; sourceTree = "<group>"; };
+		3C77AF9B2009BB840029778B /* BaseNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNetworking.m; sourceTree = "<group>"; };
+		3C77AF9D2009D7DF0029778B /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
 		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
@@ -1097,6 +1113,30 @@
 			path = "视频通话";
 			sourceTree = "<group>";
 		};
+		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
+			isa = PBXGroup;
+			children = (
+				3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */,
+				3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */,
+				3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */,
+				3C77AF942009B0E40029778B /* CommentVideoView.h */,
+				3C77AF952009B0E40029778B /* CommentVideoView.m */,
+				3C77AF972009B0ED0029778B /* CommentVideoView.xib */,
+			);
+			path = "CommentView-评论view";
+			sourceTree = "<group>";
+		};
+		3C77AF992009BB000029778B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3C77AF9A2009BB840029778B /* BaseNetworking.h */,
+				3C77AF9B2009BB840029778B /* BaseNetworking.m */,
+				3C77AF9D2009D7DF0029778B /* Networking.h */,
+				3C77AF9E2009D7DF0029778B /* Networking.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3CC7520D2008499D00C03C6B /* 阿里云 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1678,6 +1718,7 @@
 				E221B56E1FF5D6FF00353875 /* AppDelegate.h */,
 				E221B56F1FF5D6FF00353875 /* AppDelegate.m */,
 				E221B5A01FF5DB9600353875 /* PrefixHeader.pch */,
+				3C77AF992009BB000029778B /* Networking */,
 				3CFF05FE20078D4600E20FDE /* FaceUnity */,
 				1856878F2002136D003F1985 /* 融云聊天 */,
 				E221B5A31FF5DE5200353875 /* Nav+Tab */,
@@ -1818,6 +1859,7 @@
 				3CCBAFC52008A542003071D2 /* PlayCollectionViewCell.h */,
 				3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */,
 				3CCBAFC72008A542003071D2 /* PlayCollectionViewCell.xib */,
+				3C77AF892009A8E10029778B /* CommentView-评论view */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2342,6 +2384,7 @@
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
+				3C77AF982009B0ED0029778B /* CommentVideoView.xib in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
@@ -2349,6 +2392,7 @@
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
+				3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */,
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				E2D518AB1FFE35B500A548DA /* Me.storyboard in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
@@ -2488,12 +2532,15 @@
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				3C77AF9F2009D7DF0029778B /* Networking.m in Sources */,
+				3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */,
 				3CC753492008828700C03C6B /* RCCallVideoMultiCallViewController.m in Sources */,
 				3CC7529E2008499D00C03C6B /* AliyunAlbumViewController.m in Sources */,
 				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
 				3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */,
 				3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */,
 				E2B497E61FFF56770017A5B6 /* UIView+Size.m in Sources */,
+				3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */,
 				18567F242001F568003F1985 /* BoardTextField.m in Sources */,
 				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
@@ -2622,6 +2669,7 @@
 				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
 				E2D518B21FFE364A00A548DA /* edttViewController.m in Sources */,
 				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
+				3C77AF962009B0E40029778B /* CommentVideoView.m in Sources */,
 				E2D518AF1FFE364400A548DA /* MyMoneyViewController.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,

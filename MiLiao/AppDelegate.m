@@ -12,10 +12,11 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
+#import <RongCallLib/RongCallLib.h>
 
 #import "FUVideoFrameObserverManager.h"
 
-
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()<RCIMReceiveMessageDelegate> {
     NSUserDefaults *_userDefaults;
@@ -60,6 +61,10 @@
     [RCIM sharedRCIM].receiveMessageDelegate = self;
     [self settingRCIMToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"token"]];
 
+    //设置视频分辨率
+    [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
+    
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     
     
     return YES;
