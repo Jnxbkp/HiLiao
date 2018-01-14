@@ -10,7 +10,7 @@
 #import "MJExtension.h"
 
 
-#define kAPIURLBaseURL @""
+#define kAPIURLBaseURL @"https://47.104.25.213:9000"
 
 //上传的baseurl
 #define kUPLOADBaseURL @""

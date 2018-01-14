@@ -9,6 +9,8 @@
 #import "Networking.h"
 
 
+#define ResultCode @"resultCode"
+#define ResultMsg @"resultMsg"
 
 @implementation Networking
 
@@ -21,7 +23,7 @@
         NSArray *modelArray;
         if ([responseObject isKindOfClass:[NSDictionary class]]
             &&
-            [responseObject[@"success"] integerValue] == SUCCESS
+            [responseObject[ResultCode] integerValue] == SUCCESS
             &&
             [responseObject[@"data"] isKindOfClass:[NSArray class]])
         {
@@ -31,7 +33,7 @@
         } else {
             success = Failure;
         }
-        !result?:result(success, modelArray,[responseObject[@"err_cd"] integerValue], responseObject[@"err_msg"]);
+        !result?:result(success, modelArray,[responseObject[ResultCode] integerValue], responseObject[ResultMsg]);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         !result?:result(Failure, nil, 0, @"网络连接失败,请稍后再试");
@@ -41,7 +43,7 @@
 
 
 
-+ (void)Post:(NSString *)urtString parameters:(id)parameters modelClass:(NSString *)modelClass modelResult:(RequestModelResult)modelResult
++ (void)Post:(NSString *)urtString parameters:(id)parameters modelClass:(Class )modelClass modelResult:(RequestModelResult)modelResult
 {
     [self POST:urtString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -50,16 +52,16 @@
         
         if ([responseObject isKindOfClass:[NSDictionary class]]
             &&
-            [responseObject[@"success"] integerValue] == SUCCESS)
+            [responseObject[ResultCode] integerValue] == SUCCESS)
         {
-            if (modelClass) model = [NSClassFromString(modelClass) mj_objectWithKeyValues:responseObject[@"data"]];
+            if (modelClass) model = [modelClass mj_objectWithKeyValues:responseObject[@"data"]];
             success = Success;
         }
         else
         {
             success = Failure;
         }
-        !modelResult?:modelResult(success, model,[responseObject[@"err_cd"] integerValue], responseObject[@"err_msg"]);
+        !modelResult?:modelResult(success, model,[responseObject[ResultCode] integerValue], responseObject[ResultMsg]);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         !modelResult?:modelResult(Failure, nil, 0, @"网络连接失败,请稍后再试");
@@ -72,8 +74,8 @@
 + (void)Post:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete {
     [self POST:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            RequestState state = [responseObject[@"success"] integerValue];
-            NSString *msg = responseObject[@"err_msg"];
+            RequestState state = [responseObject[ResultCode] integerValue];
+            NSString *msg = responseObject[ResultMsg];
             !complete?:complete(state, msg);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -81,4 +83,77 @@
     }];
 }
 
+
+
+
+//======== GET请求 ========
+/**
+ get请求 返回单个模型
+ 
+ @param urlString url
+ @param parameters paramenter
+ @param modelClass 模型类
+ @param modelResult 返回的模型
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters modelClass:(Class)modelClass modelResult:(RequestModelResult)modelResult {
+    
+    [self GET:urlString parameters:parameters
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          
+          RequestState state = Failure;
+          NSString *errMsg = @"";
+          id model;
+          NSInteger errCode = 0;
+          
+          if ([responseObject[ResultCode] integerValue] == SUCCESS
+              &&
+              [responseObject[@"data"] isKindOfClass:[NSDictionary class]])
+          {
+              state = Success;
+              if (modelClass) {
+                  model = [modelClass mj_objectWithKeyValues:responseObject[@"data"]];
+              }
+          } else {
+              errCode = [responseObject[ResultCode] integerValue];
+              errMsg = responseObject[ResultMsg];
+          }
+          !modelResult?:modelResult(state, model, errCode, errMsg);
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           !modelResult?:modelResult(Failure, nil, 0, @"网络连接失败");
+      }];
+}
+
+
+/**
+ Get请求 返回一个字典
+ 
+ @param urlString url
+ @param parameters parameter
+ @param result 返回的字典
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result {
+    [self GET:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        RequestState state = Failure;
+        NSString *errMsg = @"";
+        NSDictionary *dictonary;
+        NSInteger errCode;
+        if ([responseObject[ResultCode] integerValue] == SUCCESS
+            &&
+            [responseObject[@"data"] isKindOfClass:[NSDictionary class]])
+        {
+            state = Success;
+            dictonary = responseObject[@"data"];
+            
+        } else {
+            errCode = [responseObject[ResultCode] integerValue];
+            errMsg = responseObject[ResultMsg];
+        }
+        !result?:result(state, dictonary, errMsg);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        !result?:result(Failure, nil, @"网络连接失败");
+    }];
+}
 @end
