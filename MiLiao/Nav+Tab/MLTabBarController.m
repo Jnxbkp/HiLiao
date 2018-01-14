@@ -53,7 +53,7 @@
     
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
-    [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"tab_discover_nomal" navigationIsHidden:@"yes"];
+    [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"tab_discover_nomal" navigationIsHidden:@"no"];
    
 
     [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"tab_message_nomal" navigationIsHidden:@"no"];

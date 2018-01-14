@@ -60,7 +60,7 @@
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
-    NSLog(@"--------------------%@",[_userDefaults objectForKey:@"token"]);
+    
     [self settingRCIMToken:[_userDefaults objectForKey:@"token"]];
 
     //设置视频分辨率
@@ -74,7 +74,6 @@
 
 - (void)autoLogin{
     [HLLoginManager NetPostLoginMobile:[_userDefaults objectForKey:@"phoneNum"] password:[_userDefaults objectForKey:@"password"] success:^(NSDictionary *info) {
-        NSLog(@"-------------->>>>>%@",[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]]);
 
         [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
 
@@ -99,7 +98,7 @@
 // [_userDefaults objectForKey:@"token"]
 - (void)settingRCIMToken:(NSString *)token {
     if (!token) return;
-    [HLLoginManager NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
+    [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
         
         [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
 
@@ -119,7 +118,7 @@
             NSLog(@"token错误");
         }];
     } failure:^(NSError *error) {
-        NSLog(@"error%@",error);
+        
     }];
 }
 - (void)RCIM_currentUserInfo:(NSString *)userId {

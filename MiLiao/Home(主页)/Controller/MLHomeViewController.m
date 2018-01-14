@@ -13,7 +13,7 @@
 #import "FSBaseViewController.h"
 
 #define choseButtonTag          1000
-#define tabHight   HEIGHT-ML_NavBarHeight-35-ML_TabBarHeight
+#define tabHight   HEIGHT-ML_TopHeight-35-ML_TabBarHeight
 
 #define newStr                     @"new"
 #define careStr                    @"care"
@@ -369,8 +369,9 @@ static NSString *const bigIdentifer = @"bigCell";
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (scrollView == _bigCollectionView) {
-        NSLog(@"------------>>>");
+        
         int index = scrollView.contentOffset.x/scrollView.frame.size.width;
+        NSLog(@"------------>>>%d",index);
         [self choseStyle:(UIButton *)[self.view viewWithTag:choseButtonTag+index]];
     }
 }
