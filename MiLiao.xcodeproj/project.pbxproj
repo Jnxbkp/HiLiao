@@ -82,6 +82,12 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
+		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
+		3C0FA5A4200C4B320098AC28 /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
+		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
+		3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AA200C720A0098AC28 /* PayViewController.m */; };
+		3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AB200C720A0098AC28 /* PayViewController.xib */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
@@ -444,6 +450,16 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
+		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
+		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
+		3C0FA5A1200C4B280098AC28 /* CountDownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDownView.m; sourceTree = "<group>"; };
+		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
+		3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBBorder.m"; sourceTree = "<group>"; };
+		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
+		3C0FA5A9200C720A0098AC28 /* PayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		3C0FA5AA200C720A0098AC28 /* PayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		3C0FA5AB200C720A0098AC28 /* PayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
 		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
@@ -947,6 +963,8 @@
 		18567F152001F568003F1985 /* IB_DESIGNABLE */ = {
 			isa = PBXGroup;
 			children = (
+				3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */,
+				3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */,
 				18567F162001F568003F1985 /* BoardImageView.m */,
 				18567F172001F568003F1985 /* BoardButton.h */,
 				18567F182001F568003F1985 /* BoardView.h */,
@@ -1156,6 +1174,25 @@
 				42A0607256A5A3252358EB13 /* libPods-MiLiao.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C0FA59C200C42D70098AC28 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */,
+				3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3C0FA5A8200C71EF0098AC28 /* Pay-充值 */ = {
+			isa = PBXGroup;
+			children = (
+				3C0FA5A9200C720A0098AC28 /* PayViewController.h */,
+				3C0FA5AA200C720A0098AC28 /* PayViewController.m */,
+				3C0FA5AB200C720A0098AC28 /* PayViewController.xib */,
+			);
+			path = "Pay-充值";
 			sourceTree = "<group>";
 		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
@@ -1825,6 +1862,7 @@
 		E221B5A11FF5DDF400353875 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
+				3C0FA59C200C42D70098AC28 /* Tools */,
 				3C12A3FF200A13EC0044A6A2 /* Net */,
 				E221B5B31FF5DF1600353875 /* Model */,
 				E221B5B41FF5DF1E00353875 /* View */,
@@ -1884,6 +1922,9 @@
 				E27E9F661FFB311100096A6E /* MLDetailTableViewCell.m */,
 				E25929361FFC8DAC00B6502D /* HLSearchTableViewCell.h */,
 				E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */,
+				3C0FA5A0200C4B280098AC28 /* CountDownView.h */,
+				3C0FA5A1200C4B280098AC28 /* CountDownView.m */,
+				3C0FA5A3200C4B320098AC28 /* CountDownView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1895,6 +1936,7 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
+				3C0FA5A8200C71EF0098AC28 /* Pay-充值 */,
 				3C723C772005E3690024F2BC /* 视频通话 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
@@ -2451,6 +2493,7 @@
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
+				3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
@@ -2466,6 +2509,7 @@
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
+				3C0FA5A4200C4B320098AC28 /* CountDownView.xib in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
@@ -2611,6 +2655,7 @@
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
+				3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */,
@@ -2645,6 +2690,7 @@
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
+				3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */,
@@ -2680,6 +2726,7 @@
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
+				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
@@ -2693,6 +2740,7 @@
 				E2B77BEC1FFDD68700597326 /* UIView+SDAutoLayout.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
 				3CC752C42008499E00C03C6B /* JSONModel+networking.m in Sources */,
+				3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */,
 				3CC7534E2008828700C03C6B /* RCCallTipMessageCell.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */,

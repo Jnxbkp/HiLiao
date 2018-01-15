@@ -16,7 +16,9 @@
 #import "FUManager.h"
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
 
-@interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate>
+#import "CountDownView.h"//倒计时view
+
+@interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
 
 @property(nonatomic, strong) RCUserInfo *remoteUserInfo;
 
@@ -28,11 +30,19 @@
 @property (nonatomic, strong) FUAPIDemoBar *bar;
 ///控件容器数组
 @property (nonatomic, strong) NSArray *controlContainerArray;
+///显示剩余时间的定时器
+@property (nonatomic, strong) dispatch_source_t showTimeTimer;
+///检查M币的定时器
+@property (nonatomic, strong) dispatch_source_t checkMoneyTimer;
 
-@property (nonatomic, strong) dispatch_source_t timer;
-
+///倒计时view
+@property (nonatomic, strong) CountDownView *countDownView;
 
 @end
+
+///测试倒计时时间
+static NSInteger TestCountDown = 5;
+
 
 @implementation RCCallSingleCallViewController
 
@@ -51,6 +61,13 @@
     return _controlContainerArray;
 }
 
+- (CountDownView *)countDownView {
+    if (!_countDownView) {
+        _countDownView = [CountDownView CountDownView];
+        _countDownView.delegate = self;
+    }
+    return _countDownView;
+}
 
 /**
  Faceunity道具美颜工具条
@@ -123,13 +140,7 @@
 
     RCUserInfo *userInfo = [[RCUserInfoCacheManager sharedManager] getUserInfo:self.callSession.targetId];
    
-    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
-        NSLog(@"我发起的通话");
-        //检查M币
-        [self checkMoney];
-    } else {
-        NSLog(@"我收到的通话");
-    }
+    
     if (!userInfo) {
         userInfo = [[RCUserInfo alloc] initWithUserId:self.callSession.targetId name:nil portrait:nil];
     }
@@ -148,6 +159,8 @@
     
     //初始化美颜
     [[FUManager shareManager] setUpFaceunity];
+
+    
 }
 
 //加载底部的美颜bar,并默认隐藏
@@ -160,13 +173,34 @@
     self.bar.hidden = YES;
 }
 
+//检查M币
 - (void)checkMoney {
-    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(self.timer, ^{
-        NSLog(@"=======");
+    
+    self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    //没分钟执行一次检查M币
+    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    
+    dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+        TestCountDown--;
+        NSLog(@"控制器内倒计时：%ld", TestCountDown);
+        if (TestCountDown <= 0) {
+            self.countDownView.hidden = NO;
+            [self.countDownView startCountDowun];
+            dispatch_cancel(self.checkMoneyTimer);
+        }
+        
     });
-    dispatch_resume(self.timer);
+    
+    dispatch_resume(self.checkMoneyTimer);
+}
+
+- (void)showTime {
+    self.showTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(self.showTimeTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(self.showTimeTimer, ^{
+        
+    });
+    dispatch_resume(self.showTimeTimer);
 }
 
 
@@ -195,6 +229,19 @@
     [FUManager shareManager].thinningLevel = self.bar.thinningLevel ;
     [FUManager shareManager].enlargingLevel = self.bar.enlargingLevel ;
     [FUManager shareManager].selectedFilter = self.bar.selectedFilter ;
+}
+
+
+#pragma mark - 倒计时view代理方法
+//充值回调
+- (void)payAction {
+    
+    
+}
+
+///倒计时结束 通话结束
+- (void)callEnd {
+    
 }
 
 
@@ -235,6 +282,28 @@
     [[FUManager shareManager] onCameraChange];
 }
 
+
+#pragma mark - 回调方法
+///通话已连接
+- (void)callDidConnect {
+    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
+        NSLog(@"我发起的通话");
+        //添加倒计时view
+         [self.mainVideoView addSubview:self.countDownView];
+        [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mainVideoView).offset(20);
+            make.top.equalTo(self.remoteNameLabel).offset(30);
+            make.width.equalTo(@120);
+            make.height.equalTo(@40);
+        }];
+        self.countDownView.hidden = YES;
+        //检查M币
+        [self checkMoney];
+        
+    } else {
+        NSLog(@"我收到的通话");
+    }
+}
 
 
 - (RCloudImageView *)remotePortraitView {
