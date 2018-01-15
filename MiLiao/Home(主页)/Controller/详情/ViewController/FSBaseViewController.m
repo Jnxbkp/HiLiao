@@ -26,6 +26,8 @@
 
 #import "UserInfoNet.h"
 
+#import "VideoUserModel.h"
+
 //
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
@@ -193,28 +195,34 @@
 //计算可通话时长
 - (void)calculatorCallTime:(void(^)(BOOL canCall))canCall {
     
-    __weak typeof(self) weakSelf = self;
-    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
-    dispatch_group_t group = dispatch_group_create();
-    
-    dispatch_group_enter(group);
     [UserInfoNet getUserBalance:^(CGFloat balance) {
         self.balance = balance;
-        dispatch_group_leave(group);
+       !canCall?:canCall(self.balance - [self.videoUserModel.price integerValue] * 5 >= 0);
     }];
-    
-     dispatch_group_enter(group);
-    [self getNetHotPrice:^(CGFloat price) {
-        weakSelf.netHotPrice = price;
-        dispatch_group_leave(group);
-    }];
-   
-    dispatch_group_notify(group, queue, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
-            
-        });
-    });
+//    
+//    
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
+//    dispatch_group_t group = dispatch_group_create();
+//    
+//    dispatch_group_enter(group);
+//    [UserInfoNet getUserBalance:^(CGFloat balance) {
+//        self.balance = balance;
+//        dispatch_group_leave(group);
+//    }];
+//    
+//     dispatch_group_enter(group);
+//    [self getNetHotPrice:^(CGFloat price) {
+//        weakSelf.netHotPrice = price;
+//        dispatch_group_leave(group);
+//    }];
+//   
+//    dispatch_group_notify(group, queue, ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
+//            
+//        });
+//    });
     
 }
 

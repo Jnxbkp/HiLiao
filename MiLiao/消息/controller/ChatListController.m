@@ -31,6 +31,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    double systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
+    if (systemVersion < 11) {
+        self.conversationListTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    }
+    
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];

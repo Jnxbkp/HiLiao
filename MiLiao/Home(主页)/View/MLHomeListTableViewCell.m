@@ -20,6 +20,16 @@
     }
     return self;
 }
+
+- (void)setVideoUserModel:(VideoUserModel *)videoUserModel {
+    _videoUserModel = videoUserModel;
+    [_mainImgageView sd_setImageWithURL:[NSURL URLWithString:videoUserModel.posterUrl]];
+    
+    _nameLabel.text = videoUserModel.nickname;
+    _messageLabel.text = videoUserModel.personalSign;
+    [_priceView setPrice:videoUserModel.price];
+}
+
 - (void)creat {
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 0, WIDTH-24, WIDTH-24)];
     _mainImgageView.image = [UIImage imageNamed:@"aaa"];

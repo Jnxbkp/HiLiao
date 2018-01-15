@@ -195,7 +195,7 @@ static NSString *const bigIdentifer = @"bigCell";
         if (resultCode == SUCCESS) {
            
             self.modelArray = [VideoUserModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
-           
+            NSLog(@"%ld", self.modelArray.count);
             NSArray *dataArr = [info objectForKey:@"data"];
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
@@ -203,13 +203,16 @@ static NSString *const bigIdentifer = @"bigCell";
             }
             
             if([selectStr isEqualToString:newStr]) {
-                [_newsList addObjectsFromArray:muArr];
+                _newsList = [self.modelArray mutableCopy];
+//                [_newsList addObjectsFromArray:muArr];
                 [self newTabReload];
             } else if ([selectStr isEqualToString:careStr]) {
-                [_careList addObjectsFromArray:muArr];
+//                [_careList addObjectsFromArray:muArr];
+                _careList = [self.modelArray mutableCopy];
                 [self careTabReload];
             } else {
-                [_recommandList addObjectsFromArray:muArr];
+//                [_recommandList addObjectsFromArray:muArr];
+                _recommandList = [self.modelArray mutableCopy];
                 [self recommandTabReload];
             }
         }
@@ -344,6 +347,7 @@ static NSString *const bigIdentifer = @"bigCell";
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSMutableArray *muArr = [NSMutableArray array];
+    
     if(tableView == _newTabelView) {
         muArr = _newsList;
     } else if (tableView == _careTabelView) {
@@ -351,13 +355,14 @@ static NSString *const bigIdentifer = @"bigCell";
     } else {
         muArr = _recommandList;
     }
-    
+    VideoUserModel *videoUserModel = [muArr objectAtIndex:indexPath.row];
+    cell.videoUserModel = videoUserModel;
     [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
-//    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
-    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
-    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
-    cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
-    [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
+////    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
+//    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
+//    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
+//    cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
+//    [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
     
     return cell;
     
@@ -365,13 +370,15 @@ static NSString *const bigIdentifer = @"bigCell";
 #pragma mark 点击tablecell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
+    VideoUserModel *videoUserModel;
     if (tableView == _newTabelView) {
-        
+        videoUserModel = [_newsList objectAtIndex:indexPath.row];
     } else if (tableView == _careTabelView) {
-        
+        videoUserModel = [_careList objectAtIndex:indexPath.row];
     } else {
-        
+        videoUserModel = [_recommandList objectAtIndex:indexPath.row];
     }
+    baseVC.videoUserModel = videoUserModel;
     [self.navigationController pushViewController:baseVC animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

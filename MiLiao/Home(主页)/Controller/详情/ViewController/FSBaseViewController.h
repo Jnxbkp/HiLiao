@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSBaseViewController : UIViewController
+@class VideoUserModel;
 
+@interface FSBaseViewController : UIViewController
+@property (nonatomic, strong) VideoUserModel *videoUserModel;
 @end

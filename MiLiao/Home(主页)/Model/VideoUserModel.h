@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSString *personalSign;
 @property (nonatomic, strong) NSString *posterUrl;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *price;
 @end
