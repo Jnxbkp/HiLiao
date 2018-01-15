@@ -17,7 +17,7 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    NSArray * array = @[@"1",@"",@"",@"",@"",@""];
+    NSArray * array = @[@"1",@"",@"",@"",@"",@"",@"",@"",@""];
     selectedArray = [[NSMutableArray alloc] initWithArray:array];
     [self loadData];
 
@@ -44,7 +44,7 @@ static NSString *const reuseIdentifier = @"Cell";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 //    return dicAry.count;
-    return 6;
+    return 9;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -85,7 +85,7 @@ static NSString *const reuseIdentifier = @"Cell";
         
     }else{
         [selectedArray removeAllObjects];
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 10; i++) {
             if (i == indexPath.row)
             {
                 [selectedArray addObject:@"1"];

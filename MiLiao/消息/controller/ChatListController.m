@@ -20,8 +20,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [self.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController setNavigationBarHidden:NO];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+//    self.navigationController.navigationBar.translucent = NO;
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -35,6 +36,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"消息"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
 
@@ -57,6 +59,7 @@
                                           @(ConversationType_GROUP)]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+//    self.conversationListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-ML_TopHeight-ML_TabBarHeight)];
     messageView *vc = [[NSBundle mainBundle] loadNibNamed:
                        @"messageView" owner:nil options:nil ].lastObject;
     vc.tonghuaBlock = ^{

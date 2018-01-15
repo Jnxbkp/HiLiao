@@ -19,7 +19,6 @@
     _index = index;
     NSString *str = self.payArray[index];
     self.bankTitle.text = str;
-    self.bankImage.image = [UIImage imageNamed:str];
     self.bankImage.contentMode = UIViewContentModeScaleAspectFit;
     self.tuijian.layer.masksToBounds = YES;
     self.tuijian.layer.cornerRadius=3;

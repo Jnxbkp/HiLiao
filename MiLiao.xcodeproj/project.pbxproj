@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
+		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
+		18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249237200C523800A78B94 /* tiXainTableViewCell.m */; };
+		1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18249238200C523800A78B94 /* tiXainTableViewCell.xib */; };
+		1824923D200C525400A78B94 /* headerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1824923C200C525400A78B94 /* headerView.m */; };
+		1824923F200C526700A78B94 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1824923E200C526700A78B94 /* headerView.xib */; };
 		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
 		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
 		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
@@ -342,6 +347,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18249230200C505B00A78B94 /* WithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawalsViewController.h; sourceTree = "<group>"; };
+		18249231200C505B00A78B94 /* WithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawalsViewController.m; sourceTree = "<group>"; };
+		18249236200C523800A78B94 /* tiXainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiXainTableViewCell.h; sourceTree = "<group>"; };
+		18249237200C523800A78B94 /* tiXainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tiXainTableViewCell.m; sourceTree = "<group>"; };
+		18249238200C523800A78B94 /* tiXainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tiXainTableViewCell.xib; sourceTree = "<group>"; };
+		1824923B200C525400A78B94 /* headerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headerView.h; sourceTree = "<group>"; };
+		1824923C200C525400A78B94 /* headerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = headerView.m; sourceTree = "<group>"; };
+		1824923E200C526700A78B94 /* headerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
 		183AAF0C200356E3006D658A /* HXAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAddressManager.m; sourceTree = "<group>"; };
@@ -957,6 +970,38 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		18249233200C507F00A78B94 /* 充值 */ = {
+			isa = PBXGroup;
+			children = (
+				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
+				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
+			);
+			path = "充值";
+			sourceTree = "<group>";
+		};
+		18249234200C50A000A78B94 /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				18249235200C519C00A78B94 /* view */,
+				18249230200C505B00A78B94 /* WithdrawalsViewController.h */,
+				18249231200C505B00A78B94 /* WithdrawalsViewController.m */,
+			);
+			path = "提现";
+			sourceTree = "<group>";
+		};
+		18249235200C519C00A78B94 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				18249236200C523800A78B94 /* tiXainTableViewCell.h */,
+				18249237200C523800A78B94 /* tiXainTableViewCell.m */,
+				18249238200C523800A78B94 /* tiXainTableViewCell.xib */,
+				1824923B200C525400A78B94 /* headerView.h */,
+				1824923C200C525400A78B94 /* headerView.m */,
+				1824923E200C526700A78B94 /* headerView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		183AAF08200356CB006D658A /* 城市选择 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1079,6 +1124,8 @@
 		185820322009AC3E0020C232 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				18249234200C50A000A78B94 /* 提现 */,
+				18249233200C507F00A78B94 /* 充值 */,
 				185820332009AC3E0020C232 /* Me.storyboard */,
 				185820342009AC3E0020C232 /* edttViewController.h */,
 				1858203B2009AC3E0020C232 /* edttViewController.m */,
@@ -1086,8 +1133,6 @@
 				185820392009AC3E0020C232 /* MeViewController.m */,
 				185820372009AC3E0020C232 /* MyMoneyViewController.h */,
 				1858203C2009AC3E0020C232 /* MyMoneyViewController.m */,
-				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
-				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
 				185820352009AC3E0020C232 /* NickNameViewController.h */,
 				1858203A2009AC3E0020C232 /* NickNameViewController.m */,
 				185820382009AC3E0020C232 /* NickNameViewController.xib */,
@@ -2521,8 +2566,10 @@
 				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
+				1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */,
 				1858204A2009AC970020C232 /* MyQianBaoTableViewCell.xib in Resources */,
 				3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */,
+				1824923F200C526700A78B94 /* headerView.xib in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
 				3CCBB0052008D773003071D2 /* yazui.png in Resources */,
@@ -2622,6 +2669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
@@ -2685,6 +2733,7 @@
 				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
 				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
 				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
+				18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
@@ -2714,6 +2763,7 @@
 				3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
+				1824923D200C525400A78B94 /* headerView.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
