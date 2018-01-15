@@ -359,19 +359,13 @@ static NSString *const bigIdentifer = @"bigCell";
     VideoUserModel *videoUserModel = [muArr objectAtIndex:indexPath.row];
     cell.videoUserModel = videoUserModel;
     [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
-<<<<<<< HEAD
-    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
-//    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
-    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
-    cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
-    [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
-=======
+
 ////    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
 //    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
 //    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
 //    cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
 //    [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
->>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
+
     
     return cell;
     
@@ -381,21 +375,15 @@ static NSString *const bigIdentifer = @"bigCell";
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
     VideoUserModel *videoUserModel;
     if (tableView == _newTabelView) {
-<<<<<<< HEAD
-        
-        
-=======
         videoUserModel = [_newsList objectAtIndex:indexPath.row];
->>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
+        baseVC.user_id = videoUserModel.ID;
     } else if (tableView == _careTabelView) {
         videoUserModel = [_careList objectAtIndex:indexPath.row];
+        baseVC.user_id = videoUserModel.ID;
     } else {
-<<<<<<< HEAD
-        baseVC.user_id = [[_recommandList objectAtIndex:indexPath.row] objectForKey:@"id"];
-        NSLog(@"----->>id----%@",baseVC.user_id);
-=======
         videoUserModel = [_recommandList objectAtIndex:indexPath.row];
->>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
+        baseVC.user_id = videoUserModel.ID;
+
     }
     baseVC.videoUserModel = videoUserModel;
     [self.navigationController pushViewController:baseVC animated:YES];

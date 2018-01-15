@@ -61,22 +61,15 @@
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             //保存用户信息
-<<<<<<< HEAD
-//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
-=======
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
->>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
-            
+
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             
-<<<<<<< HEAD
 
-=======
->>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
