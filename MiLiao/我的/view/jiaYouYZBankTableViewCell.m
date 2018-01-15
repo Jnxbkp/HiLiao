@@ -12,8 +12,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle= UITableViewCellSelectionStyleNone;
-    self.payArray = @[@"支付宝",
-                      @"微信"];
+    self.payArray = @[@"支付宝"];
 }
 
 - (void)setIndex:(NSInteger)index {

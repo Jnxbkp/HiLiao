@@ -30,6 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     _userDefaults = [NSUserDefaults standardUserDefaults];
+   
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSString *isLog = [_userDefaults stringForKey:@"isLog"];
@@ -60,7 +61,7 @@
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
-    [self settingRCIMToken:[_userDefaults objectForKey:@"token"]];
+    [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
 
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
@@ -72,12 +73,15 @@
 }
 
 - (void)autoLogin{
-    [HLLoginManager NetPostLoginMobile:[_userDefaults objectForKey:@"phoneNum"] password:[_userDefaults objectForKey:@"password"] success:^(NSDictionary *info) {
-        [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
-
-    } failure:^(NSError *error) {
-        
-    }];
+    NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
+    if (tokenStr.length>0) {
+        [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
+            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            //              [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+        } failure:^(NSError *error) {
+            
+        }];
+    }
 }
 /*!
  接收消息的回调方法
@@ -94,13 +98,11 @@
 }
 
 // [_userDefaults objectForKey:@"token"]
-- (void)settingRCIMToken:(NSString *)token {
-    if (!token) return;
-    [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
-        
-        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+- (void)settingRCIMToken:(NSString *)rongCloudToken {
+    if (!rongCloudToken) return;
+    
 
-        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"]  success:^(NSString *userId) {
+        [[RCIM sharedRCIM] connectWithToken:rongCloudToken  success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             
             //把自己信息存起来
@@ -115,9 +117,7 @@
             //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
             NSLog(@"token错误");
         }];
-    } failure:^(NSError *error) {
-        
-    }];
+
 }
 - (void)RCIM_currentUserInfo:(NSString *)userId {
     //自己的信息
