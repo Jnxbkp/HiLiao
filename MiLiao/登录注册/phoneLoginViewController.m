@@ -63,6 +63,7 @@
 //            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             

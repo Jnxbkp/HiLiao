@@ -87,10 +87,29 @@
     }
 }
 
+/**
+ 发起单人视频通话
+ 
+ @param targetID 目标id
+ @param price 对端的扣费
+ @param costUserId 对端的id
+ */
+- (void)startSingleVideoCall:(NSString *)targetID price:(NSString *)price costUserId:(NSString *)costUserId {
+    if (price) self.price = price;
+    if (costUserId) self.costUserId = costUserId;
+    [self startSingleCall:targetID mediaType:RCCallMediaVideo];
+}
+
 - (void)startSingleCallViewController:(NSString *)targetId mediaType:(RCCallMediaType)mediaType {
     RCCallSingleCallViewController *singleCallViewController =
         [[RCCallSingleCallViewController alloc] initWithOutgoingCall:targetId mediaType:mediaType];
-
+    if (self.price) {
+        singleCallViewController.price = self.price;
+    }
+    if (self.costUserId) {
+        singleCallViewController.costUserId = self.costUserId;
+    }
+    
     [self presentCallViewController:singleCallViewController];
 }
 

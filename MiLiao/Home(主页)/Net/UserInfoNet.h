@@ -8,6 +8,10 @@
 
 #import "Networking.h"
 
+//获取当前用户的token
+NSString *tokenForCurrentUser(void);
+
+
 @interface UserInfoNet : Networking
 
 
@@ -19,5 +23,5 @@
 + (void)getUserBalance:(void(^)(CGFloat balance))balance;
 
 
-+ (void)perMinuteDedectionCostCoin:(CGFloat)price costUserId:(NSString *)costUserId ;
++ (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId ;
 @end

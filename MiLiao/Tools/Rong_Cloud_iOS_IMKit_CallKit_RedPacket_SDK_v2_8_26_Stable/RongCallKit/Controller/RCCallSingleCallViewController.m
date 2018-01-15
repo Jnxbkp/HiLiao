@@ -18,7 +18,7 @@
 
 #import "CountDownView.h"//倒计时view
 #import "PayViewController.h"
-
+#import "UserInfoNet.h"
 #import "Networking.h"
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
@@ -171,6 +171,30 @@ static NSInteger TestCountDown = 5;
     
     //初始化美颜
     [[FUManager shareManager] setUpFaceunity];
+    
+//    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+//    NSString *token = tokenForCurrentUser();
+//    NSLog(@"%@", token);
+//    NSString *userID = [User ShardInstance].user_id;
+//    
+//    NSDictionary *parameters = @{@"costCoin":self.price,
+//                                 @"costUserId":self.costUserId,
+//                                 @"token":tokenForCurrentUser(),
+//                                 @"userId":@"48"
+//                                 };
+//    
+//    NSString *api = [NSString stringWithFormat:@"%@/v1/cost/minuteCost", HLRequestUrl];
+//    [manager POST:api parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+//    
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@", responseObject);;
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@", error.userInfo);
+//    }];
+    
+    
+    [UserInfoNet perMinuteDedectionCostCoin:self.price costUserId:self.costUserId];
 
     
 }
@@ -205,6 +229,8 @@ static NSInteger TestCountDown = 5;
     
     dispatch_resume(self.checkMoneyTimer);
 }
+
+
 
 - (void)showTime {
     self.showTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
@@ -262,6 +288,17 @@ static NSInteger TestCountDown = 5;
     [self hangupButtonClicked];
 }
 
+///添加倒计时view
+- (void)addCountDownView {
+    [self.mainVideoView addSubview:self.countDownView];
+    [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mainVideoView).offset(20);
+        make.top.equalTo(self.remoteNameLabel).offset(30);
+        make.width.equalTo(@120);
+        make.height.equalTo(@40);
+    }];
+}
+
 
 #pragma mark - 手势相关
 ///添加手势
@@ -308,13 +345,7 @@ static NSInteger TestCountDown = 5;
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
         //添加倒计时view
-         [self.mainVideoView addSubview:self.countDownView];
-        [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mainVideoView).offset(20);
-            make.top.equalTo(self.remoteNameLabel).offset(30);
-            make.width.equalTo(@120);
-            make.height.equalTo(@40);
-        }];
+        [self addCountDownView];
         self.countDownView.hidden = YES;
         //检查M币
         [self checkMoney];

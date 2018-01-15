@@ -187,7 +187,8 @@
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     } else {
-        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
+        [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+//        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
     }
 }
 
