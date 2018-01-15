@@ -22,6 +22,7 @@
 		183AAF19200372DD006D658A /* signViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF17200372DD006D658A /* signViewController.m */; };
 		183AAF1A200372DD006D658A /* signViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF18200372DD006D658A /* signViewController.xib */; };
 		183AAF1D20038EBC006D658A /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF1C20038EBC006D658A /* TagViewController.m */; };
+		184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C674D200CA48600C852B4 /* PayWebViewController.m */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -367,6 +368,8 @@
 		183AAF18200372DD006D658A /* signViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signViewController.xib; sourceTree = "<group>"; };
 		183AAF1B20038EBC006D658A /* TagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
 		183AAF1C20038EBC006D658A /* TagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		184C674C200CA48600C852B4 /* PayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayWebViewController.h; sourceTree = "<group>"; };
+		184C674D200CA48600C852B4 /* PayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayWebViewController.m; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -972,6 +975,8 @@
 			children = (
 				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
 				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
+				184C674C200CA48600C852B4 /* PayWebViewController.h */,
+				184C674D200CA48600C852B4 /* PayWebViewController.m */,
 			);
 			path = "充值";
 			sourceTree = "<group>";
@@ -2789,6 +2794,7 @@
 				3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
 				3CC752982008499D00C03C6B /* AliyunPathManager.m in Sources */,
+				184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */,
 				3CC752C52008499E00C03C6B /* QUProgressView.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
 				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
@@ -3037,7 +3043,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3087,7 +3093,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3101,7 +3107,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GBES3NAA4;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3151,7 +3157,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -55,6 +55,16 @@
     self.navigationController.navigationBarHidden = NO;
     [super viewWillDisappear:animated];
 }
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+
+{
+    if (UI_IS_IPHONE6) {
+        self.tableView.contentSize = CGSizeMake(0,HEIGHT+100);
+
+    }
+    
+    
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return 0.01;
