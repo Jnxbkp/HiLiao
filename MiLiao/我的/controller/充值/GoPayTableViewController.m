@@ -10,7 +10,6 @@
 #import <Masonry.h>
 #import "MyQianBaoTableViewCell.h"
 #import "jiaYouYZBankTableViewCell.h"//支付方式新
-
 @interface GoPayTableViewController ()
 @property(nonatomic,assign)BOOL boolBtnSelected;
 
@@ -85,7 +84,7 @@
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 180;
+        return 270;
     }else{
         return 44;
         
