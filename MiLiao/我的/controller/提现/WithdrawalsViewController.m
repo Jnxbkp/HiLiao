@@ -23,9 +23,26 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"提现"];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:ML_Color(255, 255, 255, 1)};
+
+//    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"提现"];
+    self.title = @"提现"; 
     [self setTableView];
 
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:ML_Color(250,114,152,1)] forBarMetrics:UIBarMetricsDefault];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarBackgroundColor] forBarMetrics:UIBarMetricsDefault];
+    
+    
 }
 - (void)setTableView
 {

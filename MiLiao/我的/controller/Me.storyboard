@@ -15,9 +15,10 @@
             <objects>
                 <tableViewController storyboardIdentifier="MeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ai7-5n-gNE" customClass="MeViewController" colorLabel="IBBuiltInLabel-Gray" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="z70-08-TuZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="681"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="RYw-E8-k1f">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -268,15 +269,15 @@
                             </tableViewSection>
                             <tableViewSection id="w4l-Ab-zMr">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="NEb-Cs-NFE">
-                                        <rect key="frame" x="0.0" y="686" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="39" id="NEb-Cs-NFE">
+                                        <rect key="frame" x="0.0" y="686" width="375" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NEb-Cs-NFE" id="JFs-Ej-Agd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全退出" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YB-zX-PQw">
-                                                    <rect key="frame" x="123.5" y="9" width="128" height="32"/>
+                                                    <rect key="frame" x="123.5" y="9" width="128" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="yjg-Jt-bAh"/>
                                                     </constraints>
@@ -300,6 +301,8 @@
                             <outlet property="delegate" destination="ai7-5n-gNE" id="0q9-q3-f0A"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="681"/>
                     <connections>
                         <outlet property="headerImg" destination="odP-Cb-z2k" id="agR-O0-1vo"/>
                         <outlet property="nickName" destination="k7y-Dr-AAv" id="vU0-js-BTd"/>

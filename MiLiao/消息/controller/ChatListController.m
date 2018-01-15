@@ -34,7 +34,7 @@
     self.edgesForExtendedLayout = UIRectEdgeAll;
     double systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
     if (systemVersion < 11) {
-        self.conversationListTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        self.conversationListTableView.contentInset = UIEdgeInsetsMake(ML_TopHeight, 0, 0, 0);
     }
     
     //设置状态栏为黑色

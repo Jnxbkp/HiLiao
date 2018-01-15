@@ -9,6 +9,7 @@
 #import "phoneLoginViewController.h"
 #import "registerViewController.h"
 #import "forgetPassViewController.h"
+
 #import <UMSocialCore/UMSocialCore.h>
 #import <RongIMKit/RongIMKit.h>
 #import "User.h"
@@ -60,7 +61,7 @@
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             //保存用户信息
-//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             NSLog(@"%@", [User ShardInstance].user_id);
