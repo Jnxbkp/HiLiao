@@ -41,7 +41,7 @@
     }
     
     [self.window makeKeyAndVisible];
-//    [self autoLogin];
+    [self autoLogin];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchRootViewController:) name:@"KSwitchRootViewControllerNotification" object:nil];
     
@@ -61,10 +61,14 @@
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
+<<<<<<< HEAD
 
     [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
 
 
+=======
+    [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
     
@@ -75,17 +79,24 @@
 }
 
 - (void)autoLogin{
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
     if (tokenStr.length>0) {
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
-            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
-            //              [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
         } failure:^(NSError *error) {
             
         }];
     }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
 }
 /*!
  接收消息的回调方法

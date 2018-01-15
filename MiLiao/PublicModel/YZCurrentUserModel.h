@@ -13,7 +13,6 @@
 
 
 
-@property (nonatomic, copy) NSString * id;
 
 /**用户名*/
 @property (nonatomic, strong) NSString      * username;

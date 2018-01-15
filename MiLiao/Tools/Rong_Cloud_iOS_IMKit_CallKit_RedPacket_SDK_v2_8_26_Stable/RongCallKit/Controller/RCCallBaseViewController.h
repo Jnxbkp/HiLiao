@@ -98,6 +98,11 @@
  */
 @property(nonatomic, strong) UIButton *cameraSwitchButton;
 
+///对端的扣费标准
+@property (nonatomic, strong) NSString *price;
+///对端的id
+@property (nonatomic, strong) NSString *costUserId;
+
 #pragma mark - 回调
 /*!
  通话即将接通
@@ -137,6 +142,9 @@
  点击挂断Button的回调
  */
 - (void)didTapHangupButton;
+
+///挂断通话
+- (void)hangupButtonClicked;
 
 /*!
  点击扬声器Button的回调

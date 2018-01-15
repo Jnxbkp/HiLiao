@@ -9,6 +9,7 @@
 #import "phoneLoginViewController.h"
 #import "registerViewController.h"
 #import "forgetPassViewController.h"
+
 #import <UMSocialCore/UMSocialCore.h>
 #import <RongIMKit/RongIMKit.h>
 #import "User.h"
@@ -52,7 +53,6 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-    
     [self.view endEditing:YES];
 
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
@@ -61,14 +61,22 @@
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             //保存用户信息
+<<<<<<< HEAD
 //            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
+=======
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
             
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
@@ -176,7 +184,7 @@
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];

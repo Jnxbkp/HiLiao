@@ -23,10 +23,11 @@
 #import "RongCallKit.h"
 #import <RongIMKit/RongIMKit.h>
 
-#import "VideoCallViewController.h"
 
 #import "UserInfoNet.h"
 #import "MainMananger.h"
+
+#import "VideoUserModel.h"
 
 //
 //#import "FUManager.h"
@@ -218,21 +219,12 @@
         //新建一个聊天会话View Controller对象,建议这样初始化
         ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18678899778"];
         chat.title = @"hehehe";
-        //        chat.title = [NSString stringWithFormat:@"%@",self.personModel.user.nickname];
-        
         chat.automaticallyAdjustsScrollViewInsets = NO;
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     } else {
-        
-        __weak typeof(self) weakSelf = self;
-        [self showPayAlertController:^{
-            
-        } continueCall:^{
-            VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-            [weakSelf presentViewController:callViewController animated:YES completion:nil];
-        }];
-        
+        [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+//        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
     }
 }
 
@@ -240,28 +232,34 @@
 //计算可通话时长
 - (void)calculatorCallTime:(void(^)(BOOL canCall))canCall {
     
-    __weak typeof(self) weakSelf = self;
-    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
-    dispatch_group_t group = dispatch_group_create();
-    
-    dispatch_group_enter(group);
     [UserInfoNet getUserBalance:^(CGFloat balance) {
         self.balance = balance;
-        dispatch_group_leave(group);
+       !canCall?:canCall(self.balance - [self.videoUserModel.price integerValue] * 5 >= 0);
     }];
-    
-     dispatch_group_enter(group);
-    [self getNetHotPrice:^(CGFloat price) {
-        weakSelf.netHotPrice = price;
-        dispatch_group_leave(group);
-    }];
-   
-    dispatch_group_notify(group, queue, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
-            
-        });
-    });
+//    
+//    
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
+//    dispatch_group_t group = dispatch_group_create();
+//    
+//    dispatch_group_enter(group);
+//    [UserInfoNet getUserBalance:^(CGFloat balance) {
+//        self.balance = balance;
+//        dispatch_group_leave(group);
+//    }];
+//    
+//     dispatch_group_enter(group);
+//    [self getNetHotPrice:^(CGFloat price) {
+//        weakSelf.netHotPrice = price;
+//        dispatch_group_leave(group);
+//    }];
+//   
+//    dispatch_group_notify(group, queue, ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
+//            
+//        });
+//    });
     
 }
 

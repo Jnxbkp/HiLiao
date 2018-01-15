@@ -10,7 +10,7 @@
 #import <Masonry.h>
 #import "MyQianBaoTableViewCell.h"
 #import "jiaYouYZBankTableViewCell.h"//支付方式新
-
+#import "PayWebViewController.h"
 @interface GoPayTableViewController ()
 @property(nonatomic,assign)BOOL boolBtnSelected;
 
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:ML_Color(255, 255, 255, 1)};
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:ML_Color(255, 255, 255, 1)};
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
@@ -78,6 +78,8 @@
     if (indexPath.section == 1) {
         //支付宝
 //            self.type = 1;
+        PayWebViewController *payWeb = [[PayWebViewController alloc]init];
+        [self.navigationController pushViewController:payWeb animated:YES];
         }
     
     
@@ -85,7 +87,7 @@
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 180;
+        return 270;
     }else{
         return 44;
         

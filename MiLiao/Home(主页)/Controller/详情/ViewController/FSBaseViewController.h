@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSBaseViewController : UIViewController
+@class VideoUserModel;
 
+<<<<<<< HEAD
 @property (nonatomic,strong)NSString *user_id;
 
+=======
+@interface FSBaseViewController : UIViewController
+@property (nonatomic, strong) VideoUserModel *videoUserModel;
+>>>>>>> 9dbfadfbb2864048beeaa3ee0a54c026afdd366f
 @end

@@ -48,12 +48,22 @@
     [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
     self.nickName.text = [_userDefaults objectForKey:@"nickname"];
     
-    NSLog(@"%@^^^",[User ShardInstance].nickname);
+    NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
 
 }
 - (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
     [super viewWillDisappear:animated];
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+
+{
+    if (UI_IS_IPHONE6) {
+        self.tableView.contentSize = CGSizeMake(0,HEIGHT+100);
+
+    }
+    
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     

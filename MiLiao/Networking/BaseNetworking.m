@@ -29,11 +29,18 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSLog(@"%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
     
-    manager.responseSerializer.acceptableContentTypes = \
-    //    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+    AFSecurityPolicy *security = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [security setValidatesDomainName:NO];
+    security.allowInvalidCertificates = YES;
+    manager.securityPolicy = security;
     
-    manager.requestSerializer.timeoutInterval = 10.0f;
+//    manager.responseSerializer.acceptableContentTypes = \
+//    //    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+//    [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
+//
+//    manager.requestSerializer.timeoutInterval = 10.0f;
     
     NSString *url = [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString];
     NSLog(@"\n\n请求参数parameter\n:%@\n\n", [parameters mj_JSONString]);

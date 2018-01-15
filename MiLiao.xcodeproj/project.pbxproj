@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
+		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
+		18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249237200C523800A78B94 /* tiXainTableViewCell.m */; };
+		1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18249238200C523800A78B94 /* tiXainTableViewCell.xib */; };
+		1824923D200C525400A78B94 /* headerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1824923C200C525400A78B94 /* headerView.m */; };
+		1824923F200C526700A78B94 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1824923E200C526700A78B94 /* headerView.xib */; };
 		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
 		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
 		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
@@ -17,6 +22,13 @@
 		183AAF19200372DD006D658A /* signViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF17200372DD006D658A /* signViewController.m */; };
 		183AAF1A200372DD006D658A /* signViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF18200372DD006D658A /* signViewController.xib */; };
 		183AAF1D20038EBC006D658A /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF1C20038EBC006D658A /* TagViewController.m */; };
+		184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C674D200CA48600C852B4 /* PayWebViewController.m */; };
+		184C6751200CB1E100C852B4 /* MyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6750200CB1E100C852B4 /* MyCallViewController.m */; };
+		184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6753200CB1F800C852B4 /* MyMViewController.m */; };
+		184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6756200CB22600C852B4 /* MyNoticeViewController.m */; };
+		184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */; };
+		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
+		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -77,13 +89,18 @@
 		185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
-		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
 		187724122000BF1600A93345 /* IdentificationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187724112000BF1600A93345 /* IdentificationVController.m */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
+		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
+		3C0FA5A4200C4B320098AC28 /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
+		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
+		3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AA200C720A0098AC28 /* PayViewController.m */; };
+		3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AB200C720A0098AC28 /* PayViewController.xib */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
@@ -94,6 +111,7 @@
 		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; };
 		3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC51493200C96CC00095AE8 /* VideoUserModel.m */; };
 		3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752102008499D00C03C6B /* AliyunAlbumModel.m */; };
 		3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */; };
 		3CC752962008499D00C03C6B /* AliyunImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752152008499D00C03C6B /* AliyunImage.m */; };
@@ -147,7 +165,6 @@
 		3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */; };
 		3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929781FFCBC3800B6502D /* FSLoopScrollView.m */; };
 		3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293F1FFCA96600B6502D /* phoneLoginViewController.m */; };
-		3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723C782005E3690024F2BC /* VideoCallViewController.m */; };
 		3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */; };
 		3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753172008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m */; };
 		3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753182008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m */; };
@@ -340,6 +357,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18249230200C505B00A78B94 /* WithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawalsViewController.h; sourceTree = "<group>"; };
+		18249231200C505B00A78B94 /* WithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawalsViewController.m; sourceTree = "<group>"; };
+		18249236200C523800A78B94 /* tiXainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiXainTableViewCell.h; sourceTree = "<group>"; };
+		18249237200C523800A78B94 /* tiXainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tiXainTableViewCell.m; sourceTree = "<group>"; };
+		18249238200C523800A78B94 /* tiXainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tiXainTableViewCell.xib; sourceTree = "<group>"; };
+		1824923B200C525400A78B94 /* headerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headerView.h; sourceTree = "<group>"; };
+		1824923C200C525400A78B94 /* headerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = headerView.m; sourceTree = "<group>"; };
+		1824923E200C526700A78B94 /* headerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
 		183AAF0C200356E3006D658A /* HXAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAddressManager.m; sourceTree = "<group>"; };
@@ -353,6 +378,20 @@
 		183AAF18200372DD006D658A /* signViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signViewController.xib; sourceTree = "<group>"; };
 		183AAF1B20038EBC006D658A /* TagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
 		183AAF1C20038EBC006D658A /* TagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		184C674C200CA48600C852B4 /* PayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayWebViewController.h; sourceTree = "<group>"; };
+		184C674D200CA48600C852B4 /* PayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayWebViewController.m; sourceTree = "<group>"; };
+		184C674F200CB1E100C852B4 /* MyCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCallViewController.h; sourceTree = "<group>"; };
+		184C6750200CB1E100C852B4 /* MyCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCallViewController.m; sourceTree = "<group>"; };
+		184C6752200CB1F800C852B4 /* MyMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMViewController.h; sourceTree = "<group>"; };
+		184C6753200CB1F800C852B4 /* MyMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMViewController.m; sourceTree = "<group>"; };
+		184C6755200CB22600C852B4 /* MyNoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNoticeViewController.h; sourceTree = "<group>"; };
+		184C6756200CB22600C852B4 /* MyNoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNoticeViewController.m; sourceTree = "<group>"; };
+		184C6758200CC29400C852B4 /* IncomeMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IncomeMoneyViewController.h; sourceTree = "<group>"; };
+		184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncomeMoneyViewController.m; sourceTree = "<group>"; };
+		184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMingXiViewController.h; sourceTree = "<group>"; };
+		184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMingXiViewController.m; sourceTree = "<group>"; };
+		184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
+		184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -436,8 +475,6 @@
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
 		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
 		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
-		1877240220005E2500A93345 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
-		1877240320005E2500A93345 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187724112000BF1600A93345 /* IdentificationVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdentificationVController.m; sourceTree = "<group>"; };
@@ -450,10 +487,18 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
+		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
+		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
+		3C0FA5A1200C4B280098AC28 /* CountDownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDownView.m; sourceTree = "<group>"; };
+		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
+		3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBBorder.m"; sourceTree = "<group>"; };
+		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
+		3C0FA5A9200C720A0098AC28 /* PayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		3C0FA5AA200C720A0098AC28 /* PayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		3C0FA5AB200C720A0098AC28 /* PayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
-		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
-		3C723C792005E3690024F2BC /* VideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
 		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
 		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -466,6 +511,8 @@
 		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
 		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		3CC51492200C96CC00095AE8 /* VideoUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUserModel.h; sourceTree = "<group>"; };
+		3CC51493200C96CC00095AE8 /* VideoUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUserModel.m; sourceTree = "<group>"; };
 		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
 		3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoLibraryManager.m; sourceTree = "<group>"; };
 		3CC752122008499D00C03C6B /* AliyunAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumModel.h; sourceTree = "<group>"; };
@@ -949,8 +996,52 @@
 			children = (
 				185687922002138B003F1985 /* ChatListController.h */,
 				185687912002138B003F1985 /* ChatListController.m */,
+				184C674F200CB1E100C852B4 /* MyCallViewController.h */,
+				184C6750200CB1E100C852B4 /* MyCallViewController.m */,
+				184C6752200CB1F800C852B4 /* MyMViewController.h */,
+				184C6753200CB1F800C852B4 /* MyMViewController.m */,
+				184C6755200CB22600C852B4 /* MyNoticeViewController.h */,
+				184C6756200CB22600C852B4 /* MyNoticeViewController.m */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		18249233200C507F00A78B94 /* 充值 */ = {
+			isa = PBXGroup;
+			children = (
+				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
+				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
+				184C674C200CA48600C852B4 /* PayWebViewController.h */,
+				184C674D200CA48600C852B4 /* PayWebViewController.m */,
+				184C6758200CC29400C852B4 /* IncomeMoneyViewController.h */,
+				184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */,
+				184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */,
+				184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */,
+			);
+			path = "充值";
+			sourceTree = "<group>";
+		};
+		18249234200C50A000A78B94 /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				18249235200C519C00A78B94 /* view */,
+				18249230200C505B00A78B94 /* WithdrawalsViewController.h */,
+				18249231200C505B00A78B94 /* WithdrawalsViewController.m */,
+			);
+			path = "提现";
+			sourceTree = "<group>";
+		};
+		18249235200C519C00A78B94 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				18249236200C523800A78B94 /* tiXainTableViewCell.h */,
+				18249237200C523800A78B94 /* tiXainTableViewCell.m */,
+				18249238200C523800A78B94 /* tiXainTableViewCell.xib */,
+				1824923B200C525400A78B94 /* headerView.h */,
+				1824923C200C525400A78B94 /* headerView.m */,
+				1824923E200C526700A78B94 /* headerView.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		183AAF08200356CB006D658A /* 城市选择 */ = {
@@ -968,6 +1059,8 @@
 		18567F152001F568003F1985 /* IB_DESIGNABLE */ = {
 			isa = PBXGroup;
 			children = (
+				3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */,
+				3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */,
 				18567F162001F568003F1985 /* BoardImageView.m */,
 				18567F172001F568003F1985 /* BoardButton.h */,
 				18567F182001F568003F1985 /* BoardView.h */,
@@ -1073,6 +1166,8 @@
 		185820322009AC3E0020C232 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				18249234200C50A000A78B94 /* 提现 */,
+				18249233200C507F00A78B94 /* 充值 */,
 				185820332009AC3E0020C232 /* Me.storyboard */,
 				185820342009AC3E0020C232 /* edttViewController.h */,
 				1858203B2009AC3E0020C232 /* edttViewController.m */,
@@ -1080,8 +1175,6 @@
 				185820392009AC3E0020C232 /* MeViewController.m */,
 				185820372009AC3E0020C232 /* MyMoneyViewController.h */,
 				1858203C2009AC3E0020C232 /* MyMoneyViewController.m */,
-				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
-				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
 				185820352009AC3E0020C232 /* NickNameViewController.h */,
 				1858203A2009AC3E0020C232 /* NickNameViewController.m */,
 				185820382009AC3E0020C232 /* NickNameViewController.xib */,
@@ -1179,6 +1272,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C0FA59C200C42D70098AC28 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */,
+				3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3C0FA5A8200C71EF0098AC28 /* Pay-充值 */ = {
+			isa = PBXGroup;
+			children = (
+				3C0FA5A9200C720A0098AC28 /* PayViewController.h */,
+				3C0FA5AA200C720A0098AC28 /* PayViewController.m */,
+				3C0FA5AB200C720A0098AC28 /* PayViewController.xib */,
+			);
+			path = "Pay-充值";
+			sourceTree = "<group>";
+		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -1186,15 +1298,6 @@
 				3C12A401200A140A0044A6A2 /* UserInfoNet.m */,
 			);
 			path = Net;
-			sourceTree = "<group>";
-		};
-		3C723C772005E3690024F2BC /* 视频通话 */ = {
-			isa = PBXGroup;
-			children = (
-				3C723C792005E3690024F2BC /* VideoCallViewController.h */,
-				3C723C782005E3690024F2BC /* VideoCallViewController.m */,
-			);
-			path = "视频通话";
 			sourceTree = "<group>";
 		};
 		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
@@ -1582,8 +1685,8 @@
 				3CC7531E2008828700C03C6B /* Controller */,
 				3CC753292008828700C03C6B /* Cell */,
 				3CC753322008828700C03C6B /* Model */,
-				3CC753352008828700C03C6B /* RCCall.mm */,
 				3CC753362008828700C03C6B /* RCCall.h */,
+				3CC753352008828700C03C6B /* RCCall.mm */,
 				3CC753372008828700C03C6B /* VideoObserver */,
 				3CC7533A2008828700C03C6B /* Header */,
 				3CC7533F2008828700C03C6B /* Info.plist */,
@@ -1846,6 +1949,7 @@
 		E221B5A11FF5DDF400353875 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
+				3C0FA59C200C42D70098AC28 /* Tools */,
 				3C12A3FF200A13EC0044A6A2 /* Net */,
 				E221B5B31FF5DF1600353875 /* Model */,
 				E221B5B41FF5DF1E00353875 /* View */,
@@ -1892,6 +1996,8 @@
 				E221B5C71FF60EB600353875 /* DataManager.m */,
 				E24824ED20089B33000F1EC7 /* MainMananger.h */,
 				E24824EE20089B33000F1EC7 /* MainMananger.m */,
+				3CC51492200C96CC00095AE8 /* VideoUserModel.h */,
+				3CC51493200C96CC00095AE8 /* VideoUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1905,6 +2011,9 @@
 				E27E9F661FFB311100096A6E /* MLDetailTableViewCell.m */,
 				E25929361FFC8DAC00B6502D /* HLSearchTableViewCell.h */,
 				E25929371FFC8DAC00B6502D /* HLSearchTableViewCell.m */,
+				3C0FA5A0200C4B280098AC28 /* CountDownView.h */,
+				3C0FA5A1200C4B280098AC28 /* CountDownView.m */,
+				3C0FA5A3200C4B320098AC28 /* CountDownView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1916,7 +2025,7 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
-				3C723C772005E3690024F2BC /* 视频通话 */,
+				3C0FA5A8200C71EF0098AC28 /* Pay-充值 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -2164,13 +2273,9 @@
 		E2B497D01FFF489A0017A5B6 /* PublicModel */ = {
 			isa = PBXGroup;
 			children = (
-				E2AB36F1200CAFA100458C41 /* BaseModel.h */,
-				E2AB36F2200CAFA100458C41 /* BaseModel.m */,
-				E2AB36F4200CAFDF00458C41 /* WomanModel.h */,
-				E2AB36F5200CAFDF00458C41 /* WomanModel.m */,
-				1877240220005E2500A93345 /* YZCurrentUserModel.h */,
-				1877240320005E2500A93345 /* YZCurrentUserModel.m */,
 				187724092000602D00A93345 /* Singleton.h */,
+				184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */,
+				184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */,
 				E2B497D11FFF48B50017A5B6 /* User.h */,
 				E2B497D21FFF48B50017A5B6 /* User.m */,
 			);
@@ -2478,6 +2583,7 @@
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
+				3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
@@ -2492,6 +2598,7 @@
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
+
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
@@ -2503,8 +2610,10 @@
 				E2AB3704200CCF3B00458C41 /* README.md in Resources */,
 				E25929821FFCBC4200B6502D /* home_ic_hot@2x.png in Resources */,
 				187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */,
+				1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */,
 				1858204A2009AC970020C232 /* MyQianBaoTableViewCell.xib in Resources */,
 				3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */,
+				1824923F200C526700A78B94 /* headerView.xib in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
 				3CCBB0052008D773003071D2 /* yazui.png in Resources */,
@@ -2605,15 +2714,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
-				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
+				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
+				184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
+
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
@@ -2631,6 +2743,7 @@
 				1858203F2009AC3E0020C232 /* MeViewController.m in Sources */,
 				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
+				184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */,
 				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
 				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
@@ -2638,6 +2751,7 @@
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				E2B497E81FFF56770017A5B6 /* NSString+Size.m in Sources */,
+				3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */,
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */,
@@ -2657,6 +2771,7 @@
 				3CFF062220078D4600E20FDE /* FUManager.m in Sources */,
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
+				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
@@ -2671,12 +2786,15 @@
 				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
 				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
 				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
+				18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
+				3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */,
+				3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */,
 				3CC753512008828700C03C6B /* RCCallDetailMessageCell.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,
 				E2B77BC01FFD01DB00597326 /* HLZiLiaoController.m in Sources */,
@@ -2687,7 +2805,6 @@
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
-				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				185820422009AC3E0020C232 /* MyMoneyViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				3CC752A12008499D00C03C6B /* AliyunCompressManager.m in Sources */,
@@ -2699,6 +2816,8 @@
 				3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */,
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
+				1824923D200C525400A78B94 /* headerView.m in Sources */,
+				184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
@@ -2709,6 +2828,7 @@
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
+				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
@@ -2722,12 +2842,14 @@
 				E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */,
 				E2D1950120033D0400EAEE57 /* QBImagePickerController.m in Sources */,
 				3CC752C42008499E00C03C6B /* JSONModel+networking.m in Sources */,
+				3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */,
 				3CC7534E2008828700C03C6B /* RCCallTipMessageCell.m in Sources */,
 				185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */,
 				3CC7529C2008499D00C03C6B /* AliyunPhotoListViewCell.m in Sources */,
 				E2AB3702200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
 				3CC752982008499D00C03C6B /* AliyunPathManager.m in Sources */,
+				184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */,
 				3CC752C52008499E00C03C6B /* QUProgressView.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,
 				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
@@ -2976,7 +3098,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3040,7 +3162,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
