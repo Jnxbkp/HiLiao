@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
+		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
 		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
 		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
@@ -68,6 +70,7 @@
 		1858204D2009AC970020C232 /* CardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820482009AC970020C232 /* CardCollectionViewCell.m */; };
 		185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858204F2009B3DD0020C232 /* GoPayTableViewController.m */; };
 		185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */; };
+		18582057200A012D0020C232 /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */; };
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
@@ -315,6 +318,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */,
 				3CFF062420078D6000E20FDE /* FUAPIDemoBar.framework in Embed Frameworks */,
 				3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */,
 				3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */,
@@ -932,6 +936,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180873EC200BA560000283C3 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				185687922002138B003F1985 /* ChatListController.h */,
+				185687912002138B003F1985 /* ChatListController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		183AAF08200356CB006D658A /* 城市选择 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1989,9 +2002,8 @@
 		E25929521FFCA97200B6502D /* 消息 */ = {
 			isa = PBXGroup;
 			children = (
+				180873EC200BA560000283C3 /* controller */,
 				E2B77BCF1FFDD61400597326 /* view */,
-				185687922002138B003F1985 /* ChatListController.h */,
-				185687912002138B003F1985 /* ChatListController.m */,
 			);
 			path = "消息";
 			sourceTree = "<group>";
@@ -2444,6 +2456,7 @@
 				1858203E2009AC3E0020C232 /* NickNameViewController.xib in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
+				180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
@@ -2455,6 +2468,7 @@
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
 				18567F4A200207C7003F1985 /* release_notes_ios.txt in Resources */,
+				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				3CFF061C20078D4600E20FDE /* release_note.txt in Resources */,
 				3CFF061B20078D4600E20FDE /* lixiaolong.bundle in Resources */,
 				E2C6B9E220008075006E0B2A /* FxTableViewCell.xib in Resources */,
@@ -2465,7 +2479,6 @@
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
-				1858204B2009AC970020C232 /* CardCollectionViewCell.xib in Resources */,
 				E2B77BEF1FFDD68700597326 /* README.md in Resources */,
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
@@ -2587,6 +2600,7 @@
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
+				18582057200A012D0020C232 /* CommentVideoView.m in Sources */,
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
@@ -2946,7 +2960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2997,7 +3011,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3011,7 +3025,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3062,7 +3076,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

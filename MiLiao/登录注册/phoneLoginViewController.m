@@ -11,6 +11,8 @@
 #import "forgetPassViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <RongIMKit/RongIMKit.h>
+#import "User.h"
+#import <MJExtension.h>
 @interface phoneLoginViewController ()<UINavigationControllerDelegate>
 {
     NSUserDefaults *_userDefaults;
@@ -60,6 +62,14 @@
               NSLog(@"---------------->>%@",info);
             //保存用户信息
 //            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+<<<<<<< HEAD
+            
+            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            
+            NSLog(@"nickname = %@",[User ShardInstance].nickname);
+            
+=======
+>>>>>>> f020c95cdba4c4651c34c18d31a2ae912dff6c7d
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
@@ -70,11 +80,12 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
             [_userDefaults setObject:self.phoneNum.text forKey:@"phoneNum"];
             [_userDefaults setObject:self.password.text forKey:@"password"];
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
 
             [_userDefaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             //融云登录操作
-            [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
+            [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
         }
        
     } failure:^(NSError *error) {
@@ -166,7 +177,7 @@
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
             //保存用户信息
-//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
@@ -178,7 +189,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             
             //融云登录操作
-            [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
+            [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
         }
         
     } failure:^(NSError *error) {
@@ -201,15 +212,10 @@
     return YES;
 }
 // [_userDefaults objectForKey:@"token"]
-- (void)settingRCIMToken:(NSString *)token {
-    if (!token) return;
-    [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
-        
-         NSLog(@"获取融云token!!!!!!：%@", info);
-        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
+- (void)settingRCIMToken:(NSString *)rongCloudToken {
+    if (!rongCloudToken) return;
 
-//        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"] [@"token"]forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"] success:^(NSString *userId) {
+        [[RCIM sharedRCIM] connectWithToken:rongCloudToken success:^(NSString *userId) {
             NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             //把自己信息存起来
             [self RCIM_currentUserInfo:userId];
@@ -221,9 +227,7 @@
             //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
             NSLog(@"token错误");
         }];
-    } failure:^(NSError *error) {
-        
-    }];
+
 }
 - (void)RCIM_currentUserInfo:(NSString *)userId {
     //自己的信息

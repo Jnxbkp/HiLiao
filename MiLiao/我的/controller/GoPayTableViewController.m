@@ -31,13 +31,101 @@
 }
 
 - (void)registerCell {
+    UIView *footView=[UIView new];
+    footView.frame=CGRectMake(0, 0, WIDTH, 100);
+    self.tableView.tableFooterView=footView;
+
     //选择金额
     [self.tableView registerNib:[UINib nibWithNibName:@"MyQianBaoTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyQianBaoTableViewCell"];
     //支付方式
     [self.tableView registerNib:[UINib nibWithNibName:@"jiaYouYZBankTableViewCell" bundle:nil] forCellReuseIdentifier:@"jiaYouYZBankTableViewCell"];
+
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        MyQianBaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyQianBaoTableViewCell" forIndexPath:indexPath];
+        cell.selectedBlock = ^(NSInteger index) {
+//            if (index<=self.dicAry.count) {
+//                self.money = [NSString stringWithFormat:@"%@",self.dicAry[index][@"extra_desc"]];
+//                self.Id = [NSString stringWithFormat:@"%@",self.dicAry[index][@"id"]];
+//            }
+        };
+        
+        return cell;
+    }else{
+        static NSString *Identifier =@"jiaYouYZBankTableViewCell";
+        jiaYouYZBankTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
 
+//        jiaYouYZBankTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier forIndexPath:indexPath];
+        cell.index = indexPath.row;
+        cell.tuijian.hidden = YES;
+        return cell;
+        
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {//选择金额
+        
+    }
+    if (indexPath.section == 1) {
+        //支付宝
+//            self.type = 1;
+        }
+    
+    
+}
+//行高
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 180;
+    }else{
+        return 44;
+        
+    }
+    
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
+        sectionView.backgroundColor = ML_Color(248, 248, 248, 1);
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 180, 25)];
+        label.text = @"请选择支付方式";
+        label.textColor = ML_Color(97, 97, 97, 1);
+        label.font = [UIFont systemFontOfSize:15];
+        [sectionView addSubview:label];
+        return sectionView;
 
+    }
+    return nil;
+}
+///分区头高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        
+        return 0;
+        
+    }else{
+        return 40;
+    }
+    
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //去掉UItableview headerview黏性(sticky)
+    if (scrollView == self.tableView){
+        CGFloat sectionHeaderHeight = 45 + 10;
+        if (scrollView.contentOffset.y <= sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+    }
+}
 @end

@@ -47,6 +47,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
     [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
     self.nickName.text = [_userDefaults objectForKey:@"nickname"];
+    
+    NSLog(@"%@^^^",[User ShardInstance].nickname);
 
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -58,12 +60,18 @@
     return 0.01;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+//        return 0;
+//    }
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            
+        }
+        if (indexPath.row == 1) {
             //我的钱包
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
             MyMoneyViewController *money = [story instantiateViewControllerWithIdentifier:@"MyMoneyViewController"];
@@ -72,8 +80,9 @@
             //隐藏分隔线
             [nav.navigationBar setShadowImage:[UIImage new]];
             [self.navigationController pushViewController:money animated:YES];
+
         }
-        if (indexPath.row == 1) {
+        if (indexPath.row == 2) {
             //大V
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
             IdentificationVController *Identification = [story instantiateViewControllerWithIdentifier:@"IdentificationVController"];
@@ -82,7 +91,6 @@
             //隐藏分隔线
             [nav.navigationBar setShadowImage:[UIImage new]];
             [self.navigationController pushViewController:Identification animated:YES];
-
         }
     }
     if (indexPath.section == 1) {

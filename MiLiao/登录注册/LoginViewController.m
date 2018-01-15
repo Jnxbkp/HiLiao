@@ -139,9 +139,12 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"token"]] forKey:@"token"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"nickname"]] forKey:@"nickname"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"headUrl"]] forKey:@"headUrl"];
+            //rongCloudToken 登录返回的通云token
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
+
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             //融云登录操作
-            [self settingRCIMToken:[[info objectForKey:@"data"] objectForKey:@"token"]];
+            [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
         }
         
     } failure:^(NSError *error) {
@@ -149,16 +152,11 @@
     }];
 }
 
-- (void)settingRCIMToken:(NSString *)token {
-    if (!token) return;
-    [HLLoginManager  NetGetupdateRongYunToken:token success:^(NSDictionary *info) {
-        
-        [_userDefaults setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
-
-//        [[NSUserDefaults standardUserDefaults] setObject:info[@"data"][@"RongYunToken"][@"token"] forKey:@"rcim_token"];
-        [[RCIM sharedRCIM] connectWithToken:[_userDefaults objectForKey:@"rcim_token"] success:^(NSString *userId) {
-            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+- (void)settingRCIMToken:(NSString *)rongCloudToken {
+    if (!rongCloudToken) return;
     
+        [[RCIM sharedRCIM] connectWithToken:rongCloudToken success:^(NSString *userId) {
+            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
             //把自己信息存起来
             //            [[UserDataManager ShardInstance] RCIM_currentUserInfo:userId];
             [self RCIM_currentUserInfo:userId];
@@ -170,9 +168,7 @@
             //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
             NSLog(@"token错误");
         }];
-    } failure:^(NSError *error) {
-        
-    }];
+
 }
 - (void)RCIM_currentUserInfo:(NSString *)userId {
     //自己的信息
