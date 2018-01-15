@@ -39,6 +39,8 @@
     UIButton        *_focusButton;
     PriceView       *_priceView;
     float           detailHeight;
+    UIView          *_navView;
+    UIView          *_colorView;
 }
 @property (nonatomic, strong) FSBaseTableView *tableView;
 @property (nonatomic, strong) FSBottomTableViewCell *contentCell;
@@ -60,23 +62,35 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
+   
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
+   
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50) style:UITableViewStylePlain];
+    _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    [self addBackButton];
+//    [self addBackButton];
     [self addFootView];
+     [self addNavView];
     [self setupSubViews];
 }
 
@@ -89,14 +103,28 @@
 //        [weakSelf insertRowAtTop];
 //    }];
 }
-//返回按钮
-- (void)addBackButton {
+- (void)addNavView {
+    _navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, ML_TopHeight)];
+    _navView.backgroundColor = [UIColor clearColor];
+    _colorView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, ML_TopHeight)];
+    _colorView.backgroundColor = NavColor;
+    _colorView.alpha = 0;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backButton.frame = CGRectMake(15, 27, 40, 30);
     [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_backButton];
+    [_navView addSubview:_colorView];
+    [_navView addSubview:_backButton];
+    [self.view addSubview:_navView];
 }
+//返回按钮
+//- (void)addBackButton {
+//    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _backButton.frame = CGRectMake(15, 27, 40, 30);
+//    [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+//    [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_backButton];
+//}
 - (void)backBarButtonSelect:(UIButton *)button {
         [self.navigationController popViewControllerAnimated:YES];
 }
@@ -333,6 +361,13 @@
 #pragma mark UIScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    CGFloat minAlphaOffset = 0;
+    CGFloat maxAlphaOffset = 200;
+    CGFloat offset = scrollView.contentOffset.y;
+    CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
+    NSLog(@"--------%lf",alpha);
+    _colorView.alpha = alpha;
+ 
     CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y ;
     if (scrollView.contentOffset.y >= bottomCellOffset) {
         scrollView.contentOffset = CGPointMake(0, bottomCellOffset);

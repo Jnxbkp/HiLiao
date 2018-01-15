@@ -8,6 +8,7 @@
 
 #import "MyMoneyViewController.h"
 #import "UIImage+Common.h"
+#import "GoPayTableViewController.h"
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
 @interface MyMoneyViewController ()<UINavigationControllerDelegate>
 
@@ -23,21 +24,19 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的钱包"];
-
-
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
-
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             //充值
+            GoPayTableViewController *goPayVC  = [[GoPayTableViewController alloc]init];
+            [self.navigationController pushViewController:goPayVC animated:YES];
         }
         if (indexPath.row == 1) {
             //提现

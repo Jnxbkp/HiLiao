@@ -34,8 +34,6 @@
 //更新头像昵称
 //POST /v1/user/updateHeadUrl
 + (void)NetPostupdateHeadUrl:(NSString *)headUrl nickName:(NSString *)nickName token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-// GET /v1/oss/getRongYunToken 获取融云Token
-+ (void)NetGetupdateRongYunToken:(NSString *)token  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/bigV/saveBigV 认证大V
 + (void)NetPostupdateV:(NSString *)country province:(NSString *)province city:(NSString *)city constellation :(NSString *)constellation  description:(NSString *)description height:(NSString *)height nickName:(NSString *)nickName personalSign:(NSString *)personalSign personalTags :(NSString *)personalTags posters:(NSArray *)posters token:(NSString *)token weight :(NSString *)weight  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //获取用户信息

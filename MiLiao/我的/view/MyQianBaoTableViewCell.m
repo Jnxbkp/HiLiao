@@ -43,7 +43,8 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return dicAry.count;
+//    return dicAry.count;
+    return 6;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -58,14 +59,15 @@ static NSString *const reuseIdentifier = @"Cell";
     cell.zhekou.text = @"500m币";
     cell.time.text = @"￥500.00";
     NSString * status = selectedArray[indexPath.row];
+    //waixing
     if ([status isEqualToString:@"1"]) {
-        cell.imageView.image  = [UIImage imageNamed:@"red_discount_card"];
-        cell.zhekou.textColor = ML_Color(254, 76, 88, 1);
-        cell.time.textColor   = ML_Color(254, 76, 88, 1);
+        cell.imageView.image  = [UIImage imageNamed:@"yanse"];
+        cell.zhekou.textColor = [UIColor whiteColor];
+        cell.time.textColor   = [UIColor whiteColor];
     }else{
-        cell.zhekou.textColor = ML_Color(0, 0, 0, 1);
-        cell.time.textColor   = ML_Color(51, 51, 51, 1);
-        cell.imageView.image  = [UIImage imageNamed:@"gray_discount_card"];
+        cell.zhekou.textColor = ML_Color(250, 114, 152, 1);
+        cell.time.textColor   = ML_Color(250, 114, 152, 1);
+        cell.imageView.image  = [UIImage imageNamed:@"waixing"];
         
     }
 

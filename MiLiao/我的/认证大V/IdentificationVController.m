@@ -41,6 +41,12 @@ static NSString *kTempFolder = @"touxiang";
 ////////
 @property(nonatomic,strong)NSString *country;
 
+@property(nonatomic,strong)NSString *item1String;
+@property(nonatomic,strong)NSString *item2String;
+@property(nonatomic,strong)NSString *item3String;
+@property(nonatomic,strong)NSString *item4String;
+@property(nonatomic,strong)NSString *item5String;
+@property(nonatomic,strong)NSString *item6String;
 
 @property (weak, nonatomic) IBOutlet UIButton *oneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *twoBtn;
@@ -65,13 +71,21 @@ static NSString *kTempFolder = @"touxiang";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor whiteColor];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto:) name:@"photo" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto:) name:@"photo" object:nil];
     [self.oneBtn setTag:1];
     [self.twoBtn setTag:2];
     [self.fourBtn setTag:3];
     [self.fiveBtn setTag:4];
     [self.sixBtn setTag:5];
     [self.eightBtn setTag:6];
+    
+    self.item1String = @"";
+    self.item2String = @"";
+    self.item3String = @"";
+    self.item4String = @"";
+    self.item5String = @"";
+    self.item6String = @"";
+
 
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
@@ -193,10 +207,24 @@ static NSString *kTempFolder = @"touxiang";
         if (!task.error) {
             result = task.result;
             NSLog(@"%@",result);
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"photo" object:nil userInfo:nil];
+            [self takePhoto];
             //把图片路径添加到数组
-            [posters addObject:result];
+            NSMutableArray *photoMuArray = [[NSMutableArray alloc] initWithObjects:
+                                            self.item1String,
+                                            self.item2String,
+                                            self.item3String,
+                                            self.item4String,
+                                            self.item5String,
+                                            self.item6String,
+                                            nil];
+            [posters removeAllObjects];
+            for (NSString *photoUrl in photoMuArray) {
+                if (photoUrl.length > 0) {
+                    [posters addObject:photoUrl];
+                }
+            }
             NSLog(@"%@",posters);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"photo" object:nil userInfo:nil];
             //            for (NSDictionary * objectInfo in result.contents) {
             //                NSLog(@"list object: %@", objectInfo);
             //            }
@@ -209,44 +237,44 @@ static NSString *kTempFolder = @"touxiang";
         return nil;
     }];
 }
-- (void)takePhoto:(NSNotification *)note {
+- (void)takePhoto {
     if (BtnTag == 1) {
 //        [posters replaceObjectAtIndex:0 withObject:result];
 
-        NSString *strOne = [NSString stringWithFormat:@"%@",result];
-        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strOne]] forState:UIControlStateNormal];
+        self.item1String = [NSString stringWithFormat:@"%@",result];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
    }
     if (BtnTag == 2) {
 //        [posters replaceObjectAtIndex:1 withObject:result];
 
-        NSString *strTwo = [NSString stringWithFormat:@"%@",result];
-        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strTwo]] forState:UIControlStateNormal];
+       self.item2String = [NSString stringWithFormat:@"%@",result];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item2String]] forState:UIControlStateNormal];
     }
 
     if (BtnTag == 3) {
 //        [posters replaceObjectAtIndex:2 withObject:result];
 
-        NSString *strFour = [NSString stringWithFormat:@"%@",result];
-        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strFour]] forState:UIControlStateNormal];
+        self.item3String = [NSString stringWithFormat:@"%@",result];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item3String]] forState:UIControlStateNormal];
     }
     if (BtnTag == 4) {
 //        [posters replaceObjectAtIndex:3 withObject:result];
 
-        NSString *strFive = [NSString stringWithFormat:@"%@",result];
-        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strFive]] forState:UIControlStateNormal];
+        self.item4String = [NSString stringWithFormat:@"%@",result];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item4String]] forState:UIControlStateNormal];
    }
     if (BtnTag == 5) {
 //        [posters replaceObjectAtIndex:4 withObject:result];
 
-        NSString *strSix = [NSString stringWithFormat:@"%@",result];
-        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strSix]] forState:UIControlStateNormal];
+        self.item5String = [NSString stringWithFormat:@"%@",result];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item5String]] forState:UIControlStateNormal];
   }
 
     if (BtnTag == 6) {
 //        [posters replaceObjectAtIndex:5 withObject:result];
 
-        NSString *strEight = [NSString stringWithFormat:@"%@",result];
-        [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",strEight]] forState:UIControlStateNormal];
+        self.item6String = [NSString stringWithFormat:@"%@",result];
+        [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item6String]] forState:UIControlStateNormal];
   }
 
     [self.tableView reloadData];
@@ -385,7 +413,7 @@ static NSString *kTempFolder = @"touxiang";
         _regionPickerView = [[HXProvincialCitiesCountiesPickerview alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         
         __weak typeof(self) wself = self;
-        _regionPickerView.completion = ^(NSString *provinceName,NSString *cityName,NSString *countyName) {
+        _regionPickerView.completion = ^(NSString *provinceName,NSString *cityName) {
             __strong typeof(wself) self = wself;
             if ([provinceName isEqualToString:@"国外"]) {
                 self.country = @"国外";

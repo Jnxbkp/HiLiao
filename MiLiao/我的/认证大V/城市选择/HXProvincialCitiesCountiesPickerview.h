@@ -10,7 +10,7 @@
 
 @interface HXProvincialCitiesCountiesPickerview : UIView
 
-@property (nonatomic,copy) void (^completion)(NSString *provinceName,NSString *cityName,NSString *countyName);
+@property (nonatomic,copy) void (^completion)(NSString *provinceName,NSString *cityName);
 
 - (void)showPickerWithProvinceName:(NSString *)provinceName cityName:(NSString *)cityName countyName:(NSString *)countyName;//显示 省 市 县名
 

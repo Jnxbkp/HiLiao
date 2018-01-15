@@ -18,10 +18,10 @@
 @property (strong, nonatomic) UIPickerView *pickView;
 @property (strong,nonatomic) NSArray *firstAry;//一级数据源
 @property (strong,nonatomic) NSArray *secondAry;//二级数据源
-@property (strong,nonatomic) NSArray *thirdAry;//三级数据源
+//@property (strong,nonatomic) NSArray *thirdAry;//三级数据源
 @property (nonatomic,assign) NSInteger firstCurrentIndex;//第一行当前位置
 @property (nonatomic,assign) NSInteger secondCurrentIndex;//第二行当前位置
-@property (nonatomic,assign) NSInteger thirdCurrentIndex;//第三行当前位置
+//@property (nonatomic,assign) NSInteger thirdCurrentIndex;//第三行当前位置
 
 @end
 
@@ -97,20 +97,20 @@
         _secondCurrentIndex = 0;
     }
     
-    [_secondAry enumerateObjectsUsingBlock:^(NSDictionary *cityDic, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([cityDic[@"city"] isEqualToString:cityName]) {
-            _secondCurrentIndex = idx+1;
-            if ([cityDic[@"areas"] isKindOfClass:[NSArray class]]) {
-                _thirdAry = cityDic[@"areas"];
-            }
-        }
-    }];
+//    [_secondAry enumerateObjectsUsingBlock:^(NSDictionary *cityDic, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if ([cityDic[@"city"] isEqualToString:cityName]) {
+//            _secondCurrentIndex = idx+1;
+//            if ([cityDic[@"areas"] isKindOfClass:[NSArray class]]) {
+//                _thirdAry = cityDic[@"areas"];
+//            }
+//        }
+//    }];
     
-    [_thirdAry enumerateObjectsUsingBlock:^(NSString *county, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([county isEqualToString:countyName]) {
-            _thirdCurrentIndex = idx+1;
-        }
-    }];
+//    [_thirdAry enumerateObjectsUsingBlock:^(NSString *county, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if ([county isEqualToString:countyName]) {
+//            _thirdCurrentIndex = idx+1;
+//        }
+//    }];
 
     [self.pickView reloadAllComponents];
     [self.pickView selectRow:_firstCurrentIndex inComponent:0 animated:NO];
@@ -118,9 +118,9 @@
         [self.pickView selectRow:_secondCurrentIndex inComponent:1 animated:NO];
     }
     
-    if (_thirdAry.count > 0) {
-        [self.pickView selectRow:_thirdCurrentIndex inComponent:2 animated:NO];
-    }
+//    if (_thirdAry.count > 0) {
+//        [self.pickView selectRow:_thirdCurrentIndex inComponent:2 animated:NO];
+//    }
 
     [self show];
 }
@@ -153,12 +153,12 @@
 
 //设置列数
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    if (_thirdAry.count > 0) {
-        return 3;
-    }
+//    if (_thirdAry.count > 0) {
+//        return 3;
+//    }
     
     if (_secondAry.count > 0) {
-        _thirdCurrentIndex = 0;
+//        _thirdCurrentIndex = 0;
         return 2;
     }
     
@@ -173,7 +173,8 @@
     } else if (component == 1) {
         return _secondAry.count + 1;
     } else {
-        return _thirdAry.count + 1;
+        //return _thirdAry.count + 1;
+        return 0;
     }
 }
 
@@ -196,14 +197,16 @@
                 return str;
             }
         }
-    } else {
-        if (row > 0) {
-            if (row - 1 < _thirdAry.count) {
-                //获取区域
-                NSString *str = _thirdAry[row - 1];
-                return str;
-            }
-        }
+    }
+    else {
+//        if (row > 0) {
+//            if (row - 1 < _thirdAry.count) {
+//                //获取区域
+//                NSString *str = _thirdAry[row - 1];
+//                return str;
+//            }
+//        }
+        return @"请选择";
     }
     return @"请选择";
 }
@@ -217,9 +220,9 @@
             NSDictionary *dic = _firstAry[row - 1];
             _secondAry = dic[@"cities"];
             _secondCurrentIndex = 0;
-            
-            _thirdAry = nil;
-            _thirdCurrentIndex = 0;
+//
+//            _thirdAry = nil;
+//            _thirdCurrentIndex = 0;
             
         } else {
             _secondAry = nil;
@@ -233,22 +236,22 @@
     } else if (component == 1) {
         _secondCurrentIndex = row;
         
-        if (row > 0) {
-            NSDictionary *dic = _secondAry[row - 1];
-            _thirdAry = dic[@"areas"];
-            _thirdCurrentIndex = 0;
-            
-        } else {
-            _thirdAry = nil;
-            _thirdCurrentIndex = 0;
-        }
+//        if (row > 0) {
+//            NSDictionary *dic = _secondAry[row - 1];
+//            _thirdAry = dic[@"areas"];
+//            _thirdCurrentIndex = 0;
+//
+//        } else {
+//            _thirdAry = nil;
+//            _thirdCurrentIndex = 0;
+//        }
         
         [self.pickView reloadAllComponents];
-        if (_thirdAry.count > 0) {
-            [self.pickView selectRow:_thirdCurrentIndex inComponent:2 animated:NO];
-        }
+//        if (_thirdAry.count > 0) {
+//            [self.pickView selectRow:_thirdCurrentIndex inComponent:2 animated:NO];
+//        }
     } else {
-        _thirdCurrentIndex = row;
+//        _thirdCurrentIndex = row;
     }
 }
 
@@ -292,17 +295,17 @@
         }
     }
     
-    if (_thirdAry.count > 0) {
-        if (_thirdCurrentIndex > 0) {
-            if (_thirdCurrentIndex - 1 < _thirdAry.count) {
-                //获取区域
-                countyName = _thirdAry[_thirdCurrentIndex - 1];
-            }
-        }
-    }
+//    if (_thirdAry.count > 0) {
+//        if (_thirdCurrentIndex > 0) {
+//            if (_thirdCurrentIndex - 1 < _thirdAry.count) {
+//                //获取区域
+//                countyName = _thirdAry[_thirdCurrentIndex - 1];
+//            }
+//        }
+//    }
 
     if (_completion) {
-        _completion(provinceName,cityName,countyName);
+        _completion(provinceName,cityName);
     }
     [self hide];
 }

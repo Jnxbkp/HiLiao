@@ -5,6 +5,8 @@
 //  Created by Jarvan-zhang on 2017/12/29.
 //  Copyright © 2017年 Jarvan-zhang. All rights reserved.
 //
+#define itemWidth                 (WIDTH-32)/2
+#define itemHeight                 itemWidth*16/9
 
 #import "MLDiscoverListCollectionViewCell.h"
 
@@ -18,28 +20,27 @@
 }
 
 - (void)creat {
-    _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (WIDTH-5)/2, (WIDTH-5)/2*1.2)];
+    self.backgroundColor = [UIColor redColor];
+    _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, itemWidth, itemHeight)];
     _mainImgageView.image = [UIImage imageNamed:@"aaa"];
     
-    _belowView = [[UIView alloc]initWithFrame:CGRectMake(0, (WIDTH-5)/2*1.2-50, (WIDTH-5)/2, 50)];
-    _belowView.backgroundColor = [UIColor blackColor];
-    _belowView.alpha = 0.3;
+    _belowView = [[UIView alloc]initWithFrame:CGRectMake(0, itemHeight-56, itemWidth, 56)];
+    _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
     
-    _timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _belowView.frame.origin.y+5, _belowView.frame.size.width/2, 12.5)];
-    _timeLabel.textColor = [UIColor whiteColor];
-    _timeLabel.font = [UIFont systemFontOfSize:12.0];
-    
-    _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _timeLabel.frame.origin.y+22.5, _belowView.frame.size.width-20, 12.5)];
+    _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, _belowView.frame.origin.y+12, itemWidth-24, 12)];
     _messageLabel.textColor = [UIColor whiteColor];
     _messageLabel.font = [UIFont systemFontOfSize:12.0];
     
-    _iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(_belowView.frame.size.width-60, _timeLabel.frame.origin.y, 15, 15)];
+    _timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, _messageLabel.frame.origin.y+24, (itemWidth-24)/2, 12.5)];
+    _timeLabel.textColor = ML_Color(204, 204, 204, 1);
+    _timeLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    _likeNumLabel = [[UILabel alloc]initWithFrame:CGRectMake((itemWidth-24)/2, _timeLabel.frame.origin.y, 30, 12)];
+    _likeNumLabel.font = [UIFont systemFontOfSize:12.0];
+    _likeNumLabel.textColor = ML_Color(228, 228, 228, 1);
+    
+    _iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(_likeNumLabel.frame.origin.x-18, _timeLabel.frame.origin.y+1.5, 10, 9)];
     _iconImageView.image = [UIImage imageNamed:@"heart_blue"];
-    
-    _likeNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(_iconImageView.frame.origin.x+20, _iconImageView.frame.origin.y, 30, 15)];
-    _likeNumLabel.font = [UIFont systemFontOfSize:14.0];
-    _likeNumLabel.textColor = NavColor;
-    
     
     [self.contentView addSubview:_mainImgageView];
     [self.contentView addSubview:_belowView];
