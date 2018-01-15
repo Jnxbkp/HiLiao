@@ -36,11 +36,6 @@
     security.allowInvalidCertificates = YES;
     manager.securityPolicy = security;
     
-//    manager.responseSerializer.acceptableContentTypes = \
-//    //    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-//    [manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromSet:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil]];
-//
-//    manager.requestSerializer.timeoutInterval = 10.0f;
     
     NSString *url = [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString];
     NSLog(@"\n\n请求参数parameter\n:%@\n\n", [parameters mj_JSONString]);

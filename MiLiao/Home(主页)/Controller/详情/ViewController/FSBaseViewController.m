@@ -160,37 +160,76 @@
 - (void)downButtonClick:(UIButton *)but {
     
     __weak typeof(self) weakSelf = self;
-    
-    //计算可通话时长
-    [self calculatorCallTime:^(BOOL canCall) {
-        if (canCall) {
-            [weakSelf downButtonClickAction:but];
-        } else {
-            [weakSelf showPayAlertController:^{
-                //跳转充值
-            } continueCall:^{
-                [weakSelf downButtonClickAction:but];
-            }];
+    [UserInfoNet canCall:^(RequestState success, MoneyEnoughType moneyType) {
+        if (success) {
+            
+            //余额不充足 不能聊天 可以视频
+            if (moneyType == MoneyEnoughTypeNotEnough) {
+                if (but.tag == downButtonTag) {
+                    [self showPayAlertController:^{
+                        
+                    }];
+                } else {
+                    [self showPayAlertController:^{
+                        //去充值
+                    } continueCall:^{
+                        //继续视频
+                        [weakSelf videoCall];
+                    }];
+                }
+            }
+            
+            //余额充足 既能聊天 有能视频
+            if (moneyType == MoneyEnoughTypeEnough) {
+                if (but.tag == downButtonTag) {
+                    [self chat];
+                } else {
+                    [self videoCall];
+                }
+            }
+            
+            //余额为0
+            if (moneyType == MoneyEnoughTypeEmpty) {
+                [self showPayAlertController:^{
+                    
+                }];
+            }
         }
     }];
+
+    
+//    //计算可通话时长
+//    [self calculatorCallTime:^(BOOL canCall) {
+//        if (canCall) {
+//            [weakSelf downButtonClickAction:but];
+//        } else {
+//            [weakSelf showPayAlertController:^{
+//                //跳转充值
+//            } continueCall:^{
+//                [weakSelf downButtonClickAction:but];
+//            }];
+//        }
+//    }];
     
     
 }
 
-- (void)downButtonClickAction:(UIButton *)but {
-    if (but.tag == downButtonTag) {
-        
-        //新建一个聊天会话View Controller对象,建议这样初始化
-        ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"18678899778"];
-        chat.title = @"hehehe";
-        chat.automaticallyAdjustsScrollViewInsets = NO;
-        //显示聊天会话界面
-        [self.navigationController pushViewController:chat animated:YES];
-    } else {
-        [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
-//        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
-    }
+///聊天
+- (void)chat {
+    //新建一个聊天会话View Controller对象,建议这样初始化
+    ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.videoUserModel.ID];
+    chat.title = @"hehehe";
+    chat.automaticallyAdjustsScrollViewInsets = NO;
+    //显示聊天会话界面
+    [self.navigationController pushViewController:chat animated:YES];
 }
+
+///视频聊天
+- (void)videoCall {
+     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+}
+
+
 
 #pragma mark - 计算可通话时长
 //计算可通话时长
@@ -225,6 +264,21 @@
 //        });
 //    });
     
+}
+
+///去充值
+- (void)showPayAlertController:(void(^)(void))pay {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        !pay?:pay();
+    }];
+    [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
+    [alertController addAction:cancleAction];
+    [alertController addAction:payAction];
+     [self presentViewController:alertController animated:YES completion:nil];
 }
 
 ///弹出是否充值的alert

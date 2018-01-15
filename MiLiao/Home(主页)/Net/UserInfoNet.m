@@ -11,6 +11,8 @@
 ///获取用户信息的api
 static NSString *GetUserInfo = @"/v1/user/getUserInfo";
 
+static NSString *CanCallEnoughAPI = @"/v1/cost/enoughCall";
+
 //每分钟扣费
 static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
 
@@ -42,6 +44,25 @@ NSString *tokenForCurrentUser() {
             !balance?:balance([dict[@"balance"] floatValue]);
         }
     }];
+}
+
+///判定余额足够消费
++ (void)canCall:(void(^)(RequestState success, MoneyEnoughType moneyType))complete {
+    NSDictionary *parameters = @{@"token":tokenForCurrentUser(),
+                                 @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
+                                 };
+    [self Get:CanCallEnoughAPI parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
+        RequestState state = Failure;
+        if (success) {
+            MoneyEnoughType type = [dict[@"typeCode"] integerValue];
+            !complete?:complete(Success, type);
+        } else {
+            !complete?:complete(Failure, 100);
+        }
+        
+    }];
+   
+    
 }
 
 + (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId {

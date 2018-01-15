@@ -172,31 +172,6 @@ static NSInteger TestCountDown = 5;
     //初始化美颜
     [[FUManager shareManager] setUpFaceunity];
     
-//    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    AFHTTPSessionManager *manager = [app sharedHTTPSession];
-//    NSString *token = tokenForCurrentUser();
-//    NSLog(@"%@", token);
-//    NSString *userID = [User ShardInstance].user_id;
-//    
-//    NSDictionary *parameters = @{@"costCoin":self.price,
-//                                 @"costUserId":self.costUserId,
-//                                 @"token":tokenForCurrentUser(),
-//                                 @"userId":@"48"
-//                                 };
-//    
-//    NSString *api = [NSString stringWithFormat:@"%@/v1/cost/minuteCost", HLRequestUrl];
-//    [manager POST:api parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-//    
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@", responseObject);;
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"%@", error.userInfo);
-//    }];
-    
-    
-    [UserInfoNet perMinuteDedectionCostCoin:self.price costUserId:self.costUserId];
-
-    
 }
 
 //加载底部的美颜bar,并默认隐藏
@@ -213,17 +188,19 @@ static NSInteger TestCountDown = 5;
 - (void)checkMoney {
     
     self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    //没分钟执行一次检查M币
-    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    //没分钟执行一次检查M币（60秒）
+    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
     
     dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-        TestCountDown--;
-        NSLog(@"控制器内倒计时：%ld", TestCountDown);
-        if (TestCountDown <= 0) {
-            self.countDownView.hidden = NO;
-            [self.countDownView startCountDowun];
-            dispatch_cancel(self.checkMoneyTimer);
-        }
+        
+        
+//        TestCountDown--;
+//        NSLog(@"控制器内倒计时：%ld", TestCountDown);
+//        if (TestCountDown <= 0) {
+//            self.countDownView.hidden = NO;
+//            [self.countDownView startCountDowun];
+//            dispatch_cancel(self.checkMoneyTimer);
+//        }
         
     });
     
@@ -349,9 +326,21 @@ static NSInteger TestCountDown = 5;
         self.countDownView.hidden = YES;
         //检查M币
         [self checkMoney];
+        
+        NSDictionary *parameters = @{@"costCoin":self.price,
+                                    @"costUserId": self.costUserId,
+                                    @"token":tokenForCurrentUser(),
+                                    @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id};
+        [Networking Post:@"/v1/cost/minuteCost" parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
+            if (success) {
+                NSLog(@"%@", dict);
+            }
+        }];
+       
+        return;
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *api = @"/v1/cost/minuteCost";
-        NSDictionary *parameters = @{@"costCoin":@"10",
+        NSDictionary *parameters2 = @{@"costCoin":@"10",
                                      @"costUserId":@"0",
                                      @"token":[userDefaults objectForKey:@"token"],
                                      @"userId":@"13969001510"
@@ -359,7 +348,7 @@ static NSInteger TestCountDown = 5;
         NSLog(@"token %@", [userDefaults objectForKey:@"token"]);
         User *user = [User ShardInstance];
         NSLog(@"%@", user.user_id);
-        [Networking Post:api parameters:parameters complete:^(RequestState success, NSString *msg) {
+        [Networking Post:api parameters:parameters2 complete:^(RequestState success, NSString *msg) {
             
         }];
         
