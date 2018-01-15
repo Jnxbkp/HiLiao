@@ -309,7 +309,8 @@ static NSString *const bigIdentifer = @"bigCell";
 #pragma mark  tablecell每组个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectio {
     if (tableView == _newTabelView) {
-        return _newsList.count;
+//        return _newsList.count;
+        return 1;
     } else if (tableView == _careTabelView) {
         return _careList.count;
     } else {
@@ -345,7 +346,8 @@ static NSString *const bigIdentifer = @"bigCell";
     }
     
     [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
-    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
+//    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
+    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
     cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
     cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
     [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
