@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class VideoUserModel;
+
+
 @interface MLHomeListTableViewCell : UITableViewCell
 
 @property (nonatomic ,strong)UIImageView      *mainImgageView;
@@ -16,6 +19,6 @@
 @property (nonatomic ,strong)UILabel          *nameLabel;
 @property (nonatomic ,strong)UILabel          *messageLabel;
 @property (nonatomic ,strong)PriceView        *priceView;
-
+@property (nonatomic, strong) VideoUserModel *videoUserModel;
 
 @end

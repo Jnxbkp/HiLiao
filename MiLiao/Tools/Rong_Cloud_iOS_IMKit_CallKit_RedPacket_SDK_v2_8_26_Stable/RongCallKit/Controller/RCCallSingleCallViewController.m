@@ -304,6 +304,7 @@ static NSInteger TestCountDown = 5;
 #pragma mark - 回调方法
 ///通话已连接
 - (void)callDidConnect {
+    [super callDidConnect];
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
         //添加倒计时view
