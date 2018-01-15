@@ -62,14 +62,13 @@
               NSLog(@"---------------->>%@",info);
             //保存用户信息
 //            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-<<<<<<< HEAD
+
             
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             
-=======
->>>>>>> f020c95cdba4c4651c34c18d31a2ae912dff6c7d
+
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];

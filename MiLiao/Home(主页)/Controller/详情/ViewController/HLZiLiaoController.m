@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *data;
 @property (nonatomic, strong) NSString          *messageStr;
 @property (nonatomic, strong) NSMutableArray    *itemArr;
-
+@property (nonatomic, strong) NSMutableArray    *itemArr1;
 @end
 
 @implementation HLZiLiaoController
@@ -32,20 +32,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //get love num
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"getWomanInformation" object:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市", nil];
     
     _messageStr = @"pwiehadshadsgjladfj;ad";
-    _itemArr = [NSMutableArray arrayWithObjects:@"身材好",@"身材好",@"体重",@"漂亮",@"漂亮", nil];
+    _itemArr = [NSMutableArray arrayWithObjects:@"完美身材",@"身好", nil];
+    _itemArr1 = [NSMutableArray arrayWithObjects:@"完美身材",@"漂亮",@"身材好", nil];
     
     [self setupSubViews];
 }
 
 - (void)setupSubViews
 {
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-60) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-50) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+//    _tableView.scrollsToTop = NO;
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     
@@ -55,82 +59,100 @@
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    if (section == 0) {
+        return 1;
+    } else {
+        return self.data.count;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return 55;
-
+    if (indexPath.section == 0) {
+        return 82;
+    } else {
+        return 38;
+    }
     
 }
 //tableview头部高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    CGSize messageSize = [NSStringSize detailString:_messageStr];
-//    ItemsView *itemView = [[ItemsView alloc]init];
-//    [itemView setItemsArr:_itemArr];
-//
-//    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%f",messageSize.height+itemView.itemsViewHeight+69+55*5] forKey:@"height"];
-//    NSNotification *notification =[NSNotification notificationWithName:@"detailHeight" object:nil userInfo:userInfo];
-//    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
-    return 133;
+    return 48;
 }
-
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return 0;
+//}
 //tableview 头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headView = [[UIView alloc]init];
     headView.backgroundColor = [UIColor whiteColor];
 
-    UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 0.4)];
-    lineLabel.backgroundColor = [UIColor lightGrayColor];
-
-//    CGSize messageSize = [NSStringSize detailString:_messageStr];
-//
-//    UILabel *messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 18, WIDTH-40, messageSize.height)];
-//    messageLabel.numberOfLines = 0;
-//    messageLabel.font = [UIFont systemFontOfSize:15.0];
-//
-//    NSMutableAttributedString * attributeStr = [[NSMutableAttributedString alloc] initWithString:_messageStr];
-//    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-//    paraStyle.lineSpacing = 4.0;
-//    paraStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-//    [attributeStr addAttribute:NSParagraphStyleAttributeName value:paraStyle range:NSMakeRange(0, _messageStr.length)];
-//    [attributeStr addAttribute:NSKernAttributeName value:[NSNumber numberWithFloat:0.5] range:NSMakeRange(0, _messageStr.length)];
-//    messageLabel.attributedText = attributeStr;
-//
-//    UILabel *lineLabel1 = [[UILabel alloc]initWithFrame:CGRectMake(0, messageLabel.frame.origin.y+messageLabel.frame.size.height+15, WIDTH, 3)];
-//    lineLabel1.backgroundColor = [UIColor lightGrayColor];
-
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 10, WIDTH, 18)];
-    titleLabel.font = [UIFont systemFontOfSize:16.0];
-    titleLabel.text = @"印象标签";
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 17, WIDTH-24, 14)];
+    titleLabel.font = [UIFont systemFontOfSize:14.0];
+    titleLabel.textColor = Color75;
+    if (section == 0) {
+        titleLabel.text = @"印象标签";
+    } else {
+        titleLabel.text = @"个人资料";
+    }
     
-    ItemsView *itemView = [[ItemsView alloc]init];
-    [itemView setItemsArr:_itemArr];
-    itemView.frame = CGRectMake(0, 43, WIDTH, 80);
- 
-//    UILabel *lineLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(0, itemView.frame.origin.y+itemView.frame.size.height+15, WIDTH, 3)];
-//    lineLabel2.backgroundColor = [UIColor lightGrayColor];
-
-    headView.frame = CGRectMake(0, 0, WIDTH, itemView.frame.origin.y+80+10+30);
     [headView addSubview:titleLabel];
-    [headView addSubview:itemView];
-//    [headView addSubview:lineLabel1];
-//    [headView addSubview:itemView];
-//    [headView addSubview:lineLabel2];
     
     return headView;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = nil;
+        static NSString *cellID = @"cell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        for(id subView in cell.contentView.subviews){
+            if(subView){
+                [subView removeFromSuperview];
+            }
+        }
+        
+        UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 6, 60, 12)];
+        myLabel.text = @"自评形象";
+        myLabel.textColor = ML_Color(127, 127, 127, 1);
+        myLabel.font = [UIFont systemFontOfSize:13.0];
+        
+        UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 42, 60, 12)];
+        userLabel.text = @"用户形象";
+        userLabel.textColor = ML_Color(127, 127, 127, 1);
+        userLabel.font = [UIFont systemFontOfSize:13.0];
+        
+        ItemsView *itemView = [[ItemsView alloc]init];
+        [itemView setItemsArr:_itemArr];
+        itemView.frame = CGRectMake(WIDTH-itemView.itemsViewWidth-12, 0, itemView.itemsViewWidth, 24);
+        
+        ItemsView *itemView1 = [[ItemsView alloc]init];
+        [itemView1 setItemsArr:_itemArr1];
+        itemView1.frame = CGRectMake(WIDTH-itemView1.itemsViewWidth-12, 36, itemView1.itemsViewWidth, 24);
+        
+        UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 74, WIDTH, 8)];
+        lineLabel.backgroundColor = Color242;
+        
+        [cell.contentView addSubview:myLabel];
+        [cell.contentView addSubview:userLabel];
+        [cell.contentView addSubview:itemView];
+        [cell.contentView addSubview:itemView1];
+        [cell.contentView addSubview:lineLabel];
+        
+        return cell;
+        
+    } else {
         MLDetailTableViewCell *cell = nil;
         static NSString *cellID = @"cell.Identifier";
         cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -139,17 +161,28 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLabel.text = [_data objectAtIndex:indexPath.row];
-        cell.messageLabel.text = @"lalalal";
-        cell.lineLabel.hidden = NO;
-        if (indexPath.row == _data.count-1) {
-            cell.lineLabel.hidden = YES;
-     
+        if (indexPath.row == 0) {
+            cell.messageLabel.text = @"98%";
+        } else if (indexPath.row == 1) {
+            cell.messageLabel.text = _womanModel.height;
+        } else if (indexPath.row == 2) {
+            cell.messageLabel.text = _womanModel.weight;
+        } else if (indexPath.row == 3) {
+            cell.messageLabel.text = _womanModel.constellation;
+        } else {
+            cell.messageLabel.text = _womanModel.city;
         }
+        
         return cell;
-
+    }
     
 }
-
+#pragma mark - 通知得到主播数据
+- (void)notificationWomanData:(NSNotification *)note {
+    NSDictionary *dic = note.userInfo;
+    _womanModel = [dic objectForKey:@"womanModel"];
+    [self.tableView reloadData];
+}
 #pragma mark UIScrollView
 //判断屏幕触碰状态
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -180,6 +213,7 @@
     }
     self.tableView.showsVerticalScrollIndicator = _vcCanScroll?YES:NO;
 }
+
 
 #pragma mark LazyLoad
 

@@ -77,6 +77,7 @@ static NSString *const bigIdentifer = @"bigCell";
     _carePage = @"1";
     _recommandPage = @"1";
     
+    NSLog(@"-------------%@",[_userDefaults objectForKey:@"token"]);
     [self addTableChoseView];
     
     UICollectionViewFlowLayout *dealLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -309,8 +310,8 @@ static NSString *const bigIdentifer = @"bigCell";
 #pragma mark  tablecell每组个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectio {
     if (tableView == _newTabelView) {
-//        return _newsList.count;
-        return 1;
+        return _newsList.count;
+//        return 1;
     } else if (tableView == _careTabelView) {
         return _careList.count;
     } else {
@@ -346,8 +347,8 @@ static NSString *const bigIdentifer = @"bigCell";
     }
     
     [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
-//    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
-    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
+    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
+//    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
     cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
     cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
     [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
@@ -360,10 +361,12 @@ static NSString *const bigIdentifer = @"bigCell";
     FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
     if (tableView == _newTabelView) {
         
+        
     } else if (tableView == _careTabelView) {
         
     } else {
-        
+        baseVC.user_id = [[_recommandList objectAtIndex:indexPath.row] objectForKey:@"id"];
+        NSLog(@"----->>id----%@",baseVC.user_id);
     }
     [self.navigationController pushViewController:baseVC animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
