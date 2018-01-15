@@ -99,6 +99,7 @@
 		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; };
 		3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC51493200C96CC00095AE8 /* VideoUserModel.m */; };
 		3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752102008499D00C03C6B /* AliyunAlbumModel.m */; };
 		3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */; };
 		3CC752962008499D00C03C6B /* AliyunImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752152008499D00C03C6B /* AliyunImage.m */; };
@@ -473,6 +474,8 @@
 		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
 		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		3CC51492200C96CC00095AE8 /* VideoUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUserModel.h; sourceTree = "<group>"; };
+		3CC51493200C96CC00095AE8 /* VideoUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUserModel.m; sourceTree = "<group>"; };
 		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
 		3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunPhotoLibraryManager.m; sourceTree = "<group>"; };
 		3CC752122008499D00C03C6B /* AliyunAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunAlbumModel.h; sourceTree = "<group>"; };
@@ -1906,6 +1909,8 @@
 				E221B5C71FF60EB600353875 /* DataManager.m */,
 				E24824ED20089B33000F1EC7 /* MainMananger.h */,
 				E24824EE20089B33000F1EC7 /* MainMananger.m */,
+				3CC51492200C96CC00095AE8 /* VideoUserModel.h */,
+				3CC51493200C96CC00095AE8 /* VideoUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2687,6 +2692,7 @@
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				3CC752B62008499E00C03C6B /* UIButton+EnlargeArea.m in Sources */,
+				3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */,
 				3CC753512008828700C03C6B /* RCCallDetailMessageCell.m in Sources */,
 				E2B77BED1FFDD68700597326 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				18567F232001F568003F1985 /* BoardLabel.m in Sources */,

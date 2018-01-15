@@ -8,6 +8,9 @@
 
 #import "MLHomeListTableViewCell.h"
 
+#import "VideoUserModel.h"
+
+
 @implementation MLHomeListTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

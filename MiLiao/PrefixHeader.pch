@@ -46,6 +46,7 @@
 #import <VTMagic/VTMagic.h>
 #import <SDCycleScrollView.h>
 #import <MJRefresh.h>
+#import "MJExtension.h"
 
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>

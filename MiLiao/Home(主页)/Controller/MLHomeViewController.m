@@ -12,6 +12,8 @@
 #import "MainMananger.h"
 #import "FSBaseViewController.h"
 
+#import "VideoUserModel.h"//用户模型
+
 #define choseButtonTag          1000
 #define tabHight   HEIGHT-ML_TopHeight-35-ML_TabBarHeight
 
@@ -44,6 +46,8 @@ static NSString *const bigIdentifer = @"bigCell";
     NSString            *_recommandPage;
     
 }
+///模型数组
+@property (nonatomic, strong) NSArray *modelArray;
 
 @end
 
@@ -189,6 +193,9 @@ static NSString *const bigIdentifer = @"bigCell";
         NSMutableArray *muArr = [NSMutableArray array];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
+           
+            self.modelArray = [VideoUserModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+           
             NSArray *dataArr = [info objectForKey:@"data"];
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
