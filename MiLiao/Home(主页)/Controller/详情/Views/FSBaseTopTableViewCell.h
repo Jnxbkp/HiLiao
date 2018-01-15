@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FSLoopScrollView.h"
 
 @interface FSBaseTopTableViewCell : UITableViewCell
 
+@property (nonatomic ,strong)FSLoopScrollView   *loopView;
 @property (nonatomic ,strong)UIButton         *stateButton;
 @property (nonatomic ,strong)UIButton         *focusButton;
-//@property (nonatomic ,strong)UIButton         *backButton;
 @property (nonatomic, strong)PriceView        *priceView;
 
+@property (nonatomic ,strong)UILabel         *nameLabel;
+@property (nonatomic ,strong)UILabel         *messageLabel;
+@property (nonatomic ,strong)UILabel         *numFocusLabel;
+@property (nonatomic ,strong)UILabel         *weixinLabel;
+@property (nonatomic, strong)NSArray         *headImageArr;
 
 @end

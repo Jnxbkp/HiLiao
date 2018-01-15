@@ -8,6 +8,8 @@
 
 #import "VideoViewController.h"
 #import "MLDiscoverListCollectionViewCell.h"
+#define itemWidth                 (WIDTH-32)/2
+#define itemHeight                 itemWidth*16/9
 
 @interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -29,14 +31,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)setupSubViews
 {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.sectionInset = UIEdgeInsetsMake(0, 0, 2.5, 0);
-    layout.itemSize =  CGSizeMake((WIDTH-5)/2, (WIDTH-5)/2*1.2);
-    layout.minimumInteritemSpacing = 2;
-    layout.minimumLineSpacing = 2;
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) collectionViewLayout:layout];
-    _collectionView.backgroundColor = [UIColor whiteColor];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50-ML_TopHeight-50) collectionViewLayout:layout];
+    _collectionView.backgroundColor = Color242;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [self.collectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -53,6 +51,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MLDiscoverListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    CGSize likeSize = [NSStringSize getNSStringHeight:@"2223" Font:12.0];
+    cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
+    cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
     cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
     cell.timeLabel.text = @"12小时";
     cell.messageLabel.text = @"来玩啊啊 ad福建省打客服";
@@ -66,6 +67,25 @@ static NSString * const reuseIdentifier = @"Cell";
     //    VTDetailViewController *detailViewController = [[VTDetailViewController alloc] init];
     //    detailViewController.hidesBottomBarWhenPushed = YES;
     //    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+//UICollectionView item size
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+        return CGSizeMake(itemWidth, itemHeight);
+    
+}
+//UICollectionView  margin
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(8, 12, 0, 12);
+}
+//这个是两行cell之间的间距（上下行cell的间距）
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+        return 8;
+}
+
+//两个cell之间的间距（同一行的cell的间距）
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+        return 8;
 }
 #pragma mark UIScrollView
 //判断屏幕触碰状态

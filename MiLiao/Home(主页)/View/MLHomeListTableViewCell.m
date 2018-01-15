@@ -54,7 +54,7 @@
    
     
     
-    _priceView = [[PriceView alloc]initWithFrame:CGRectMake(WIDTH-154, _messageLabel.frame.origin.y, 130, 15) withPrice:@"0"];
+    _priceView = [[PriceView alloc]initWithFrame:CGRectMake(WIDTH-154, _messageLabel.frame.origin.y, 130, 15) withPrice:@"0" kind:@"main"];
    
     
     [self.contentView addSubview:_mainImgageView];

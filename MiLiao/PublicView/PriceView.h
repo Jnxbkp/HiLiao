@@ -15,7 +15,7 @@
 @property (nonatomic ,strong)UILabel             *priceLabel;
 @property (nonatomic ,strong)NSString            *price;
 
-- (instancetype)initWithFrame:(CGRect)frame withPrice:(NSString *)price;
+- (instancetype)initWithFrame:(CGRect)frame withPrice:(NSString *)price kind:(NSString *)kind;
 
 - (void)setPrice:(NSString *)price;
 @end

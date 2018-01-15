@@ -26,6 +26,7 @@
 #import "UIImage+Color.h"
 #import "HLLoginManager.h"
 #import "PublicManager.h"
+#import "WomanModel.h"
 
 #import "User.h"
 /**
@@ -108,6 +109,11 @@
 #define Color229 [UIColor colorWithRed:229.0/255.0 green:229.0/255.0 blue:229.0/255.0 alpha:1.0]
 //242
 #define Color242 [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:242.0/255.0 alpha:1.0]
+//128
+#define Color128 [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]
+//255
+#define Color255 [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
+
 
 // 设置字体
 #define YZFont(f)  [UIFont systemFontOfSize:f]

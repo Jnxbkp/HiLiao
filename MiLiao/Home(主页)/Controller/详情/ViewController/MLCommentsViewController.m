@@ -7,7 +7,7 @@
 //
 
 #import "MLCommentsViewController.h"
-#import "MLDetailTableViewCell.h"
+#import "CommentTableViewCell.h"
 
 
 @interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -37,7 +37,7 @@
 
 - (void)setupSubViews
 {
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-50) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight-50) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -92,27 +92,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 48;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MLDetailTableViewCell *cell = nil;
+    CommentTableViewCell *cell = nil;
     static NSString *cellID = @"cell.Identifier";
     cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[MLDetailTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[CommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = [self.data objectAtIndex:indexPath.row];
-    NSArray *arr = [NSArray arrayWithObjects:@"好性感",@"漂亮", nil];
+    NSArray *arr = [NSArray arrayWithObjects:@"好性感",@"完美身材", nil];
     [cell.itemsView setItemsArr:arr];
-    //    cell.messageLabel.text = @"lalalal";
-    cell.messageLabel.hidden = YES;
-    cell.itemsView.hidden = NO;
-    cell.lineLabel.hidden = NO;
-    //    NSLog(@"-----------------%lf",cell.itemsView.frame.size.height);
+    cell.userImageView.image = [UIImage imageNamed:@"aaa"];
+    cell.itemsView.frame = CGRectMake(WIDTH/2 + WIDTH/2-12-cell.itemsView.itemsViewWidth, 12, cell.itemsView.itemsViewWidth, 24);
+    
     if (indexPath.row == self.data.count-1) {
         cell.lineLabel.hidden = YES;
     }

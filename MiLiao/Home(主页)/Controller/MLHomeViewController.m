@@ -81,6 +81,7 @@ static NSString *const bigIdentifer = @"bigCell";
     _carePage = @"1";
     _recommandPage = @"1";
     
+    NSLog(@"-------------%@",[_userDefaults objectForKey:@"token"]);
     [self addTableChoseView];
     
     UICollectionViewFlowLayout *dealLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -319,8 +320,8 @@ static NSString *const bigIdentifer = @"bigCell";
 #pragma mark  tablecell每组个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectio {
     if (tableView == _newTabelView) {
-//        return _newsList.count;
-        return 1;
+        return _newsList.count;
+//        return 1;
     } else if (tableView == _careTabelView) {
         return _careList.count;
     } else {
@@ -358,11 +359,13 @@ static NSString *const bigIdentifer = @"bigCell";
     VideoUserModel *videoUserModel = [muArr objectAtIndex:indexPath.row];
     cell.videoUserModel = videoUserModel;
     [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
+
 ////    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
 //    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
 //    cell.nameLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"nickname"];
 //    cell.messageLabel.text = [[muArr objectAtIndex:indexPath.row] objectForKey:@"personalSign"];
 //    [cell.priceView setPrice:[[muArr objectAtIndex:indexPath.row] objectForKey:@"price"]];
+
     
     return cell;
     
@@ -373,10 +376,14 @@ static NSString *const bigIdentifer = @"bigCell";
     VideoUserModel *videoUserModel;
     if (tableView == _newTabelView) {
         videoUserModel = [_newsList objectAtIndex:indexPath.row];
+        baseVC.user_id = videoUserModel.ID;
     } else if (tableView == _careTabelView) {
         videoUserModel = [_careList objectAtIndex:indexPath.row];
+        baseVC.user_id = videoUserModel.ID;
     } else {
         videoUserModel = [_recommandList objectAtIndex:indexPath.row];
+        baseVC.user_id = videoUserModel.ID;
+
     }
     baseVC.videoUserModel = videoUserModel;
     [self.navigationController pushViewController:baseVC animated:YES];

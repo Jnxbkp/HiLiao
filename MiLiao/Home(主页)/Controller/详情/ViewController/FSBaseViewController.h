@@ -12,4 +12,5 @@
 
 @interface FSBaseViewController : UIViewController
 @property (nonatomic, strong) VideoUserModel *videoUserModel;
+@property (nonatomic,strong)NSString *user_id;
 @end

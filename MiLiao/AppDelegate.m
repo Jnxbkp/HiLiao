@@ -61,7 +61,12 @@
     [[RCIM sharedRCIM] initWithAppKey:@"mgb7ka1nmwthg"];//8brlm7uf8djg3(release)    8luwapkv8rtcl(debug)
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
+
+
+
+
     [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
+
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
     
@@ -72,6 +77,7 @@
 }
 
 - (void)autoLogin{
+
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
     if (tokenStr.length>0) {
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
@@ -81,7 +87,7 @@
             
         }];
     }
-  
+
 }
 /*!
  接收消息的回调方法

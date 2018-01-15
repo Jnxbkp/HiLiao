@@ -10,7 +10,7 @@
 
 @implementation PriceView
 
-- (instancetype)initWithFrame:(CGRect)frame withPrice:(NSString *)price {
+- (instancetype)initWithFrame:(CGRect)frame withPrice:(NSString *)price kind:(NSString *)kind{
     self = [super initWithFrame:frame];
     if (self) {
         self.price = price;
@@ -18,12 +18,19 @@
         CGSize labelSize = [NSStringSize getNSStringHeight:str Font:14.0];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width-labelSize.width, 0, labelSize.width, 15)];
         _priceLabel.text = str;
-        _priceLabel.textColor = ML_Color(253, 152, 0, 1);
+        
         _priceLabel.font = [UIFont systemFontOfSize:14.0];
         
         _iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(_priceLabel.frame.origin.x-25, 1, 18, 12)];
-        _iconImageView.image = [UIImage imageNamed:@"icon_shipin"];
         
+        
+        if ([kind isEqualToString:@"main"]) {
+            _priceLabel.textColor = ML_Color(253, 152, 0, 1);
+            _iconImageView.image = [UIImage imageNamed:@"icon_shipin"];
+        } else {
+            _priceLabel.textColor = NavColor;
+            _iconImageView.image = [UIImage imageNamed:@"shipin_fen"];
+        }
         [self addSubview:_priceLabel];
         [self addSubview:_iconImageView];
     }
