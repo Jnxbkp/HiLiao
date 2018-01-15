@@ -8,7 +8,7 @@
 
 #import "PlayViewController.h"
 
-
+#import <AliyunVodPlayerSDK/AliyunVodPlayerDefine.h>
 
 /**** View ****/
 #import "PlayCollectionViewCell.h"
@@ -78,12 +78,29 @@ static NSString *CellID_PlayCollectionViewCell = @"PlayCollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
-    [temp prepare];
+    AliyunVodPlayerState playState = [temp playerState];
+   
+    if (playState == AliyunVodPlayerStateIdle || playState == AliyunVodPlayerStatePrepared) {
+         [temp prepare];
+    }
+    if (playState == AliyunVodPlayerStatePause) {
+        [temp resumePlay];
+    }
+    
+    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     PlayCollectionViewCell *temp =  (PlayCollectionViewCell*)cell;
-    [temp stopPlay];
+     AliyunVodPlayerState playState = [temp playerState];
+    if (playState == AliyunVodPlayerStateIdle
+        ||
+        playState == AliyunVodPlayerStatePrepared) {
+        
+    }
+    if (playState == AliyunVodPlayerStatePlay) {
+        [temp pausePlay];
+    }
 }
 
 

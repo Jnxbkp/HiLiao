@@ -19,7 +19,8 @@
 @interface PlayCollectionViewCell ()
 @property (nonatomic, strong)AliyunVodPlayer *aliPlayer;
 @property (nonatomic, strong) UIView *playerView;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
+
+@property (weak, nonatomic) IBOutlet UIImageView *loveImageView;
 
 @end
 
@@ -50,6 +51,32 @@
     
     //测试播放视频连接
     [self.aliPlayer prepareWithURL:[NSURL URLWithString:@"http://cloud.video.taobao.com/play/u/2712925557/p/1/e/6/t/1/40050769.mp4"]];
+}
+
+///暂停播放
+- (void)pausePlay{
+    [self.aliPlayer pause];
+}
+
+
+/*
+ 功能：获取播放器当前播放状态
+ 当前播放状态有：
+ AliyunVodPlayerStateIdle = 0,           //空转，闲时，静态
+ AliyunVodPlayerStateError,              //错误
+ AliyunVodPlayerStatePrepared,           //已准备好
+ AliyunVodPlayerStatePlay,               //播放
+ AliyunVodPlayerStatePause,              //暂停
+ AliyunVodPlayerStateStop,               //停止
+ AliyunVodPlayerStateFinish,             //播放完成
+ AliyunVodPlayerStateLoading             //加载中
+ */
+- (AliyunVodPlayerState)playerState {
+    return [self.aliPlayer playerState];
+}
+
+- (void)resumePlay{
+    [self.aliPlayer resume];
 }
 
 
@@ -85,13 +112,28 @@
     
 }
 
-
-
-
-- (IBAction)buttonArrayClick:(UIButton *)sender {
-    PlayActionType action = [self.buttonArray indexOfObject:sender];
-    !_buttonClickBlock?:_buttonClickBlock(action);
+//点赞
+- (IBAction)loveAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        if (sender.isSelected) {
+            
+             self.loveImageView.image = [UIImage imageNamed:@"xihuan2"];
+            
+        } else {
+            self.loveImageView.image = [UIImage imageNamed:@"xihuan"];
+        }
+        self.loveImageView.transform = CGAffineTransformMakeScale(2, 2);
+        
+    } completion:^(BOOL finished) {
+        self.loveImageView.transform = CGAffineTransformIdentity;
+    }];
+   
 }
+
+
+
 
 #pragma mark - 回调方法
 ///点击视频播放界面的按钮回调

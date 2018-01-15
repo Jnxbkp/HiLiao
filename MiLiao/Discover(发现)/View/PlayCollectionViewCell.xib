@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjl-yo-Pnm">
                         <rect key="frame" x="310" y="298.5" width="50" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guankan" translatesAutoresizingMaskIntoConstraints="NO" id="mES-Vj-cme">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tupianshangchuan" translatesAutoresizingMaskIntoConstraints="NO" id="mES-Vj-cme">
                                 <rect key="frame" x="10" y="0.0" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="wpd-5f-FxR"/>
@@ -37,12 +37,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbX-QC-mDQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbX-QC-mDQ">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonArrayClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ifu-Lc-xNI"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,10 +57,10 @@
                             <constraint firstItem="5si-HZ-GqK" firstAttribute="top" secondItem="mES-Vj-cme" secondAttribute="bottom" id="vxN-7j-RIu"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULj-dx-a6v">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULj-dx-a6v">
                         <rect key="frame" x="310" y="213.5" width="50" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="love" translatesAutoresizingMaskIntoConstraints="NO" id="j4d-t6-Pfb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xihuan" translatesAutoresizingMaskIntoConstraints="NO" id="j4d-t6-Pfb">
                                 <rect key="frame" x="10" y="0.0" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="m0u-xN-k1U"/>
@@ -79,12 +75,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHs-Sf-F5s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHs-Sf-F5s">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonArrayClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7Xd-As-whE"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,7 +93,7 @@
                             <constraint firstAttribute="trailing" secondItem="pHs-Sf-F5s" secondAttribute="trailing" id="r9N-Bc-9xI"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spi-y9-OGL">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spi-y9-OGL">
                         <rect key="frame" x="310" y="128.5" width="50" height="70"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tupianshangchuan" translatesAutoresizingMaskIntoConstraints="NO" id="eik-M1-a6G">
@@ -119,12 +111,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-Ds-PNT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-Ds-PNT">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonArrayClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="cHX-Ed-AXH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,7 +132,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URI-qX-rGS">
                         <rect key="frame" x="310" y="384" width="50" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinglun" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-9Z-Vwp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xihuan" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-9Z-Vwp">
                                 <rect key="frame" x="10" y="0.0" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="nvu-qP-R0e"/>
@@ -159,12 +147,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HO3-4z-COt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HO3-4z-COt">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="buttonArrayClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qjK-58-98t"/>
-                                    <action selector="commentButtonClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="tem-Kg-hwt"/>
+                                    <action selector="loveAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="sqc-Wn-m1k"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,7 +171,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-Tz-YZ3">
                         <rect key="frame" x="310" y="469" width="50" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fenxiang" translatesAutoresizingMaskIntoConstraints="NO" id="4T9-jn-ruh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guankan" translatesAutoresizingMaskIntoConstraints="NO" id="4T9-jn-ruh">
                                 <rect key="frame" x="10" y="0.0" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="R30-G1-Nud"/>
@@ -200,12 +186,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ti5-Rg-Sg4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ti5-Rg-Sg4">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonArrayClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="pwR-ZW-jN0"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,19 +205,40 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oE-vc-dfz">
-                        <rect key="frame" x="291" y="569" width="54" height="28"/>
+                        <rect key="frame" x="245" y="569" width="100" height="30"/>
                         <color key="backgroundColor" red="0.98823529409999999" green="0.47058823529999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Zy4-MV-ymV"/>
+                            <constraint firstAttribute="width" constant="100" id="eMZ-XS-GGg"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="与他视频"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                        <state key="normal" title="与他视频" image="shipin"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小步快跑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPG-BA-kF6">
+                        <rect key="frame" x="20" y="600" width="53.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的个个人情感专家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuC-aL-9Oc">
+                        <rect key="frame" x="20" y="631" width="119.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="DuC-aL-9Oc" firstAttribute="top" secondItem="UPG-BA-kF6" secondAttribute="bottom" constant="15" id="0Ml-pW-rVr"/>
                 <constraint firstItem="ULj-dx-a6v" firstAttribute="height" secondItem="spi-y9-OGL" secondAttribute="height" id="11Z-bY-l6Q"/>
                 <constraint firstItem="8oE-vc-dfz" firstAttribute="top" secondItem="zMq-Tz-YZ3" secondAttribute="bottom" constant="30" id="7uf-tG-M0R"/>
                 <constraint firstItem="Fjl-yo-Pnm" firstAttribute="top" secondItem="ULj-dx-a6v" secondAttribute="bottom" constant="15" id="7xB-Qq-Xr0"/>
                 <constraint firstItem="URI-qX-rGS" firstAttribute="top" secondItem="Fjl-yo-Pnm" secondAttribute="bottom" constant="15" id="8BL-7A-2ep"/>
                 <constraint firstItem="zMq-Tz-YZ3" firstAttribute="trailing" secondItem="spi-y9-OGL" secondAttribute="trailing" id="9NE-JP-jSZ"/>
+                <constraint firstAttribute="bottom" secondItem="DuC-aL-9Oc" secondAttribute="bottom" constant="20" id="FiE-SZ-eK6"/>
+                <constraint firstItem="DuC-aL-9Oc" firstAttribute="leading" secondItem="UPG-BA-kF6" secondAttribute="leading" id="FvI-2G-s3Q"/>
                 <constraint firstItem="zMq-Tz-YZ3" firstAttribute="top" secondItem="URI-qX-rGS" secondAttribute="bottom" constant="15" id="Fwd-do-YcV"/>
                 <constraint firstItem="ULj-dx-a6v" firstAttribute="top" secondItem="spi-y9-OGL" secondAttribute="bottom" constant="15" id="Jaj-7z-ebd"/>
                 <constraint firstItem="URI-qX-rGS" firstAttribute="width" secondItem="spi-y9-OGL" secondAttribute="width" id="N4G-CV-8e2"/>
@@ -243,6 +246,7 @@
                 <constraint firstItem="URI-qX-rGS" firstAttribute="trailing" secondItem="spi-y9-OGL" secondAttribute="trailing" id="apS-6S-Mek"/>
                 <constraint firstAttribute="trailing" secondItem="8oE-vc-dfz" secondAttribute="trailing" constant="30" id="dnr-UG-LXZ"/>
                 <constraint firstItem="URI-qX-rGS" firstAttribute="height" secondItem="spi-y9-OGL" secondAttribute="height" id="fjo-c0-dI7"/>
+                <constraint firstItem="DuC-aL-9Oc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="oiy-Il-Tgl"/>
                 <constraint firstItem="Fjl-yo-Pnm" firstAttribute="width" secondItem="spi-y9-OGL" secondAttribute="width" id="qA8-Vh-ARB"/>
                 <constraint firstItem="ULj-dx-a6v" firstAttribute="trailing" secondItem="spi-y9-OGL" secondAttribute="trailing" id="qb1-Io-hr1"/>
                 <constraint firstItem="Fjl-yo-Pnm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="qhe-df-Qi8"/>
@@ -255,20 +259,15 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="227" height="246"/>
             <connections>
-                <outletCollection property="buttonArray" destination="tLX-Ds-PNT" id="8uD-ct-DNG"/>
-                <outletCollection property="buttonArray" destination="pHs-Sf-F5s" id="mXb-Sc-kis"/>
-                <outletCollection property="buttonArray" destination="BbX-QC-mDQ" id="XAO-xF-b2g"/>
-                <outletCollection property="buttonArray" destination="HO3-4z-COt" id="tV3-Ch-MSm"/>
-                <outletCollection property="buttonArray" destination="Ti5-Rg-Sg4" id="sGE-Kh-FLQ"/>
+                <outlet property="loveImageView" destination="uXU-9Z-Vwp" id="HTW-d7-8H8"/>
             </connections>
-            <point key="canvasLocation" x="-20.5" y="-59.5"/>
+            <point key="canvasLocation" x="-126" y="-302"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="fenxiang" width="40" height="40"/>
-        <image name="guankan" width="40" height="21"/>
-        <image name="love" width="15" height="15"/>
-        <image name="pinglun" width="40" height="40"/>
+        <image name="guankan" width="28" height="17"/>
+        <image name="shipin" width="24" height="18"/>
         <image name="tupianshangchuan" width="40" height="40"/>
+        <image name="xihuan" width="26" height="23"/>
     </resources>
 </document>
