@@ -14,5 +14,5 @@
 @property (nonatomic ,strong)UILabel            *nameLabel;
 @property (nonatomic ,strong)UILabel            *messageLabel;
 @property (nonatomic ,strong)UILabel            *lineLabel;
-
+@property (nonatomic ,strong)UILabel            *seeLabel;
 @end

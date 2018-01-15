@@ -130,7 +130,7 @@
                             NSLog(@"------>>%@",info);
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
-            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
