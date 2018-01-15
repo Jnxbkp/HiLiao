@@ -18,4 +18,6 @@
  */
 + (void)getUserBalance:(void(^)(CGFloat balance))balance;
 
+
++ (void)perMinuteDedectionCostCoin:(CGFloat)price costUserId:(NSString *)costUserId ;
 @end
