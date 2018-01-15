@@ -31,7 +31,7 @@
 /**
  * 单例
  */
-
+#import "YZCurrentUserModel.h"
 /**SDAutoLayout*/
 #import "UIView+SDAutoLayout.h"
 

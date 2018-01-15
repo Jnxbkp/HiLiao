@@ -48,7 +48,7 @@
     [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
     self.nickName.text = [_userDefaults objectForKey:@"nickname"];
     
-    NSLog(@"%@^^^",[User ShardInstance].nickname);
+    NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
 
 }
 - (void)viewWillDisappear:(BOOL)animated{

@@ -31,12 +31,23 @@
 {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - ML_TopHeight)];
     self.webView.delegate = self;
-    NSURL * url = [NSURL URLWithString:@"https://47.104.25.213:9000/payment/index?token=9b6c12ec5754705b85030235861c2d6c&username=15662696090&totalFee=10"];
+    NSURL * url = [NSURL URLWithString:@"https://47.104.25.213:9000/payment/index?token=207754c41e03d18b10f4e77bd5da9cbc&username=15662696090&totalFee=10"];
     NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
     [self.view addSubview:self.webView];
 }
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
 
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+        //if ([trustedHosts containsObject:challenge.protectionSpace.host])
+        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]
+             forAuthenticationChallenge:challenge];
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
 
 
 

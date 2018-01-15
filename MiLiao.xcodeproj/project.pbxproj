@@ -23,6 +23,12 @@
 		183AAF1A200372DD006D658A /* signViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF18200372DD006D658A /* signViewController.xib */; };
 		183AAF1D20038EBC006D658A /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF1C20038EBC006D658A /* TagViewController.m */; };
 		184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C674D200CA48600C852B4 /* PayWebViewController.m */; };
+		184C6751200CB1E100C852B4 /* MyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6750200CB1E100C852B4 /* MyCallViewController.m */; };
+		184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6753200CB1F800C852B4 /* MyMViewController.m */; };
+		184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6756200CB22600C852B4 /* MyNoticeViewController.m */; };
+		184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */; };
+		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
+		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -371,6 +377,18 @@
 		183AAF1C20038EBC006D658A /* TagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
 		184C674C200CA48600C852B4 /* PayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayWebViewController.h; sourceTree = "<group>"; };
 		184C674D200CA48600C852B4 /* PayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayWebViewController.m; sourceTree = "<group>"; };
+		184C674F200CB1E100C852B4 /* MyCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCallViewController.h; sourceTree = "<group>"; };
+		184C6750200CB1E100C852B4 /* MyCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCallViewController.m; sourceTree = "<group>"; };
+		184C6752200CB1F800C852B4 /* MyMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMViewController.h; sourceTree = "<group>"; };
+		184C6753200CB1F800C852B4 /* MyMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMViewController.m; sourceTree = "<group>"; };
+		184C6755200CB22600C852B4 /* MyNoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNoticeViewController.h; sourceTree = "<group>"; };
+		184C6756200CB22600C852B4 /* MyNoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNoticeViewController.m; sourceTree = "<group>"; };
+		184C6758200CC29400C852B4 /* IncomeMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IncomeMoneyViewController.h; sourceTree = "<group>"; };
+		184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncomeMoneyViewController.m; sourceTree = "<group>"; };
+		184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMingXiViewController.h; sourceTree = "<group>"; };
+		184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMingXiViewController.m; sourceTree = "<group>"; };
+		184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
+		184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -969,6 +987,12 @@
 			children = (
 				185687922002138B003F1985 /* ChatListController.h */,
 				185687912002138B003F1985 /* ChatListController.m */,
+				184C674F200CB1E100C852B4 /* MyCallViewController.h */,
+				184C6750200CB1E100C852B4 /* MyCallViewController.m */,
+				184C6752200CB1F800C852B4 /* MyMViewController.h */,
+				184C6753200CB1F800C852B4 /* MyMViewController.m */,
+				184C6755200CB22600C852B4 /* MyNoticeViewController.h */,
+				184C6756200CB22600C852B4 /* MyNoticeViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -980,6 +1004,10 @@
 				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
 				184C674C200CA48600C852B4 /* PayWebViewController.h */,
 				184C674D200CA48600C852B4 /* PayWebViewController.m */,
+				184C6758200CC29400C852B4 /* IncomeMoneyViewController.h */,
+				184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */,
+				184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */,
+				184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */,
 			);
 			path = "充值";
 			sourceTree = "<group>";
@@ -2205,6 +2233,8 @@
 			isa = PBXGroup;
 			children = (
 				187724092000602D00A93345 /* Singleton.h */,
+				184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */,
+				184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */,
 				E2B497D11FFF48B50017A5B6 /* User.h */,
 				E2B497D21FFF48B50017A5B6 /* User.m */,
 			);
@@ -2678,11 +2708,14 @@
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
+				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
+				184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
+				184C6751200CB1E100C852B4 /* MyCallViewController.m in Sources */,
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
@@ -2700,6 +2733,7 @@
 				1858203F2009AC3E0020C232 /* MeViewController.m in Sources */,
 				3CC752A62008499E00C03C6B /* AliyunCompositionViewController.m in Sources */,
 				3CFF062120078D4600E20FDE /* FUVideoFrameObserverManager.mm in Sources */,
+				184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */,
 				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
 				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
@@ -2726,6 +2760,7 @@
 				3CFF062220078D4600E20FDE /* FUManager.m in Sources */,
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
+				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
@@ -2769,6 +2804,7 @@
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
 				1824923D200C525400A78B94 /* headerView.m in Sources */,
+				184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,

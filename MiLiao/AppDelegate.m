@@ -75,8 +75,8 @@
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
     if (tokenStr.length>0) {
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
-            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
-            //              [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
         } failure:^(NSError *error) {
             
         }];
