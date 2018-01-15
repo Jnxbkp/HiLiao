@@ -23,6 +23,7 @@ static NSString *GetUserInfo = @"/v1/user/getUserInfo";
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [userDefaults objectForKey:@"token"];
+    
     NSDictionary *parameter = @{@"token":token,
                                 @"userId":@"0"
                                 };

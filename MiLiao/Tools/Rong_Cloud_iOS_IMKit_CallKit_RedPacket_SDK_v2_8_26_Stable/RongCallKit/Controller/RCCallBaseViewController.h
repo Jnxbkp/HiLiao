@@ -138,6 +138,9 @@
  */
 - (void)didTapHangupButton;
 
+///挂断通话
+- (void)hangupButtonClicked;
+
 /*!
  点击扬声器Button的回调
  */

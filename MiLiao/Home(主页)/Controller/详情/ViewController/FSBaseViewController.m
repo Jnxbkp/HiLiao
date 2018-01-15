@@ -186,8 +186,9 @@
         //显示聊天会话界面
         [self.navigationController pushViewController:chat animated:YES];
     } else {
-        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
-        [self presentViewController:callViewController animated:YES completion:nil];
+        [[RCCall sharedRCCall] startSingleCall:@"18678899778" mediaType:RCCallMediaVideo];
+//        VideoCallViewController *callViewController = [[VideoCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+//        [self presentViewController:callViewController animated:YES completion:nil];
     }
 }
 

@@ -17,6 +17,9 @@
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
 
 #import "CountDownView.h"//倒计时view
+#import "PayViewController.h"
+
+#import "Networking.h"
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
 
@@ -37,6 +40,8 @@
 
 ///倒计时view
 @property (nonatomic, strong) CountDownView *countDownView;
+
+@property (nonatomic, strong) PayViewController *payViewController;
 
 @end
 
@@ -67,6 +72,13 @@ static NSInteger TestCountDown = 5;
         _countDownView.delegate = self;
     }
     return _countDownView;
+}
+
+- (PayViewController *)payViewController {
+    if (!_payViewController) {
+        _payViewController = [[PayViewController alloc] init];
+    }
+    return _payViewController;
 }
 
 /**
@@ -235,6 +247,11 @@ static NSInteger TestCountDown = 5;
 #pragma mark - 倒计时view代理方法
 //充值回调
 - (void)payAction {
+    UIView *view = self.payViewController.view;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.equalTo(self.view);
+    }];
     
     
 }
@@ -242,6 +259,7 @@ static NSInteger TestCountDown = 5;
 ///倒计时结束 通话结束
 - (void)callEnd {
     
+    [self hangupButtonClicked];
 }
 
 
@@ -299,6 +317,20 @@ static NSInteger TestCountDown = 5;
         self.countDownView.hidden = YES;
         //检查M币
         [self checkMoney];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *api = @"/v1/cost/minuteCost";
+        NSDictionary *parameters = @{@"costCoin":@"10",
+                                     @"costUserId":@"0",
+                                     @"token":[userDefaults objectForKey:@"token"],
+                                     @"userId":@"13969001510"
+                                     };
+        NSLog(@"token %@", [userDefaults objectForKey:@"token"]);
+        User *user = [User ShardInstance];
+        NSLog(@"%@", user.user_id);
+        [Networking Post:api parameters:parameters complete:^(RequestState success, NSString *msg) {
+            
+        }];
+        
         
     } else {
         NSLog(@"我收到的通话");

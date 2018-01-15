@@ -152,7 +152,6 @@
 		3CC752C620084B5900C03C6B /* MLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E221B5A81FF5DE9B00353875 /* MLDiscoverViewController.m */; };
 		3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25929781FFCBC3800B6502D /* FSLoopScrollView.m */; };
 		3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E259293F1FFCA96600B6502D /* phoneLoginViewController.m */; };
-		3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C723C782005E3690024F2BC /* VideoCallViewController.m */; };
 		3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753132008828700C03C6B /* RCCallKitExtensionModule.m */; };
 		3CC753462008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753172008828700C03C6B /* RCAudioMultiCallUserCollectionLayout.m */; };
 		3CC753472008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC753182008828700C03C6B /* RCVideoMultiCallUserCollectionLayout.m */; };
@@ -462,8 +461,6 @@
 		3C0FA5AB200C720A0098AC28 /* PayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
-		3C723C782005E3690024F2BC /* VideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
-		3C723C792005E3690024F2BC /* VideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
 		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
 		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -1213,15 +1210,6 @@
 			path = Net;
 			sourceTree = "<group>";
 		};
-		3C723C772005E3690024F2BC /* 视频通话 */ = {
-			isa = PBXGroup;
-			children = (
-				3C723C792005E3690024F2BC /* VideoCallViewController.h */,
-				3C723C782005E3690024F2BC /* VideoCallViewController.m */,
-			);
-			path = "视频通话";
-			sourceTree = "<group>";
-		};
 		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1946,7 +1934,6 @@
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
 				3C0FA5A8200C71EF0098AC28 /* Pay-充值 */,
-				3C723C772005E3690024F2BC /* 视频通话 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -2632,7 +2619,6 @@
 			files = (
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
-				3CC752C9200853A200C03C6B /* VideoCallViewController.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
@@ -3001,7 +2987,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3051,7 +3037,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3065,7 +3051,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3115,7 +3101,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -17,14 +17,7 @@
 }
 
 
-/**
- 每分钟扣费
- 
- @param minute 返回的剩余时间分钟数
- */
-+ (void)perMinuteDedection:(void(^)(NSInteger minute))minute {
-    
-}
+
 
 
 @end
