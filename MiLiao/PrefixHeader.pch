@@ -32,9 +32,6 @@
  * 单例
  */
 
-
-/**当前登录用户*/
-#import "YZCurrentUserModel.h"
 /**SDAutoLayout*/
 #import "UIView+SDAutoLayout.h"
 

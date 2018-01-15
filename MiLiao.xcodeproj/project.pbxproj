@@ -70,7 +70,6 @@
 		1858204D2009AC970020C232 /* CardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820482009AC970020C232 /* CardCollectionViewCell.m */; };
 		185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858204F2009B3DD0020C232 /* GoPayTableViewController.m */; };
 		185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */; };
-		18582057200A012D0020C232 /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */; };
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
@@ -78,7 +77,6 @@
 		185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
-		1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877240320005E2500A93345 /* YZCurrentUserModel.m */; };
 		187724122000BF1600A93345 /* IdentificationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187724112000BF1600A93345 /* IdentificationVController.m */; };
 		187E2EEE20075CFD0014A2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187E2EED20075CFD0014A2AE /* Assets.xcassets */; };
 		18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C82001D8A600AE7CCD /* IQActionSheetPickerView.m */; };
@@ -434,8 +432,6 @@
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
 		186CBF172004B2D50023924D /* messageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = messageView.m; sourceTree = "<group>"; };
 		186CBF192004B2FB0023924D /* messageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageView.xib; sourceTree = "<group>"; };
-		1877240220005E2500A93345 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
-		1877240320005E2500A93345 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		187724092000602D00A93345 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		187724102000BF1600A93345 /* IdentificationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentificationVController.h; sourceTree = "<group>"; };
 		187724112000BF1600A93345 /* IdentificationVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdentificationVController.m; sourceTree = "<group>"; };
@@ -2124,8 +2120,6 @@
 		E2B497D01FFF489A0017A5B6 /* PublicModel */ = {
 			isa = PBXGroup;
 			children = (
-				1877240220005E2500A93345 /* YZCurrentUserModel.h */,
-				1877240320005E2500A93345 /* YZCurrentUserModel.m */,
 				187724092000602D00A93345 /* Singleton.h */,
 				E2B497D11FFF48B50017A5B6 /* User.h */,
 				E2B497D21FFF48B50017A5B6 /* User.m */,
@@ -2600,7 +2594,6 @@
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
-				18582057200A012D0020C232 /* CommentVideoView.m in Sources */,
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
@@ -2672,7 +2665,6 @@
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
-				1877240420005E2600A93345 /* YZCurrentUserModel.m in Sources */,
 				185820422009AC3E0020C232 /* MyMoneyViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
 				3CC752A12008499D00C03C6B /* AliyunCompressManager.m in Sources */,
@@ -3006,7 +2998,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
-					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
@@ -3071,7 +3062,6 @@
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina\"",
 					"\"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/WeChat\"",
-					"\"$(SRCROOT)/../NvStreamingSdk_IOS_1.15.1_20180102_195552/lib/ios\"",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/IMLib",
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",

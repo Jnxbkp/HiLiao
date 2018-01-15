@@ -52,17 +52,10 @@
 }
 //登录
 - (IBAction)login:(id)sender {
-<<<<<<< HEAD
+
     
     [self.view endEditing:YES];
 
-=======
-
-
-    [self.view endEditing:YES];
-
-
->>>>>>> afe16029ea8bb3c8475c3e2216e85596f3eb4af6
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
@@ -70,14 +63,11 @@
               NSLog(@"---------------->>%@",info);
             //保存用户信息
 //            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-<<<<<<< HEAD
             
             [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             
-=======
->>>>>>> f020c95cdba4c4651c34c18d31a2ae912dff6c7d
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
@@ -185,7 +175,7 @@
         NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
         if ([resultCode isEqualToString:@"200"]) {
             //保存用户信息
-            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+//            [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
