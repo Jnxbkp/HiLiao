@@ -26,6 +26,9 @@
 @property (nonatomic, strong) NSString      * token;
 @property (nonatomic, strong) NSString      * weight;
 @property (nonatomic, strong) NSString      * headUrl;
+@property (nonatomic, strong) NSString      * rongCloudToken;
+@property (nonatomic, strong) NSString      * rongCloudUserId;
+@property (nonatomic, strong) NSString      * rongCloudUserName;
 singleton_h(YZCurrentUserModel)
 
 - (instancetype)initWithDictionary:(NSDictionary *)d;

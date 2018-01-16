@@ -1,5 +1,5 @@
 //
-//  PayWebViewController.h
+//  CashMingXiViewController.h
 //  MiLiao
 //
 //  Created by apple on 2018/1/15.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PayWebViewController : UIViewController
-@property(nonatomic,strong)NSString *money;//金额
+@interface CashMingXiViewController : UIViewController
 
 @end

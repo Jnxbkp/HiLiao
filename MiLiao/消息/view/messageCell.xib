@@ -35,7 +35,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近与闫盼盼通话10分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-3I-Qu5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01-04  10:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-3I-Qu5">
                         <rect key="frame" x="76" y="34" width="251" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="siV-tX-lGP"/>
@@ -44,23 +44,23 @@
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-rY-iAh">
-                        <rect key="frame" x="351" y="20" width="18" height="25"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipin拷贝2" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-rY-iAh">
+                        <rect key="frame" x="335" y="22" width="34" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="18" id="lG8-FK-XSC"/>
+                            <constraint firstAttribute="width" constant="34" id="lG8-FK-XSC"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="HeA-xi-xoR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1jb-dV-leY"/>
-                    <constraint firstItem="gfb-rY-iAh" firstAttribute="leading" secondItem="aZ1-3I-Qu5" secondAttribute="trailing" constant="24" id="7Hd-rZ-P4x"/>
+                    <constraint firstItem="gfb-rY-iAh" firstAttribute="leading" secondItem="aZ1-3I-Qu5" secondAttribute="trailing" constant="8" id="7Hd-rZ-P4x"/>
                     <constraint firstItem="52g-Ku-HsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8Uc-47-bkx"/>
                     <constraint firstItem="HeA-xi-xoR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="H2e-QK-Ufv"/>
                     <constraint firstItem="aZ1-3I-Qu5" firstAttribute="leading" secondItem="HeA-xi-xoR" secondAttribute="trailing" constant="20" id="T3L-77-fZp"/>
-                    <constraint firstItem="gfb-rY-iAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Vsi-KG-BvV"/>
+                    <constraint firstItem="gfb-rY-iAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="Vsi-KG-BvV"/>
                     <constraint firstAttribute="trailing" secondItem="gfb-rY-iAh" secondAttribute="trailing" constant="6" id="cJL-09-TLx"/>
-                    <constraint firstAttribute="bottom" secondItem="gfb-rY-iAh" secondAttribute="bottom" constant="19.5" id="fYK-CS-txm"/>
+                    <constraint firstAttribute="bottom" secondItem="gfb-rY-iAh" secondAttribute="bottom" constant="21.5" id="fYK-CS-txm"/>
                     <constraint firstAttribute="bottom" secondItem="HeA-xi-xoR" secondAttribute="bottom" constant="13.5" id="jHa-Kr-unO"/>
                     <constraint firstItem="aZ1-3I-Qu5" firstAttribute="top" secondItem="52g-Ku-HsY" secondAttribute="bottom" constant="2" id="pCP-c9-gMG"/>
                     <constraint firstItem="52g-Ku-HsY" firstAttribute="leading" secondItem="HeA-xi-xoR" secondAttribute="trailing" constant="20" id="pcX-Ve-2mq"/>
@@ -75,4 +75,7 @@
             <point key="canvasLocation" x="34.5" y="61.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="shipin拷贝2" width="24" height="16"/>
+    </resources>
 </document>

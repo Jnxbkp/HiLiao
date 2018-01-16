@@ -7,6 +7,8 @@
 //
 
 #import "ChatRoomController.h"
+#import "RongCallKit.h"
+#import "VideoUserModel.h"
 //#import "PersonHomepageController.h"
 //#import "DatingModel.h"
 @interface ChatRoomController ()<RCIMUserInfoDataSource>
@@ -51,10 +53,14 @@
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    [RCIM sharedRCIM].userInfoDataSource = self;
-    
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:1];
 
+
+    [RCIM sharedRCIM].userInfoDataSource = self;
 }
 - (void)leftButtonDidClick {
     [self.navigationController popViewControllerAnimated:YES];
@@ -75,6 +81,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/*!
+ 扩展功能板的点击回调
+ 
+ @param pluginBoardView 输入扩展功能板View
+ @param tag             输入扩展功能(Item)的唯一标示
+ */
+- (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView clickedItemWithTag:(NSInteger)tag {
+    NSLog(@"%ld", tag);
+    if (tag == 1102) {
+        [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUser];
+    } else {
+        [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
+    }
 }
 
 // @param userId  点击头像对应的用户ID

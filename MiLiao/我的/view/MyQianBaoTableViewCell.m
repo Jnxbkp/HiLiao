@@ -12,13 +12,19 @@ static NSString *const reuseIdentifier = @"Cell";
 @implementation MyQianBaoTableViewCell
 {
     NSMutableArray *selectedArray;
-    NSArray *dicAry;
+    NSArray *MAry;
+    NSArray *moneyAry;
+
 
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
     NSArray * array = @[@"1",@"",@"",@"",@"",@"",@"",@"",@""];
     selectedArray = [[NSMutableArray alloc] initWithArray:array];
+    MAry = [[NSArray alloc]init];
+    moneyAry = [[NSArray alloc]init];
+    MAry = @[@"10M币",@"50M币",@"100M币",@"200M币",@"500M币",@"1000M币",@"2000M币",@"5000M币",@"10000M币"];
+    moneyAry = @[@"￥20",@"￥100",@"￥200",@"￥400",@"￥1000",@"￥2000",@"￥4000",@"￥10000",@"￥20000"];
     [self loadData];
 
    
@@ -48,16 +54,11 @@ static NSString *const reuseIdentifier = @"Cell";
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dict = dicAry[indexPath.row];
-    NSLog(@"%@",dict);
+//    NSDictionary *dict = dicAry[indexPath.row];
+//    NSLog(@"%@",dict);
     CardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    self.money = dict[@"money"];
-    self.extra_desc = dict[@"extra_desc"];
-    //"500m币
-//    cell.zhekou.text = [NSString stringWithFormat:@"%@元",self.money];
-//    cell.time.text = self.extra_desc;
-    cell.zhekou.text = @"500m币";
-    cell.time.text = @"￥500.00";
+    cell.zhekou.text = MAry[indexPath.row];//上面的
+    cell.time.text = moneyAry[indexPath.row];//下面的
     NSString * status = selectedArray[indexPath.row];
     //waixing
     if ([status isEqualToString:@"1"]) {

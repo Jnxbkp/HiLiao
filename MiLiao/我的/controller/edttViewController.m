@@ -41,7 +41,6 @@ static NSString *kTempFolder = @"touxiang";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(qqq:) name:@"qqq" object:nil];
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
@@ -178,6 +177,7 @@ static NSString *kTempFolder = @"touxiang";
 
     }
     if (indexPath.row == 1) {
+        [self.view endEditing:YES];
         NickNameViewController *nick = [[NickNameViewController alloc]init];
         nick.backBlock = ^(NSString *text) {
         self.nickName = text;
@@ -204,8 +204,9 @@ static NSString *kTempFolder = @"touxiang";
             // store_img
             [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.headerUrl]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
             [cell.contentView addSubview:self.iconImage];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            self.iconImage.layer.cornerRadius = 30;
+            self.iconImage.layer.masksToBounds = YES;
             self.iconImage.sd_layout
             .centerYIs(85 / 2)
             .rightSpaceToView(cell.contentView, 10)
@@ -281,10 +282,8 @@ static NSString *kTempFolder = @"touxiang";
             self.headerUrl = [NSString stringWithFormat:@"%@",result];
             [_userDefaults setObject:self.headerUrl forKey:@"headUrl"];
             NSLog(@"------>>>%@",self.headerUrl);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"qqq" object:nil userInfo:nil];
-//            for (NSDictionary * objectInfo in result.contents) {
-//                NSLog(@"list object: %@", objectInfo);
-//            }
+            [self takePhoto];
+
             NSLog(@"upload object success!");
             
         }
@@ -331,9 +330,9 @@ static NSString *kTempFolder = @"touxiang";
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)qqq:(NSNotification *)note {
+- (void)takePhoto {
     NSLog(@"------23213123123>>>%@",self.headerUrl);
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.headerUrl]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 @end

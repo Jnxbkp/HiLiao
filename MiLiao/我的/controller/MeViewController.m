@@ -35,9 +35,11 @@
     }
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
-    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
-    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
+    self.headerImg.layer.cornerRadius = 45;
+    self.headerImg.layer.masksToBounds = YES;
+//    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+//    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
+//    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -47,7 +49,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
     [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
     self.nickName.text = [_userDefaults objectForKey:@"nickname"];
-    
+//    self.nickName.text = [YZCurrentUserModel sharedYZCurrentUserModel].nickname;
     NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
 
 }

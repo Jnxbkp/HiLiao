@@ -28,6 +28,8 @@
 		184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */; };
 		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
 		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
+		184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6762200CD17C00C852B4 /* CashMingXiViewController.m */; };
+		184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C6766200CD21500C852B4 /* CashTableViewCell.xib */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -85,6 +87,8 @@
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
 		185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9F021FFE58A800110182 /* forgetNextViewController.xib */; };
+		185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6750200CB1E100C852B4 /* MyCallViewController.m */; };
+		185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 185BDFE6200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m */; };
 		185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */; };
 		186CBF182004B2D50023924D /* messageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186CBF172004B2D50023924D /* messageView.m */; };
 		186CBF1A2004B2FB0023924D /* messageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186CBF192004B2FB0023924D /* messageView.xib */; };
@@ -94,11 +98,11 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0075D5200D87B5004D205D /* UserCallPowerModel.m */; };
+		3C0075D7200D9409004D205D /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
 		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
-		3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AA200C720A0098AC28 /* PayViewController.m */; };
-		3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AB200C720A0098AC28 /* PayViewController.xib */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
@@ -392,6 +396,11 @@
 		184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMingXiViewController.m; sourceTree = "<group>"; };
 		184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
 		184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
+		184C6761200CD17C00C852B4 /* CashMingXiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashMingXiViewController.h; sourceTree = "<group>"; };
+		184C6762200CD17C00C852B4 /* CashMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashMingXiViewController.m; sourceTree = "<group>"; };
+		184C6764200CD21500C852B4 /* CashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashTableViewCell.h; sourceTree = "<group>"; };
+		184C6765200CD21500C852B4 /* CashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashTableViewCell.m; sourceTree = "<group>"; };
+		184C6766200CD21500C852B4 /* CashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashTableViewCell.xib; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -470,6 +479,8 @@
 		185A9F001FFE58A800110182 /* forgetNextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetNextViewController.h; sourceTree = "<group>"; };
 		185A9F011FFE58A800110182 /* forgetNextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetNextViewController.m; sourceTree = "<group>"; };
 		185A9F021FFE58A800110182 /* forgetNextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetNextViewController.xib; sourceTree = "<group>"; };
+		185BDFE5200DA6FE00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+NSURLRequestWithIgnoreSSL.h"; sourceTree = "<group>"; };
+		185BDFE6200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+NSURLRequestWithIgnoreSSL.m"; sourceTree = "<group>"; };
 		185DC3BF20085763004E3842 /* RCDCustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDCustomerServiceViewController.h; sourceTree = "<group>"; };
 		185DC3C020085764004E3842 /* RCDCustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDCustomerServiceViewController.m; sourceTree = "<group>"; };
 		186CBF162004B2D50023924D /* messageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = messageView.h; sourceTree = "<group>"; };
@@ -487,6 +498,8 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C0075D4200D87B4004D205D /* UserCallPowerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCallPowerModel.h; sourceTree = "<group>"; };
+		3C0075D5200D87B5004D205D /* UserCallPowerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserCallPowerModel.m; sourceTree = "<group>"; };
 		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
 		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
 		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
@@ -494,9 +507,6 @@
 		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
 		3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBBorder.m"; sourceTree = "<group>"; };
 		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
-		3C0FA5A9200C720A0098AC28 /* PayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
-		3C0FA5AA200C720A0098AC28 /* PayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
-		3C0FA5AB200C720A0098AC28 /* PayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
@@ -1015,6 +1025,8 @@
 		18249233200C507F00A78B94 /* 充值 */ = {
 			isa = PBXGroup;
 			children = (
+				185BDFE5200DA6FE00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.h */,
+				185BDFE6200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m */,
 				1858204E2009B3DD0020C232 /* GoPayTableViewController.h */,
 				1858204F2009B3DD0020C232 /* GoPayTableViewController.m */,
 				184C674C200CA48600C852B4 /* PayWebViewController.h */,
@@ -1023,6 +1035,8 @@
 				184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */,
 				184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */,
 				184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */,
+				184C6761200CD17C00C852B4 /* CashMingXiViewController.h */,
+				184C6762200CD17C00C852B4 /* CashMingXiViewController.m */,
 			);
 			path = "充值";
 			sourceTree = "<group>";
@@ -1046,6 +1060,9 @@
 				1824923B200C525400A78B94 /* headerView.h */,
 				1824923C200C525400A78B94 /* headerView.m */,
 				1824923E200C526700A78B94 /* headerView.xib */,
+				184C6764200CD21500C852B4 /* CashTableViewCell.h */,
+				184C6765200CD21500C852B4 /* CashTableViewCell.m */,
+				184C6766200CD21500C852B4 /* CashTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1285,16 +1302,6 @@
 				3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		3C0FA5A8200C71EF0098AC28 /* Pay-充值 */ = {
-			isa = PBXGroup;
-			children = (
-				3C0FA5A9200C720A0098AC28 /* PayViewController.h */,
-				3C0FA5AA200C720A0098AC28 /* PayViewController.m */,
-				3C0FA5AB200C720A0098AC28 /* PayViewController.xib */,
-			);
-			path = "Pay-充值";
 			sourceTree = "<group>";
 		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
@@ -1767,6 +1774,8 @@
 			children = (
 				3CC753332008828700C03C6B /* RCCallUserCallInfoModel.m */,
 				3CC753342008828700C03C6B /* RCCallUserCallInfoModel.h */,
+				3C0075D4200D87B4004D205D /* UserCallPowerModel.h */,
+				3C0075D5200D87B5004D205D /* UserCallPowerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2032,7 +2041,6 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
-				3C0FA5A8200C71EF0098AC28 /* Pay-充值 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -2601,6 +2609,7 @@
 			files = (
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
+				3C0075D7200D9409004D205D /* CountDownView.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
@@ -2615,7 +2624,6 @@
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
-				3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
@@ -2627,6 +2635,7 @@
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				3CCBB0072008D773003071D2 /* yuguan.png in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
+				184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
@@ -2746,6 +2755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
+				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
@@ -2795,6 +2805,7 @@
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
+				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
@@ -2821,7 +2832,6 @@
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
-				3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2AB3715200CD45500458C41 /* BaseModel.m in Sources */,
@@ -2863,6 +2873,7 @@
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
+				184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */,
 				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				3CC752A32008499D00C03C6B /* AliyunCompositionCell.m in Sources */,
@@ -2926,6 +2937,7 @@
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
 				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
+				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
@@ -3130,7 +3142,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3194,7 +3206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
