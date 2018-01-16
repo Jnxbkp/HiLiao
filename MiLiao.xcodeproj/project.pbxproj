@@ -100,7 +100,6 @@
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
 		3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0075D5200D87B5004D205D /* UserCallPowerModel.m */; };
 		3C0075D7200D9409004D205D /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
-		3C00F60A200DD9310036E0E3 /* MyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6750200CB1E100C852B4 /* MyCallViewController.m */; };
 		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
@@ -2765,7 +2764,6 @@
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
-				3C00F60A200DD9310036E0E3 /* MyCallViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
@@ -3150,7 +3148,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3200,7 +3198,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3214,7 +3212,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3264,7 +3262,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
