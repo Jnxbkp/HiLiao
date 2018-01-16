@@ -35,8 +35,8 @@
     }
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-//    self.avatar.layer.cornerRadius = 24;
-//    self.avatar.layer.masksToBounds = YES;
+    self.headerImg.layer.cornerRadius = 45;
+    self.headerImg.layer.masksToBounds = YES;
 //    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
 //    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
 //    self.nickName.text = [_userDefaults objectForKey:@"nickname"];

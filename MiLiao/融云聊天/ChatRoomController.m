@@ -53,7 +53,13 @@
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:0];
+    [self.chatSessionInputBarControl.pluginBoardView removeItemAtIndex:1];
+
+
     [RCIM sharedRCIM].userInfoDataSource = self;
 }
 - (void)leftButtonDidClick {
