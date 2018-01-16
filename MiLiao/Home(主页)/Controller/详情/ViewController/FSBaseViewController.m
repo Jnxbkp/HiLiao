@@ -28,7 +28,7 @@
 #import "MainMananger.h"
 
 #import "VideoUserModel.h"
-
+#import "LoveViewController.h"
 #import "EvaluateVideoViewController.h"//评价
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
@@ -129,7 +129,8 @@
     UIView *view = vc.view;
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.equalTo(self.view).offset(40);
+        make.top.left.equalTo(self.view).offset(5);
+        make.right.bottom.equalTo(self.view).offset(-5);
     }];
 }
 

@@ -52,6 +52,7 @@
         self.layer.cornerRadius = 15;
         self.layer.masksToBounds = YES;
         self.textAlignment = NSTextAlignmentCenter;
+        self.font = [UIFont systemFontOfSize:13];
     }
     return self;
 }
