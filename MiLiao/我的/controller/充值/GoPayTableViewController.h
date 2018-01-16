@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GoPayTableViewController : UITableViewController
-@property(nonatomic,copy)NSString *money;//分几周到账
-@property(nonatomic,copy)NSString *Id;
+@property(nonatomic,strong)NSString *money;//金额
+@property(nonatomic,strong)NSString *Id;
 @end

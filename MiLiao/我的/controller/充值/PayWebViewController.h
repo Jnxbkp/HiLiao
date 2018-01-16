@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PayWebViewController : UIViewController
+@property(nonatomic,strong)NSString *money;//金额
 
 @end
