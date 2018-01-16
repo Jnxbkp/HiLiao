@@ -9,6 +9,9 @@
 #import "ChatListController.h"
 #import "ChatRoomController.h"
 #import "messageView.h"
+#import "MyCallViewController.h"
+#import "MyMViewController.h"
+#import "MyNoticeViewController.h"
 //#import "DatingModel.h"
 @interface ChatListController ()<RCIMUserInfoDataSource>
 {
@@ -70,6 +73,8 @@
                        @"messageView" owner:nil options:nil ].lastObject;
     vc.tonghuaBlock = ^{
         //我的通话
+        MyCallViewController *myCallVC = [[MyCallViewController alloc]init];
+        [self.navigationController pushViewController:myCallVC animated:YES];
         NSLog(@"我的通话");
     };
     vc.MBlock = ^{
