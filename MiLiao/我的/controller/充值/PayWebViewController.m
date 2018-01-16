@@ -8,9 +8,17 @@
 
 #import "PayWebViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-
-@interface PayWebViewController ()<UIWebViewDelegate>
+#import "NSURLRequest+NSURLRequestWithIgnoreSSL.h"
+@interface PayWebViewController ()<UIWebViewDelegate,NSURLSessionDelegate>
+{
+    NSURLRequest*_originRequest;
+    
+    NSURLConnection*_urlConnection;
+    
+    BOOL _authenticated;
+}
 @property (nonatomic, strong)UIWebView * webView;
+@property (nonatomic, strong)NSURL * url;
 
 @end
 
@@ -31,24 +39,11 @@
 {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - ML_TopHeight)];
     self.webView.delegate = self;
-    NSURL * url = [NSURL URLWithString:@"https://47.104.25.213:9000/payment/index?token=207754c41e03d18b10f4e77bd5da9cbc&username=15662696090&totalFee=10"];
-    NSURLRequest * request = [[NSURLRequest alloc] initWithURL:url];
-    [self.webView loadRequest:request];
+    NSURL * url = [NSURL URLWithString:@"https://47.104.25.213:9000/payment/index?token=dc3b9456f8f7772e145027e95fdd099b&username=15662696090&totalFee=1"];
+    [NSURLRequest allowsAnyHTTPSCertificateForHost:@"https"];
+    _originRequest = [[NSURLRequest alloc] initWithURL:url];
+    [self.webView loadRequest:_originRequest];
     [self.view addSubview:self.webView];
 }
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
-    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-        //if ([trustedHosts containsObject:challenge.protectionSpace.host])
-        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]
-             forAuthenticationChallenge:challenge];
-    
-    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-}
-
-
 
 @end

@@ -71,7 +71,6 @@ static NSString *kTempFolder = @"touxiang";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor whiteColor];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto:) name:@"photo" object:nil];
     [self.oneBtn setTag:1];
     [self.twoBtn setTag:2];
     [self.fourBtn setTag:3];
@@ -207,7 +206,6 @@ static NSString *kTempFolder = @"touxiang";
         if (!task.error) {
             result = task.result;
             NSLog(@"%@",result);
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"photo" object:nil userInfo:nil];
             [self takePhoto];
             //把图片路径添加到数组
             NSMutableArray *photoMuArray = [[NSMutableArray alloc] initWithObjects:
