@@ -67,10 +67,9 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 /**
  每分钟扣费
 
- @param price 价格
  @param costUserId 对端的id
  */
-+ (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId result:(RequestModelResult)result;
++ (void)perMinuteDedectionUserName:(NSString *)userName result:(RequestModelResult)result;
 
 
 ///保存通话记录
