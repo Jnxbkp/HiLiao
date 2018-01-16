@@ -112,4 +112,16 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
  */
 + (void)Get:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete;
 
+
+
+/**
+ GET请求 - 返回模型数组
+
+ @param urlString url
+ @param parameters prameters
+ @param modelClass model类
+ @param result 返回的结果集
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters modelClass:(Class)modelClass result:(RequestResult)result;
+
 @end

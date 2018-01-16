@@ -29,7 +29,7 @@
 
 #import "VideoUserModel.h"
 
-//
+#import "EvaluateVideoViewController.h"//评价
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
@@ -87,6 +87,8 @@
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
    
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
    
     self.view.backgroundColor = [UIColor whiteColor];
@@ -109,6 +111,19 @@
     [self addFootView];
      [self addNavView];
     [self setupSubViews];
+}
+
+
+- (void)notificationFunc:(NSNotification *)notification {
+    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        
+    }];
+    EvaluateVideoViewController *vc = [[EvaluateVideoViewController alloc] init];
+    UIView *view = vc.view;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.equalTo(self.view).offset(40);
+    }];
 }
 
 - (void)setupSubViews
@@ -265,9 +280,9 @@
 - (void)videoCall {
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 //     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+    
+    
 }
-
-
 
 #pragma mark - 计算可通话时长
 //计算可通话时长

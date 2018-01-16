@@ -215,4 +215,50 @@
         !complete?:complete(Failure, @"网络连接失败");
     }];
 }
+
+
+/**
+ GET请求 - 返回模型数组
+ 
+ @param urlString url
+ @param parameters prameters
+ @param modelClass model类
+ @param result 返回的结果集
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters modelClass:(Class)modelClass result:(RequestResult)result {
+    [self GET:urlString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        RequestState state = Failure;
+        NSArray *modelArray;
+        NSInteger code = 0;
+        
+        if (
+            ([responseObject[ResultCode] integerValue] == SUCCESS
+             ||
+             [responseObject[@"code"] integerValue] == SUCCESS)
+            &&
+            [responseObject[@"data"] isKindOfClass:[NSArray class]])
+        {
+            if (modelClass) {
+                modelArray = [modelClass mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+                state = Success;
+            }
+        }
+        if (responseObject[ResultCode]) {
+            code = [responseObject[ResultCode] integerValue];
+        }
+        if (responseObject[@"code"]) {
+            code = [responseObject[@"code"] integerValue];
+        }
+        !result?:result(state, modelArray, code, responseObject[ResultMsg]);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        !result?:result(Failure, nil, 1000, @"网络连接失败");
+    }];
+}
+
+
+
+
+
 @end

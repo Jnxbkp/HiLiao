@@ -56,7 +56,6 @@
 		18567F57200207C8003F1985 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F42200207C7003F1985 /* AlipaySDK.framework */; };
 		18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5920020AE1003F1985 /* CFNetwork.framework */; };
 		18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5B20020AF3003F1985 /* CoreAudio.framework */; };
-		18567F5E20020AFC003F1985 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5D20020AFC003F1985 /* CoreGraphics.framework */; };
 		18567F6020020B05003F1985 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5F20020B05003F1985 /* CoreLocation.framework */; };
 		18567F6220020B17003F1985 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F6120020B17003F1985 /* CoreTelephony.framework */; };
 		18567F6420020B4C003F1985 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F6320020B4C003F1985 /* libc++abi.tbd */; };
@@ -104,6 +103,15 @@
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
+		3C6458A7200DEC0700E1721C /* EvaluateVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */; };
+		3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */; };
+		3C6458AC200DFB6100E1721C /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */; };
+		3C6458AD200DFB6100E1721C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6458AB200DFB6100E1721C /* AlipaySDK.framework */; };
+		3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6458AE200DFC1600E1721C /* CoreText.framework */; };
+		3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5D20020AFC003F1985 /* CoreGraphics.framework */; };
+		3C6458B6200E0ED100E1721C /* QLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B4200E0ED100E1721C /* QLStarView.m */; };
+		3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */; };
+		3C6458BD200E24B500E1721C /* TagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458BC200E24B500E1721C /* TagLabel.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
 		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
@@ -507,6 +515,19 @@
 		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
+		3C6458A4200DEC0700E1721C /* EvaluateVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateVideoViewController.h; sourceTree = "<group>"; };
+		3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateVideoViewController.m; sourceTree = "<group>"; };
+		3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluateVideoViewController.xib; sourceTree = "<group>"; };
+		3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		3C6458AB200DFB6100E1721C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		3C6458AE200DFC1600E1721C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3C6458B2200E0BCF00E1721C /* NotificationName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationName.h; sourceTree = "<group>"; };
+		3C6458B4200E0ED100E1721C /* QLStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStarView.m; sourceTree = "<group>"; };
+		3C6458B5200E0ED100E1721C /* QLStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStarView.h; sourceTree = "<group>"; };
+		3C6458B7200E20AE00E1721C /* EvaluateTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateTagModel.h; sourceTree = "<group>"; };
+		3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateTagModel.m; sourceTree = "<group>"; };
+		3C6458BB200E24B500E1721C /* TagLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagLabel.h; sourceTree = "<group>"; };
+		3C6458BC200E24B500E1721C /* TagLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagLabel.m; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
 		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
 		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -934,6 +955,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */,
+				3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */,
 				3C80D6A1200776E900D0DEA7 /* VideoToolbox.framework in Frameworks */,
 				E2C6B9F62000819C006E0B2A /* Accelerate.framework in Frameworks */,
 				18567F7420020BB8003F1985 /* SafariServices.framework in Frameworks */,
@@ -951,11 +974,11 @@
 				3CFF061D20078D4600E20FDE /* libnama.a in Frameworks */,
 				E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */,
 				E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */,
+				3C6458AD200DFB6100E1721C /* AlipaySDK.framework in Frameworks */,
 				E21227441FFE0C39005D543F /* CoreVideo.framework in Frameworks */,
 				18567F6220020B17003F1985 /* CoreTelephony.framework in Frameworks */,
 				E21227421FFE0C32005D543F /* CoreMedia.framework in Frameworks */,
 				18567F6020020B05003F1985 /* CoreLocation.framework in Frameworks */,
-				18567F5E20020AFC003F1985 /* CoreGraphics.framework in Frameworks */,
 				18567F5C20020AF3003F1985 /* CoreAudio.framework in Frameworks */,
 				18567F5A20020AE1003F1985 /* CFNetwork.framework in Frameworks */,
 				E2C6B9EA20008169006E0B2A /* AVFoundation.framework in Frameworks */,
@@ -1251,6 +1274,7 @@
 		2A8906D92003621A5D0F3E7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C6458AE200DFC1600E1721C /* CoreText.framework */,
 				E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */,
 				E264E5F82005BFC600DFF4A5 /* AliyunVideoSDKPro.framework */,
 				18567F7320020BB7003F1985 /* SafariServices.framework */,
@@ -1305,6 +1329,44 @@
 				3C12A401200A140A0044A6A2 /* UserInfoNet.m */,
 			);
 			path = Net;
+			sourceTree = "<group>";
+		};
+		3C6458A3200DEBAB00E1721C /* EvaluateVideoController-评价 */ = {
+			isa = PBXGroup;
+			children = (
+				3C6458A4200DEC0700E1721C /* EvaluateVideoViewController.h */,
+				3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */,
+				3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */,
+				3C6458B3200E0ED100E1721C /* View */,
+			);
+			path = "EvaluateVideoController-评价";
+			sourceTree = "<group>";
+		};
+		3C6458A9200DFB6100E1721C /* AliSDK */ = {
+			isa = PBXGroup;
+			children = (
+				3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */,
+				3C6458AB200DFB6100E1721C /* AlipaySDK.framework */,
+			);
+			path = AliSDK;
+			sourceTree = "<group>";
+		};
+		3C6458B3200E0ED100E1721C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C6458B4200E0ED100E1721C /* QLStarView.m */,
+				3C6458B5200E0ED100E1721C /* QLStarView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3C6458BA200E246C00E1721C /* TagLabel */ = {
+			isa = PBXGroup;
+			children = (
+				3C6458BB200E24B500E1721C /* TagLabel.h */,
+				3C6458BC200E24B500E1721C /* TagLabel.m */,
+			);
+			path = TagLabel;
 			sourceTree = "<group>";
 		};
 		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
@@ -1915,6 +1977,7 @@
 				E221B56E1FF5D6FF00353875 /* AppDelegate.h */,
 				E221B56F1FF5D6FF00353875 /* AppDelegate.m */,
 				E221B5A01FF5DB9600353875 /* PrefixHeader.pch */,
+				3C6458B2200E0BCF00E1721C /* NotificationName.h */,
 				3C77AF992009BB000029778B /* Networking */,
 				3CFF05FE20078D4600E20FDE /* FaceUnity */,
 				1856878F2002136D003F1985 /* 融云聊天 */,
@@ -2008,6 +2071,8 @@
 				E24824EE20089B33000F1EC7 /* MainMananger.m */,
 				3CC51492200C96CC00095AE8 /* VideoUserModel.h */,
 				3CC51493200C96CC00095AE8 /* VideoUserModel.m */,
+				3C6458B7200E20AE00E1721C /* EvaluateTagModel.h */,
+				3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2015,6 +2080,7 @@
 		E221B5B41FF5DF1E00353875 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C6458BA200E246C00E1721C /* TagLabel */,
 				E221B5BF1FF5E86300353875 /* MLHomeListTableViewCell.h */,
 				E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */,
 				E27E9F651FFB311100096A6E /* MLDetailTableViewCell.h */,
@@ -2035,6 +2101,7 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
+				3C6458A3200DEBAB00E1721C /* EvaluateVideoController-评价 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -2072,6 +2139,7 @@
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
+				3C6458A9200DFB6100E1721C /* AliSDK */,
 				E2D1950D2003510B00EAEE57 /* include */,
 				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
@@ -2599,6 +2667,7 @@
 			files = (
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
+				3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */,
 				3C0075D7200D9409004D205D /* CountDownView.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
@@ -2612,6 +2681,7 @@
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */,
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
+				3C6458AC200DFB6100E1721C /* AlipaySDK.bundle in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
@@ -2797,6 +2867,7 @@
 				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
+				3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
 				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
@@ -2804,6 +2875,7 @@
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
+				3C6458BD200E24B500E1721C /* TagLabel.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
@@ -2835,6 +2907,7 @@
 				E2D194FF20033D0400EAEE57 /* QBAlbumsViewController.m in Sources */,
 				187724122000BF1600A93345 /* IdentificationVController.m in Sources */,
 				185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */,
+				3C6458B6200E0ED100E1721C /* QLStarView.m in Sources */,
 				E221B5C91FF60EB600353875 /* DataManager.m in Sources */,
 				185820422009AC3E0020C232 /* MyMoneyViewController.m in Sources */,
 				E2620F8C20045D480092BA11 /* PublicManager.m in Sources */,
@@ -2927,6 +3000,7 @@
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
+				3C6458A7200DEC0700E1721C /* EvaluateVideoViewController.m in Sources */,
 				E259296F1FFCBC2A00B6502D /* FSBaseTableView.m in Sources */,
 				E2B497D31FFF48B50017A5B6 /* User.m in Sources */,
 				185820412009AC3E0020C232 /* edttViewController.m in Sources */,
@@ -3130,7 +3204,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3143,6 +3217,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/AlipaySDK",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallKit",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity",
+					"$(PROJECT_DIR)/MiLiao/Tools/AliSDK",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3180,7 +3255,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3194,7 +3269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3207,6 +3282,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/RedPacket/AlipaySDK",
 					"$(PROJECT_DIR)/MiLiao/Tools/Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable/CallKit",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity",
+					"$(PROJECT_DIR)/MiLiao/Tools/AliSDK",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3244,7 +3320,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

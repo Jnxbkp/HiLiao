@@ -130,7 +130,7 @@
     
     [manager GET:[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        NSLog(@"\n\nGET基类请求返回:\n%@", responseObject);
         if (success) {
             success(task, responseObject);
         }
