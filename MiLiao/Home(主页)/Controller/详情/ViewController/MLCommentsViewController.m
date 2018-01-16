@@ -8,12 +8,13 @@
 
 #import "MLCommentsViewController.h"
 #import "CommentTableViewCell.h"
+#import "MainMananger.h"
 
 
 @interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, assign) BOOL fingerIsTouch;
-/** 用来显示的假数据 */
-@property (strong, nonatomic) NSMutableArray *data;
+@property (strong, nonatomic) NSMutableArray *dataArr;
+
 
 @end
 
@@ -30,7 +31,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
+    _dataArr = [NSMutableArray array];
+//    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
+    
+    [self NetGetBigVEvaluationList];
     
     [self setupSubViews];
 }
@@ -42,6 +46,11 @@
     _tableView.dataSource = self;
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    _tableView.bounces = NO;
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
+    footer.stateLabel.hidden = YES;
+    footer.refreshingTitleHidden = YES;
+    _tableView.mj_footer = footer;
+    
     [self.view addSubview:_tableView];
     //    __weak typeof(self) weakSelf = self;
     //    [self.tableView addInfiniteScrollingWithActionHandler:^{
@@ -49,35 +58,18 @@
     //    }];
 }
 
-//- (void)insertRowAtTop
-//{
-//    for (int i = 0; i<10; i++) {
-//        [self.data insertObject:RandomData atIndex:0];
-//    }
-//    __weak UITableView *tableView = self.tableView;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [tableView reloadData];
-//    });
-//}
-//
-//- (void)insertRowAtBottom
-//{
-//    for (int i = 0; i<10; i++) {
-//        [self.data addObject:RandomData];
-//    }
-//    __weak UITableView *tableView = self.tableView;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [tableView reloadData];
-//        [tableView.infiniteScrollingView stopAnimating];
-//    });
-//}
-
-//#pragma mark Setter
-//- (void)setIsRefresh:(BOOL)isRefresh
-//{
-//    _isRefresh = isRefresh;
-//    [self insertRowAtTop];
-//}
+//主播评论列表
+- (void)NetGetBigVEvaluationList {
+    [MainMananger NetGetBigVEvaluationListUsername:_videoUserModel.username success:^(NSDictionary *info) {
+        NSLog(@"---------------->>><<<<<>>><<<>>%@",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
+}
 
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -87,7 +79,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    return _dataArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,15 +97,15 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = [self.data objectAtIndex:indexPath.row];
-    NSArray *arr = [NSArray arrayWithObjects:@"好性感",@"完美身材", nil];
-    [cell.itemsView setItemsArr:arr];
-    cell.userImageView.image = [UIImage imageNamed:@"aaa"];
-    cell.itemsView.frame = CGRectMake(WIDTH/2 + WIDTH/2-12-cell.itemsView.itemsViewWidth, 12, cell.itemsView.itemsViewWidth, 24);
+//    cell.titleLabel.text = [self.data objectAtIndex:indexPath.row];
+//    NSArray *arr = [NSArray arrayWithObjects:@"好性感",@"完美身材", nil];
+//    [cell.itemsView setItemsArr:arr];
+//    cell.userImageView.image = [UIImage imageNamed:@"aaa"];
+//    cell.itemsView.frame = CGRectMake(WIDTH/2 + WIDTH/2-12-cell.itemsView.itemsViewWidth, 12, cell.itemsView.itemsViewWidth, 24);
     
-    if (indexPath.row == self.data.count-1) {
-        cell.lineLabel.hidden = YES;
-    }
+//    if (indexPath.row == self.data.count-1) {
+//        cell.lineLabel.hidden = YES;
+//    }
     return cell;
 }
 
@@ -156,16 +148,6 @@
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
 }
 
-- (NSMutableArray *)data
-{
-    if (!_data) {
-        self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
-        //        for (int i = 0; i<10; i++) {
-        //            [self.data addObject:RandomData];
-        //        }
-    }
-    return _data;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

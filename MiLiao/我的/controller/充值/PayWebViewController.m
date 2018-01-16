@@ -42,7 +42,9 @@
 {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT - ML_TopHeight)];
     self.webView.delegate = self;
-    NSURL * url = [NSURL URLWithString:@"https://47.104.25.213:9000/payment/index?token=dc3b9456f8f7772e145027e95fdd099b&username=15662696090&totalFee=1"];
+    NSString *urlStr = [NSString stringWithFormat:@"https://47.104.25.213:9000/payment/index?token=%@&username=%@&totalFee=%@",[YZCurrentUserModel sharedYZCurrentUserModel].token,[YZCurrentUserModel sharedYZCurrentUserModel].username,self.money];
+    NSLog(@"支付宝连接~~~~~~~~~%@",urlStr);
+    NSURL * url = [NSURL URLWithString:urlStr];
     [NSURLRequest allowsAnyHTTPSCertificateForHost:@"https"];
     _originRequest = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:_originRequest];

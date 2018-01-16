@@ -13,6 +13,7 @@
 #import "PayWebViewController.h"
 @interface GoPayTableViewController ()
 @property(nonatomic,assign)BOOL boolBtnSelected;
+@property (nonatomic,strong) NSArray *moneyAry;
 
 @end
 
@@ -26,6 +27,9 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"充值"];
+    self.moneyAry = [[NSArray alloc]init];
+     self.moneyAry = @[@"20",@"100",@"200",@"400",@"1000",@"2000",@"4000",@"10000",@"20000"];
+    self.money = @"20";
     [self registerCell];
 
 }
@@ -53,18 +57,17 @@
     if (indexPath.section == 0) {
         MyQianBaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyQianBaoTableViewCell" forIndexPath:indexPath];
         cell.selectedBlock = ^(NSInteger index) {
-//            if (index<=self.dicAry.count) {
-//                self.money = [NSString stringWithFormat:@"%@",self.dicAry[index][@"extra_desc"]];
+            if (index<=self.moneyAry.count) {
+                self.money = [NSString stringWithFormat:@"%@",self.moneyAry[index]];
+                NSLog(@"金额金额金额~~~~%@",self.money);
 //                self.Id = [NSString stringWithFormat:@"%@",self.dicAry[index][@"id"]];
-//            }
+            }
         };
         
         return cell;
     }else{
         static NSString *Identifier =@"jiaYouYZBankTableViewCell";
         jiaYouYZBankTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
-
-//        jiaYouYZBankTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier forIndexPath:indexPath];
         cell.index = indexPath.row;
         cell.tuijian.hidden = YES;
         return cell;
@@ -79,6 +82,7 @@
         //支付宝
 //            self.type = 1;
         PayWebViewController *payWeb = [[PayWebViewController alloc]init];
+        payWeb.money = self.money;
         [self.navigationController pushViewController:payWeb animated:YES];
         }
     

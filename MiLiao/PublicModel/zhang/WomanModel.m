@@ -17,8 +17,9 @@
         self.descriptionStr = [dict objectForKey:@"description"];
         self.headUrl = [dict objectForKey:@"headUrl"];
         self.height = [NSString stringWithFormat:@"%@",[dict objectForKey:@"height"]];
-        self.isAgent = [dict objectForKey:@"isAgent"];
-        self.isBigv = [dict objectForKey:@"isBigv"];
+        self.isAgent = [NSString stringWithFormat:@"%@",[dict objectForKey:@"isAgent"]];
+        self.isBigv = [NSString stringWithFormat:@"%@",[dict objectForKey:@"isBigv"]];
+        self.sfgz = [NSString stringWithFormat:@"%@",[dict objectForKey:@"sfgz"]];
         
         self.isCommon = [dict objectForKey:@"isCommon"];
         self.jtl = [dict objectForKey:@"jtl"];
@@ -37,6 +38,9 @@
         
         self.imageList = [NSArray array];
         self.imageList = [dict objectForKey:@"imageList"];
+        
+        self.userTags = [NSArray array];
+        self.userTags = [dict objectForKey:@"userTags"];
         
     }
     return self;

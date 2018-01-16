@@ -267,6 +267,8 @@
 		E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F661FFB311100096A6E /* MLDetailTableViewCell.m */; };
 		E27E9F6D1FFB573400096A6E /* ItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6C1FFB573400096A6E /* ItemsView.m */; };
 		E27E9F701FFC876E00096A6E /* MLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */; };
+		E28F2A3B200D9D470012EC9F /* LoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28F2A3A200D9D470012EC9F /* LoveViewController.m */; };
+		E28F2A3E200D9EDC0012EC9F /* LoveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E28F2A3D200D9EDC0012EC9F /* LoveTableViewCell.m */; };
 		E2AB36F0200C9E0800458C41 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB36EF200C9E0800458C41 /* CommentTableViewCell.m */; };
 		E2AB3701200CCF3B00458C41 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB36FA200CCF3B00458C41 /* UIView+SDAutoLayout.m */; };
 		E2AB3702200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB36FD200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.m */; };
@@ -817,6 +819,10 @@
 		E27E9F6C1FFB573400096A6E /* ItemsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsView.m; sourceTree = "<group>"; };
 		E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLSearchViewController.h; sourceTree = "<group>"; };
 		E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLSearchViewController.m; sourceTree = "<group>"; };
+		E28F2A39200D9D470012EC9F /* LoveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoveViewController.h; sourceTree = "<group>"; };
+		E28F2A3A200D9D470012EC9F /* LoveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveViewController.m; sourceTree = "<group>"; };
+		E28F2A3C200D9EDC0012EC9F /* LoveTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoveTableViewCell.h; sourceTree = "<group>"; };
+		E28F2A3D200D9EDC0012EC9F /* LoveTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveTableViewCell.m; sourceTree = "<group>"; };
 		E2AB36EE200C9E0800458C41 /* CommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		E2AB36EF200C9E0800458C41 /* CommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		E2AB36F2200CAFA100458C41 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
@@ -2205,6 +2211,10 @@
 		E25929591FFCBC1700B6502D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E28F2A3C200D9EDC0012EC9F /* LoveTableViewCell.h */,
+				E28F2A3D200D9EDC0012EC9F /* LoveTableViewCell.m */,
+				E25929671FFCBC2A00B6502D /* FSBaseTableView.h */,
+				E259296A1FFCBC2A00B6502D /* FSBaseTableView.m */,
 				E259295D1FFCBC1700B6502D /* FSBaseTopTableViewCell.h */,
 				E259295A1FFCBC1700B6502D /* FSBaseTopTableViewCell.m */,
 				E259295F1FFCBC1700B6502D /* FSBaselineTableViewCell.h */,
@@ -2230,8 +2240,8 @@
 				E2C6BA0420025B2F006E0B2A /* FSScrollContentViewController.m */,
 				E25929691FFCBC2A00B6502D /* FSBaseViewController.h */,
 				E25929651FFCBC2A00B6502D /* FSBaseViewController.m */,
-				E25929671FFCBC2A00B6502D /* FSBaseTableView.h */,
-				E259296A1FFCBC2A00B6502D /* FSBaseTableView.m */,
+				E28F2A39200D9D470012EC9F /* LoveViewController.h */,
+				E28F2A3A200D9D470012EC9F /* LoveViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2822,6 +2832,7 @@
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
 				3CC7534B2008828700C03C6B /* RCCallSelectMemberViewController.m in Sources */,
+				E28F2A3B200D9D470012EC9F /* LoveViewController.m in Sources */,
 				3CC752A52008499D00C03C6B /* AliyunCompositionPickCell.m in Sources */,
 				E2B497E41FFF56770017A5B6 /* CHD_ListView_Structure.m in Sources */,
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
@@ -2953,6 +2964,7 @@
 				E2AB3702200CCF3B00458C41 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				E25929601FFCBC1700B6502D /* FSBaseTopTableViewCell.m in Sources */,
 				3CC752982008499D00C03C6B /* AliyunPathManager.m in Sources */,
+				E28F2A3E200D9EDC0012EC9F /* LoveTableViewCell.m in Sources */,
 				184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */,
 				3CC752C52008499E00C03C6B /* QUProgressView.m in Sources */,
 				E2B497E51FFF56770017A5B6 /* UIButton+Edge.m in Sources */,

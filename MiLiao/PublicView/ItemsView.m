@@ -19,6 +19,7 @@
     }
     return self;
 }
+//数组
 - (void)setItemsArr:(NSArray *)itemArr {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.itemArr = itemArr;
@@ -34,6 +35,40 @@
         [itemButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         itemButton.titleLabel.font = [UIFont systemFontOfSize:11.0];
         [itemButton setTitle:itemArr[i] forState:UIControlStateNormal];
+        itemButton.layer.cornerRadius = 12;
+        
+        itemButton.frame = CGRectMake(w, h, buttonSize.width+20 , 24);
+        if(w + buttonSize.width + 24 > WIDTH){
+            w = 12;
+            h = h + itemButton.frame.size.height + 12;
+            itemButton.frame = CGRectMake(w, h, buttonSize.width+20, 24);
+        }
+        
+        w = itemButton.frame.size.width + itemButton.frame.origin.x+12;
+        
+        if (i == itemArr.count-1) {
+            self.itemsViewHeight = itemButton.frame.origin.y+24;
+            self.itemsViewWidth = itemButton.frame.origin.x+itemButton.frame.size.width;
+        }
+        [self addSubview:itemButton];
+    }
+}
+//字典数组
+- (void)setItemsDicArr:(NSArray *)itemArr {
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.itemArr = itemArr;
+    CGFloat w = 12;
+    CGFloat h = 0;
+    
+    for (int i = 0; i < itemArr.count; i++) {
+        UIButton *itemButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        itemButton.tag = itemButtonTag+i;
+        [itemButton addTarget:self action:@selector(itemButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        CGSize buttonSize = [NSStringSize getNSStringHeight:[itemArr[i] objectForKey:@"tagName"] Font:11.0];
+        itemButton.backgroundColor = [self itemColor:[itemArr[i] objectForKey:@"tagName"]];
+        [itemButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        itemButton.titleLabel.font = [UIFont systemFontOfSize:11.0];
+        [itemButton setTitle:[itemArr[i] objectForKey:@"tagName"] forState:UIControlStateNormal];
         itemButton.layer.cornerRadius = 12;
         
         itemButton.frame = CGRectMake(w, h, buttonSize.width+20 , 24);
