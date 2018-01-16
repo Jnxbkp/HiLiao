@@ -17,7 +17,6 @@
 #import <FUAPIDemoBar/FUAPIDemoBar.h>
 
 #import "CountDownView.h"//倒计时view
-#import "PayViewController.h"
 #import "UserInfoNet.h"
 #import "UserCallPowerModel.h"//可通话能力
 
@@ -40,7 +39,6 @@
 ///倒计时view
 @property (nonatomic, strong) CountDownView *countDownView;
 
-@property (nonatomic, strong) PayViewController *payViewController;
 
 @end
 
@@ -73,12 +71,6 @@ static NSInteger TestCountDown = 5;
     return _countDownView;
 }
 
-- (PayViewController *)payViewController {
-    if (!_payViewController) {
-        _payViewController = [[PayViewController alloc] init];
-    }
-    return _payViewController;
-}
 
 /**
  Faceunity道具美颜工具条
@@ -250,15 +242,16 @@ static NSInteger TestCountDown = 5;
 
 ///扣除通话费用
 - (void)deductionCallMoney {
-    [UserInfoNet perMinuteDedectionCostCoin:self.price costUserId:self.costUserId result:^(RequestState success, id model, NSInteger code, NSString *msg) {
-        
+    [UserInfoNet perMinuteDedectionUserName:self.videoUser.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
+            NSLog(@"扣费成功");
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self isContinueCanVideoCall:canCall];
             });
         }
     }];
+    
 }
 
 #pragma mark - FUAPIDemoBarDelegate
@@ -290,18 +283,6 @@ static NSInteger TestCountDown = 5;
 
 
 #pragma mark - 倒计时view代理方法
-//充值回调
-- (void)payAction {
-    UIView *view = self.payViewController.view;
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.equalTo(self.view);
-    }];
-    
-    
-}
-
-
 ///添加倒计时view
 - (void)addCountDownView {
     [self.mainVideoView addSubview:self.countDownView];
@@ -360,7 +341,6 @@ static NSInteger TestCountDown = 5;
         NSLog(@"我发起的通话");
         //检查M币
         [self checkMoney];
-        
         
     } else {
         NSLog(@"我收到的通话");

@@ -122,20 +122,29 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 
 /**
  每分钟扣费
- 
- @param price 价格
  @param costUserId 对端的id
  */
-+ (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId result:(RequestModelResult)result {
++ (void)perMinuteDedectionUserName:(NSString *)userName result:(RequestModelResult)result {
+    YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
+    NSDictionary *parameter = @{
+                                @"costUserName":user.username,
+                                @"token":tokenForCurrentUser(),
+                                @"userName":userName
+                                };
+    [self Post:EveryMinuAPI parameters:parameter modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
     
-    NSDictionary *parameters = @{@"costCoin":price,
-                                 @"costUserId":costUserId,
-                                 @"token":tokenForCurrentUser(),
-                                 @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id
-                                 };
-    
-    [self Post:EveryMinuAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
 }
+//+ (void)perMinuteDedectionCostUserId:(NSString *)costUserId result:(RequestModelResult)result {
+//    
+//    
+//    NSDictionary *parameters = @{
+//                                 @"costUserId":costUserId,
+//                                 @"token":tokenForCurrentUser(),
+//                                 @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id
+//                                 };
+//    
+//    [self Post:EveryMinuAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
+//}
 
 
 ///保存通话记录

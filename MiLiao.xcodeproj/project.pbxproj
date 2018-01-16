@@ -103,8 +103,6 @@
 		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
-		3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AA200C720A0098AC28 /* PayViewController.m */; };
-		3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5AB200C720A0098AC28 /* PayViewController.xib */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
@@ -507,9 +505,6 @@
 		3C0FA5A3200C4B320098AC28 /* CountDownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountDownView.xib; sourceTree = "<group>"; };
 		3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBBorder.m"; sourceTree = "<group>"; };
 		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
-		3C0FA5A9200C720A0098AC28 /* PayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
-		3C0FA5AA200C720A0098AC28 /* PayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
-		3C0FA5AB200C720A0098AC28 /* PayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
@@ -1303,16 +1298,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		3C0FA5A8200C71EF0098AC28 /* Pay-充值 */ = {
-			isa = PBXGroup;
-			children = (
-				3C0FA5A9200C720A0098AC28 /* PayViewController.h */,
-				3C0FA5AA200C720A0098AC28 /* PayViewController.m */,
-				3C0FA5AB200C720A0098AC28 /* PayViewController.xib */,
-			);
-			path = "Pay-充值";
-			sourceTree = "<group>";
-		};
 		3C12A3FF200A13EC0044A6A2 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -2050,7 +2035,6 @@
 				E221B5A51FF5DE8B00353875 /* MLHomeViewController.m */,
 				E27E9F6E1FFC876E00096A6E /* MLSearchViewController.h */,
 				E27E9F6F1FFC876E00096A6E /* MLSearchViewController.m */,
-				3C0FA5A8200C71EF0098AC28 /* Pay-充值 */,
 				E2B77BC41FFDC60400597326 /* 详情 */,
 			);
 			path = Controller;
@@ -2630,7 +2614,6 @@
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
-				3C0FA5AD200C720A0098AC28 /* PayViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
 				18567F4F200207C8003F1985 /* JrmfInfo.strings in Resources */,
 				183AAF0A200356D9006D658A /* address.plist in Resources */,
@@ -2838,7 +2821,6 @@
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
 				3CC753482008828700C03C6B /* RCDAudioFrameObserver.mm in Sources */,
-				3C0FA5AC200C720A0098AC28 /* PayViewController.m in Sources */,
 				E2C6B9E520008075006E0B2A /* ViewController.m in Sources */,
 				E27E9F551FFB1E0C00096A6E /* SGHelperTool.m in Sources */,
 				E2AB3715200CD45500458C41 /* BaseModel.m in Sources */,
