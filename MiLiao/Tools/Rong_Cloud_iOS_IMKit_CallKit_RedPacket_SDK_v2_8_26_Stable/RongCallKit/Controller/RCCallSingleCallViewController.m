@@ -369,14 +369,10 @@ static NSInteger TestCountDown = 5;
 
 - (void)callDidDisconnect {
     [super callDidDisconnect];
+    if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
     //扣除最后一分钟的费用
     [self deductionCallMoney];
     [self saveCall];
-    
-    if (self.checkMoneyTimer) {
-        dispatch_cancel(self.checkMoneyTimer);
-    }
-    
 }
 
 - (RCloudImageView *)remotePortraitView {

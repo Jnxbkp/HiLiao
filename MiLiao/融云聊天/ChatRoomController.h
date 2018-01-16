@@ -7,7 +7,7 @@
 //
 
 #import <RongIMKit/RongIMKit.h>
-
+@class VideoUserModel;
 @interface ChatRoomController : RCConversationViewController
-
+@property (nonatomic, strong) VideoUserModel *videoUser;
 @end
