@@ -205,7 +205,8 @@ static NSString *kTempFolder = @"touxiang";
             [self.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.headerUrl]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
             [cell.contentView addSubview:self.iconImage];
 //            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+            self.iconImage.layer.cornerRadius = 30;
+            self.iconImage.layer.masksToBounds = YES;
             self.iconImage.sd_layout
             .centerYIs(85 / 2)
             .rightSpaceToView(cell.contentView, 10)
