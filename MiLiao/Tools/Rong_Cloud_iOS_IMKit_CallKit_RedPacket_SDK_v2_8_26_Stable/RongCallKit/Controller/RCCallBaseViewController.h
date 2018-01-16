@@ -9,6 +9,7 @@
 #import <RongCallLib/RongCallLib.h>
 #import <RongIMLib/RongIMLib.h>
 #import <UIKit/UIKit.h>
+#import "VideoUserModel.h"
 
 /*!
  通话的ViewController基类
@@ -102,6 +103,11 @@
 @property (nonatomic, strong) NSString *price;
 ///对端的id
 @property (nonatomic, strong) NSString *costUserId;
+///对端的用户模型
+@property (nonatomic, strong) VideoUserModel *videoUser;
+
+///获取通话时长
+- (NSString *)getCallTime;
 
 #pragma mark - 回调
 /*!

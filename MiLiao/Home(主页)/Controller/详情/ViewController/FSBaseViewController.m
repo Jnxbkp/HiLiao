@@ -262,7 +262,8 @@
 
 ///视频聊天
 - (void)videoCall {
-     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+//     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
 }
 
 
