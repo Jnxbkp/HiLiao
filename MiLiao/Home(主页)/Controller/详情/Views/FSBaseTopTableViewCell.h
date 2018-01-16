@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "FSLoopScrollView.h"
 
+@protocol topButtonDelegate <NSObject>
+
+- (void)focusButtonSelect:(UIButton *)button;
+- (void)weiXinButtonSelect;
+- (void)loveNumButtonselect;
+
+@end
+
 @interface FSBaseTopTableViewCell : UITableViewCell
 
 @property (nonatomic ,strong)FSLoopScrollView   *loopView;
@@ -19,7 +27,10 @@
 @property (nonatomic ,strong)UILabel         *nameLabel;
 @property (nonatomic ,strong)UILabel         *messageLabel;
 @property (nonatomic ,strong)UILabel         *numFocusLabel;
+@property (nonatomic ,strong)UILabel         *getweixinLabel;
 @property (nonatomic ,strong)UILabel         *weixinLabel;
 @property (nonatomic, strong)NSArray         *headImageArr;
+
+@property (nonatomic,weak) id<topButtonDelegate> delegate;
 
 @end

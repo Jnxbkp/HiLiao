@@ -8,14 +8,16 @@
 
 #import "VideoViewController.h"
 #import "MLDiscoverListCollectionViewCell.h"
+#import "MainMananger.h"
+
 #define itemWidth                 (WIDTH-32)/2
 #define itemHeight                 itemWidth*16/9
 
 @interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, assign) BOOL fingerIsTouch;
-/** 用来显示的假数据 */
-@property (strong, nonatomic) NSMutableArray *data;
+@property (strong, nonatomic) NSMutableArray *dataArr;
+
 @end
 
 static NSString * const reuseIdentifier = @"Cell";
@@ -23,8 +25,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     self.view.backgroundColor = [UIColor whiteColor];
-    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
+//    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
+    _dataArr = [NSMutableArray array];
+    
+    [self netGetUserVideoList];
     
     [self setupSubViews];
 }
@@ -37,16 +43,43 @@ static NSString * const reuseIdentifier = @"Cell";
     _collectionView.backgroundColor = Color242;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
+    footer.stateLabel.hidden = YES;
+    footer.refreshingTitleHidden = YES;
+    _collectionView.mj_footer = footer;
     [self.collectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.view addSubview:_collectionView];
+
     //    __weak typeof(self) weakSelf = self;
     //    [self.tableView addInfiniteScrollingWithActionHandler:^{
     //        [weakSelf insertRowAtBottom];
     //    }];
 }
+//主播视频列表
+- (void)netGetUserVideoList {
+    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[YZCurrentUserModel sharedYZCurrentUserModel].token pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
+        NSLog(@"---------------->>><<<<<>>><<<>>%@",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            NSArray *arr = [info objectForKey:@"data"];
+            for (int i = 0; i < arr.count; i ++) {
+                NSDictionary *dic = arr[i];
+                [_dataArr addObject:dic];
+            }
+            [_collectionView reloadData];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
+}
+//加载更多
+- (void)footerLoadMore:(MJRefreshFooter *)footer {
+    [footer endRefreshing];
+}
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _data.count;
+//    return _dataArr.count;
+    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,7 +155,59 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 /*
-#pragma mark - Navigation
+ #pragma - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+ <#code#>
+ }
+ 
+ - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+ <#code#>
+ }
+ 
+ - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+ <#code#>
+ }
+ 
+ - (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
+ <#code#>
+ }
+ 
+ - (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+ <#code#>
+ }
+ 
+ - (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
+ <#code#>
+ }
+ 
+ - (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+ <#code#>
+ }
+ 
+ - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+ <#code#>
+ }
+ 
+ - (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+ <#code#>
+ }
+ 
+ - (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+ <#code#>
+ }
+ 
+ - (void)setNeedsFocusUpdate {
+ <#code#>
+ }
+ 
+ - (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+ <#code#>
+ }
+ 
+ - (void)updateFocusIfNeeded {
+ <#code#>
+ }
+ 
+ mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -19,4 +19,6 @@
 - (UIColor *)itemColor:(NSString *)str;
 
 - (void)setItemsArr:(NSArray *)itemArr;
+
+- (void)setItemsDicArr:(NSArray *)itemArr;
 @end

@@ -21,4 +21,33 @@
 //GET /v1/user/getAnchorInfo  获取主播信息    (    *传入userId时查询，nickname参数值无效*
 + (void)NetGetgetAnchorInfoNickName:(NSString *)nickname token:(NSString *)token userid:(NSString *)userid success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
+//根据用户id获取视频列表
+//POST /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
++ (void)NetPostgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//关注大VV
+//POST POST /v1/bigV/careUser
+/*
+ McGuanZhuDto {
+ bgzaccount (string): 被关注者账号 ,
+ gzaccount (string): 关注者账号 ,
+ sfgz (string, optional): 是否关注 ,
+ token (string): Token
+ }
+ */
++ (void)NetPostCareBigVToken:(NSString *)token sfgz:(NSString *)sfgz bgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//获取大V评价
+//Get /v1/bigV/getBigVEvaluationList
++ (void)NetGetBigVEvaluationListUsername:(NSString *)username success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//获取大V亲密度列表
+//Get /v1/bigV/getIntimateList
++ (void)NetGetIntimateListUsername:(NSString *)username success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//关注大V
+//POST /v1/bigV/careUser
++ (void)NetPostCareuserBgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount sfgz:(NSString *)sfgz token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+
 @end

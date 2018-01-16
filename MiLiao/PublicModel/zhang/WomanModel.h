@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *isBigv;
 @property (nonatomic, strong) NSString *isCommon;
 @property (nonatomic, strong) NSString *jtl;
+@property (nonatomic, strong) NSString *sfgz;
 
 @property (nonatomic, strong) NSString *personalSign;
 @property (nonatomic, strong) NSString *province;
@@ -34,5 +35,5 @@
 
 @property (nonatomic, strong) NSArray *evaluationList;
 @property (nonatomic, strong) NSArray *imageList;
-
+@property (nonatomic, strong) NSArray *userTags;
 @end
