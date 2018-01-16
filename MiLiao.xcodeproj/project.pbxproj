@@ -29,6 +29,9 @@
 		184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */; };
 		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
 		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
+		184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6762200CD17C00C852B4 /* CashMingXiViewController.m */; };
+		184C6767200CD21500C852B4 /* CashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6765200CD21500C852B4 /* CashTableViewCell.m */; };
+		184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C6766200CD21500C852B4 /* CashTableViewCell.xib */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -389,6 +392,11 @@
 		184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMingXiViewController.m; sourceTree = "<group>"; };
 		184C675E200CC53A00C852B4 /* YZCurrentUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCurrentUserModel.h; sourceTree = "<group>"; };
 		184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
+		184C6761200CD17C00C852B4 /* CashMingXiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashMingXiViewController.h; sourceTree = "<group>"; };
+		184C6762200CD17C00C852B4 /* CashMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashMingXiViewController.m; sourceTree = "<group>"; };
+		184C6764200CD21500C852B4 /* CashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashTableViewCell.h; sourceTree = "<group>"; };
+		184C6765200CD21500C852B4 /* CashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashTableViewCell.m; sourceTree = "<group>"; };
+		184C6766200CD21500C852B4 /* CashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashTableViewCell.xib; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -1008,6 +1016,8 @@
 				184C6759200CC29400C852B4 /* IncomeMoneyViewController.m */,
 				184C675B200CC2BD00C852B4 /* PayMingXiViewController.h */,
 				184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */,
+				184C6761200CD17C00C852B4 /* CashMingXiViewController.h */,
+				184C6762200CD17C00C852B4 /* CashMingXiViewController.m */,
 			);
 			path = "充值";
 			sourceTree = "<group>";
@@ -1031,6 +1041,9 @@
 				1824923B200C525400A78B94 /* headerView.h */,
 				1824923C200C525400A78B94 /* headerView.m */,
 				1824923E200C526700A78B94 /* headerView.xib */,
+				184C6764200CD21500C852B4 /* CashTableViewCell.h */,
+				184C6765200CD21500C852B4 /* CashTableViewCell.m */,
+				184C6766200CD21500C852B4 /* CashTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2584,6 +2597,7 @@
 				E2C6B9E620008075006E0B2A /* Main.storyboard in Resources */,
 				3CCBB0072008D773003071D2 /* yuguan.png in Resources */,
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
+				184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				E2B77BEE1FFDD68700597326 /* LICENSE in Resources */,
@@ -2716,6 +2730,7 @@
 				184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
 				184C6751200CB1E100C852B4 /* MyCallViewController.m in Sources */,
+				184C6767200CD21500C852B4 /* CashTableViewCell.m in Sources */,
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
@@ -2819,6 +2834,7 @@
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
 				E221B5CF1FF6184A00353875 /* MLDiscoverListCollectionViewCell.m in Sources */,
+				184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */,
 				E2D194FD20033D0400EAEE57 /* QBAlbumCell.m in Sources */,
 				E2B77BBD1FFD009900597326 /* MLCommentsViewController.m in Sources */,
 				3CC752A32008499D00C03C6B /* AliyunCompositionCell.m in Sources */,

@@ -10,7 +10,7 @@
 #import "UIImage+Common.h"
 #import "GoPayTableViewController.h"
 #import "WithdrawalsViewController.h"
-
+#import "CashMingXiViewController.h"
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
 @interface MyMoneyViewController ()<UINavigationControllerDelegate>
 
@@ -56,6 +56,8 @@
         }
         if (indexPath.row == 2) {
             //提现明细
+            CashMingXiViewController *cashVC = [[CashMingXiViewController alloc]init];
+            [self.navigationController pushViewController:cashVC animated:YES];
         }
     }
 }
