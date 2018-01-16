@@ -11,7 +11,7 @@
 @interface MyQianBaoTableViewCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 @property (nonatomic, copy) void (^selectedBlock)(NSInteger index);
-@property(nonatomic,copy)NSString *money;//分几周到账
-@property(nonatomic,copy)NSString *extra_desc;//分几周到账
+@property(nonatomic,copy)NSString *money;
+@property(nonatomic,copy)NSString *extra_desc;
 
 @end
