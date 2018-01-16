@@ -8,6 +8,10 @@
 
 #import "BaseNetworking.h"
 
+
+#define ResultCode @"resultCode"
+#define ResultMsg @"resultMsg"
+
 ///请求状态
 typedef NS_ENUM(NSUInteger, RequestState) {
     ///失败
@@ -55,6 +59,16 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
 
 
 
+/**
+ post请求 返回一个字典
+
+ @param urlString url
+ @param parameters parameers
+ @param result 返回的字典回调
+ */
++ (void)Post:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result;
+
+
 
 /**
  post请求 返回成功或失败
@@ -86,5 +100,16 @@ typedef void(^CompleteBlock)(RequestState success, NSString *msg);
  @param result 返回的字典
  */
 + (void)Get:(NSString *)urlString parameters:(id)parameters result:(void(^)(RequestState success, NSDictionary *dict, NSString *errMsg))result;
+
+
+
+/**
+ GET请求 返回成功或失败
+
+ @param urlString
+ @param parameters
+ @param complete 返回成功或失败
+ */
++ (void)Get:(NSString *)urlString parameters:(id)parameters complete:(CompleteBlock)complete;
 
 @end

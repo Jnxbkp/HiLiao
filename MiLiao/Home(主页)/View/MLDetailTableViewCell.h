@@ -13,6 +13,6 @@
 @property (nonatomic ,strong)UILabel            *titleLabel;
 @property (nonatomic ,strong)UILabel            *messageLabel;
 @property (nonatomic ,strong)UILabel            *lineLabel;
-@property (nonatomic ,strong)ItemsView          *itemsView;
+
 
 @end

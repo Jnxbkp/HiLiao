@@ -61,12 +61,15 @@
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
             //保存用户信息
+
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
-            
-//            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+
+            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
+            NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
             
+
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
             [_userDefaults setObject:isBigV forKey:@"isBigV"];

@@ -18,7 +18,7 @@
 
 #import "CountDownView.h"//倒计时view
 #import "PayViewController.h"
-
+#import "UserInfoNet.h"
 #import "Networking.h"
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
@@ -171,7 +171,6 @@ static NSInteger TestCountDown = 5;
     
     //初始化美颜
     [[FUManager shareManager] setUpFaceunity];
-
     
 }
 
@@ -189,22 +188,26 @@ static NSInteger TestCountDown = 5;
 - (void)checkMoney {
     
     self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    //没分钟执行一次检查M币
-    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    //没分钟执行一次检查M币（60秒）
+    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
     
     dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-        TestCountDown--;
-        NSLog(@"控制器内倒计时：%ld", TestCountDown);
-        if (TestCountDown <= 0) {
-            self.countDownView.hidden = NO;
-            [self.countDownView startCountDowun];
-            dispatch_cancel(self.checkMoneyTimer);
-        }
+        
+        
+//        TestCountDown--;
+//        NSLog(@"控制器内倒计时：%ld", TestCountDown);
+//        if (TestCountDown <= 0) {
+//            self.countDownView.hidden = NO;
+//            [self.countDownView startCountDowun];
+//            dispatch_cancel(self.checkMoneyTimer);
+//        }
         
     });
     
     dispatch_resume(self.checkMoneyTimer);
 }
+
+
 
 - (void)showTime {
     self.showTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
@@ -262,6 +265,17 @@ static NSInteger TestCountDown = 5;
     [self hangupButtonClicked];
 }
 
+///添加倒计时view
+- (void)addCountDownView {
+    [self.mainVideoView addSubview:self.countDownView];
+    [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mainVideoView).offset(20);
+        make.top.equalTo(self.remoteNameLabel).offset(30);
+        make.width.equalTo(@120);
+        make.height.equalTo(@40);
+    }];
+}
+
 
 #pragma mark - 手势相关
 ///添加手势
@@ -308,19 +322,25 @@ static NSInteger TestCountDown = 5;
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
         //添加倒计时view
-         [self.mainVideoView addSubview:self.countDownView];
-        [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mainVideoView).offset(20);
-            make.top.equalTo(self.remoteNameLabel).offset(30);
-            make.width.equalTo(@120);
-            make.height.equalTo(@40);
-        }];
+        [self addCountDownView];
         self.countDownView.hidden = YES;
         //检查M币
         [self checkMoney];
+        
+        NSDictionary *parameters = @{@"costCoin":self.price,
+                                    @"costUserId": self.costUserId,
+                                    @"token":tokenForCurrentUser(),
+                                    @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id};
+        [Networking Post:@"/v1/cost/minuteCost" parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
+            if (success) {
+                NSLog(@"%@", dict);
+            }
+        }];
+       
+        return;
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *api = @"/v1/cost/minuteCost";
-        NSDictionary *parameters = @{@"costCoin":@"10",
+        NSDictionary *parameters2 = @{@"costCoin":@"10",
                                      @"costUserId":@"0",
                                      @"token":[userDefaults objectForKey:@"token"],
                                      @"userId":@"13969001510"
@@ -328,7 +348,7 @@ static NSInteger TestCountDown = 5;
         NSLog(@"token %@", [userDefaults objectForKey:@"token"]);
         User *user = [User ShardInstance];
         NSLog(@"%@", user.user_id);
-        [Networking Post:api parameters:parameters complete:^(RequestState success, NSString *msg) {
+        [Networking Post:api parameters:parameters2 complete:^(RequestState success, NSString *msg) {
             
         }];
         

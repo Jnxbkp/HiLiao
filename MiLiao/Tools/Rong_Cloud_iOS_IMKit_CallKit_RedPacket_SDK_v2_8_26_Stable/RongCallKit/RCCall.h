@@ -32,6 +32,11 @@
  */
 @property(nonatomic, assign) int maxMultiVideoCallUserNumber;
 
+///对端的扣费标准
+@property (nonatomic, strong) NSString *price;
+///对端的用户id
+@property (nonatomic, strong) NSString *costUserId;
+
 /*!
  群组成员列表提供者
 
@@ -74,6 +79,16 @@
  @param mediaType 使用的媒体类型
  */
 - (void)startSingleCall:(NSString *)targetId mediaType:(RCCallMediaType)mediaType;
+
+
+/**
+ 发起单人视频通话
+
+ @param targetID 目标id
+ @param price 对端的扣费
+ @param costUserId 对端的id
+ */
+- (void)startSingleVideoCall:(NSString *)targetID price:(NSString *)price costUserId:(NSString *)costUserId;
 
 /*!
  选择成员并发起多人通话

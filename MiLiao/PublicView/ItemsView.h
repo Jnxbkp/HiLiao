@@ -12,8 +12,11 @@
 
 @property (nonatomic,strong)NSArray  *itemArr;
 @property (nonatomic,assign) float   itemsViewHeight;
+@property (nonatomic,assign) float   itemsViewWidth;
 
 - (instancetype)initWithFrame:(CGRect)frame itemArr:(NSArray *)itemArr;
+
+- (UIColor *)itemColor:(NSString *)str;
 
 - (void)setItemsArr:(NSArray *)itemArr;
 @end

@@ -14,5 +14,5 @@
 @property (nonatomic, assign) BOOL isRefresh;
 @property (nonatomic, strong) NSString *str;
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic, strong) WomanModel   *womanModel;
 @end

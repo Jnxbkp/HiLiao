@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSString *posterUrl;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *price;
+///用户的手机号 融云的用户id
+@property (nonatomic, strong) NSString *username;
 @end
