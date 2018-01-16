@@ -29,7 +29,6 @@
 		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
 		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
 		184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6762200CD17C00C852B4 /* CashMingXiViewController.m */; };
-		184C6767200CD21500C852B4 /* CashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6765200CD21500C852B4 /* CashTableViewCell.m */; };
 		184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C6766200CD21500C852B4 /* CashTableViewCell.xib */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
@@ -99,6 +98,7 @@
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
 		3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0075D5200D87B5004D205D /* UserCallPowerModel.m */; };
 		3C0075D7200D9409004D205D /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
+		3C00F60A200DD9310036E0E3 /* MyCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6750200CB1E100C852B4 /* MyCallViewController.m */; };
 		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
@@ -2758,6 +2758,7 @@
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
+				3C00F60A200DD9310036E0E3 /* MyCallViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
@@ -2768,7 +2769,6 @@
 				3CC752C820084C4E00C03C6B /* phoneLoginViewController.m in Sources */,
 				184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */,
 				3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */,
-
 				3CC752C720084BB300C03C6B /* FSLoopScrollView.m in Sources */,
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
