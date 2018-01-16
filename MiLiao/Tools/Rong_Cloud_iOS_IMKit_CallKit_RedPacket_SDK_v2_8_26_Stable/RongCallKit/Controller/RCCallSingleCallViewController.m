@@ -19,7 +19,8 @@
 #import "CountDownView.h"//倒计时view
 #import "PayViewController.h"
 #import "UserInfoNet.h"
-#import "Networking.h"
+#import "UserCallPowerModel.h"//可通话能力
+
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
 
@@ -33,8 +34,6 @@
 @property (nonatomic, strong) FUAPIDemoBar *bar;
 ///控件容器数组
 @property (nonatomic, strong) NSArray *controlContainerArray;
-///显示剩余时间的定时器
-@property (nonatomic, strong) dispatch_source_t showTimeTimer;
 ///检查M币的定时器
 @property (nonatomic, strong) dispatch_source_t checkMoneyTimer;
 
@@ -184,40 +183,83 @@ static NSInteger TestCountDown = 5;
     self.bar.hidden = YES;
 }
 
+
+#pragma mark - 通话能力相关方法
 //检查M币
 - (void)checkMoney {
     
-    self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    //没分钟执行一次检查M币（60秒）
-    dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+   
     
-    dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        
-//        TestCountDown--;
-//        NSLog(@"控制器内倒计时：%ld", TestCountDown);
-//        if (TestCountDown <= 0) {
-//            self.countDownView.hidden = NO;
-//            [self.countDownView startCountDowun];
-//            dispatch_cancel(self.checkMoneyTimer);
-//        }
-        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+            //没分钟执行一次检查M币（60秒）
+            dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 60 * NSEC_PER_SEC);
+            
+            dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+                
+                //正在通话时 执行扣费逻辑
+                if (self.callSession.callStatus == RCCallActive) {
+                    [self deductionCallMoney];
+                }
+                //已经挂断时，取消定时器
+                if (self.callSession.callStatus == RCCallHangup) {
+                    dispatch_cancel(self.checkMoneyTimer);
+                }
+               
+            });
+            dispatch_resume(self.checkMoneyTimer);
+        });
     });
-    
-    dispatch_resume(self.checkMoneyTimer);
 }
 
-
-
-- (void)showTime {
-    self.showTimeTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(self.showTimeTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(self.showTimeTimer, ^{
+///判断是否可以继续通话
+- (void)isContinueCanVideoCall:(UserCallPowerModel *)canCall {
+    
+    [self hangupButtonClicked];
+     long seconds = [canCall.seconds longLongValue];
+    
+    //剩余两分钟时 开始倒计时
+    if (seconds <= 60 * 2) {
+        //添加倒计时view
+        [self addCountDownView];
+        self.countDownView.hidden = YES;
         
-    });
-    dispatch_resume(self.showTimeTimer);
+        if (seconds <= 0) {
+            //通话结束
+            [self hangupButtonClicked];
+        }
+    }
 }
 
+///保存通话
+- (void)saveCall {
+    
+    VideoUserModel *videoUser = self.videoUser;
+    SelfCallEndState callEndState = getSelfCallState(self.callSession.disconnectReason);
+    NSString *callTime = [self getCallTime];
+    [UserInfoNet saveCallAnchorAccount:videoUser.username anchorId:videoUser.ID callId:self.callSession.callId callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
+        
+        if (success) {
+            NSLog(@"保存通话成功");
+        }
+        
+    }];
+}
+
+///扣除通话费用
+- (void)deductionCallMoney {
+    [UserInfoNet perMinuteDedectionCostCoin:self.price costUserId:self.costUserId result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        
+        if (success) {
+            UserCallPowerModel *canCall = (UserCallPowerModel *)model;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self isContinueCanVideoCall:canCall];
+            });
+        }
+    }];
+}
 
 #pragma mark - FUAPIDemoBarDelegate
 - (void)demoBarDidSelectedItem:(NSString *)item {
@@ -259,11 +301,6 @@ static NSInteger TestCountDown = 5;
     
 }
 
-///倒计时结束 通话结束
-- (void)callEnd {
-    
-    [self hangupButtonClicked];
-}
 
 ///添加倒计时view
 - (void)addCountDownView {
@@ -321,36 +358,8 @@ static NSInteger TestCountDown = 5;
     [super callDidConnect];
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
-        //添加倒计时view
-        [self addCountDownView];
-        self.countDownView.hidden = YES;
         //检查M币
         [self checkMoney];
-        
-        NSDictionary *parameters = @{@"costCoin":self.price,
-                                    @"costUserId": self.costUserId,
-                                    @"token":tokenForCurrentUser(),
-                                    @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id};
-        [Networking Post:@"/v1/cost/minuteCost" parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
-            if (success) {
-                NSLog(@"%@", dict);
-            }
-        }];
-       
-        return;
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *api = @"/v1/cost/minuteCost";
-        NSDictionary *parameters2 = @{@"costCoin":@"10",
-                                     @"costUserId":@"0",
-                                     @"token":[userDefaults objectForKey:@"token"],
-                                     @"userId":@"13969001510"
-                                     };
-        NSLog(@"token %@", [userDefaults objectForKey:@"token"]);
-        User *user = [User ShardInstance];
-        NSLog(@"%@", user.user_id);
-        [Networking Post:api parameters:parameters2 complete:^(RequestState success, NSString *msg) {
-            
-        }];
         
         
     } else {
@@ -358,6 +367,17 @@ static NSInteger TestCountDown = 5;
     }
 }
 
+- (void)callDidDisconnect {
+    [super callDidDisconnect];
+    //扣除最后一分钟的费用
+    [self deductionCallMoney];
+    [self saveCall];
+    
+    if (self.checkMoneyTimer) {
+        dispatch_cancel(self.checkMoneyTimer);
+    }
+    
+}
 
 - (RCloudImageView *)remotePortraitView {
     if (!_remotePortraitView) {

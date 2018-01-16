@@ -10,6 +10,8 @@
 #import <RongCallLib/RongCallLib.h>
 #import <RongIMKit/RongIMKit.h>
 
+#import "VideoUserModel.h"//主播模型
+
 #define RCCallGroupMemberDataSource RCIMGroupMemberDataSource //接口向后兼容
 
 /*!
@@ -36,6 +38,9 @@
 @property (nonatomic, strong) NSString *price;
 ///对端的用户id
 @property (nonatomic, strong) NSString *costUserId;
+
+///主播
+@property (nonatomic, strong) VideoUserModel *videoUser;
 
 /*!
  群组成员列表提供者
@@ -89,6 +94,14 @@
  @param costUserId 对端的id
  */
 - (void)startSingleVideoCall:(NSString *)targetID price:(NSString *)price costUserId:(NSString *)costUserId;
+
+
+/**
+ 发起单人视频通话
+
+ @param videoUser 主播用户模型
+ */
+- (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser;
 
 /*!
  选择成员并发起多人通话

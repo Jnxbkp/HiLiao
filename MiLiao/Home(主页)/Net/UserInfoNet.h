@@ -8,6 +8,9 @@
 
 #import "Networking.h"
 
+//#import <RongCallLib/RCCallSession.h>
+
+
 typedef NS_ENUM(NSUInteger, MoneyEnoughType) {
     ///不充足
     MoneyEnoughTypeNotEnough,
@@ -17,10 +20,35 @@ typedef NS_ENUM(NSUInteger, MoneyEnoughType) {
     MoneyEnoughTypeEmpty
 };
 
+///保存到后台的通话状态
+typedef NS_ENUM(NSUInteger, SelfCallEndState) {
+    ///通话异常结束
+    SelfCallEndStateUnusual,
+    ///完成
+    SelfCallEndStateComplete,
+    ///已取消
+    SelfCallEndStateCancle,
+    ///已拒绝
+    SelfCallEndStateReject,
+    ///未接听
+    SelfCallEndStateNoAnswer,
+    ///对方繁忙
+    SelfCallEndStateRemoteBusy,
+    ///对方取消
+    SelfCallEndStateRemoteCancle,
+    ///对方拒绝
+    SelfCallEndStateRemoteReject,
+    ///对方未接听
+    SelfCallEndStateRemoteNoAnswer
+    
+};
+
 
 //获取当前用户的token
 NSString *tokenForCurrentUser(void);
 
+///返回当前要保存到后台的通话状态
+SelfCallEndState getSelfCallState(NSInteger callState);
 
 @interface UserInfoNet : Networking
 
@@ -42,5 +70,11 @@ NSString *tokenForCurrentUser(void);
  @param price 价格
  @param costUserId 对端的id
  */
-+ (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId ;
++ (void)perMinuteDedectionCostCoin:(NSString *)price costUserId:(NSString *)costUserId result:(RequestModelResult)result;
+
+
+///保存通话记录
++ (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete;
+
+
 @end

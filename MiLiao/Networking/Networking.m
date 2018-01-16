@@ -49,17 +49,22 @@
         RequestState success;
         id model;
         
-        if ([responseObject isKindOfClass:[NSDictionary class]]
+        if (([responseObject[ResultCode] integerValue] == SUCCESS
+             ||
+             [responseObject[@"code"] integerValue] == SUCCESS)
             &&
-            [responseObject[ResultCode] integerValue] == SUCCESS)
+            [responseObject[@"data"] isKindOfClass:[NSDictionary class]])
         {
-            if (modelClass) model = [modelClass mj_objectWithKeyValues:responseObject[@"data"]];
+            if (modelClass){
+                 model = [modelClass mj_objectWithKeyValues:responseObject[@"data"]];
+            }
             success = Success;
         }
         else
         {
             success = Failure;
         }
+        
         !modelResult?:modelResult(success, model,[responseObject[ResultCode] integerValue], responseObject[ResultMsg]);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

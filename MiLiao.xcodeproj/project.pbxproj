@@ -98,6 +98,8 @@
 		18F335CB2001D8A600AE7CCD /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335C92001D8A600AE7CCD /* IQActionSheetViewController.m */; };
 		18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CC2001DCBD00AE7CCD /* IQActionSheetTitleBarButtonItem.m */; };
 		18F335D12001DCBE00AE7CCD /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */; };
+		3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0075D5200D87B5004D205D /* UserCallPowerModel.m */; };
+		3C0075D7200D9409004D205D /* CountDownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A3200C4B320098AC28 /* CountDownView.xib */; };
 		3C0FA59F200C42FA0098AC28 /* VideoDeduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */; };
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
@@ -496,6 +498,8 @@
 		18F335CD2001DCBD00AE7CCD /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
 		18F335CE2001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
 		18F335CF2001DCBE00AE7CCD /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		3C0075D4200D87B4004D205D /* UserCallPowerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCallPowerModel.h; sourceTree = "<group>"; };
+		3C0075D5200D87B5004D205D /* UserCallPowerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserCallPowerModel.m; sourceTree = "<group>"; };
 		3C0FA59D200C42FA0098AC28 /* VideoDeduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDeduction.h; sourceTree = "<group>"; };
 		3C0FA59E200C42FA0098AC28 /* VideoDeduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDeduction.m; sourceTree = "<group>"; };
 		3C0FA5A0200C4B280098AC28 /* CountDownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDownView.h; sourceTree = "<group>"; };
@@ -1779,6 +1783,8 @@
 			children = (
 				3CC753332008828700C03C6B /* RCCallUserCallInfoModel.m */,
 				3CC753342008828700C03C6B /* RCCallUserCallInfoModel.h */,
+				3C0075D4200D87B4004D205D /* UserCallPowerModel.h */,
+				3C0075D5200D87B5004D205D /* UserCallPowerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2609,6 +2615,7 @@
 			files = (
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
+				3C0075D7200D9409004D205D /* CountDownView.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
@@ -2804,6 +2811,7 @@
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
+				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,

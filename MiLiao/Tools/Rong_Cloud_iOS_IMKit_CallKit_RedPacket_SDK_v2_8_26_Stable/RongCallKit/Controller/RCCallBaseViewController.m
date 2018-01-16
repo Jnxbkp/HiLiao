@@ -22,6 +22,8 @@
 @property(nonatomic, assign) BOOL needPlayingAlertAfterForeground;
 @property(nonatomic, assign) BOOL needPlayingRingAfterForeground;
 @property(nonatomic, strong) CTCallCenter *callCenter;
+@property (nonatomic, assign) long startCallTime;
+@property (nonatomic, assign) long endCallTime;
 
 @end
 
@@ -275,6 +277,8 @@
 
 - (void)updateActiveTimer {
     long sec = [[NSDate date] timeIntervalSince1970] - self.callSession.connectedTime / 1000;
+    self.timeLabel.textColor = [UIColor redColor];
+    NSLog(@"融云内部补货到的通话时间：\n%ld", sec);
     self.timeLabel.text = [RCCallKitUtility getReadableStringForTime:sec];
 }
 
@@ -963,6 +967,15 @@
                                               -button.titleLabel.intrinsicContentSize.width);
 }
 
+///获取通话时长
+- (NSString *)getCallTime {
+    long time = (self.endCallTime - self.startCallTime);
+    NSString *t = [NSString stringWithFormat:@"%ld", time];
+    return t;
+    
+}
+
+
 #pragma mark - RCCallSessionDelegate
 /*!
  通话已接通
@@ -970,11 +983,18 @@
 - (void)callDidConnect {
     [self callWillConnect];
 
+//    self.startCallTime = [[NSDate date] timeIntervalSince1970];
     self.tipsLabel.text = @"";
     [self startActiveTimer];
     [self resetLayout:self.callSession.isMultiCall
             mediaType:self.callSession.mediaType
            callStatus:self.callSession.callStatus];
+}
+
+
+
+- (void)callWillDisconnect {
+    
 }
 
 /*!
@@ -983,7 +1003,7 @@
 - (void)callDidDisconnect {
     [self callWillDisconnect];
     [RCCallKitUtility clearScreenForceOnStatus];
-
+    self.endCallTime = [[NSDate date] timeIntervalSince1970];
     if (self.callSession.connectedTime > 0) {
         self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPCallEnd", @"RongCloudKit", nil);
     } else {
@@ -1191,10 +1211,9 @@
 
 #pragma mark - outside callback
 - (void)callWillConnect {
+    self.startCallTime = [[NSDate date] timeIntervalSince1970];
 }
 
-- (void)callWillDisconnect {
-}
 
 - (BOOL)tipsWillShow:(RCCallErrorCode)warning {
     return YES;
