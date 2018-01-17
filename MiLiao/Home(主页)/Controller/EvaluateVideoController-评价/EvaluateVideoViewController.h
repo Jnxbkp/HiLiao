@@ -20,4 +20,7 @@
  */
 @interface EvaluateVideoViewController : UIViewController
 
+///弹出结算成功的提示
+- (void)showSueecss;
+
 @end

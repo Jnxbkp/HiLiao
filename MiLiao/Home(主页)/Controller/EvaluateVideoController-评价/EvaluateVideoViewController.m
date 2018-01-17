@@ -7,10 +7,11 @@
 //
 
 #import "EvaluateVideoViewController.h"
-//#import "TagLabel.h"
+
 #import "EvaluateTagModel.h"
 #import "UserInfoNet.h"
-
+#import "QLStarView.h"//星星view
+#import "SetMoneyView.h"//结算成功的view
 
 @implementation TagButton
 
@@ -92,11 +93,18 @@
 
 
 
-@interface EvaluateVideoViewController ()
+@interface EvaluateVideoViewController ()<QLStarViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *tagView;
 @property (nonatomic, strong) NSArray *tagModelArray;
 @property (nonatomic, strong) NSArray<TagButton *> *tagButtonArray;
+///通话时长label
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+///消费金额label
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet QLStarView *starView;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+
 ///选中的标签数组
 @property (nonatomic, strong) NSMutableArray<EvaluateTagModel *> *selecetdEvaluateArray;
 @end
@@ -136,6 +144,12 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    //布局标签
+    [self layoutTagViews];
+}
+
+///布局标签
+- (void)layoutTagViews {
     CGFloat margin = 10.0;
     NSInteger j = 0;
     CGFloat x = margin;
@@ -152,20 +166,36 @@
             }
         }
         CGFloat y = margin * (j+1) + j*30;
-        
         button.frame = CGRectMake(x, y, width, 30);
-        
     }
-    
+}
+
+- (void)showSuccessView {
+    SetMoneyView *view = [SetMoneyView SetMoneyView];
+    [self.mainView addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.equalTo(self.mainView);
+    }];
+    //停留2秒
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.2 animations:^{
+            view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            view.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+        }];
+    });
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.starView.delegate = self;
     [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
         if (success) {
             self.tagModelArray = modelArray;
         }
     }];
+    [self showSueecss];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -195,6 +225,10 @@
     }
     
     
+}
+
+- (void)clickIndex:(NSInteger)index {
+    NSLog(@"%ld", index);
 }
 
 /*

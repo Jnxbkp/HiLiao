@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QLStarViewDelegate <NSObject>
+
+- (void)clickIndex:(NSInteger)index;
+
+@end
+
+
 typedef void(^SelectedStart)(NSInteger star);
 
 @interface QLStarView : UIView
-
+@property (nonatomic, weak) IBInspectable id<QLStarViewDelegate> delegate;
 
 @property (nonatomic, strong) NSString *defaultImageName;
 ///xib 工具栏显示的默认状态下的图片
@@ -24,6 +31,9 @@ typedef void(^SelectedStart)(NSInteger star);
 
 ///星星的是否可点击 默认为no
 @property (assign, nonatomic, getter=isStarClickEnable) IBInspectable BOOL starClickEnable;
+
+///初始化状态时 是否全部选中状态 默认不选中
+@property (assign, nonatomic, getter=isAllSelecetd) IBInspectable BOOL allSelected;
 
 /**
  获取一个5个星星的view，默认星星不可点击.

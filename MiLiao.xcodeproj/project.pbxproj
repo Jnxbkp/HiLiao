@@ -118,6 +118,8 @@
 		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; };
 		3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */; };
+		3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */; };
 		3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC51493200C96CC00095AE8 /* VideoUserModel.m */; };
 		3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752102008499D00C03C6B /* AliyunAlbumModel.m */; };
 		3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */; };
@@ -535,6 +537,9 @@
 		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
 		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		3CA5FCD3200EFE7E000FCCD4 /* SetMoneyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetMoneyView.h; sourceTree = "<group>"; };
+		3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMoneyView.m; sourceTree = "<group>"; };
+		3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetMoneyView.xib; sourceTree = "<group>"; };
 		3CC51492200C96CC00095AE8 /* VideoUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUserModel.h; sourceTree = "<group>"; };
 		3CC51493200C96CC00095AE8 /* VideoUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUserModel.m; sourceTree = "<group>"; };
 		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
@@ -1343,8 +1348,11 @@
 		3C6458B3200E0ED100E1721C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C6458B4200E0ED100E1721C /* QLStarView.m */,
 				3C6458B5200E0ED100E1721C /* QLStarView.h */,
+				3C6458B4200E0ED100E1721C /* QLStarView.m */,
+				3CA5FCD3200EFE7E000FCCD4 /* SetMoneyView.h */,
+				3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */,
+				3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2679,6 +2687,7 @@
 				184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
+				3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
@@ -2980,6 +2989,7 @@
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
 				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
+				3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */,
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
