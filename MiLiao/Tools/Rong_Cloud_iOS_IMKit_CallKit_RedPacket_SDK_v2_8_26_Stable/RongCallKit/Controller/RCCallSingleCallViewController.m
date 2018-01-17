@@ -239,6 +239,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 5;
         userName = self.videoUser.username;
         userID = self.videoUser.ID;
     }
+    if (self.callListModel) {
+        userName = self.callListModel.userAccount;
+        userID = self.callListModel.userId;
+    }
    
     SelfCallEndState callEndState = getSelfCallState(self.callSession.disconnectReason);
     NSString *callTime = [self getCallTime];
@@ -253,13 +257,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 5;
 
 ///每分钟扣除通话费用
 - (void)deductionCallMoney {
-//    NSString *userName;
-//    if (self.videoUser) {
-//        userName = self.videoUser.username;
-//    }
-//    if (self.costUserName) {
-//        userName = self.costUserName;
-//    }
+
     [UserInfoNet perMinuteDedectionUserName:self.callSession.caller pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;

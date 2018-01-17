@@ -134,6 +134,16 @@
     [self presentCallViewController:singleCallViewController];
     
 }
+/**
+ 发起单人视频通话
+ 
+ @param callListUser 通话列表模型
+ */
+- (void)startSingleVideoCallToCallListUser:(CallListModel *)callListUser {
+    RCCallSingleCallViewController *singleCallViewController =
+    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:callListUser.anchorAccount mediaType:RCCallMediaVideo];
+    [self presentCallViewController:singleCallViewController];
+}
 
 /**
  发起单人视频通话
