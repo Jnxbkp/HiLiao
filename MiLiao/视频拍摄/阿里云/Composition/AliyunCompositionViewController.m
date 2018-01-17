@@ -82,7 +82,7 @@
 }
 
 - (void)setupSubviews {
-    self.view.backgroundColor = RGBToColor(35, 42, 66);
+    self.view.backgroundColor = ML_Color(97, 97, 97, 1);
     CGFloat top =  IS_IPHONEX ? 24 : 0;
     self.headerView = [[AliyunImportHeaderView alloc] initWithFrame:CGRectMake(0, top, ScreenWidth, 64)];
     self.headerView.delegate = self;
@@ -96,7 +96,7 @@
     layout.minimumInteritemSpacing = 3;
     self.collectionView = [[UICollectionView alloc] initWithFrame:
                            CGRectMake(0, 64+top, ScreenWidth, ScreenHeight-64-140-SafeBottom-top) collectionViewLayout:layout];
-    self.collectionView.backgroundColor = RGBToColor(35, 42, 66);
+    self.collectionView.backgroundColor = ML_Color(97, 97, 97, 1);
     [self.collectionView registerClass:[AliyunCompositionCell class] forCellWithReuseIdentifier:@"AliyunCompositionCell"];
     self.collectionView.alwaysBounceVertical = YES;
     self.collectionView.delegate = self;
