@@ -127,6 +127,7 @@
     }];
     EvaluateVideoViewController *vc = [[EvaluateVideoViewController alloc] init];
     UIView *view = vc.view;
+    [self addChildViewController:vc];
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.view).offset(5);
@@ -334,7 +335,7 @@
 ///视频聊天
 - (void)videoCall {
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
-//     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+
     
     
 }

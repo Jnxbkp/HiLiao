@@ -105,13 +105,10 @@
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
 		3C6458A7200DEC0700E1721C /* EvaluateVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */; };
 		3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */; };
-		3C6458AC200DFB6100E1721C /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */; };
-		3C6458AD200DFB6100E1721C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6458AB200DFB6100E1721C /* AlipaySDK.framework */; };
 		3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6458AE200DFC1600E1721C /* CoreText.framework */; };
 		3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5D20020AFC003F1985 /* CoreGraphics.framework */; };
 		3C6458B6200E0ED100E1721C /* QLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B4200E0ED100E1721C /* QLStarView.m */; };
 		3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */; };
-		3C6458BD200E24B500E1721C /* TagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458BC200E24B500E1721C /* TagLabel.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
 		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
@@ -520,16 +517,12 @@
 		3C6458A4200DEC0700E1721C /* EvaluateVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateVideoViewController.h; sourceTree = "<group>"; };
 		3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateVideoViewController.m; sourceTree = "<group>"; };
 		3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluateVideoViewController.xib; sourceTree = "<group>"; };
-		3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		3C6458AB200DFB6100E1721C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		3C6458AE200DFC1600E1721C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		3C6458B2200E0BCF00E1721C /* NotificationName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationName.h; sourceTree = "<group>"; };
 		3C6458B4200E0ED100E1721C /* QLStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStarView.m; sourceTree = "<group>"; };
 		3C6458B5200E0ED100E1721C /* QLStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStarView.h; sourceTree = "<group>"; };
 		3C6458B7200E20AE00E1721C /* EvaluateTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateTagModel.h; sourceTree = "<group>"; };
 		3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateTagModel.m; sourceTree = "<group>"; };
-		3C6458BB200E24B500E1721C /* TagLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagLabel.h; sourceTree = "<group>"; };
-		3C6458BC200E24B500E1721C /* TagLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagLabel.m; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
 		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
 		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -980,7 +973,6 @@
 				3CFF061D20078D4600E20FDE /* libnama.a in Frameworks */,
 				E212274C1FFE0C58005D543F /* libc++.tbd in Frameworks */,
 				E21227401FFE0C29005D543F /* ImageIO.framework in Frameworks */,
-				3C6458AD200DFB6100E1721C /* AlipaySDK.framework in Frameworks */,
 				E21227441FFE0C39005D543F /* CoreVideo.framework in Frameworks */,
 				18567F6220020B17003F1985 /* CoreTelephony.framework in Frameworks */,
 				E21227421FFE0C32005D543F /* CoreMedia.framework in Frameworks */,
@@ -1348,15 +1340,6 @@
 			path = "EvaluateVideoController-评价";
 			sourceTree = "<group>";
 		};
-		3C6458A9200DFB6100E1721C /* AliSDK */ = {
-			isa = PBXGroup;
-			children = (
-				3C6458AA200DFB6100E1721C /* AlipaySDK.bundle */,
-				3C6458AB200DFB6100E1721C /* AlipaySDK.framework */,
-			);
-			path = AliSDK;
-			sourceTree = "<group>";
-		};
 		3C6458B3200E0ED100E1721C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1364,15 +1347,6 @@
 				3C6458B5200E0ED100E1721C /* QLStarView.h */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		3C6458BA200E246C00E1721C /* TagLabel */ = {
-			isa = PBXGroup;
-			children = (
-				3C6458BB200E24B500E1721C /* TagLabel.h */,
-				3C6458BC200E24B500E1721C /* TagLabel.m */,
-			);
-			path = TagLabel;
 			sourceTree = "<group>";
 		};
 		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
@@ -2086,7 +2060,6 @@
 		E221B5B41FF5DF1E00353875 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C6458BA200E246C00E1721C /* TagLabel */,
 				E221B5BF1FF5E86300353875 /* MLHomeListTableViewCell.h */,
 				E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */,
 				E27E9F651FFB311100096A6E /* MLDetailTableViewCell.h */,
@@ -2145,7 +2118,6 @@
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
 				E2C6B9D920008075006E0B2A /* UIView+Frame.m */,
-				3C6458A9200DFB6100E1721C /* AliSDK */,
 				E2D1950D2003510B00EAEE57 /* include */,
 				E2D195052003510500EAEE57 /* lib */,
 				18567F25200207C7003F1985 /* Rong_Cloud_iOS_IMKit_CallKit_RedPacket_SDK_v2_8_26_Stable */,
@@ -2691,7 +2663,6 @@
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
 				3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */,
 				3CCBB0042008D773003071D2 /* EatRabbi.png in Resources */,
-				3C6458AC200DFB6100E1721C /* AlipaySDK.bundle in Resources */,
 				18567F51200207C8003F1985 /* jrmf.cer in Resources */,
 				E25929481FFCA96700B6502D /* LoginViewController.xib in Resources */,
 				1858203D2009AC3E0020C232 /* Me.storyboard in Resources */,
@@ -2805,6 +2776,7 @@
 				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunLanguageSource.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
@@ -2886,7 +2858,6 @@
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
-				3C6458BD200E24B500E1721C /* TagLabel.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,

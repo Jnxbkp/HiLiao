@@ -69,12 +69,12 @@
 
     [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
 
-    //设置视频分辨率
-    [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
+   
     
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
-    
-    
+    [SVProgressHUD setMaximumDismissTimeInterval:2];
+    //设置视频分辨率
+    [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
     return YES;
 }
 

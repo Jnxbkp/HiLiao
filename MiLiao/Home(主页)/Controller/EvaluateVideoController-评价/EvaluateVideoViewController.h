@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "EvaluateTagModel.h"
 
+@interface TagButton: UIButton
+
+@property (nonatomic, strong) EvaluateTagModel *evaluateTag;
+@end
 
 /**
  对当前的一对一视频女主播做出评价

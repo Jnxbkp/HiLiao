@@ -50,6 +50,7 @@
 #import <SDCycleScrollView.h>
 #import <MJRefresh.h>
 #import "MJExtension.h"
+#import "SVProgressHUD.h"
 
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>

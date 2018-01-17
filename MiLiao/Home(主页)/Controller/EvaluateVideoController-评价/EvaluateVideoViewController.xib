@@ -21,6 +21,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8I-sN-IG5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTh-Xm-OYQ">
                     <rect key="frame" x="40" y="120" width="295" height="447"/>
                     <subviews>
@@ -127,7 +131,11 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="x8I-sN-IG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2bW-A2-AaI"/>
+                <constraint firstItem="x8I-sN-IG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ye-HE-Zpf"/>
+                <constraint firstAttribute="trailing" secondItem="x8I-sN-IG5" secondAttribute="trailing" id="ZGt-go-UCk"/>
                 <constraint firstItem="oTh-Xm-OYQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="ePS-8c-wo1"/>
+                <constraint firstAttribute="bottom" secondItem="x8I-sN-IG5" secondAttribute="bottom" id="j00-tB-xkc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="oTh-Xm-OYQ" secondAttribute="trailing" constant="40" id="j6T-tK-TL6"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="oTh-Xm-OYQ" secondAttribute="bottom" constant="100" id="pZS-mI-2HZ"/>
                 <constraint firstItem="oTh-Xm-OYQ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="zuI-14-EXT"/>
