@@ -22,4 +22,5 @@ pod 'AliyunPlayer_iOS/AliyunVodPlayerSDK'
 
 pod 'IQKeyboardManager'
 pod 'MJExtension'
+pod 'SVProgressHUD'
 end

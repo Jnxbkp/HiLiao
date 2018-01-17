@@ -134,6 +134,18 @@
     
 }
 
+/**
+ 发起单人视频通话
+ 
+ @param userName 对端的手机号
+ */
+- (void)startSingleVideoCallToUserName:(NSString *)userName {
+    RCCallSingleCallViewController *singleCallViewController =
+    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+    singleCallViewController.costUserName = userName;
+    [self presentCallViewController:singleCallViewController];
+}
+
 - (void)startMultiCall:(RCConversationType)conversationType
               targetId:(NSString *)targetId
              mediaType:(RCCallMediaType)mediaType {

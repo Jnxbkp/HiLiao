@@ -50,13 +50,14 @@
 #import <SDCycleScrollView.h>
 #import <MJRefresh.h>
 #import "MJExtension.h"
+#import "SVProgressHUD.h"
 
 //阿里云OSS
 #import <AliyunOSSiOS/OSSService.h>
 
 
 #import "Masonry.h"
-
+#import "NotificationName.h"
 
 //网络请求成功
 #define SUCCESS 200
@@ -101,6 +102,8 @@
 #define ML_NavBarHeight 44.0
 #define ML_TabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) //底部tabbar高度
 #define ML_TopHeight (ML_StatusBarHeight + ML_NavBarHeight) //整个导航栏高度
+
+#define RGBColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //颜色
 #define ML_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]

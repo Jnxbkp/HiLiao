@@ -75,5 +75,8 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 ///保存通话记录
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete;
 
+///获取评价标签
++ (void)getEvaluate:(RequestResult)result;
+
 
 @end
