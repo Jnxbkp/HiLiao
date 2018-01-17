@@ -64,12 +64,15 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)canCall:(void(^)(RequestState success, MoneyEnoughType moneyType))complete;
 
 
+
 /**
  每分钟扣费
 
- @param costUserId 对端的id
+ @param userName userName
+ @param pid pid
+ @param result 返回
  */
-+ (void)perMinuteDedectionUserName:(NSString *)userName result:(RequestModelResult)result;
++ (void)perMinuteDedectionUserName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result;
 
 
 ///保存通话记录
@@ -79,4 +82,27 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)getEvaluate:(RequestResult)result;
 
 
+
+/**
+ 视频通话的最终扣费
+
+ @param callTime 通话时间
+ @param costUserName 对端用户名
+ @param pid pid
+ @param result 返回的结果
+ */
++ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result;
+
+
+
+/**
+ 保存对大V的评价
+
+ @param anchorName 大V的用户名
+ @param callId 通话id
+ @param score 评级 星星的个数
+ @param tags 标签id数组
+ @param complete 完成
+ */
++ (void)saveEvaluateAnchorName:(NSString *)anchorName callId:(NSString *)callId score:(NSString *)score tags:(NSArray *)tags complete:(CompleteBlock)complete;
 @end

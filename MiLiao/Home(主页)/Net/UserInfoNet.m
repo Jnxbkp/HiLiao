@@ -16,17 +16,23 @@ static NSString *CanCallEnoughAPI = @"/v1/cost/enoughCall";
 
 //每分钟扣费
 static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
-//保存通话记录
+///保存通话记录
 static NSString *SaveCall = @"/v1/call/saveUserCall";
 
 ///获取评价标签
 static NSString *GetEvaluate = @"/v1/dict/getTags";
+///最终扣费
+static NSString *FinalDeduct = @"/v1/cost/overCost";
+///评价标签模型
+static NSString *EvaluateTagModel = @"EvaluateTagModel";
+
+///保存对大V的评价
+static NSString *SaveEvaluate = @"/v1/bigV/saveBigVEvaluation";
 
 
 /////////类名
 static NSString *UserCallPowerModelClass = @"UserCallPowerModel";
-///评价标签模型
-static NSString *EvaluateTagModel = @"EvaluateTagModel";
+
 
 //获取当前用户的token
 NSString *tokenForCurrentUser() {
@@ -92,11 +98,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
  */
 + (void)getUserBalance:(void(^)(CGFloat balance))balance {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [userDefaults objectForKey:@"token"];
+    NSString *token = tokenForCurrentUser();
+    NSString *userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
     
     NSDictionary *parameter = @{@"token":token,
-                                @"userId":@"0"
+                                @"userName":userName
                                 };
     
     [self Get:GetUserInfo parameters:parameter result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
@@ -127,30 +133,27 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 
 /**
  每分钟扣费
- @param costUserId 对端的id
+ 
+ @param userName userName
+ @param pid pid
+ @param result 返回
  */
-+ (void)perMinuteDedectionUserName:(NSString *)userName result:(RequestModelResult)result {
++ (void)perMinuteDedectionUserName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result {
     YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
-    NSDictionary *parameter = @{
-                                @"costUserName":user.username,
-                                @"token":tokenForCurrentUser(),
-                                @"userName":userName
-                                };
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    parameter[@"costUserName"] = user.username;
+    parameter[@"token"] = tokenForCurrentUser();
+    parameter[@"userName"] = userName;
+    if (pid || pid.length < 1) {
+        parameter[@"pid"] = @"0";
+    } else {
+        parameter[@"pid"] = pid;
+    }
+    NSLog(@"\n\n\n执行扣费接口的pid:%@", pid);
+    
     [self Post:EveryMinuAPI parameters:parameter modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
     
 }
-//+ (void)perMinuteDedectionCostUserId:(NSString *)costUserId result:(RequestModelResult)result {
-//    
-//    
-//    NSDictionary *parameters = @{
-//                                 @"costUserId":costUserId,
-//                                 @"token":tokenForCurrentUser(),
-//                                 @"userId":[YZCurrentUserModel sharedYZCurrentUserModel].user_id
-//                                 };
-//    
-//    [self Post:EveryMinuAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
-//}
-
 
 ///保存通话记录
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete {
@@ -170,11 +173,52 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     
 }
 
+/**
+ 视频通话的最终扣费
+ 
+ @param callTime 通话时间
+ @param costUserName 对端用户名
+ @param pid pid
+ @param result 返回的结果
+ */
++ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result {
+    
+    NSDictionary *parameters = @{
+                                 @"callTime":callTime,
+                                 @"costUserName":costUserName,
+                                 @"pid":pid,
+                                 @"token":tokenForCurrentUser(),
+                                 @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
+                                 };
+    [self Post:FinalDeduct parameters:parameters modelClass:nil modelResult:result];
+}
+
 ///获取评价标签
 + (void)getEvaluate:(RequestResult)result {
     [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser()} modelClass:NSClassFromString(EvaluateTagModel) result:result];
 }
 
+
+/**
+ 保存对大V的评价
+ 
+ @param anchorName 大V的用户名
+ @param callId 通话id
+ @param score 评级 星星的个数
+ @param tags 标签id数组
+ @param complete 完成
+ */
++ (void)saveEvaluateAnchorName:(NSString *)anchorName callId:(NSString *)callId score:(NSString *)score tags:(NSArray *)tags complete:(CompleteBlock)complete {
+    NSDictionary *parameters = @{
+                                 @"anchorName":anchorName,
+                                 @"callId":callId,
+                                 @"score":score,
+                                 @"tags":tags,
+                                 @"token":tokenForCurrentUser(),
+                                 @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
+                                 };
+    [self Post:SaveEvaluate parameters:parameters complete:complete];
+}
 
 
 @end

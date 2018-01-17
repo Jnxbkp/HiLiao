@@ -10,6 +10,7 @@
 #import <RongIMLib/RongIMLib.h>
 #import <UIKit/UIKit.h>
 #import "VideoUserModel.h"
+#import "CallListModel.h"
 
 /*!
  通话的ViewController基类
@@ -107,6 +108,9 @@
 @property (nonatomic, strong) VideoUserModel *videoUser;
 ///对端的手机号
 @property (nonatomic, strong) NSString *costUserName;
+
+///通话列表模型
+@property (nonatomic, strong) CallListModel *callListModel;
 
 ///获取通话时长
 - (NSString *)getCallTime;
