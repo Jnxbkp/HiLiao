@@ -13,14 +13,24 @@
 @interface TagButton: UIButton
 
 @property (nonatomic, strong) EvaluateTagModel *evaluateTag;
+
 @end
+
+///评价成功的block
+typedef void(^EvaluateSuccessBlock)(void);
+
 
 /**
  对当前的一对一视频女主播做出评价
  */
 @interface EvaluateVideoViewController : UIViewController
 
-///弹出结算成功的提示
-- (void)showSueecss;
+///大v的用户名
+@property (nonatomic, strong) NSString *anchorName;
+///通话id
+@property (nonatomic, strong) NSString *callID;
+
+///评价成功的回调
+- (void)evaluateSuccess:(EvaluateSuccessBlock)success;
 
 @end

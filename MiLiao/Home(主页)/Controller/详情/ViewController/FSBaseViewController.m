@@ -93,7 +93,8 @@
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
    
-    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    //监听通知
+    [self listenNotification];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
    
@@ -120,6 +121,10 @@
     
 }
 
+#pragma mark - 通知方法
+- (void)listenNotification {
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+}
 
 - (void)notificationFunc:(NSNotification *)notification {
     [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
@@ -132,6 +137,13 @@
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.view).offset(5);
         make.right.bottom.equalTo(self.view).offset(-5);
+    }];
+    [vc evaluateSuccess:^{
+        [view removeFromSuperview];
+        NSMutableArray *array = [self.childViewControllers mutableCopy];
+        [array removeObject:vc];
+        
+        [self setValue:[array copy] forKey:@"childViewControllers"];
     }];
 }
 
@@ -343,35 +355,16 @@
 #pragma mark - 计算可通话时长
 //计算可通话时长
 - (void)calculatorCallTime:(void(^)(BOOL canCall))canCall {
-    
+#warning 针对账户余额 需另做判断
+//    [UserInfoNet canCall:^(RequestState success, MoneyEnoughType moneyType) {
+//        if (success) {
+//
+//        }
+//    }];
     [UserInfoNet getUserBalance:^(CGFloat balance) {
         self.balance = balance;
        !canCall?:canCall(self.balance - [self.videoUserModel.price integerValue] * 5 >= 0);
     }];
-//    
-//    
-//    __weak typeof(self) weakSelf = self;
-//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);;
-//    dispatch_group_t group = dispatch_group_create();
-//    
-//    dispatch_group_enter(group);
-//    [UserInfoNet getUserBalance:^(CGFloat balance) {
-//        self.balance = balance;
-//        dispatch_group_leave(group);
-//    }];
-//    
-//     dispatch_group_enter(group);
-//    [self getNetHotPrice:^(CGFloat price) {
-//        weakSelf.netHotPrice = price;
-//        dispatch_group_leave(group);
-//    }];
-//   
-//    dispatch_group_notify(group, queue, ^{
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            !canCall?:canCall(self.balance - self.netHotPrice * 5 >= 0);
-//            
-//        });
-//    });
     
 }
 

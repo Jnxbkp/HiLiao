@@ -109,9 +109,9 @@
 /**
  发起单人视频通话
 
- @param userName 对端的手机号
+ @param costUserName 对端的手机号
  */
-- (void)startSingleVideoCallToUserName:(NSString *)userName;
+- (void)startSingleVideoCallToUserName:(NSString *)costUserName;
 
 /*!
  选择成员并发起多人通话

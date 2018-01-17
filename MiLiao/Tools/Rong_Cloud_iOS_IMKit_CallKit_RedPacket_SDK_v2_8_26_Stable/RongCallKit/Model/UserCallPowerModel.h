@@ -16,4 +16,5 @@
 @property (nonatomic, strong) NSString *type;
 ///状态码
 @property (nonatomic, assign) NSInteger typeCode;
+@property (nonatomic, strong) NSString *pid;
 @end

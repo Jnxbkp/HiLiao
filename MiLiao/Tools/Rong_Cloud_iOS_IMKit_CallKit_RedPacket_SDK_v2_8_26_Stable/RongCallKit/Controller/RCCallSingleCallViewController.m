@@ -41,12 +41,14 @@
 
 ///是呼入还是呼出的电话 yes - 呼入 no - 呼出
 @property (nonatomic, assign, getter=isCallIn) BOOL callIn;
-
+///用于每分钟扣费的参数
+@property (nonatomic, strong) NSString *pid;
 @end
 
-///测试倒计时时间
-static NSInteger TestCountDown = 5;
 
+
+///分钟计费的时间间隔
+static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 5;
 
 @implementation RCCallSingleCallViewController
 
@@ -77,8 +79,7 @@ static NSInteger TestCountDown = 5;
 /**
  Faceunity道具美颜工具条
  初始化 FUAPIDemoBar，设置初始美颜参数
- 
- @param bar
+
  */
 -(FUAPIDemoBar *)bar {
     if (!_bar ) {
@@ -177,61 +178,71 @@ static NSInteger TestCountDown = 5;
     self.bar.hidden = YES;
 }
 
+#pragma mark - 倒计时view的回调
+///倒计时view点击充值的回调
+- (void)payAction {
+    
+}
+
 
 #pragma mark - 通话能力相关方法
 //检查M币
 - (void)checkMoney {
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    long start = [[NSDate date] timeIntervalSince1970];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        //没分钟执行一次检查M币（60秒）
+        dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, DEDUCT_MONEY_INTERVAL_TIME * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
         
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            self.checkMoneyTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-            //没分钟执行一次检查M币（60秒）
-            dispatch_source_set_timer(self.checkMoneyTimer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 60 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
+            long end = [[NSDate date] timeIntervalSince1970];
+            NSLog(@"\n\n\n执行扣费间隔：%ld", end - start);
+            //正在通话时 执行扣费逻辑
+            if (self.callSession.callStatus == RCCallActive) {
+                [self deductionCallMoney];
+            }
+            //已经挂断时，取消定时器
+            if (self.callSession.callStatus == RCCallHangup) {
+                dispatch_cancel(self.checkMoneyTimer);
+            }
             
-            dispatch_source_set_event_handler(self.checkMoneyTimer, ^{
-                
-                //正在通话时 执行扣费逻辑
-                if (self.callSession.callStatus == RCCallActive) {
-                    [self deductionCallMoney];
-                }
-                //已经挂断时，取消定时器
-                if (self.callSession.callStatus == RCCallHangup) {
-                    dispatch_cancel(self.checkMoneyTimer);
-                }
-               
-            });
-            dispatch_resume(self.checkMoneyTimer);
         });
+        dispatch_resume(self.checkMoneyTimer);
     });
 }
 
 ///判断是否可以继续通话
 - (void)isContinueCanVideoCall:(UserCallPowerModel *)canCall {
     
-//    [self hangupButtonClicked];
      long seconds = [canCall.seconds longLongValue];
     
     //剩余两分钟时 开始倒计时
     if (seconds <= 60 * 2) {
         //添加倒计时view
         [self addCountDownView];
-        self.countDownView.hidden = YES;
         
         if (seconds <= 0) {
             //通话结束
             [self hangupButtonClicked];
         }
+    } else {
+        
     }
 }
 
 ///保存通话
 - (void)saveCall {
-    
-    VideoUserModel *videoUser = self.videoUser;
+    NSString *userName;
+    NSString *userID;
+    if (self.videoUser) {
+        userName = self.videoUser.username;
+        userID = self.videoUser.ID;
+    }
+   
     SelfCallEndState callEndState = getSelfCallState(self.callSession.disconnectReason);
     NSString *callTime = [self getCallTime];
-    [UserInfoNet saveCallAnchorAccount:videoUser.username anchorId:videoUser.ID callId:self.callSession.callId callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
+    [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:self.callSession.callId callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
         
         if (success) {
             NSLog(@"保存通话成功");
@@ -242,22 +253,24 @@ static NSInteger TestCountDown = 5;
 
 ///每分钟扣除通话费用
 - (void)deductionCallMoney {
-    NSString *userName;
-    if (self.videoUser) {
-        userName = self.videoUser.username;
-    }
-    if (self.costUserName) {
-        userName = self.costUserName;
-    }
-    [UserInfoNet perMinuteDedectionUserName:userName result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+//    NSString *userName;
+//    if (self.videoUser) {
+//        userName = self.videoUser.username;
+//    }
+//    if (self.costUserName) {
+//        userName = self.costUserName;
+//    }
+    [UserInfoNet perMinuteDedectionUserName:self.callSession.caller pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
-            NSLog(@"扣费成功");
+            self.pid = canCall.pid;
+            NSLog(@"执行扣费成功");
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self isContinueCanVideoCall:canCall];
             });
         }
     }];
+    
     
 }
 
@@ -349,14 +362,19 @@ static NSInteger TestCountDown = 5;
 ///通话已连接
 - (void)callDidConnect {
     [super callDidConnect];
-    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
-        NSLog(@"我发起的通话");
-        //检查M币
-        [self checkMoney];
-        
-    } else {
-        NSLog(@"我收到的通话");
-    }
+    
+    
+     [self checkMoney];
+    NSLog(@"%@", self.callSession.caller);
+    NSLog(@"%@", self.callSession.myProfile.userId);
+//    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
+//        NSLog(@"我发起的通话");
+//        //检查M币
+//        [self checkMoney];
+//
+//    } else {
+//        NSLog(@"我收到的通话");
+//    }
 }
 
 - (void)callDidDisconnect {
@@ -364,8 +382,6 @@ static NSInteger TestCountDown = 5;
     RCCallDisconnectReason reason = self.callSession.disconnectReason;
     NSLog(@"%ld", reason);
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
-    //扣除最后一分钟的费用
-    [self deductionCallMoney];
     [self saveCall];
     PostNotificationNameUserInfo(VideoCallEnd, nil);
     
