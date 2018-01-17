@@ -39,4 +39,8 @@
 //获取用户信息
 //GET /v1/user/getUserInfo
 + (void)NetGetgetUserInfoToken:(NSString *)token UserId:(NSString *)userId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//获取通话记录
+//POST /v1/call/getCallInfoList
++ (void)NetGetgetCallInfoListToken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
 @end
