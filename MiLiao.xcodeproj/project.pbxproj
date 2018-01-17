@@ -257,6 +257,8 @@
 		E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659C0B200B473700AA63CC /* DiscoverMananger.m */; };
+		E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A0200F36B0002B08F5 /* ToolObject.m */; };
+		E27024A4200F51F1002B08F5 /* StateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A3200F51F1002B08F5 /* StateButton.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -797,6 +799,10 @@
 		E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E2659C0A200B473700AA63CC /* DiscoverMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DiscoverMananger.h; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.h"; sourceTree = SOURCE_ROOT; };
 		E2659C0B200B473700AA63CC /* DiscoverMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DiscoverMananger.m; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.m"; sourceTree = SOURCE_ROOT; };
+		E270249F200F36B0002B08F5 /* ToolObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolObject.h; sourceTree = "<group>"; };
+		E27024A0200F36B0002B08F5 /* ToolObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolObject.m; sourceTree = "<group>"; };
+		E27024A2200F51F1002B08F5 /* StateButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateButton.h; sourceTree = "<group>"; };
+		E27024A3200F51F1002B08F5 /* StateButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateButton.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
 		E27E9F441FFA5CF300096A6E /* NSStringSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringSize.m; sourceTree = "<group>"; };
 		E27E9F461FFA5FE400096A6E /* PriceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceView.h; sourceTree = "<group>"; };
@@ -2141,6 +2147,8 @@
 				E2B77BF21FFDD69A00597326 /* UIImage+Color.m */,
 				E2B77BF31FFDD69A00597326 /* UIImage+Common.h */,
 				E2B77BF41FFDD69A00597326 /* UIImage+Common.m */,
+				E270249F200F36B0002B08F5 /* ToolObject.h */,
+				E27024A0200F36B0002B08F5 /* ToolObject.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2152,6 +2160,8 @@
 				E27E9F471FFA5FE400096A6E /* PriceView.m */,
 				E27E9F6B1FFB573400096A6E /* ItemsView.h */,
 				E27E9F6C1FFB573400096A6E /* ItemsView.m */,
+				E27024A2200F51F1002B08F5 /* StateButton.h */,
+				E27024A3200F51F1002B08F5 /* StateButton.m */,
 			);
 			path = PublicView;
 			sourceTree = "<group>";
@@ -2806,9 +2816,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
+				E27024A4200F51F1002B08F5 /* StateButton.m in Sources */,
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
+				E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,

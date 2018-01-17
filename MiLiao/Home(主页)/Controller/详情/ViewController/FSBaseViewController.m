@@ -187,7 +187,10 @@
     _colorView.backgroundColor = NavColor;
     _colorView.alpha = 0;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backButton.frame = CGRectMake(0, 20, 50, 40);
+    _backButton.frame = CGRectMake(0, ML_StatusBarHeight+20, 50, 40);
+    if (UI_IS_IPHONEX) {
+        _backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
+    }
 //    _backButton.backgroundColor = [UIColor brownColor];
     [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     _backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
@@ -522,7 +525,7 @@
 
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
-
+        [cell.stateButton setStateStr:_womanModel.status];
         if ([_womanModel.sfgz isEqualToString:@"1"]) {
             cell.focusButton.selected = YES;
             [cell.focusButton setImage:nil forState:UIControlStateNormal];

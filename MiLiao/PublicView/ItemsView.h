@@ -16,9 +16,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame itemArr:(NSArray *)itemArr;
 
-- (UIColor *)itemColor:(NSString *)str;
-
-- (void)setItemsArr:(NSArray *)itemArr;
-
+//传过来数组字典
 - (void)setItemsDicArr:(NSArray *)itemArr;
+//传过来str
+- (void)setItemStr:(NSString *)str;
 @end

@@ -22,7 +22,7 @@
     _userImageView.layer.masksToBounds = YES;
     _userImageView.layer.cornerRadius = 14.0;
     
-    _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(52, 18, WIDTH/2-52, 13)];
+    _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(52, 18, 100, 13)];
     _titleLabel.textColor = Color128;
     _titleLabel.font = [UIFont systemFontOfSize:13.0];
     
