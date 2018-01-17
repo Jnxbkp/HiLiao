@@ -177,4 +177,21 @@
         failure(error);
     }];
 }
+//获取通话记录
+//POST /v1/call/getCallInfoList
++ (void)NetGetgetCallInfoListToken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = token;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/call/getCallInfoList",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end
