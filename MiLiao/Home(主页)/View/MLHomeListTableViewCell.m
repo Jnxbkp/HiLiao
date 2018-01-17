@@ -34,13 +34,9 @@
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 0, WIDTH-24, WIDTH-24)];
     _mainImgageView.image = [UIImage imageNamed:@"aaa"];
     
-    _stateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _stateButton.backgroundColor = ML_Color(24, 162, 29, 1);
-    [_stateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-64, 12, 40, 20);
-    _stateButton.layer.cornerRadius = 9.0;
-    _stateButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    
+
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(12, WIDTH-66-24, WIDTH-24, 66)];
     _belowView.backgroundColor = ML_Color(0, 0, 0, 0.5);
     

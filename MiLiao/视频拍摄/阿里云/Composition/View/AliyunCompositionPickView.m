@@ -79,7 +79,7 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = RGBToColor(35, 42, 66);
+    self.collectionView.backgroundColor = ML_Color(97, 97, 97, 1);
     [self addSubview:self.collectionView];
     
     self.assets = [NSMutableArray array];

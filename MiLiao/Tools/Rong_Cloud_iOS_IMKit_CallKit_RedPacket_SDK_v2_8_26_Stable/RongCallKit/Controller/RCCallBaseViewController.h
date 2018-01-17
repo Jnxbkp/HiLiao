@@ -105,6 +105,8 @@
 @property (nonatomic, strong) NSString *costUserId;
 ///对端的用户模型
 @property (nonatomic, strong) VideoUserModel *videoUser;
+///对端的手机号
+@property (nonatomic, strong) NSString *costUserName;
 
 ///获取通话时长
 - (NSString *)getCallTime;

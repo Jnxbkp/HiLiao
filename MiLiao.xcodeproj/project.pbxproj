@@ -115,7 +115,6 @@
 		3C6458B1200E071A00E1721C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F5D20020AFC003F1985 /* CoreGraphics.framework */; };
 		3C6458B6200E0ED100E1721C /* QLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B4200E0ED100E1721C /* QLStarView.m */; };
 		3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */; };
-		3C6458BD200E24B500E1721C /* TagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458BC200E24B500E1721C /* TagLabel.m */; };
 		3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */; };
 		3C77AF932009AABE0029778B /* CommentVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */; };
 		3C77AF9C2009BB840029778B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF9B2009BB840029778B /* BaseNetworking.m */; };
@@ -125,6 +124,8 @@
 		3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C80D6AA200778B600D0DEA7 /* QuCore-ThirdParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; };
 		3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */; };
+		3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */; };
 		3CC51494200C96CC00095AE8 /* VideoUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC51493200C96CC00095AE8 /* VideoUserModel.m */; };
 		3CC752942008499D00C03C6B /* AliyunAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752102008499D00C03C6B /* AliyunAlbumModel.m */; };
 		3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC752112008499D00C03C6B /* AliyunPhotoLibraryManager.m */; };
@@ -262,6 +263,8 @@
 		E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659C0B200B473700AA63CC /* DiscoverMananger.m */; };
+		E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A0200F36B0002B08F5 /* ToolObject.m */; };
+		E27024A4200F51F1002B08F5 /* StateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A3200F51F1002B08F5 /* StateButton.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -540,8 +543,6 @@
 		3C6458B5200E0ED100E1721C /* QLStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStarView.h; sourceTree = "<group>"; };
 		3C6458B7200E20AE00E1721C /* EvaluateTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateTagModel.h; sourceTree = "<group>"; };
 		3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateTagModel.m; sourceTree = "<group>"; };
-		3C6458BB200E24B500E1721C /* TagLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagLabel.h; sourceTree = "<group>"; };
-		3C6458BC200E24B500E1721C /* TagLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagLabel.m; sourceTree = "<group>"; };
 		3C77AF8F2009AABE0029778B /* CommentVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentVideoTableViewCell.h; sourceTree = "<group>"; };
 		3C77AF902009AABE0029778B /* CommentVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentVideoTableViewCell.m; sourceTree = "<group>"; };
 		3C77AF912009AABE0029778B /* CommentVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -554,6 +555,9 @@
 		3C77AF9E2009D7DF0029778B /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3C80D6A6200778AA00D0DEA7 /* AliyunVideoSDKPro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunVideoSDKPro.framework; sourceTree = "<group>"; };
 		3C80D6A9200778B600D0DEA7 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
+		3CA5FCD3200EFE7E000FCCD4 /* SetMoneyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetMoneyView.h; sourceTree = "<group>"; };
+		3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetMoneyView.m; sourceTree = "<group>"; };
+		3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetMoneyView.xib; sourceTree = "<group>"; };
 		3CC51492200C96CC00095AE8 /* VideoUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUserModel.h; sourceTree = "<group>"; };
 		3CC51493200C96CC00095AE8 /* VideoUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUserModel.m; sourceTree = "<group>"; };
 		3CC752102008499D00C03C6B /* AliyunAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunAlbumModel.m; sourceTree = "<group>"; };
@@ -811,6 +815,10 @@
 		E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E2659C0A200B473700AA63CC /* DiscoverMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DiscoverMananger.h; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.h"; sourceTree = SOURCE_ROOT; };
 		E2659C0B200B473700AA63CC /* DiscoverMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DiscoverMananger.m; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.m"; sourceTree = SOURCE_ROOT; };
+		E270249F200F36B0002B08F5 /* ToolObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolObject.h; sourceTree = "<group>"; };
+		E27024A0200F36B0002B08F5 /* ToolObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolObject.m; sourceTree = "<group>"; };
+		E27024A2200F51F1002B08F5 /* StateButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateButton.h; sourceTree = "<group>"; };
+		E27024A3200F51F1002B08F5 /* StateButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateButton.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
 		E27E9F441FFA5CF300096A6E /* NSStringSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringSize.m; sourceTree = "<group>"; };
 		E27E9F461FFA5FE400096A6E /* PriceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceView.h; sourceTree = "<group>"; };
@@ -1432,19 +1440,13 @@
 		3C6458B3200E0ED100E1721C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C6458B4200E0ED100E1721C /* QLStarView.m */,
 				3C6458B5200E0ED100E1721C /* QLStarView.h */,
+				3C6458B4200E0ED100E1721C /* QLStarView.m */,
+				3CA5FCD3200EFE7E000FCCD4 /* SetMoneyView.h */,
+				3CA5FCD4200EFE7E000FCCD4 /* SetMoneyView.m */,
+				3CA5FCD6200EFE97000FCCD4 /* SetMoneyView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		3C6458BA200E246C00E1721C /* TagLabel */ = {
-			isa = PBXGroup;
-			children = (
-				3C6458BB200E24B500E1721C /* TagLabel.h */,
-				3C6458BC200E24B500E1721C /* TagLabel.m */,
-			);
-			path = TagLabel;
 			sourceTree = "<group>";
 		};
 		3C77AF892009A8E10029778B /* CommentView-评论view */ = {
@@ -1641,15 +1643,15 @@
 		3CC752432008499D00C03C6B /* Publish */ = {
 			isa = PBXGroup;
 			children = (
-				3CC752442008499D00C03C6B /* AliyunPublishViewController.h */,
-				3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */,
-				3CC752462008499D00C03C6B /* AliyunUploadViewController.m */,
-				3CC752472008499D00C03C6B /* AliyunPublishService.m */,
-				3CC752482008499D00C03C6B /* AliyunPublishViewController.m */,
-				3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */,
 				3CC7524A2008499D00C03C6B /* View */,
+				3CC752442008499D00C03C6B /* AliyunPublishViewController.h */,
+				3CC752482008499D00C03C6B /* AliyunPublishViewController.m */,
+				3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */,
+				3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */,
 				3CC752512008499D00C03C6B /* AliyunUploadViewController.h */,
+				3CC752462008499D00C03C6B /* AliyunUploadViewController.m */,
 				3CC752522008499D00C03C6B /* AliyunPublishService.h */,
+				3CC752472008499D00C03C6B /* AliyunPublishService.m */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -1657,12 +1659,12 @@
 		3CC7524A2008499D00C03C6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */,
 				3CC7524B2008499D00C03C6B /* AliyunCoverPickView.m */,
 				3CC7524C2008499D00C03C6B /* AliyunPublishProgressView.h */,
-				3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */,
-				3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */,
 				3CC7524F2008499D00C03C6B /* AliyunPublishProgressView.m */,
 				3CC752502008499D00C03C6B /* AliyunPublishTopView.h */,
+				3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1671,11 +1673,11 @@
 			isa = PBXGroup;
 			children = (
 				3CC752542008499D00C03C6B /* UIButton+EnlargeArea.h */,
+				3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */,
 				3CC752552008499D00C03C6B /* unzip */,
 				3CC752622008499D00C03C6B /* LXReorderableFlowLayout */,
 				3CC752652008499D00C03C6B /* Avasset+VideoSize */,
 				3CC752682008499D00C03C6B /* UIView+Progress */,
-				3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */,
 				3CC7526C2008499D00C03C6B /* MBProgressHUD */,
 				3CC7526F2008499D00C03C6B /* fmdb */,
 				3CC7527B2008499D00C03C6B /* JSONModel */,
@@ -2158,7 +2160,6 @@
 		E221B5B41FF5DF1E00353875 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C6458BA200E246C00E1721C /* TagLabel */,
 				E221B5BF1FF5E86300353875 /* MLHomeListTableViewCell.h */,
 				E221B5C01FF5E86300353875 /* MLHomeListTableViewCell.m */,
 				E27E9F651FFB311100096A6E /* MLDetailTableViewCell.h */,
@@ -2232,6 +2233,8 @@
 				E2B77BF21FFDD69A00597326 /* UIImage+Color.m */,
 				E2B77BF31FFDD69A00597326 /* UIImage+Common.h */,
 				E2B77BF41FFDD69A00597326 /* UIImage+Common.m */,
+				E270249F200F36B0002B08F5 /* ToolObject.h */,
+				E27024A0200F36B0002B08F5 /* ToolObject.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2243,6 +2246,8 @@
 				E27E9F471FFA5FE400096A6E /* PriceView.m */,
 				E27E9F6B1FFB573400096A6E /* ItemsView.h */,
 				E27E9F6C1FFB573400096A6E /* ItemsView.m */,
+				E27024A2200F51F1002B08F5 /* StateButton.h */,
+				E27024A3200F51F1002B08F5 /* StateButton.m */,
 			);
 			path = PublicView;
 			sourceTree = "<group>";
@@ -2784,6 +2789,7 @@
 				184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
+				3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
@@ -2881,6 +2887,7 @@
 				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunLanguageSource.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
@@ -2901,9 +2908,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
+				E27024A4200F51F1002B08F5 /* StateButton.m in Sources */,
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
 				E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */,
+				E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */,
 				E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */,
 				3CC752B72008499E00C03C6B /* QUMBProgressHUD.m in Sources */,
 				184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */,
@@ -2962,7 +2971,6 @@
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
-				3C6458BD200E24B500E1721C /* TagLabel.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
@@ -3088,6 +3096,7 @@
 				E25929621FFCBC1700B6502D /* FSBottomTableViewCell.m in Sources */,
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
 				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
+				3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */,
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
@@ -3296,7 +3305,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3361,7 +3369,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -12,7 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluateVideoViewController">
             <connections>
+                <outlet property="mainView" destination="oTh-Xm-OYQ" id="d1u-pR-aQD"/>
+                <outlet property="moneyLabel" destination="Xh9-BI-qKV" id="c3S-FG-aHe"/>
+                <outlet property="starView" destination="2Q1-g3-EQX" id="NIr-qt-4u7"/>
                 <outlet property="tagView" destination="J2v-Je-N54" id="S6d-Li-O8Y"/>
+                <outlet property="timeLabel" destination="yD4-lD-O06" id="QZ1-YP-dXB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,6 +25,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8I-sN-IG5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTh-Xm-OYQ">
                     <rect key="frame" x="40" y="120" width="295" height="447"/>
                     <subviews>
@@ -70,6 +78,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="starClickEnable" value="YES"/>
                                 <userDefinedRuntimeAttribute type="image" keyPath="defaultImage" value="wujiaoxing-moren"/>
                                 <userDefinedRuntimeAttribute type="image" keyPath="lightImage" value="wujiaoxing"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allSelected" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUY-zl-OLu">
@@ -80,15 +89,18 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-C7-TAp">
-                            <rect key="frame" x="0.0" y="418" width="295" height="29"/>
+                            <rect key="frame" x="0.0" y="412" width="295" height="35"/>
                             <color key="backgroundColor" red="1" green="0.17047095465072426" blue="0.23842918835512306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="cpt-bn-z29"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="确定">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2v-Je-N54">
-                            <rect key="frame" x="0.0" y="117" width="295" height="301"/>
+                            <rect key="frame" x="0.0" y="117" width="295" height="295"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
@@ -127,7 +139,11 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="x8I-sN-IG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2bW-A2-AaI"/>
+                <constraint firstItem="x8I-sN-IG5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ye-HE-Zpf"/>
+                <constraint firstAttribute="trailing" secondItem="x8I-sN-IG5" secondAttribute="trailing" id="ZGt-go-UCk"/>
                 <constraint firstItem="oTh-Xm-OYQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="ePS-8c-wo1"/>
+                <constraint firstAttribute="bottom" secondItem="x8I-sN-IG5" secondAttribute="bottom" id="j00-tB-xkc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="oTh-Xm-OYQ" secondAttribute="trailing" constant="40" id="j6T-tK-TL6"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="oTh-Xm-OYQ" secondAttribute="bottom" constant="100" id="pZS-mI-2HZ"/>
                 <constraint firstItem="oTh-Xm-OYQ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="zuI-14-EXT"/>

@@ -38,6 +38,8 @@
 @property (nonatomic, strong) NSString *price;
 ///对端的用户id
 @property (nonatomic, strong) NSString *costUserId;
+///对端的手机号
+@property (nonatomic, strong) NSString *costUserName;
 
 ///主播
 @property (nonatomic, strong) VideoUserModel *videoUser;
@@ -102,6 +104,14 @@
  @param videoUser 主播用户模型
  */
 - (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser;
+
+
+/**
+ 发起单人视频通话
+
+ @param userName 对端的手机号
+ */
+- (void)startSingleVideoCallToUserName:(NSString *)userName;
 
 /*!
  选择成员并发起多人通话

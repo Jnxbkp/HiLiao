@@ -62,7 +62,7 @@ static NSString *const bigIdentifer = @"bigCell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, WIDTH-10, 44)];
-    
+
     UIButton *searchBut = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateNormal];
     [searchBut setBackgroundImage:[UIImage imageNamed:@"sousuokuang"] forState:UIControlStateHighlighted];
@@ -358,7 +358,8 @@ static NSString *const bigIdentifer = @"bigCell";
     }
     VideoUserModel *videoUserModel = [muArr objectAtIndex:indexPath.row];
     cell.videoUserModel = videoUserModel;
-    [cell.stateButton setTitle:@"在线" forState:UIControlStateNormal];
+    [cell.stateButton setStateStr:videoUserModel.status];
+
 
 ////    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[[muArr objectAtIndex:indexPath.row] objectForKey:@"posterUrl"]] placeholderImage:nil];
 //    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];

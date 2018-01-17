@@ -20,7 +20,7 @@
 @interface FSBaseTopTableViewCell : UITableViewCell
 
 @property (nonatomic ,strong)FSLoopScrollView   *loopView;
-@property (nonatomic ,strong)UIButton         *stateButton;
+@property (nonatomic ,strong)StateButton         *stateButton;
 @property (nonatomic ,strong)UIButton         *focusButton;
 @property (nonatomic, strong)PriceView        *priceView;
 

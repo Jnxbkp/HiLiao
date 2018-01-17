@@ -127,6 +127,7 @@
     }];
     EvaluateVideoViewController *vc = [[EvaluateVideoViewController alloc] init];
     UIView *view = vc.view;
+    [self addChildViewController:vc];
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.view).offset(5);
@@ -186,7 +187,10 @@
     _colorView.backgroundColor = NavColor;
     _colorView.alpha = 0;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backButton.frame = CGRectMake(0, 20, 50, 40);
+    _backButton.frame = CGRectMake(0, ML_StatusBarHeight+20, 50, 40);
+    if (UI_IS_IPHONEX) {
+        _backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
+    }
 //    _backButton.backgroundColor = [UIColor brownColor];
     [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     _backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
@@ -334,7 +338,7 @@
 ///视频聊天
 - (void)videoCall {
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
-//     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+
     
     
 }
@@ -521,7 +525,7 @@
 
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
-
+        [cell.stateButton setStateStr:_womanModel.status];
         if ([_womanModel.sfgz isEqualToString:@"1"]) {
             cell.focusButton.selected = YES;
             [cell.focusButton setImage:nil forState:UIControlStateNormal];

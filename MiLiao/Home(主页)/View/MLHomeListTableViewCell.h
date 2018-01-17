@@ -14,7 +14,7 @@
 @interface MLHomeListTableViewCell : UITableViewCell
 
 @property (nonatomic ,strong)UIImageView      *mainImgageView;
-@property (nonatomic ,strong)UIButton         *stateButton;
+@property (nonatomic ,strong)StateButton         *stateButton;
 @property (nonatomic ,strong)UIView           *belowView;
 @property (nonatomic ,strong)UILabel          *nameLabel;
 @property (nonatomic ,strong)UILabel          *messageLabel;

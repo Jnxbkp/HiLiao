@@ -38,8 +38,8 @@
 + (void)NetPostCareBigVToken:(NSString *)token sfgz:(NSString *)sfgz bgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //获取大V评价
-//Get /v1/bigV/getBigVEvaluationList
-+ (void)NetGetBigVEvaluationListUsername:(NSString *)username success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//GET /v1/bigV/getEvals/{pageNumber}/{pageSize}/{userName}/{token}
++ (void)NetGetBigVgetEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //获取大V亲密度列表
 //Get /v1/bigV/getIntimateList

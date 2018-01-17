@@ -46,6 +46,15 @@ static CGFloat _starNum = 5;//星星的个数
     
 }
 
+- (void)setAllSelected:(BOOL)allSelected {
+    _allSelected = allSelected;
+    if (allSelected) {
+        [self.starButtonArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.selected = allSelected;
+        }];
+    }
+}
+
 - (void)setStarClickEnable:(BOOL)starClickEnable {
     _starClickEnable = starClickEnable;
     [self.starButtonArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -56,6 +65,7 @@ static CGFloat _starNum = 5;//星星的个数
 - (void)getSelectedStar:(SelectedStart)star {
     _startBlock = star;
 }
+
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -77,6 +87,7 @@ static CGFloat _starNum = 5;//星星的个数
         [starButton setImage:selectedImage forState:UIControlStateSelected];
         [mutableArray addObject:starButton];
         starButton.enabled = self.isStarClickEnable;
+        starButton.selected = self.isAllSelecetd;
         [starButton addTarget:self action:@selector(starButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:starButton];
     }
@@ -119,6 +130,10 @@ static CGFloat _starNum = 5;//星星的个数
     }
     sender.isSelected?(index++):(index);
     !_startBlock?:_startBlock(index);
+    if (self.delegate) {
+        [self.delegate clickIndex:index];
+    }
 }
+
 
 @end

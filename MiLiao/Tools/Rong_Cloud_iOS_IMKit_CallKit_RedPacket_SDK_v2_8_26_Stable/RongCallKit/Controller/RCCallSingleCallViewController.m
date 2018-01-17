@@ -240,9 +240,16 @@ static NSInteger TestCountDown = 5;
     }];
 }
 
-///扣除通话费用
+///每分钟扣除通话费用
 - (void)deductionCallMoney {
-    [UserInfoNet perMinuteDedectionUserName:self.videoUser.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+    NSString *userName;
+    if (self.videoUser) {
+        userName = self.videoUser.username;
+    }
+    if (self.costUserName) {
+        userName = self.costUserName;
+    }
+    [UserInfoNet perMinuteDedectionUserName:userName result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             NSLog(@"扣费成功");
@@ -251,6 +258,11 @@ static NSInteger TestCountDown = 5;
             });
         }
     }];
+    
+}
+
+///最终扣费
+- (void)finalDeductMoney {
     
 }
 

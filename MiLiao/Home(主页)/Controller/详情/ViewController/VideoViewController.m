@@ -58,7 +58,6 @@ static NSString * const reuseIdentifier = @"Cell";
 //主播视频列表
 - (void)netGetUserVideoList {
     [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[YZCurrentUserModel sharedYZCurrentUserModel].token pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
-        NSLog(@"---------------->>><<<<<>>><<<>>%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
