@@ -15,10 +15,10 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)guanli:(id)sender {
+    if (self.sureBlock) {
+        self.sureBlock();
+    }
 }
 
 @end

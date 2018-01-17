@@ -37,6 +37,9 @@
                         <state key="normal" title="管理">
                             <color key="titleColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="guanli:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dHm-D8-Dvk"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="buc-gR-q2r">
                         <rect key="frame" x="12" y="57" width="357" height="1"/>
@@ -94,6 +97,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="moblel" destination="B0C-v9-sns" id="ZYc-pJ-XuO"/>
+                <outlet property="zhanghu" destination="iZf-4F-MIt" id="h37-S1-Get"/>
+                <outlet property="zhanghuName" destination="COp-ce-ptj" id="BH3-wz-LXA"/>
+            </connections>
             <point key="canvasLocation" x="22.5" y="85"/>
         </tableViewCell>
     </objects>

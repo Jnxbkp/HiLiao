@@ -1,18 +1,18 @@
 //
-//  MyMViewController.m
+//  administrateAccountViewController.m
 //  MiLiao
 //
-//  Created by apple on 2018/1/15.
+//  Created by apple on 2018/1/17.
 //  Copyright © 2018年 Jarvan-zhang. All rights reserved.
 //
 
-#import "MyMViewController.h"
+#import "administrateAccountViewController.h"
 
-@interface MyMViewController ()
+@interface administrateAccountViewController ()
 
 @end
 
-@implementation MyMViewController
+@implementation administrateAccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,8 +20,10 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的M币"];
-    
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"管理提现账户"];
+    self.view.backgroundColor = ML_Color(248, 248, 248, 1);
+}
+- (IBAction)sure:(id)sender {
 }
 
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MLTabBarController.h"
 #import "LoginViewController.h"
+#import "phoneLoginViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
@@ -39,7 +40,7 @@
     if ([isLog isEqualToString:@"yes"]) {
         self.window.rootViewController = [[MLTabBarController alloc] init];
     } else {
-        self.window.rootViewController = [[LoginViewController alloc]init];
+        self.window.rootViewController = [[phoneLoginViewController alloc]init];
     }
     
     [self.window makeKeyAndVisible];
@@ -290,7 +291,7 @@ static AFHTTPSessionManager *manager ;
         tabBarVC.selectedViewController = [tabBarVC.viewControllers objectAtIndex:0];
         self.window.rootViewController = tabBarVC;
     } else {
-        self.window.rootViewController = [[LoginViewController alloc]init];
+        self.window.rootViewController = [[phoneLoginViewController alloc]init];
         
     }
     

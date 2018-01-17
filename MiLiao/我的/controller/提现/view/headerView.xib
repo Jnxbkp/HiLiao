@@ -47,7 +47,10 @@
                             <rect key="frame" x="8" y="7" width="253" height="28"/>
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            <connections>
+                                <action selector="textField:" destination="iN0-l3-epB" eventType="editingDidEnd" id="kZA-kx-qKn"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,6 +82,9 @@
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sure:" destination="iN0-l3-epB" eventType="touchUpInside" id="9RY-25-yh4"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="！" translatesAutoresizingMaskIntoConstraints="NO" id="d61-94-AFi">
                     <rect key="frame" x="12" y="138" width="20" height="20"/>
@@ -105,6 +111,9 @@
                     <state key="normal" title="点次查看提现明细" image="qianjin">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="mingXin:" destination="iN0-l3-epB" eventType="touchUpInside" id="asW-xf-1fF"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,6 +147,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="textField" destination="ydk-Gh-K0T" id="0sw-JO-zDW"/>
+            </connections>
             <point key="canvasLocation" x="54.5" y="-211"/>
         </view>
     </objects>

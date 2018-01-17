@@ -8,9 +8,12 @@
 
 #import "MyCallViewController.h"
 #import "messageCell.h"
-
+#import "CallListModel.h"
+#import "RongCallKit.h"
+#import <RongIMKit/RongIMKit.h>
 @interface MyCallViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
+@property (strong, nonatomic) NSMutableArray *modelArray;
 
 @end
 
@@ -25,6 +28,7 @@
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的通话"];
    
     [self setTableview];
+    [self loadData];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -38,6 +42,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.backgroundColor = ML_Color(230, 230, 230, 1);
+
     self.tableView = tableView;
     [self.tableView registerNib:[UINib nibWithNibName:@"messageCell" bundle:nil] forCellReuseIdentifier:@"messageCell"];
 //    double systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
@@ -46,9 +51,23 @@
 //    }
     [self.view addSubview:tableView];
 }
+//获取数据
+- (void)loadData
+{
+    [HLLoginManager NetGetgetCallInfoListToken:[YZCurrentUserModel sharedYZCurrentUserModel].token success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            self.modelArray = [CallListModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+            [self.tableView reloadData];
+
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return 6;
+    return self.modelArray.count;
 }
 //头部视图高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -59,11 +78,19 @@
 {
     static NSString *Identifier =@"messageCell";
     messageCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+    CallListModel *callModel = self.modelArray[indexPath.row];
+    cell.model = callModel;
+
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     return 64;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+
 }
 @end

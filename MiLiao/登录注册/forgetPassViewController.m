@@ -28,6 +28,18 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"忘记密码"];
+    UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame  = CGRectMake(0, 0, 50, 30);
+    leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [leftButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+    leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)leftButtonDidClick {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -40,7 +52,7 @@
     
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
-        self.msgId = info[@"data"][@"msgId"];
+        self.msgId = info[@"data"][@"verifyCode"];
         NSLog(@"--------%@",self.msgId);
         //写在网络请求里
         [self getCodeFromSer];

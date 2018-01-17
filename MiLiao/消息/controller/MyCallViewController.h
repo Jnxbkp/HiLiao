@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class VideoUserModel;
 @interface MyCallViewController : UIViewController
+@property (nonatomic, strong) VideoUserModel *videoUserModel;
 
 @end

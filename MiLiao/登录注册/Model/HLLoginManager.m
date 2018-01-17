@@ -178,15 +178,54 @@
     }];
 }
 //获取通话记录
-//POST /v1/call/getCallInfoList
+//Get /v1/call/getCallInfoList GET /v1/call/getCallInfoList
 + (void)NetGetgetCallInfoListToken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    [manager GET:[NSString stringWithFormat:@"%@/v1/call/getCallInfoList?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+//提现信息申请
+//POST /v1/wirthdraw/saveWirthdrawInfo
++ (void)saveWirthdrawInfoamount:(NSNumber *)amount bz:(NSString *)Token collectionAccount:(NSString *)collectionAccount mobile :(NSString *)mobile  userId:(NSString *)userId userName:(NSString *)userName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"amount"] = amount;
+    param[@"bz"] = Token;
+    param[@"collectionAccount"] = collectionAccount;
+    param[@"mobile"] = mobile;
+    param[@"userId"] = userId;
+    param[@"userName"] = userName;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/wirthdraw/saveWirthdrawInfo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+//保存用户账户提现信息
+//POST /v1/user/saveUserWirthdrawInfo
++ (void)saveUserWirthdrawInfoverifyCode:(NSString *)verifyCode token:(NSString *)token account:(NSString *)account accountName :(NSString *)accountName  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"verifyCode"] = verifyCode;
     param[@"token"] = token;
-    [manager POST:[NSString stringWithFormat:@"%@/v1/call/getCallInfoList",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+    param[@"account"] = account;
+    param[@"accountName"] = accountName;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/user/saveUserWirthdrawInfo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
