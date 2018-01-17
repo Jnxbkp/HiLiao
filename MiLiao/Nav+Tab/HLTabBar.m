@@ -21,7 +21,7 @@
     
     UIButton *sendBtn = [[UIButton alloc] init];
     sendBtn.backgroundColor = [UIColor clearColor];
-    [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal"] forState:UIControlStateNormal];
+    [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal@2x"] forState:UIControlStateNormal];
    
     sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
     [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];

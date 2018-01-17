@@ -9,6 +9,9 @@
 #import "MLDiscoverViewController.h"
 #import "MLDiscoverListCollectionViewCell.h"
 #import "DiscoverMananger.h"
+#import "DisVideoModel.h"
+#import "DisbaseModel.h"
+
 /**** Controller ****/
 #import "PlayViewController.h"
 
@@ -42,6 +45,8 @@ static NSString *const hotIdentifer = @"hotCell";
     
     NSString            *_newPage;
     NSString            *_hotPage;
+    
+   
 
 }
 
@@ -122,22 +127,23 @@ static NSString *const hotIdentifer = @"hotCell";
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:@"20" success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
         NSMutableArray *muArr = [NSMutableArray array];
-        NSInteger resultCode = [info[@"resultCode"] integerValue];
-        if (resultCode == SUCCESS) {
-//            NSArray *dataArr = [info objectForKey:@"data"];
-//            for (int i = 0; i < dataArr.count; i ++) {
-//                NSDictionary *dic = [dataArr objectAtIndex:i];
-//                [muArr addObject:dic];
-//            }
-//
-//            if([selectStr isEqualToString:newStr]) {
-//                [_newsList addObjectsFromArray:muArr];
-//                [_newCollectionView reloadData];
-//            } else {
-//                [_hotList addObjectsFromArray:muArr];
-//                [_hotCollectionView reloadData];
-//            }
-        }
+//        _diaBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
+//        NSInteger resultCode = [info[@"resultCode"] integerValue];
+//        if (resultCode == SUCCESS) {
+            NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
+            for (int i = 0; i < dataArr.count; i ++) {
+                NSDictionary *dic = [dataArr objectAtIndex:i];
+                [muArr addObject:dic];
+            }
+
+            if([selectStr isEqualToString:newStr]) {
+                [_newsList addObjectsFromArray:muArr];
+                [_newCollectionView reloadData];
+            } else {
+                [_hotList addObjectsFromArray:muArr];
+                [_hotCollectionView reloadData];
+            }
+//        }
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
@@ -228,11 +234,11 @@ static NSString *const hotIdentifer = @"hotCell";
     if (collectionView == _bigCollectionView) {
         return 2;
     } else if (collectionView == _newCollectionView) {
-        
+        return _newsList.count;
     } else {
-        
+        return _hotList.count;
     }
-    return 18;
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -279,7 +285,7 @@ static NSString *const hotIdentifer = @"hotCell";
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
         cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
         cell.timeLabel.text = @"12小时";
-        cell.messageLabel.text = @"来玩啊啊 ad福建省打客服";
+        cell.messageLabel.text = [[_newsList objectAtIndex:indexPath.row] objectForKey:@"videoName"];
         cell.likeNumLabel.text = @"22";
         return cell;
     } else {
@@ -289,7 +295,7 @@ static NSString *const hotIdentifer = @"hotCell";
         cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
         cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
         cell.timeLabel.text = @"12小时";
-        cell.messageLabel.text = @"aaaaaaaa";
+        cell.messageLabel.text = [[_hotList objectAtIndex:indexPath.row] objectForKey:@"videoName"];
         cell.likeNumLabel.text = @"22";
         return cell;
     }

@@ -29,7 +29,9 @@
 @property (nonatomic ,strong)UILabel         *numFocusLabel;
 @property (nonatomic ,strong)UILabel         *getweixinLabel;
 @property (nonatomic ,strong)UILabel         *weixinLabel;
-@property (nonatomic, strong)NSArray         *headImageArr;
+@property (nonatomic ,strong)UIImageView         *headImage1;
+@property (nonatomic ,strong)UIImageView         *headImage2;
+@property (nonatomic ,strong)UIImageView         *headImage3;
 
 @property (nonatomic,weak) id<topButtonDelegate> delegate;
 

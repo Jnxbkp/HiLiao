@@ -187,7 +187,7 @@
     _colorView.backgroundColor = NavColor;
     _colorView.alpha = 0;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backButton.frame = CGRectMake(0, ML_StatusBarHeight+20, 50, 40);
+    _backButton.frame = CGRectMake(0, ML_StatusBarHeight, 50, 40);
     if (UI_IS_IPHONEX) {
         _backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
     }
@@ -521,11 +521,38 @@
             cell.loopView.imgResourceArr = _imageMuArr;
         }
         
-        [cell.priceView setPrice:@"20"];
+        [cell.priceView setPrice:_womanModel.nickname];
 
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
         [cell.stateButton setStateStr:_womanModel.status];
+        cell.numFocusLabel.text = [NSString stringWithFormat:@"%@关注",_womanModel.nickname];
+        NSLog(@"----------%@",_womanModel.orderList);
+        
+        cell.headImage3.hidden = NO;
+        cell.headImage2.hidden = NO;
+        cell.headImage1.hidden = NO;
+        
+        if (_womanModel.orderList.count == 0) {
+            cell.headImage1.hidden = YES;
+            cell.headImage2.hidden = YES;
+            cell.headImage3.hidden = YES;
+        } else if (_womanModel.orderList.count == 1) {
+            cell.headImage2.hidden = YES;
+            cell.headImage3.hidden = YES;
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+        } else if (_womanModel.orderList.count == 2) {
+            cell.headImage3.hidden = YES;
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+            [cell.headImage2 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[1] objectForKey:@"headUrl"]] placeholderImage:nil];
+        } else {
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+             [cell.headImage2 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[1] objectForKey:@"headUrl"]] placeholderImage:nil];
+            [cell.headImage3 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[2] objectForKey:@"headUrl"]] placeholderImage:nil];
+        }
+        
+        cell.weixinLabel.text = _womanModel.wechat;
+        cell.getweixinLabel.hidden = YES;
         if ([_womanModel.sfgz isEqualToString:@"1"]) {
             cell.focusButton.selected = YES;
             [cell.focusButton setImage:nil forState:UIControlStateNormal];
@@ -574,6 +601,7 @@
 }
 
 - (void)weiXinButtonSelect {
+   
     _backGroundView.hidden = NO;
     _buyVChatView.hidden = NO;
 }
