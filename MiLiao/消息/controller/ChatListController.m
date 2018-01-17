@@ -71,6 +71,8 @@
 //    self.conversationListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-ML_TopHeight-ML_TabBarHeight)];
     messageView *vc = [[NSBundle mainBundle] loadNibNamed:
                        @"messageView" owner:nil options:nil ].lastObject;
+    __weak typeof(self) weakSelf = self;
+
     vc.tonghuaBlock = ^{
         //我的通话
         MyCallViewController *myCallVC = [[MyCallViewController alloc]init];
@@ -80,7 +82,8 @@
     vc.MBlock = ^{
         //我的M币
         NSLog(@"我的M币");
-
+        MyMViewController *Mvc = [[MyMViewController alloc]init];
+        [weakSelf.navigationController pushViewController:Mvc animated:YES];
     };
     vc.xitongBlock = ^{
         //系统通知
@@ -89,6 +92,7 @@
     };
     self.conversationListTableView.tableHeaderView = vc;
    
+    self.emptyConversationView.hidden = YES;
     
     if ([self.conversationListTableView respondsToSelector:@selector (setSeparatorInset:)]) {
         [self.conversationListTableView setSeparatorInset:UIEdgeInsetsZero ];

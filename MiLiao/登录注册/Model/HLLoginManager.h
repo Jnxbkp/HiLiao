@@ -42,5 +42,10 @@
 //获取通话记录
 //POST /v1/call/getCallInfoList
 + (void)NetGetgetCallInfoListToken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-
+//提现信息申请
+//POST /v1/wirthdraw/saveWirthdrawInfo
++ (void)saveWirthdrawInfoamount:(NSNumber *)amount bz:(NSString *)Token collectionAccount:(NSString *)collectionAccount mobile :(NSString *)mobile  userId:(NSString *)userId userName:(NSString *)userName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//保存用户账户提现信息
+//POST /v1/user/saveUserWirthdrawInfo
++ (void)saveUserWirthdrawInfoverifyCode:(NSString *)verifyCode token:(NSString *)token account:(NSString *)account accountName :(NSString *)accountName  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

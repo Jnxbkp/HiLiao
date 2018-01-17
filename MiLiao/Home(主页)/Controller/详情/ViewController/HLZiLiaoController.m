@@ -15,9 +15,7 @@
 @property (nonatomic, assign) BOOL fingerIsTouch;
 /** 用来显示的假数据 */
 @property (strong, nonatomic) NSMutableArray *data;
-@property (nonatomic, strong) NSString          *messageStr;
-@property (nonatomic, strong) NSMutableArray    *itemArr;
-@property (nonatomic, strong) NSMutableArray    *itemArr1;
+
 @end
 
 @implementation HLZiLiaoController
@@ -25,7 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"---%@",self.title);
+
 }
 
 
@@ -36,10 +34,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"getWomanInformation" object:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市", nil];
-    
-    _messageStr = @"pwiehadshadsgjladfj;ad";
-    _itemArr = [NSMutableArray arrayWithObjects:@"完美身材",@"身好", nil];
-    _itemArr1 = [NSMutableArray arrayWithObjects:@"完美身材",@"漂亮",@"身材好", nil];
     
     [self setupSubViews];
 }
@@ -89,9 +83,7 @@
     return 0;
     
 }
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return 0;
-//}
+
 //tableview 头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headView = [[UIView alloc]init];
@@ -145,11 +137,11 @@
         userLabel.font = [UIFont systemFontOfSize:13.0];
         
         ItemsView *itemView = [[ItemsView alloc]init];
-        [itemView setItemsDicArr:_womanModel.evaluationList];
+        [itemView setItemsDicArr:_womanModel.userTags];
         itemView.frame = CGRectMake(WIDTH-itemView.itemsViewWidth-12, 48, itemView.itemsViewWidth, 24);
         
         ItemsView *itemView1 = [[ItemsView alloc]init];
-        [itemView1 setItemsArr:_womanModel.userTags];
+        [itemView1 setItemsDicArr:_womanModel.evaluationList];
         itemView1.frame = CGRectMake(WIDTH-itemView1.itemsViewWidth-12, 36+48, itemView1.itemsViewWidth, 24);
         
         UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 74+48, WIDTH, 8)];
@@ -176,9 +168,9 @@
         if (indexPath.row == 0) {
             cell.messageLabel.text = @"98%";
         } else if (indexPath.row == 1) {
-            cell.messageLabel.text = _womanModel.height;
+            cell.messageLabel.text = [NSString stringWithFormat:@"%@ cm",_womanModel.height];
         } else if (indexPath.row == 2) {
-            cell.messageLabel.text = _womanModel.weight;
+            cell.messageLabel.text = [NSString stringWithFormat:@"%@ kg",_womanModel.weight];
         } else if (indexPath.row == 3) {
             cell.messageLabel.text = _womanModel.constellation;
         } else {
@@ -210,7 +202,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"1111111");
+  
     if (!self.vcCanScroll) {
         scrollView.contentOffset = CGPointZero;
     }

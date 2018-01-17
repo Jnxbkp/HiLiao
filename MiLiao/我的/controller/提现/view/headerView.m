@@ -9,13 +9,22 @@
 #import "headerView.h"
 
 @implementation headerView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)sure:(id)sender {
+    
+    if (self.sureBlock) {
+        self.sureBlock();
+    }
 }
-*/
+- (IBAction)mingXin:(id)sender {
+    if (self.mingxiBlock) {
+        self.mingxiBlock();
+    }
+}
+- (IBAction)textField:(UITextField *)sender {
+    if (self.textFiledClick) {
+        self.textFiledClick(sender.text);
+    }
+}
+
 
 @end

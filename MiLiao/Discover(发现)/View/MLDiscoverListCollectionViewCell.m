@@ -40,7 +40,7 @@
     _likeNumLabel.textColor = ML_Color(228, 228, 228, 1);
     
     _iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(_likeNumLabel.frame.origin.x-18, _timeLabel.frame.origin.y+1.5, 10, 9)];
-    _iconImageView.image = [UIImage imageNamed:@"heart_blue"];
+    _iconImageView.image = [UIImage imageNamed:@"xiaoxin"];
     
     [self.contentView addSubview:_mainImgageView];
     [self.contentView addSubview:_belowView];

@@ -7,18 +7,19 @@
 //
 
 #import "messageCell.h"
-
+#import "CallListModel.h"
 @implementation messageCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+}
+- (void)setModel:(CallListModel *)model {
+    _model = model;
+    self.message.text = [NSString stringWithFormat:@"%@",model.createDate];
+    [self.image sd_setImageWithURL:[NSURL URLWithString:model.headUrl]];
+
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

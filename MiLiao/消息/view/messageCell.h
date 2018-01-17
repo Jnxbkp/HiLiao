@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CallListModel;
 
 @interface messageCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *message;
+@property (strong, nonatomic) CallListModel *model;
 
 @end

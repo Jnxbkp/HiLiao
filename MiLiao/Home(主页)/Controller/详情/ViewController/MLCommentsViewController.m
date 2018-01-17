@@ -32,9 +32,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
-//    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
     
-    [self NetGetBigVEvaluationList];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:@"1" pageSize:@"20" token:[YZCurrentUserModel sharedYZCurrentUserModel].token];
     
     [self setupSubViews];
 }
@@ -59,16 +58,22 @@
 }
 
 //主播评论列表
-- (void)NetGetBigVEvaluationList {
-    [MainMananger NetGetBigVEvaluationListUsername:_videoUserModel.username success:^(NSDictionary *info) {
-        NSLog(@"---------------->>><<<<<>>><<<>>%@",info);
+- (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token {
+    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:pageSize token:token success:^(NSDictionary *info) {
+        NSLog(@"--------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-            
+            NSArray *arr = [info objectForKey:@"data"];
+            for (int i = 0; i < arr.count; i ++) {
+                NSDictionary *dic = arr[i];
+                [_dataArr addObject:dic];
+            }
+            [_tableView reloadData];
         }
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
+   
 }
 
 #pragma mark UITableView
@@ -97,15 +102,14 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    cell.titleLabel.text = [self.data objectAtIndex:indexPath.row];
-//    NSArray *arr = [NSArray arrayWithObjects:@"好性感",@"完美身材", nil];
-//    [cell.itemsView setItemsArr:arr];
-//    cell.userImageView.image = [UIImage imageNamed:@"aaa"];
-//    cell.itemsView.frame = CGRectMake(WIDTH/2 + WIDTH/2-12-cell.itemsView.itemsViewWidth, 12, cell.itemsView.itemsViewWidth, 24);
+    cell.titleLabel.text = [_dataArr[indexPath.row] objectForKey:@"nickname"];
+    [cell.userImageView sd_setImageWithURL:[_dataArr[indexPath.row] objectForKey:@"headUrl"] placeholderImage:nil];
+    [cell.itemsView setItemStr:[_dataArr[indexPath.row] objectForKey:@"tagName"]];
+    cell.itemsView.frame = CGRectMake(WIDTH-12-cell.itemsView.itemsViewWidth, 12, cell.itemsView.itemsViewWidth, 24);
     
-//    if (indexPath.row == self.data.count-1) {
-//        cell.lineLabel.hidden = YES;
-//    }
+    if (indexPath.row == _dataArr.count-1) {
+        cell.lineLabel.hidden = YES;
+    }
     return cell;
 }
 

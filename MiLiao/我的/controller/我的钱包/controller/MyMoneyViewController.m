@@ -11,6 +11,8 @@
 #import "GoPayTableViewController.h"
 #import "WithdrawalsViewController.h"
 #import "CashMingXiViewController.h"
+#import "PayMingXiViewController.h"
+#import "IncomeMoneyViewController.h"
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
 @interface MyMoneyViewController ()<UINavigationControllerDelegate>
 
@@ -50,9 +52,13 @@
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //收入明细
+            IncomeMoneyViewController *cashVC = [[IncomeMoneyViewController alloc]init];
+            [self.navigationController pushViewController:cashVC animated:YES];
         }
         if (indexPath.row == 1) {
             //支出明细
+            PayMingXiViewController *cashVC = [[PayMingXiViewController alloc]init];
+            [self.navigationController pushViewController:cashVC animated:YES];
         }
         if (indexPath.row == 2) {
             //提现明细

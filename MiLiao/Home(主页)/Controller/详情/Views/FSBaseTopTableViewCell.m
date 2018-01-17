@@ -30,19 +30,8 @@
 
     _loopView = [FSLoopScrollView loopImageViewWithFrame:CGRectMake(0, 0, WIDTH, WIDTH) isHorizontal:YES];
     
-    _stateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _stateButton.backgroundColor = [UIColor greenColor];
-    [_stateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_stateButton setTitle:@"在线" forState:UIControlStateNormal];
-    _stateButton.frame = CGRectMake(WIDTH-52, 32, 40, 20);
-    _stateButton.layer.cornerRadius = 9.0;
-    _stateButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
-
-    
-
-//    UIView *belowView = [[UIView alloc]initWithFrame:CGRectMake(0, WIDTH*0.76-60, WIDTH, 60)];
-//    belowView.backgroundColor = [UIColor blackColor];
-//    belowView.alpha = 0.3;
+    _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
+    _stateButton.frame = CGRectMake(WIDTH-52, ML_StatusBarHeight+12, 40, 20);
 
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH-68, (WIDTH-24)/2, 20)];
     _nameLabel.textColor = ML_Color(255, 255, 255, 1);
