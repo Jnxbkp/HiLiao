@@ -1507,15 +1507,15 @@
 		3CC752432008499D00C03C6B /* Publish */ = {
 			isa = PBXGroup;
 			children = (
-				3CC752442008499D00C03C6B /* AliyunPublishViewController.h */,
-				3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */,
-				3CC752462008499D00C03C6B /* AliyunUploadViewController.m */,
-				3CC752472008499D00C03C6B /* AliyunPublishService.m */,
-				3CC752482008499D00C03C6B /* AliyunPublishViewController.m */,
-				3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */,
 				3CC7524A2008499D00C03C6B /* View */,
+				3CC752442008499D00C03C6B /* AliyunPublishViewController.h */,
+				3CC752482008499D00C03C6B /* AliyunPublishViewController.m */,
+				3CC752452008499D00C03C6B /* AliyunCoverPickViewController.h */,
+				3CC752492008499D00C03C6B /* AliyunCoverPickViewController.m */,
 				3CC752512008499D00C03C6B /* AliyunUploadViewController.h */,
+				3CC752462008499D00C03C6B /* AliyunUploadViewController.m */,
 				3CC752522008499D00C03C6B /* AliyunPublishService.h */,
+				3CC752472008499D00C03C6B /* AliyunPublishService.m */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -1523,12 +1523,12 @@
 		3CC7524A2008499D00C03C6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */,
 				3CC7524B2008499D00C03C6B /* AliyunCoverPickView.m */,
 				3CC7524C2008499D00C03C6B /* AliyunPublishProgressView.h */,
-				3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */,
-				3CC7524E2008499D00C03C6B /* AliyunCoverPickView.h */,
 				3CC7524F2008499D00C03C6B /* AliyunPublishProgressView.m */,
 				3CC752502008499D00C03C6B /* AliyunPublishTopView.h */,
+				3CC7524D2008499D00C03C6B /* AliyunPublishTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1537,11 +1537,11 @@
 			isa = PBXGroup;
 			children = (
 				3CC752542008499D00C03C6B /* UIButton+EnlargeArea.h */,
+				3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */,
 				3CC752552008499D00C03C6B /* unzip */,
 				3CC752622008499D00C03C6B /* LXReorderableFlowLayout */,
 				3CC752652008499D00C03C6B /* Avasset+VideoSize */,
 				3CC752682008499D00C03C6B /* UIView+Progress */,
-				3CC7526B2008499D00C03C6B /* UIButton+EnlargeArea.m */,
 				3CC7526C2008499D00C03C6B /* MBProgressHUD */,
 				3CC7526F2008499D00C03C6B /* fmdb */,
 				3CC7527B2008499D00C03C6B /* JSONModel */,
@@ -3142,7 +3142,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3206,7 +3206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

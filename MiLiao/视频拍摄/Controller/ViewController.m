@@ -60,13 +60,13 @@ typedef enum {
 
 @interface ViewController ()<NvsStreamingContextDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,QBImagePickerControllerDelegate,GenerationViewDelegate,UINavigationControllerDelegate> {
     
-    NSTimer             *_timer;
+
     NvsVideoTrack       *_videoTrack;
-    NSString *outputFilePath;//最后一段录制的视频路径
-    GenerationView   *generationView;
-    NSString *compileVideo;//打包生成的视频
-    NSString *_compileVideoDir;
-    NvsTimeline *_timeline;
+    NSString            *outputFilePath;//最后一段录制的视频路径
+    GenerationView      *generationView;
+    NSString            *compileVideo;//打包生成的视频
+    NSString            *_compileVideoDir;
+    NvsTimeline         *_timeline;
 }
 
 @property (weak, nonatomic) IBOutlet NvsLiveWindow *liveWindow;
@@ -116,6 +116,12 @@ typedef enum {
 
 @property (nonatomic, strong) AliyunMediaConfig *compositionConfig;
 @property (nonatomic, strong) QUProgressView *progressView;//进度条
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) UILabel *timerLabel;
+@property (nonatomic, assign) int count;
+@property (nonatomic, strong) UIView *backGroundView;
+@property (nonatomic, strong) UIView *animationView;
+
 
 @end
 
@@ -167,6 +173,11 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+     [self stopAnimation];
+//    NSLog(@"============");
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -250,10 +261,10 @@ typedef enum {
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextButton.hidden = YES;
-    _nextButton.frame = CGRectMake(WIDTH-80, 20, 60, 30);
+    _nextButton.frame = CGRectMake(WIDTH-80, ML_StatusBarHeight+10, 60, 30);
     [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
-    _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    _nextButton.backgroundColor = [UIColor lightGrayColor];
+    _nextButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    _nextButton.backgroundColor = NavColor;
     _nextButton.layer.cornerRadius = 4.0;
     [_nextButton addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_nextButton];
@@ -269,6 +280,8 @@ typedef enum {
     [self.view addSubview:_updateButton];
     
     [self setupParamData];
+    
+    _liveWindow.frame = CGRectMake(0, 0, WIDTH, ML_TopHeight);
 //    _progressView = [[QUProgressView alloc]initWithFrame:CGRectMake(0, 20, WIDTH, 5)];
 //    _progressView.maxDuration = 30.0;
 //    _progressView.minDuration = 2.0;
@@ -293,15 +306,35 @@ typedef enum {
 //    }
 }
 
-
 //返回按钮
 - (void)addBackButton {
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backButton.frame = CGRectMake(15, 27, 40, 30);
-    [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+    [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backButton];
+    //录制时间显示
+    self.timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,ML_StatusBarHeight+10, 100, 15)];
+    self.timerLabel.hidden = YES;
+    self.timerLabel.textColor = [UIColor redColor];
+    self.timerLabel.text = @"00:00";
+    self.timerLabel.font = [UIFont systemFontOfSize:13.0];
+    [self.view addSubview:_timerLabel];
+    
+    _backGroundView = [[UILabel alloc]initWithFrame:CGRectMake(0, ML_StatusBarHeight,WIDTH , 5)];
+    _backGroundView.backgroundColor = [UIColor lightGrayColor];
+    _backGroundView.alpha = 0.5;
+    _backGroundView.hidden = YES;
+    
+    
+    _animationView = [[UILabel alloc]initWithFrame:CGRectMake(-WIDTH, ML_StatusBarHeight, WIDTH, 5)];
+    _animationView.backgroundColor = NavColor;
+    _animationView.hidden = YES;
+    
+    [self.view addSubview:_backGroundView];
+    [self.view addSubview:_animationView];
 }
+
 #pragma mark - 设置录制参数
 - (void)setupParamData {
     _compositionConfig = [[AliyunMediaConfig alloc] init];
@@ -476,8 +509,8 @@ typedef enum {
         // 开始录制
         [_context startRecordingWithFx:outputFilePath];
         [self recorderViewHidden];
-        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(beganCapture:) userInfo:nil repeats:NO];
-        
+        //计时器
+        [self startBtnClick];
 
         [self.recordLabel setText:@""];
         [self.recordButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
@@ -488,7 +521,8 @@ typedef enum {
     // 停止录制
     [_context stopRecording];
     [self recorderViewShow];
-    [_timer invalidate];
+    
+    [self stopAnimation];
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
     if ([_context captureDeviceCount] > 1)
@@ -526,16 +560,70 @@ typedef enum {
     [self setEditType:EDIT_TYPE_NONE];
     
 }
+//开始计时
+- (void)startBtnClick {
+    _animationView.hidden = NO;
+    _backGroundView.hidden = NO;
+    _backButton.hidden = YES;
+    _timerLabel.hidden = NO;
+    _nextButton.hidden = YES;
+    _animationView.frame = CGRectMake(-WIDTH, ML_StatusBarHeight, WIDTH, 5);
+    
+    [self startAnimation];
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    self.count = 0;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(repeatShowTime:) userInfo:@"admin" repeats:YES];
+}
+//时间戳开始
+- (void)repeatShowTime:(NSTimer *)tempTimer {
+    
+    self.count++;
+    if (self.count >= 2) {
+        _nextButton.hidden = NO;
+    }
+    self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d",self.count/60,self.count%60];
+}
+#pragma mark - 进度条动画
+- (void)startAnimation {
+   
+    [UIView animateWithDuration:30 animations:^{
+        [UIView setAnimationDelay:0];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        CGPoint point = _animationView.center;
+        point.x += WIDTH;
+        [_animationView setCenter:point];
+
+    } completion:^(BOOL finished){
+        _animationView.frame = CGRectMake(0, ML_StatusBarHeight, WIDTH, 5);
+    }];
+}
+//停止动画
+- (void)stopAnimation {
+    _backButton.hidden = NO;
+    _animationView.hidden = YES;
+    _backGroundView.hidden = YES;
+    _timerLabel.hidden = YES;
+    _count = 0;
+    _timerLabel.text = @"00:00";
+    
+    [_timer invalidate];
+    [_animationView.layer removeAllAnimations];
+}
 //延时显示
 - (void)beganCapture:(NSTimer *)timer {
     _nextButton.hidden = NO;
 }
+
 #pragma mark - 点击下一步
 - (void)nextButtonClick:(UIButton *)but {
  
     [_context stopRecording];
     [self recorderViewShow];
-    [_timer invalidate];
+    [self stopAnimation];
+    
     _nextButton.hidden = YES;
     [self.recordLabel setText:@"开始拍"];
     [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];

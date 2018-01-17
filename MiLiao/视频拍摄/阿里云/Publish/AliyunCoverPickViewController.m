@@ -25,6 +25,7 @@
 
 @property (nonatomic, strong) VODUploadSVideoClient *client;
 @property (nonatomic, strong) UILabel *stateLabel;
+@property (nonatomic, strong) UIButton *backButton;
 @end
 
 @implementation AliyunCoverPickViewController
@@ -35,7 +36,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    
+    
+    self.view.backgroundColor = ML_Color(97, 97, 97, 1);
     _userDefaults = [NSUserDefaults standardUserDefaults];
      [self addNotifications];
     [self setupSubviews];
@@ -47,22 +50,31 @@
 
 - (void)setupSubviews {
     self.topView = [[AliyunPublishTopView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, StatusBarHeight+44)];
-    self.topView.nameLabel.text = @"编辑封面";
-//    [self.topView.cancelButton setImage:[AliyunImage imageNamed:@"cancel"] forState:UIControlStateNormal];
-    [self.topView.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-//    [self.topView.finishButton setImage:[AliyunImage imageNamed:@"check"] forState:UIControlStateNormal];
-    [self.topView.finishButton setTitle:@"完成" forState:UIControlStateNormal];
+    
+    self.topView.nameLabel.text = @"封面和标题";
+
+    [self.topView.cancelButton setTitle:@"" forState:UIControlStateNormal];
+
+    [self.topView.finishButton setTitle:@"" forState:UIControlStateNormal];
     self.topView.delegate = self;
     self.topView.delegate = self;
     [self.view addSubview:self.topView];
     
+    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backButton.frame = CGRectMake(15, 27, 40, 30);
+    [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+    [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backButton];
+    
     CGFloat pickWith = ScreenWidth - 56;
-    CGFloat factor = _outputSize.height/_outputSize.width;
+//    CGFloat factor = _outputSize.height/_outputSize.width;
+    CGFloat factor = 16/9;
+    NSLog(@"---------->>>%lf----%lf",_outputSize.height,_outputSize.width);
     CGFloat width = ScreenWidth;
     CGFloat heigt = ScreenWidth * factor;
     CGFloat maxheight = ScreenHeight-StatusBarHeight-69-SafeBottom -pickWith/8 - 30;
     
-    if(heigt>maxheight){
+    if(heigt > maxheight){
         heigt = maxheight;
         width = heigt / factor;
     }
@@ -81,7 +93,7 @@
     self.view.backgroundColor = [AliyunIConfig config].backgroundColor;
     
     self.titleView = [[UITextField alloc] initWithFrame:CGRectMake(20, StatusBarHeight+44+ScreenWidth, ScreenWidth-40, 54)];
-    self.titleView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请添加视频描述..." attributes:@{NSForegroundColorAttributeName: rgba(188, 190, 197, 1)}];
+    self.titleView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"点击输入标题..." attributes:@{NSForegroundColorAttributeName: rgba(188, 190, 197, 1)}];
     self.titleView.tintColor = [AliyunIConfig config].timelineTintColor;;
     self.titleView.textColor = [UIColor whiteColor];
     [self.titleView setFont:[UIFont systemFontOfSize:14]];
@@ -115,6 +127,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
 }
+- (void)backBarButtonSelect:(UIButton *)button {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)keyboardWillShow:(NSNotification *)note {
    
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -144,10 +159,15 @@
 
 -(void)cancelButtonClicked {
 //    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)finishButtonClicked {
+//    if (<#condition#>) {
+//        <#statements#>
+//    } else {
+//        
+//    }
     _stateLabel.hidden = NO;
     _finishHandler(_coverView.image);
     NSString *coverPath = [_taskPath stringByAppendingPathComponent:@"cover.png"];

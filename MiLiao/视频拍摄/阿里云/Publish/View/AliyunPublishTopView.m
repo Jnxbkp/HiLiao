@@ -46,7 +46,7 @@
     [topView addSubview:backButton];
     
     self.nameLabel = [[UILabel alloc] init];
-    self.nameLabel.frame = CGRectMake((ScreenWidth-68)/2, StatusBarHeight, 68, 44);
+    self.nameLabel.frame = CGRectMake((ScreenWidth-88)/2, StatusBarHeight, 88, 44);
     self.nameLabel.font = [UIFont systemFontOfSize:14.f];
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;

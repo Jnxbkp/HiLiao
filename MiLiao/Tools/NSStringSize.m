@@ -18,11 +18,17 @@
     return labelSzie;
 }
 + (CGSize)getNSStringHeight:(NSString *)str Font:(float)font {
-    CGSize maxSize = CGSizeMake(WIDTH , 8000);
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:font]};
-    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
-    CGSize labelSzie = [str boundingRectWithSize:maxSize options:options attributes:dic context:nil].size;
-    return labelSzie;
+    NSLog(@"----------%@",str);
+    if ([str isKindOfClass:[NSString class]]) {
+        CGSize maxSize = CGSizeMake(WIDTH , 8000);
+        NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:font]};
+        NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin;
+        CGSize labelSzie = [str boundingRectWithSize:maxSize options:options attributes:dic context:nil].size;
+        return labelSzie;
+    } else {
+       return CGSizeMake(0 , 0);
+    }
+    
 }
 + (CGSize)getNSStringHeight:(NSString *)str Font:(float)font maxSize:(CGSize)maxSize {
     

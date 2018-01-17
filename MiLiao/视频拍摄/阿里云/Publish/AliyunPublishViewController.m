@@ -45,7 +45,7 @@
     if (!_finished) {
         // 片尾水印
         UIImage *image = [UIImage imageNamed:@"tail"];
-        [[AliyunPublishService service] setTailWaterMark:image frame:CGRectMake(0, 0, 84,60) duration:2];
+        [[AliyunPublishService service] setTailWaterMark:image frame:CGRectMake(0, 0, 84,60) duration:0];
         [AliyunPublishService service].exportCallback = self;
         [[AliyunPublishService service] exportWithTaskPath:_taskPath outputPath:_config.outputPath];
         
