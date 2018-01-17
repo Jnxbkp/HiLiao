@@ -39,6 +39,8 @@
 ///倒计时view
 @property (nonatomic, strong) CountDownView *countDownView;
 
+///是呼入还是呼出的电话 yes - 呼入 no - 呼出
+@property (nonatomic, assign, getter=isCallIn) BOOL callIn;
 
 @end
 
@@ -180,8 +182,6 @@ static NSInteger TestCountDown = 5;
 //检查M币
 - (void)checkMoney {
     
-   
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -209,7 +209,7 @@ static NSInteger TestCountDown = 5;
 ///判断是否可以继续通话
 - (void)isContinueCanVideoCall:(UserCallPowerModel *)canCall {
     
-    [self hangupButtonClicked];
+//    [self hangupButtonClicked];
      long seconds = [canCall.seconds longLongValue];
     
     //剩余两分钟时 开始倒计时
@@ -349,10 +349,15 @@ static NSInteger TestCountDown = 5;
 
 - (void)callDidDisconnect {
     [super callDidDisconnect];
+    RCCallDisconnectReason reason = self.callSession.disconnectReason;
+    NSLog(@"%ld", reason);
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
     //扣除最后一分钟的费用
     [self deductionCallMoney];
     [self saveCall];
+    PostNotificationNameUserInfo(VideoCallEnd, nil);
+    
+   
 }
 
 - (RCloudImageView *)remotePortraitView {

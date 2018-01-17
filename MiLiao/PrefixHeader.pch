@@ -28,6 +28,8 @@
 #import "PublicManager.h"
 #import "WomanModel.h"
 
+#import "VideoUserModel.h"//用户模型
+
 #import "User.h"
 /**
  * 单例
@@ -54,7 +56,7 @@
 
 
 #import "Masonry.h"
-
+#import "NotificationName.h"
 
 //网络请求成功
 #define SUCCESS 200
@@ -77,6 +79,9 @@
 
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+// 屏幕比例
+#define Iphone6Size [UIScreen mainScreen].bounds.size.height/667
+
 // .屏幕尺寸
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -96,6 +101,8 @@
 #define ML_NavBarHeight 44.0
 #define ML_TabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) //底部tabbar高度
 #define ML_TopHeight (ML_StatusBarHeight + ML_NavBarHeight) //整个导航栏高度
+
+#define RGBColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //颜色
 #define ML_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]

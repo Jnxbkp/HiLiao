@@ -54,4 +54,106 @@
         failure(error);
     }];
 }
+//根据用户id获取视频列表
+//POST /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
++ (void)NetPostgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+
+    [manager POST:[NSString stringWithFormat:@"%@/v1/video/getVideoListById/%@/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token,userId] parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+//关注大VV
+//POST  /v1/bigV/careUser
+/*
+ McGuanZhuDto {
+ bgzaccount (string): 被关注者账号 ,
+ gzaccount (string): 关注者账号 ,
+ sfgz (string, optional): 是否关注 ,
+ token (string): Token
+ }
+ */
++ (void)NetPostCareBigVToken:(NSString *)token sfgz:(NSString *)sfgz bgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *muDic = [NSMutableDictionary dictionary];
+    muDic[@"bgzaccount"] = bgzaccount;
+    muDic[@"token"] = token;
+    muDic[@"gzaccount"] = gzaccount;
+    muDic[@"sfgz"] = sfgz;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"McGuanZhuDto"] = muDic;
+    
+    
+    [manager POST:[NSString stringWithFormat:@"%@/v1/bigV/careUser",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+//获取大V评价
+//GET /v1/bigV/getBigVEvaluationList
++ (void)NetGetBigVEvaluationListUsername:(NSString *)username success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"username"] = username;
+    [manager GET:[NSString stringWithFormat:@"%@/v1/bigV/getBigVEvaluationList",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+//获取大V亲密度列表
+//Get /v1/bigV/getIntimateList
++ (void)NetGetIntimateListUsername:(NSString *)username success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"username"] = username;
+    [manager GET:[NSString stringWithFormat:@"%@/v1/bigV/getIntimateList",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+//关注大V
+//POST /v1/bigV/careUser
++ (void)NetPostCareuserBgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount sfgz:(NSString *)sfgz token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"bgzaccount"] = bgzaccount;
+    param[@"gzaccount"] = gzaccount;
+    param[@"sfgz"] = sfgz;
+    param[@"token"] = token;
+    NSLog(@"----->>%@",param);
+    [manager POST:[NSString stringWithFormat:@"%@/v1/bigV/careUser",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+   
+}
 @end

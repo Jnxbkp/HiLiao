@@ -28,19 +28,7 @@
 //上方视图
 - (void)addHeadView {
 
-    //    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    _backButton.frame = CGRectMake(15, 27, 40, 30);
-    //    [_backButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
-    //    [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
-
     _loopView = [FSLoopScrollView loopImageViewWithFrame:CGRectMake(0, 0, WIDTH, WIDTH) isHorizontal:YES];
-//    _loopView.imgResourceArr = @[@"http://img05.tooopen.com/images/20150202/sy_80219211654.jpg",
-//                                @"http://img06.tooopen.com/images/20161123/tooopen_sy_187628854311.jpg",
-//                                @"http://img07.tooopen.com/images/20170306/tooopen_sy_200775896618.jpg",
-//                                @"http://img06.tooopen.com/images/20170224/tooopen_sy_199503612842.jpg",
-//                                @"http://img02.tooopen.com/images/20160316/tooopen_sy_156105468631.jpg"];
-    
-    
     
     _stateButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _stateButton.backgroundColor = [UIColor greenColor];
@@ -64,7 +52,8 @@
     _focusButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _focusButton.backgroundColor = ML_Color(255, 255, 255, 0.7);
     [_focusButton setTitleColor:ML_Color(250, 114, 152, 1) forState:UIControlStateNormal];
-    [_focusButton setTitle:@"关注" forState:UIControlStateNormal];
+   
+   
     _focusButton.frame = CGRectMake(WIDTH-76, _nameLabel.frame.origin.y, 64, 20);
     _focusButton.layer.cornerRadius = 9.0;
     [_focusButton addTarget:self action:@selector(selectFocusButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -86,7 +75,6 @@
 
     UILabel *downLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, WIDTH+150, WIDTH, 8)];
     downLabel.backgroundColor = Color242;
-    
     
     [self addSubview:_loopView];
     [self addSubview:_stateButton];
@@ -132,12 +120,20 @@
             [self addSubview:iconImageView];
             [self addSubview:lineLabel];
         } else {
+            
             _weixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, button.frame.origin.y+18, WIDTH/2-12, 14)];
-            _weixinLabel.text = @"点击获取";
-            _weixinLabel.textColor = NavColor;
+            _weixinLabel.text = @"WX******";
+            _weixinLabel.textColor = Color75;
             _weixinLabel.textAlignment = NSTextAlignmentRight;
             _weixinLabel.font = [UIFont systemFontOfSize:14.0];
-             [self addSubview:_weixinLabel];
+            
+            _getweixinLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH-140, button.frame.origin.y+18, 60, 14)];
+            _getweixinLabel.text = @"购买查看";
+            _getweixinLabel.textColor = NavColor;
+            _getweixinLabel.font = [UIFont systemFontOfSize:14.0];
+            
+             [self addSubview:_getweixinLabel];
+            [self addSubview:_weixinLabel];
         }
         [self addSubview:label];
         [self addSubview:button];
@@ -145,11 +141,17 @@
     }
 
 }
+//关注
 - (void)selectFocusButton:(UIButton *)button {
-    NSLog(@"selectFocus");
+    [self.delegate focusButtonSelect:button];
 }
+//亲密度和微信
 - (void)mindButtonSelect:(UIButton *)button {
-    NSLog(@"select");
+    if (button.tag == buttonTag+1) {
+        [self.delegate loveNumButtonselect];
+    } else if (button.tag == buttonTag+2) {
+        [self.delegate weiXinButtonSelect];
+    }
 }
 //- (void)backBarButtonSelect:(UIButton *)button {
 //    [self.navigationController popViewControllerAnimated:YES];

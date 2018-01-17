@@ -28,14 +28,16 @@
 #import "MainMananger.h"
 
 #import "VideoUserModel.h"
-
-//
+#import "LoveViewController.h"
+#import "EvaluateVideoViewController.h"//评价
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
 
+#define buyVChatButtonTag 800
 #define downButtonTag   2000
-@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
+
+@interface FSBaseViewController ()<UITableViewDelegate,UITableViewDataSource,FSPageContentViewDelegate,FSSegmentTitleViewDelegate,topButtonDelegate> {
     NSUserDefaults  *_userDefaults;
     WomanModel      *_womanModel;
     UIButton        *_backButton;
@@ -46,6 +48,10 @@
     UIView          *_navView;
     UIView          *_colorView;
     NSMutableArray  *_imageMuArr;
+    
+    UIView          *_backGroundView;
+    UIView          *_buyVChatView;
+    UIButton        *_foucusButton;
     
 }
 @property (nonatomic, strong) FSBaseTableView *tableView;
@@ -87,6 +93,8 @@
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
    
+    ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
    
     self.view.backgroundColor = [UIColor whiteColor];
@@ -109,6 +117,21 @@
     [self addFootView];
      [self addNavView];
     [self setupSubViews];
+    
+}
+
+
+- (void)notificationFunc:(NSNotification *)notification {
+    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
+        
+    }];
+    EvaluateVideoViewController *vc = [[EvaluateVideoViewController alloc] init];
+    UIView *view = vc.view;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self.view).offset(5);
+        make.right.bottom.equalTo(self.view).offset(-5);
+    }];
 }
 
 - (void)setupSubViews
@@ -119,6 +142,42 @@
 //    [self.tableView addPullToRefreshWithActionHandler:^{
 //        [weakSelf insertRowAtTop];
 //    }];
+    _backGroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    _backGroundView.backgroundColor = ML_Color(0, 0, 0, 0.49);
+    _backGroundView.hidden = YES;
+    
+    _buyVChatView = [[UIView alloc]initWithFrame:CGRectMake(54*Iphone6Size, 266*Iphone6Size, WIDTH-(54*Iphone6Size)*2, 150*Iphone6Size)];
+    _buyVChatView.hidden = YES;
+    _buyVChatView.backgroundColor = Color255;
+    _buyVChatView.layer.cornerRadius = 5.0;
+    
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 28, _buyVChatView.frame.size.width, 14)];
+    titleLabel.font = [UIFont systemFontOfSize:14.0];
+    titleLabel.text = @"需支付2000M币，是否立即支付";
+    titleLabel.textColor = Color155;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    NSArray *buttonArr = [NSArray arrayWithObjects:@"否",@"是", nil];
+    for (int i = 0; i < buttonArr.count; i ++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.tag = buyVChatButtonTag+i;
+        button.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [button setTitle:buttonArr[i] forState:UIControlStateNormal];
+        button.layer.cornerRadius = 5.0;
+        [button addTarget:self action:@selector(buyVChatButton:) forControlEvents:UIControlEventTouchUpInside];
+        if (i == 0) {
+            button.frame = CGRectMake(24, _buyVChatView.frame.size.height-62, 48, 34);
+            button.backgroundColor = Color242;
+            [button setTitleColor:Color75 forState:UIControlStateNormal];
+        } else {
+            button.frame = CGRectMake(_buyVChatView.frame.size.width-24-48, _buyVChatView.frame.size.height-62, 48, 34);
+            button.backgroundColor = ML_Color(255, 239, 239, 1);
+            [button setTitleColor:ML_Color(250, 114, 152, 1) forState:UIControlStateNormal];
+        }
+        [_buyVChatView addSubview:button];
+    }
+    [_buyVChatView addSubview:titleLabel];
+    [self.view addSubview:_backGroundView];
+    [self.view addSubview:_buyVChatView];
 }
 - (void)addNavView {
     _navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, ML_TopHeight)];
@@ -191,6 +250,17 @@
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
+}
+//微信购买
+- (void)buyVChatButton:(UIButton *)button {
+    _backGroundView.hidden = YES;
+    _buyVChatView.hidden = YES;
+    
+    if (button.tag == buyVChatButtonTag) {
+        
+    } else {
+        
+    }
 }
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
@@ -265,9 +335,9 @@
 - (void)videoCall {
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 //     [[RCCall sharedRCCall] startSingleVideoCall:@"18678899778" price:self.videoUserModel.price costUserId:self.videoUserModel.ID];
+    
+    
 }
-
-
 
 #pragma mark - 计算可通话时长
 //计算可通话时长
@@ -416,26 +486,23 @@
                 if ([title isEqualToString:@"资料"]) {
                     HLZiLiaoController *detailVC = [[HLZiLiaoController alloc]init];
                     detailVC.womanModel = _womanModel;
+                    
                     [contentVCs addObject:detailVC];
                 } else if ([title isEqualToString:@"视频"]) {
                     VideoViewController *videoVC = [[VideoViewController alloc]init];
+                    videoVC.videoUserModel = _videoUserModel;
                     [contentVCs addObject:videoVC];
                 } else {
                     MLCommentsViewController *vc = [[MLCommentsViewController alloc]init];
                     vc.title = title;
                     vc.str = title;
+                    vc.videoUserModel = _videoUserModel;
                     [contentVCs addObject:vc];
                 }
             }
             _contentCell.viewControllers = contentVCs;
             _contentCell.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT - 50) childVCs:contentVCs parentVC:self delegate:self];
-//            for (UIViewController *VC in contentVCs) {
-//                if ([VC isKindOfClass:[HLZiLiaoController class]]) {
-//                    _contentCell.frame = CGRectMake(0, 0, WIDTH, 386);
-//                    _contentCell.pageContentView.frame = CGRectMake(0, 0, WIDTH, 386);
-//                }
-//               
-//            }
+
             [_contentCell.contentView addSubview:_contentCell.pageContentView];
         }
         return _contentCell;
@@ -445,14 +512,26 @@
         if (!cell) {
             cell = [[FSBaseTopTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FSBaseTopTableViewCellIdentifier];
         }
-    
+        cell.delegate = self;
         if (_imageMuArr.count >0) {
             cell.loopView.imgResourceArr = _imageMuArr;
         }
         
         [cell.priceView setPrice:@"20"];
+
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
+
+        if ([_womanModel.sfgz isEqualToString:@"1"]) {
+            cell.focusButton.selected = YES;
+            [cell.focusButton setImage:nil forState:UIControlStateNormal];
+            [cell.focusButton setTitle:@"已关注" forState:UIControlStateNormal];
+        } else {
+            cell.focusButton.selected = NO;
+            [cell.focusButton setImage:[UIImage imageNamed:@"guanzhu"] forState:UIControlStateNormal];
+            [cell.focusButton setTitle:@"关注" forState:UIControlStateNormal];
+            cell.focusButton.imageEdgeInsets = UIEdgeInsetsMake(5, 13, 5, 42);
+        }
         return cell;
     }else{
         FSBaselineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FSBaselineTableViewCellIdentifier];
@@ -464,15 +543,56 @@
     return nil;
 }
 
+#pragma mark topCellDelegate
+- (void)focusButtonSelect:(UIButton *)button {
+    _focusButton = [[UIButton alloc]init];
+    _focusButton = button;
+    if (button.selected == YES) {
+        NSLog(@"--------<>><><><><>");
+        button.selected = NO;
+        [_focusButton setImage:[UIImage imageNamed:@"guanzhu"] forState:UIControlStateNormal];
+        [_focusButton setTitle:@"关注" forState:UIControlStateNormal];
+        [self NetPostSelectFocusButtonisFocus:@"0"];
+    } else {
+        NSLog(@"--------->>>");
+        button.selected = YES;
+        [_focusButton setImage:nil forState:UIControlStateNormal];
+        [_focusButton setTitle:@"已关注" forState:UIControlStateNormal];
+        [self NetPostSelectFocusButtonisFocus:@"1"];
+    }
+
+}
+
+- (void)loveNumButtonselect {
+    LoveViewController *loveVC = [[LoveViewController alloc]init];
+    loveVC.womanModel = _womanModel;
+    [self.navigationController pushViewController:loveVC animated:YES];
+}
+
+- (void)weiXinButtonSelect {
+    _backGroundView.hidden = NO;
+    _buyVChatView.hidden = NO;
+}
+//关注的请求方法
+- (void)NetPostSelectFocusButtonisFocus:(NSString *)isFocus {
+  
+    [MainMananger NetPostCareuserBgzaccount:_womanModel.username gzaccount:[YZCurrentUserModel sharedYZCurrentUserModel].username sfgz:isFocus token:[YZCurrentUserModel sharedYZCurrentUserModel].token success:^(NSDictionary *info) {
+        NSLog(@"---%@--",info);
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
+}
 #pragma mark FSSegmentTitleViewDelegate
 - (void)FSContenViewDidEndDecelerating:(FSPageContentView *)contentView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex
 {
+    NSLog(@"-----------------%lu",endIndex);
     self.titleView.selectIndex = endIndex;
     _tableView.scrollEnabled = YES;//此处其实是监测scrollview滚动，pageView滚动结束主tableview可以滑动，或者通过手势监听或者kvo，这里只是提供一种实现方式
 }
 
 - (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex
 {
+    NSLog(@"--------------->>>select--%lu",endIndex);
     self.contentCell.pageContentView.contentViewCurrentIndex = endIndex;
 }
 

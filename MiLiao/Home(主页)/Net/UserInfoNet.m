@@ -19,9 +19,14 @@ static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
 //保存通话记录
 static NSString *SaveCall = @"/v1/call/saveUserCall";
 
+///获取评价标签
+static NSString *GetEvaluate = @"/v1/dict/getTags";
+
 
 /////////类名
 static NSString *UserCallPowerModelClass = @"UserCallPowerModel";
+///评价标签模型
+static NSString *EvaluateTagModel = @"EvaluateTagModel";
 
 //获取当前用户的token
 NSString *tokenForCurrentUser() {
@@ -163,6 +168,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  };
     [self Post:SaveCall parameters:parameters complete:complete];
     
+}
+
+///获取评价标签
++ (void)getEvaluate:(RequestResult)result {
+    [self Get:GetEvaluate parameters:@{@"token":tokenForCurrentUser()} modelClass:NSClassFromString(EvaluateTagModel) result:result];
 }
 
 

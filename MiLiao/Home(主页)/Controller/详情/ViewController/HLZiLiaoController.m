@@ -75,7 +75,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 82;
+        return 82+48;
     } else {
         return 38;
     }
@@ -83,8 +83,11 @@
 }
 //tableview头部高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 48;
+    }
+    return 0;
     
-    return 48;
 }
 //- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 //    return 0;
@@ -94,16 +97,17 @@
     UIView *headView = [[UIView alloc]init];
     headView.backgroundColor = [UIColor whiteColor];
 
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 17, WIDTH-24, 14)];
-    titleLabel.font = [UIFont systemFontOfSize:14.0];
-    titleLabel.textColor = Color75;
-    if (section == 0) {
-        titleLabel.text = @"印象标签";
-    } else {
-        titleLabel.text = @"个人资料";
-    }
     
-    [headView addSubview:titleLabel];
+    if (section == 1) {
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 17, WIDTH-24, 14)];
+        titleLabel.font = [UIFont systemFontOfSize:14.0];
+        titleLabel.textColor = Color75;
+        titleLabel.text = @"个人资料";
+        
+        [headView addSubview:titleLabel];
+    } else {
+        
+    }
     
     return headView;
 }
@@ -123,27 +127,35 @@
             }
         }
         
-        UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 6, 60, 12)];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 17, WIDTH-24, 14)];
+        titleLabel.font = [UIFont systemFontOfSize:14.0];
+        titleLabel.textColor = Color75;
+        titleLabel.text = @"印象标签";
+        
+        UILabel *myLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 6+48, 60, 12)];
         myLabel.text = @"自评形象";
         myLabel.textColor = ML_Color(127, 127, 127, 1);
         myLabel.font = [UIFont systemFontOfSize:13.0];
         
-        UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 42, 60, 12)];
+        UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 42+48, 60, 12)];
         userLabel.text = @"用户形象";
         userLabel.textColor = ML_Color(127, 127, 127, 1);
         userLabel.font = [UIFont systemFontOfSize:13.0];
         
         ItemsView *itemView = [[ItemsView alloc]init];
-        [itemView setItemsArr:_itemArr];
-        itemView.frame = CGRectMake(WIDTH-itemView.itemsViewWidth-12, 0, itemView.itemsViewWidth, 24);
+        [itemView setItemsDicArr:_womanModel.evaluationList];
+        itemView.frame = CGRectMake(WIDTH-itemView.itemsViewWidth-12, 48, itemView.itemsViewWidth, 24);
         
         ItemsView *itemView1 = [[ItemsView alloc]init];
-        [itemView1 setItemsArr:_itemArr1];
-        itemView1.frame = CGRectMake(WIDTH-itemView1.itemsViewWidth-12, 36, itemView1.itemsViewWidth, 24);
+        [itemView1 setItemsArr:_womanModel.userTags];
+        itemView1.frame = CGRectMake(WIDTH-itemView1.itemsViewWidth-12, 36+48, itemView1.itemsViewWidth, 24);
         
-        UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 74, WIDTH, 8)];
+        UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 74+48, WIDTH, 8)];
         lineLabel.backgroundColor = Color242;
         
+        [cell.contentView addSubview:titleLabel];
         [cell.contentView addSubview:myLabel];
         [cell.contentView addSubview:userLabel];
         [cell.contentView addSubview:itemView];
@@ -172,7 +184,6 @@
         } else {
             cell.messageLabel.text = _womanModel.city;
         }
-        
         return cell;
     }
     
