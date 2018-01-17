@@ -282,6 +282,7 @@
                 } else {
                     [self showPayAlertController:^{
                         //去充值
+                        
                     } continueCall:^{
                         //继续视频
                         [weakSelf videoCall];
