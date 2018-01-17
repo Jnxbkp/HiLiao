@@ -80,8 +80,8 @@
 {
     static NSString *Identifier =@"messageCell";
     messageCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
-    CallListModel *callModel = self.modelArray[indexPath.row];
-    cell.model = callModel;
+    self.callListModel = self.modelArray[indexPath.row];
+    cell.model =  self.callListModel;
 
     return cell;
 }
@@ -125,7 +125,7 @@
 }
 ///视频聊天
 - (void)videoCall {
-    [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+    [[RCCall sharedRCCall] startSingleVideoCallToCallListUser:self.callListModel];
 }
 ///去充值
 - (void)showPayAlertController:(void(^)(void))pay {

@@ -1876,16 +1876,16 @@
 		3CC7531E2008828700C03C6B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3CC7531F2008828700C03C6B /* RCCallVideoMultiCallViewController.m */,
 				3CC753202008828700C03C6B /* RCCallBaseViewController.h */,
-				3CC753212008828700C03C6B /* RCCallSingleCallViewController.m */,
-				3CC753222008828700C03C6B /* RCCallAudioMultiCallViewController.h */,
-				3CC753232008828700C03C6B /* RCCallSelectMemberViewController.m */,
 				3CC753242008828700C03C6B /* RCCallBaseViewController.m */,
+				3CC753222008828700C03C6B /* RCCallAudioMultiCallViewController.h */,
+				3CC7531F2008828700C03C6B /* RCCallVideoMultiCallViewController.m */,
+				3CC753232008828700C03C6B /* RCCallSelectMemberViewController.m */,
+				3CC753282008828700C03C6B /* RCCallSelectMemberViewController.h */,
 				3CC753252008828700C03C6B /* RCCallVideoMultiCallViewController.h */,
 				3CC753262008828700C03C6B /* RCCallAudioMultiCallViewController.m */,
 				3CC753272008828700C03C6B /* RCCallSingleCallViewController.h */,
-				3CC753282008828700C03C6B /* RCCallSelectMemberViewController.h */,
+				3CC753212008828700C03C6B /* RCCallSingleCallViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3305,6 +3305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3355,7 +3356,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3369,6 +3370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3419,7 +3421,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
