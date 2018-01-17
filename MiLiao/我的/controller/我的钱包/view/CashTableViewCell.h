@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MingXiModel;
 @interface CashTableViewCell : UITableViewCell
 
 @end

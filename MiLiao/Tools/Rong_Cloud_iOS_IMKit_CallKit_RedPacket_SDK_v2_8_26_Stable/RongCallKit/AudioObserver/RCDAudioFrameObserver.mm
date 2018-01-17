@@ -25,8 +25,8 @@ bool RCDAudioFrameObserver::onMixedAudioFrame(agora::media::IAudioFrameObserver:
 }
 bool RCDAudioFrameObserver::onPlaybackAudioFrameBeforeMixing(
     unsigned int uid, agora::media::IAudioFrameObserver::AudioFrame &audioFrame) {
-    NSString *userId = rcGetUserIdFromAgoraUID(uid);
-    NSLog(@"the user id is %@", userId);
+//    NSString *userId = rcGetUserIdFromAgoraUID(uid);
+//    NSLog(@"the user id is %@", userId);
     return true;
 }
 //For Agora Only End

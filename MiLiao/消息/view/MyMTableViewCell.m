@@ -1,14 +1,14 @@
 //
-//  CashTableViewCell.m
+//  MyMTableViewCell.m
 //  MiLiao
 //
-//  Created by apple on 2018/1/15.
+//  Created by apple on 2018/1/17.
 //  Copyright © 2018年 Jarvan-zhang. All rights reserved.
 //
 
-#import "CashTableViewCell.h"
+#import "MyMTableViewCell.h"
 
-@implementation CashTableViewCell
+@implementation MyMTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

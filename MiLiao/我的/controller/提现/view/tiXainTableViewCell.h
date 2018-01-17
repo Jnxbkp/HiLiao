@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^BackBlock)(void);
 @interface tiXainTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *zhanghu;
+@property (weak, nonatomic) IBOutlet UILabel *zhanghuName;
+@property (weak, nonatomic) IBOutlet UILabel *moblel;
+@property (nonatomic, copy) BackBlock sureBlock;
 
 @end

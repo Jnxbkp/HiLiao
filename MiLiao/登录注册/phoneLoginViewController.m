@@ -43,13 +43,43 @@
     self.navigationController.navigationBarHidden = NO;
     [super viewWillDisappear:animated];
 }
+- (IBAction)eye:(UIButton *)sender {
+    // 前提:在xib中设置按钮的默认与选中状态的背景图
+    // 切换按钮的状态
+    sender.selected = !sender.selected;
+    
+    if (sender.selected) { // 按下去了就是明文
+        
+        NSString *tempPwdStr = self.password.text;
+        self.password.text = @""; // 这句代码可以防止切换的时候光标偏移
+        self.password.secureTextEntry = NO;
+        self.password.text = tempPwdStr;
+        
+    } else { // 暗文
+        
+        NSString *tempPwdStr = self.password.text;
+        self.password.text = @"";
+        self.password.secureTextEntry = YES;
+        self.password.text = tempPwdStr;
+    }
+    
+}
+
 //注册
 - (IBAction)registe:(id)sender {
     registerViewController *registerVC = [[registerViewController alloc]init];
+
+    YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:registerVC];
+    
+    [self presentViewController:nav animated:NO completion:^{
+
+
+
+    }];
 //    [self presentViewController:registerVC animated:YES completion:^{
     
 //    }];
-    [self.navigationController pushViewController:registerVC animated:YES];
+//    [self.navigationController pushViewController:nav animated:YES];
 }
 //登录
 - (IBAction)login:(id)sender {
@@ -168,7 +198,9 @@
 //忘记密码
 - (IBAction)forget:(id)sender {
     forgetPassViewController *forget = [[forgetPassViewController alloc]init];
-    [self.navigationController pushViewController:forget animated:YES];
+    YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:forget];
+    [self presentViewController:nav animated:NO completion:^{
+    }];
 }
 //快速登录
 - (void)quickLogInname:(NSString *)name platform:(NSString *)platform token:(NSString *)token uid:(NSString *)uid {
@@ -238,5 +270,13 @@
     [RCIM sharedRCIM].currentUserInfo = _currentUserInfo;
     [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
     
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (textField == self.password && textField.isSecureTextEntry) {
+        textField.text = toBeString;
+        return NO;
+    }
+    return YES;
 }
 @end

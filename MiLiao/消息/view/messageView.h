@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^BackBlock)();
+typedef void (^BackBlock)(void);
 
 @interface messageView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *btnTonghua;

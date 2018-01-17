@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^textFieldBlock) (NSString*str);
+typedef void (^BackBlock)(void);
 
 @interface headerView : UIView
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
+
+@property(nonatomic,copy)textFieldBlock textFiledClick;//输入框block
+@property (nonatomic, copy) BackBlock sureBlock;
+@property (nonatomic, copy) BackBlock mingxiBlock;
 @end

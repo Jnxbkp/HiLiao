@@ -13,6 +13,8 @@
 #import "QLStarView.h"//星星view
 #import "SetMoneyView.h"//结算成功的view
 
+#import "UserInfoNet.h"
+
 @implementation TagButton
 
 - (void)setEvaluateTag:(EvaluateTagModel *)evaluateTag {
@@ -107,10 +109,14 @@
 
 ///选中的标签数组
 @property (nonatomic, strong) NSMutableArray<EvaluateTagModel *> *selecetdEvaluateArray;
+///评价 星星的个数
+@property (nonatomic, strong) NSString *score;
 @end
 
 @implementation EvaluateVideoViewController
-
+{
+    EvaluateSuccessBlock _evaluateBlock;
+}
 #pragma mark - Getter
 - (NSMutableArray<EvaluateTagModel *> *)selecetdEvaluateArray {
     if (!_selecetdEvaluateArray) {
@@ -195,7 +201,7 @@
             self.tagModelArray = modelArray;
         }
     }];
-    [self showSueecss];
+    [self showSuccessView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -227,8 +233,29 @@
     
 }
 
+///星星评价的个数
 - (void)clickIndex:(NSInteger)index {
-    NSLog(@"%ld", index);
+    self.score = [NSString stringWithFormat:@"%ld", index];
+}
+
+- (IBAction)sureButtonClick:(id)sender {
+    
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    [self.selecetdEvaluateArray enumerateObjectsUsingBlock:^(EvaluateTagModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [mutableArray addObject:obj.ID];
+    }];
+    
+    [UserInfoNet saveEvaluateAnchorName:self.anchorName callId:self.callID score:self.score tags:mutableArray complete:^(RequestState success, NSString *msg) {
+        NSString *message = @"评价成功";
+        if (!success) message = msg;
+        [SVProgressHUD showWithStatus:message];
+        !_evaluateBlock?:_evaluateBlock();
+    }];
+}
+
+///评价成功的回调
+- (void)evaluateSuccess:(EvaluateSuccessBlock)success {
+    _evaluateBlock = success;
 }
 
 /*

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CallListModel;
 @interface MyCallViewController : UIViewController
+@property (nonatomic, strong) CallListModel *callListModel;
 
 @end
