@@ -48,4 +48,14 @@
 //保存用户账户提现信息
 //POST /v1/user/saveUserWirthdrawInfo
 + (void)saveUserWirthdrawInfoverifyCode:(NSString *)verifyCode token:(NSString *)token account:(NSString *)account accountName :(NSString *)accountName  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//大V设置单价
+//POST /v1/user/setPrice
++ (void)setPrice:(NSString *)price token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//获取我的提现信息
+// GET /v1/moneyDetail/getWalletInfo
++ (void)getWalletInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//POST /v1/user/saveUserWirthdrawInfo 保存用户提现账户信息
++ (void)saveUserWirthdrawInfotoken:(NSString *)token Account:(NSString *)account AccountName:(NSString *)accountName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//POST /v1/wirthdraw/saveWirthdrawInfo 提现信息申请
++ (void)saveWirthdrawInfotoken:(NSString *)token Account:(NSString *)account amount:(NSString *)amount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end

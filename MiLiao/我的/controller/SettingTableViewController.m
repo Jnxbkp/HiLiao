@@ -10,6 +10,10 @@
 #import "IQActionSheetPickerView.h"
 
 @interface SettingTableViewController ()<IQActionSheetPickerViewDelegate>
+{
+    NSUserDefaults *_userDefaults;
+
+}
 @property (weak, nonatomic) IBOutlet UILabel *money;
 @property (weak, nonatomic) IBOutlet UISwitch *swich;
 @property (nonatomic, copy) NSString * strM;
@@ -29,6 +33,8 @@
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"设置"];
     self.swich.on = YES;//设置初始为ON的一边
    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+
 }
 - (IBAction)swich:(UISwitch *)sender {
     BOOL isButtonOn = [self.swich isOn];
@@ -42,7 +48,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"" delegate:self];
-        [picker setTag:0];
         picker.toolbarTintColor = [UIColor whiteColor];
         picker.titleColor = [UIColor whiteColor];
         //        picker.titleFont = [UIFont systemFontOfSize:16];
@@ -57,10 +62,20 @@
 
 -(void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectTitles:(NSArray *)titles
 {
-    if (pickerView.tag == 0) {
         self.strCM = [titles objectAtIndex:1];
-        
         self.money.text = [NSString stringWithFormat:@"%@M币/分钟", self.strCM];
-    }
+    
+    [HLLoginManager setPrice:self.strCM token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        NSLog(@"----------------%@",info);
+        if (resultCode == SUCCESS) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            
+        }
+
+    } failure:^(NSError *error) {
+        NSLog(@"11111111111%@",error);
+    }];
 }
 @end
