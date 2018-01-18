@@ -43,6 +43,8 @@
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _password.secureTextEntry = YES;
 }
 - (void)leftButtonDidClick {
     [self dismissViewControllerAnimated:NO completion:nil];
