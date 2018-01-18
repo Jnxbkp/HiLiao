@@ -35,7 +35,7 @@
 //POST /v1/user/updateHeadUrl
 + (void)NetPostupdateHeadUrl:(NSString *)headUrl nickName:(NSString *)nickName token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/bigV/saveBigV 认证大V
-+ (void)NetPostupdateV:(NSString *)country province:(NSString *)province city:(NSString *)city constellation :(NSString *)constellation  description:(NSString *)description height:(NSString *)height nickName:(NSString *)nickName personalSign:(NSString *)personalSign personalTags :(NSString *)personalTags posters:(NSArray *)posters token:(NSString *)token weight :(NSString *)weight  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)NetPostupdateV:(NSString *)country province:(NSString *)province city:(NSString *)city constellation :(NSString *)constellation  description:(NSString *)description height:(NSNumber *)height nickName:(NSString *)nickName personalSign:(NSString *)personalSign personalTags :(NSArray *)personalTags posters:(NSArray *)posters token:(NSString *)token weight :(NSNumber *)weight wechat:(NSString *)wechat success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //获取用户信息
 //GET /v1/user/getUserInfo
 + (void)NetGetgetUserInfoToken:(NSString *)token UserId:(NSString *)userId success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
@@ -50,12 +50,14 @@
 + (void)saveUserWirthdrawInfoverifyCode:(NSString *)verifyCode token:(NSString *)token account:(NSString *)account accountName :(NSString *)accountName  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //大V设置单价
 //POST /v1/user/setPrice
-+ (void)setPrice:(NSString *)price token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)setPrice:(int  )price token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //获取我的提现信息
 // GET /v1/moneyDetail/getWalletInfo
 + (void)getWalletInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/user/saveUserWirthdrawInfo 保存用户提现账户信息
 + (void)saveUserWirthdrawInfotoken:(NSString *)token Account:(NSString *)account AccountName:(NSString *)accountName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/wirthdraw/saveWirthdrawInfo 提现信息申请
-+ (void)saveWirthdrawInfotoken:(NSString *)token Account:(NSString *)account amount:(NSString *)amount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)saveWirthdrawInfotoken:(NSString *)token amount:(NSNumber *)amount collectionAccount:(NSString *)collectionAccount collectionName:(NSString *)collectionName mobile:(NSString *)mobile remark:(NSString *)remark success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//GET /v1/dict/getTags 获取评论标签
++ (void)getTagstoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end
