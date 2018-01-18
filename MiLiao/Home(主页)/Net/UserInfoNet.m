@@ -132,16 +132,17 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 }
 
 /**
- 每分钟扣费
+ 分钟扣费
  
- @param userName userName
+ @param userName 发起通话的用户名
+ @param costUserName 大V的用户名
  @param pid pid
  @param result 返回
  */
-+ (void)perMinuteDedectionUserName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result {
-    YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
++ (void)perMinuteDedectionUserName:(NSString *)userName costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result {
+   ;
     NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
-    parameter[@"costUserName"] = user.username;
+    parameter[@"costUserName"] = costUserName;
     parameter[@"token"] = tokenForCurrentUser();
     parameter[@"userName"] = userName;
     if (pid || pid.length < 1) {
@@ -181,14 +182,14 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
  @param pid pid
  @param result 返回的结果
  */
-+ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result {
++ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result {
     
     NSDictionary *parameters = @{
                                  @"callTime":callTime,
                                  @"costUserName":costUserName,
                                  @"pid":pid,
                                  @"token":tokenForCurrentUser(),
-                                 @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
+                                 @"userName":userName
                                  };
     [self Post:FinalDeduct parameters:parameters modelClass:nil modelResult:result];
 }

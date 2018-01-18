@@ -20,6 +20,7 @@
         self.isAgent = [NSString stringWithFormat:@"%@",[dict objectForKey:@"isAgent"]];
         self.isBigv = [NSString stringWithFormat:@"%@",[dict objectForKey:@"isBigv"]];
         self.sfgz = [NSString stringWithFormat:@"%@",[dict objectForKey:@"sfgz"]];
+        self.wechat = [NSString stringWithFormat:@"%@",[dict objectForKey:@"wechat"]];
         
         self.isCommon = [dict objectForKey:@"isCommon"];
         self.jtl = [dict objectForKey:@"jtl"];
@@ -41,6 +42,9 @@
         
         self.userTags = [NSArray array];
         self.userTags = [dict objectForKey:@"userTags"];
+        
+        self.orderList = [NSArray array];
+        self.orderList = [dict objectForKey:@"orderList"];
         
     }
     return self;

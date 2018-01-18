@@ -9,6 +9,7 @@
 #import "MLSearchViewController.h"
 #import "HLSearchTableViewCell.h"
 #import "MainMananger.h"
+#import "FSBaseViewController.h"
 
 #define searchTabTag        101
 #define likeTabTag          102
@@ -17,7 +18,7 @@
 @interface MLSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UIScrollViewDelegate> {
     UISearchBar     *_searchBar;
     UITableView     *_searchTableView;
-     UITableView    *_likeTableView;
+    UITableView    *_likeTableView;
     NSUserDefaults  *_userDefaults;
     NSMutableArray  *_likeMuArr;
     UIView          *_hisView;
@@ -25,6 +26,7 @@
     NSMutableArray  *_searchArr;
     
     float       itemHeight;
+    WomanModel  *_womanModel;
 }
 
 @end
@@ -34,7 +36,11 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    UIColor *color = [UIColor clearColor];
+    [self setStatusBarBackgroundColor:color];
+}
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -112,7 +118,8 @@
 #pragma mark - tableview的组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == _likeTableView) {
-        return 2;
+//        return 2;
+        return 1;
     }
     return 1;
 }
@@ -122,7 +129,7 @@
         if (sectio == 0) {
             return 1;
         }
-        return 5;
+//        return 5;
     }
     return _searchArr.count;
 }
@@ -231,13 +238,13 @@
                 
                 [cell.contentView addSubview:titleLabel];
                 [cell.contentView addSubview:clearButton];
-                [cell.contentView addSubview:titleLabel1];
+//                [cell.contentView addSubview:titleLabel1];
             } else {
                 UILabel *titleLabel1 = [[UILabel alloc]initWithFrame:CGRectMake(12, 0, 100, 15)];
                 titleLabel1.text = @"猜你喜欢";
                 titleLabel1.font = [UIFont systemFontOfSize:15.0 weight:0.6];
                 
-                [cell.contentView addSubview:titleLabel1];
+//                [cell.contentView addSubview:titleLabel1];
             }
             
             return cell;
@@ -261,9 +268,10 @@
         if (!cell) {
             cell = [[HLSearchTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        cell.headImageView.image = [UIImage imageNamed:@"aaa"];
-        cell.nameLabel.text = @"大范围";
-        cell.messageLabel.text = @"拉单是拉萨快递发";
+        _womanModel = [[WomanModel alloc]initWithDictionary:_searchArr[indexPath.row]];
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_womanModel.headUrl] placeholderImage:nil];
+        cell.nameLabel.text = _womanModel.nickname;
+        cell.messageLabel.text = _womanModel.descriptionStr;
         cell.seeLabel.text = @"1232";
         
         return cell;
@@ -276,6 +284,13 @@
     if (tableView.tag == likeTabTag) {
         
     } else {
+        _womanModel = [[WomanModel alloc]initWithDictionary:_searchArr[indexPath.row]];
+        VideoUserModel *videoUserModel = [_searchArr objectAtIndex:indexPath.row];
+        FSBaseViewController *baseVC = [[FSBaseViewController alloc]init];
+        baseVC.videoUserModel = videoUserModel;
+        baseVC.user_id = _womanModel.user_id;
+        
+        [self.navigationController pushViewController:baseVC animated:YES];
         
     }
     
@@ -288,6 +303,7 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             _searchArr = [NSMutableArray array];
+            _searchArr = [info objectForKey:@"data"];
             [_searchTableView reloadData];
         }
     } failure:^(NSError *error) {

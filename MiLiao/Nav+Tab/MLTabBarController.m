@@ -21,26 +21,18 @@
 
 @implementation MLTabBarController
 
-+ (void)initialize {
-//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-//    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:10.0];
-//    attrs[NSForegroundColorAttributeName] = KColor(163, 163, 163);
-//
-//    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-//    selectedAttrs[NSFontAttributeName] = [UIFont fontWithName:proLight size:10.0];
-//    selectedAttrs[NSForegroundColorAttributeName] = [UIColor clearColor];
-//
-//    UITabBarItem *item = [UITabBarItem appearance];
-//    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-//    [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    
-}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    NSString *isV = @"no";
+
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = [UIColor whiteColor];
+    view.frame = self.tabBar.bounds;
+    [[UITabBar appearance] insertSubview:view atIndex:0];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
@@ -73,7 +65,7 @@
         UINavigationController *ANavigationController = [[UINavigationController alloc] initWithRootViewController:VC];
         ANavigationController.navigationBarHidden = YES;
         [self presentViewController:ANavigationController animated:YES completion:nil];
-//        [self presentViewController:VC animated:YES completion:nil];
+
     }];
 }
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {
@@ -115,39 +107,6 @@
         
     }
     
-    
-}
-
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-//    NSInteger index = [self.tabBar.items indexOfObject:item];
-//    NSLog(@"-=-==-%f",tabBar.frame.size.width);
-//
-//    [self animationWithIndex:index];
-}
-- (void)animationWithIndex:(NSInteger) index {
-    NSMutableArray * tabbarbuttonArray = [NSMutableArray array];
-    for (UIView *tabBarButton in self.tabBar.subviews) {
-        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-            [tabbarbuttonArray addObject:tabBarButton];
-        }
-    }
-    for (int i = 0; i < tabbarbuttonArray.count; i ++) {
-        UIView *tabBarButton = (UIView *)tabbarbuttonArray[i];
-        if (index == i) {
-            tabBarButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
-        } else {
-            tabBarButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }
-        [UIView animateWithDuration:0.3 animations:^{
-            if (i == index) {
-                tabBarButton.transform = CGAffineTransformMakeScale(1.1, 1.1);
-            } else {
-                tabBarButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
-            }
-            
-        }];
-    }
     
 }
 

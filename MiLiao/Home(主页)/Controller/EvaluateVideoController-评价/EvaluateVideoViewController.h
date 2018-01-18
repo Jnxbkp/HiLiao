@@ -25,6 +25,9 @@ typedef void(^EvaluateSuccessBlock)(void);
  */
 @interface EvaluateVideoViewController : UIViewController
 
+///评价传值的字典
+@property (nonatomic, strong) NSDictionary *evaluateDict;
+
 ///大v的用户名
 @property (nonatomic, strong) NSString *anchorName;
 ///通话id
@@ -32,5 +35,9 @@ typedef void(^EvaluateSuccessBlock)(void);
 
 ///评价成功的回调
 - (void)evaluateSuccess:(EvaluateSuccessBlock)success;
+
+///展示结算成功
+- (void)showSetMoneySuccessView;
+
 
 @end

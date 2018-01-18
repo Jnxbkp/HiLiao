@@ -267,6 +267,8 @@
 		E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659C0B200B473700AA63CC /* DiscoverMananger.m */; };
 		E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A0200F36B0002B08F5 /* ToolObject.m */; };
 		E27024A4200F51F1002B08F5 /* StateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A3200F51F1002B08F5 /* StateButton.m */; };
+		E27024AA200F6FAA002B08F5 /* DisVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A9200F6FAA002B08F5 /* DisVideoModel.m */; };
+		E27024AD200F7110002B08F5 /* DisbaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024AC200F7110002B08F5 /* DisbaseModel.m */; };
 		E27E9F451FFA5CF300096A6E /* NSStringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F441FFA5CF300096A6E /* NSStringSize.m */; };
 		E27E9F481FFA5FE400096A6E /* PriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F471FFA5FE400096A6E /* PriceView.m */; };
 		E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E9F4A1FFB1E0C00096A6E /* SGPageTitleView.m */; };
@@ -825,6 +827,10 @@
 		E27024A0200F36B0002B08F5 /* ToolObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolObject.m; sourceTree = "<group>"; };
 		E27024A2200F51F1002B08F5 /* StateButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateButton.h; sourceTree = "<group>"; };
 		E27024A3200F51F1002B08F5 /* StateButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateButton.m; sourceTree = "<group>"; };
+		E27024A8200F6FAA002B08F5 /* DisVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisVideoModel.h; sourceTree = "<group>"; };
+		E27024A9200F6FAA002B08F5 /* DisVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisVideoModel.m; sourceTree = "<group>"; };
+		E27024AB200F710F002B08F5 /* DisbaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisbaseModel.h; sourceTree = "<group>"; };
+		E27024AC200F7110002B08F5 /* DisbaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisbaseModel.m; sourceTree = "<group>"; };
 		E27E9F431FFA5CF300096A6E /* NSStringSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringSize.h; sourceTree = "<group>"; };
 		E27E9F441FFA5CF300096A6E /* NSStringSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringSize.m; sourceTree = "<group>"; };
 		E27E9F461FFA5FE400096A6E /* PriceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceView.h; sourceTree = "<group>"; };
@@ -2394,6 +2400,10 @@
 			children = (
 				E2659C0A200B473700AA63CC /* DiscoverMananger.h */,
 				E2659C0B200B473700AA63CC /* DiscoverMananger.m */,
+				E27024A8200F6FAA002B08F5 /* DisVideoModel.h */,
+				E27024A9200F6FAA002B08F5 /* DisVideoModel.m */,
+				E27024AB200F710F002B08F5 /* DisbaseModel.h */,
+				E27024AC200F7110002B08F5 /* DisbaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2985,6 +2995,7 @@
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,
 				E259297D1FFCBC3900B6502D /* FSPageContentView.m in Sources */,
+				E27024AA200F6FAA002B08F5 /* DisVideoModel.m in Sources */,
 				E259296D1FFCBC2A00B6502D /* FSBaseViewController.m in Sources */,
 				3CC752992008499D00C03C6B /* AliyunLibraryMusicImport.m in Sources */,
 				3CC752BB2008499E00C03C6B /* FMDatabasePool.m in Sources */,
@@ -3099,6 +3110,7 @@
 				18F335D02001DCBE00AE7CCD /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				3CC752BC2008499E00C03C6B /* FMResultSet.m in Sources */,
 				E2D1950420033D0400EAEE57 /* QBAssetCell.m in Sources */,
+				E27024AD200F7110002B08F5 /* DisbaseModel.m in Sources */,
 				183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */,
 				18F335CA2001D8A600AE7CCD /* IQActionSheetPickerView.m in Sources */,
 				3CC7529D2008499D00C03C6B /* AliyunAlbumTableViewCell.m in Sources */,
@@ -3317,7 +3329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3368,8 +3380,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3382,7 +3395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9W5TA328XR;
+				DEVELOPMENT_TEAM = 5GBES3NAA4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3433,8 +3446,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

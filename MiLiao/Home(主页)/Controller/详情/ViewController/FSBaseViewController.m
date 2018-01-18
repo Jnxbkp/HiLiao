@@ -62,10 +62,18 @@
 @property (nonatomic, assign) CGFloat balance;
 ///当前网红的价格
 @property (nonatomic, assign) CGFloat netHotPrice;
+///评价控制器
+@property (nonatomic, strong) EvaluateVideoViewController *evaluateVideoViewConroller;
 @end
 
 @implementation FSBaseViewController
 
+- (EvaluateVideoViewController *)evaluateVideoViewConroller {
+    if (!_evaluateVideoViewConroller) {
+        _evaluateVideoViewConroller = [[EvaluateVideoViewController alloc] init];
+    }
+    return _evaluateVideoViewConroller;
+}
 
 - (void)dealloc
 {
@@ -124,27 +132,61 @@
 #pragma mark - 通知方法
 - (void)listenNotification {
     ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
+    ListenNotificationName_Func(SetMoneySuccess, @selector(notificationFunc:));
 }
 
 - (void)notificationFunc:(NSNotification *)notification {
-    [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
-        
-    }];
-    EvaluateVideoViewController *vc = [[EvaluateVideoViewController alloc] init];
-    UIView *view = vc.view;
-    [self addChildViewController:vc];
+
+    //视频通话结束 添加评价界面
+    if ([notification.name isEqualToString:VideoCallEnd]) {
+        [self addEvaluatedView:notification.userInfo];
+    }
+    //结算成功
+    if ([notification.name isEqualToString:SetMoneySuccess]) {
+        [self setMoneySuccess];
+    }
+    
+}
+
+//添加评价界面
+- (void)addEvaluatedView:(NSDictionary *)dict {
+    UIView *view = self.evaluateVideoViewConroller.view;
+    self.evaluateVideoViewConroller.evaluateDict = dict;
     [self.view addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.view).offset(5);
         make.right.bottom.equalTo(self.view).offset(-5);
     }];
-    [vc evaluateSuccess:^{
-        [view removeFromSuperview];
-        NSMutableArray *array = [self.childViewControllers mutableCopy];
-        [array removeObject:vc];
-        
-        [self setValue:[array copy] forKey:@"childViewControllers"];
+    __weak typeof(self) weakSelf = self;
+    [self.evaluateVideoViewConroller evaluateSuccess:^{
+        [weakSelf removeEvaluateView];
     }];
+    [SVProgressHUD showInfoWithStatus:@"正在结算"];
+}
+
+//移除掉评价界面
+- (void)removeEvaluateView {
+    
+    UIView *view = self.evaluateVideoViewConroller.view;
+    [UIView animateWithDuration:0.2 animations:^{
+        view.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            view.alpha = 0;
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+            NSMutableArray *array = [self.childViewControllers mutableCopy];
+            [array removeObject:self.evaluateVideoViewConroller];
+            [self setValue:[array copy] forKey:@"childViewControllers"];
+        }];
+    }];
+}
+
+///结算成功
+- (void)setMoneySuccess {
+    [SVProgressHUD dismiss];
+    [self.evaluateVideoViewConroller showSetMoneySuccessView];
 }
 
 - (void)setupSubViews
@@ -199,7 +241,7 @@
     _colorView.backgroundColor = NavColor;
     _colorView.alpha = 0;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backButton.frame = CGRectMake(0, ML_StatusBarHeight+20, 50, 40);
+    _backButton.frame = CGRectMake(0, ML_StatusBarHeight, 50, 40);
     if (UI_IS_IPHONEX) {
         _backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
     }
@@ -350,6 +392,7 @@
 
 ///视频聊天
 - (void)videoCall {
+    NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 
     
@@ -515,11 +558,38 @@
             cell.loopView.imgResourceArr = _imageMuArr;
         }
         
-        [cell.priceView setPrice:@"20"];
+        [cell.priceView setPrice:_womanModel.nickname];
 
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
         [cell.stateButton setStateStr:_womanModel.status];
+        cell.numFocusLabel.text = [NSString stringWithFormat:@"%@关注",_womanModel.nickname];
+        NSLog(@"----------%@",_womanModel.orderList);
+        
+        cell.headImage3.hidden = NO;
+        cell.headImage2.hidden = NO;
+        cell.headImage1.hidden = NO;
+        
+        if (_womanModel.orderList.count == 0) {
+            cell.headImage1.hidden = YES;
+            cell.headImage2.hidden = YES;
+            cell.headImage3.hidden = YES;
+        } else if (_womanModel.orderList.count == 1) {
+            cell.headImage2.hidden = YES;
+            cell.headImage3.hidden = YES;
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+        } else if (_womanModel.orderList.count == 2) {
+            cell.headImage3.hidden = YES;
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+            [cell.headImage2 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[1] objectForKey:@"headUrl"]] placeholderImage:nil];
+        } else {
+            [cell.headImage1 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[0] objectForKey:@"headUrl"]] placeholderImage:nil];
+             [cell.headImage2 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[1] objectForKey:@"headUrl"]] placeholderImage:nil];
+            [cell.headImage3 sd_setImageWithURL:[NSURL URLWithString:[_womanModel.orderList[2] objectForKey:@"headUrl"]] placeholderImage:nil];
+        }
+        
+        cell.weixinLabel.text = _womanModel.wechat;
+        cell.getweixinLabel.hidden = YES;
         if ([_womanModel.sfgz isEqualToString:@"1"]) {
             cell.focusButton.selected = YES;
             [cell.focusButton setImage:nil forState:UIControlStateNormal];
@@ -568,6 +638,7 @@
 }
 
 - (void)weiXinButtonSelect {
+   
     _backGroundView.hidden = NO;
     _buyVChatView.hidden = NO;
 }
