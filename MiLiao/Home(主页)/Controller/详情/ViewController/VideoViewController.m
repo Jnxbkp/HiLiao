@@ -13,7 +13,9 @@
 #define itemWidth                 (WIDTH-32)/2
 #define itemHeight                 itemWidth*16/9
 
-@interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
+    NSUserDefaults   *_userDefaults;
+}
 
 @property (nonatomic, assign) BOOL fingerIsTouch;
 @property (strong, nonatomic) NSMutableArray *dataArr;
@@ -27,7 +29,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
    
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"接听率",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市",@"身高",@"体重",@"星座",@"城市", nil];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     _dataArr = [NSMutableArray array];
     
     [self netGetUserVideoList];
@@ -57,7 +59,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 //主播视频列表
 - (void)netGetUserVideoList {
-    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[YZCurrentUserModel sharedYZCurrentUserModel].token pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
+    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];

@@ -52,6 +52,8 @@
     UIView          *_backGroundView;
     UIView          *_buyVChatView;
     UIButton        *_foucusButton;
+    UILabel         *_foucusLabel;
+    NSString        *_isBuyWechat;
     
 }
 @property (nonatomic, strong) FSBaseTableView *tableView;
@@ -104,17 +106,23 @@
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _womanModel = [[WomanModel alloc]init];
     _imageMuArr = [NSMutableArray array];
+    _isBuyWechat = [NSString string];
+
     //主播信息请求
     [self NetGetUserInformation:_user_id];
     
     _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
-   
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _tableView.backgroundColor = [UIColor redColor];
+    _tableView.estimatedRowHeight = 0;
+    _tableView.estimatedSectionFooterHeight = 0;
+    _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
+    _tableView.mj_header = header;
+    
     [self.view addSubview:_tableView];
-//    [self addBackButton];
+    
     [self addFootView];
      [self addNavView];
     [self setupSubViews];
@@ -203,7 +211,6 @@
     if (UI_IS_IPHONEX) {
         _backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
     }
-//    _backButton.backgroundColor = [UIColor brownColor];
     [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     _backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
     [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -267,16 +274,38 @@
         NSLog(@"error%@",error);
     }];
 }
+
+#pragma mark refresh
+- (void)headerRefreshing:(MJRefreshNormalHeader *)header {
+    [header endRefreshing];
+}
 //微信购买
 - (void)buyVChatButton:(UIButton *)button {
-    _backGroundView.hidden = YES;
-    _buyVChatView.hidden = YES;
     
     if (button.tag == buyVChatButtonTag) {
-        
+        _backGroundView.hidden = YES;
+        _buyVChatView.hidden = YES;
     } else {
-        
+        [self buyWeChat];
     }
+}
+//购买微信
+- (void)buyWeChat {
+    [MainMananger NetGetbuyWechatInfoToken:[_userDefaults objectForKey:@"token"] anchorId:_womanModel.user_id price:@"2000" success:^(NSDictionary *info) {
+        _backGroundView.hidden = YES;
+        _buyVChatView.hidden = YES;
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            _isBuyWechat = @"yes";
+            [self NetGetUserInformation:_user_id];
+        } else {
+            [ToolObject showOkAlertMessageString:[info objectForKey:@"resultMsg"] withViewController:self];
+        }
+    } failure:^(NSError *error) {
+        _backGroundView.hidden = YES;
+        _buyVChatView.hidden = YES;
+        NSLog(@"error%@",error);
+    }];
 }
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
@@ -515,13 +544,14 @@
             cell.loopView.imgResourceArr = _imageMuArr;
         }
         
-        [cell.priceView setPrice:_womanModel.nickname];
+        [cell.priceView setPrice:_womanModel.price];
 
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
         [cell.stateButton setStateStr:_womanModel.status];
-        cell.numFocusLabel.text = [NSString stringWithFormat:@"%@关注",_womanModel.nickname];
-        NSLog(@"----------%@",_womanModel.orderList);
+        cell.numFocusLabel.text = [NSString stringWithFormat:@"%@关注",_womanModel.fansNum];
+   
+        _foucusLabel = cell.numFocusLabel;
         
         cell.headImage3.hidden = NO;
         cell.headImage2.hidden = NO;
@@ -546,7 +576,14 @@
         }
         
         cell.weixinLabel.text = _womanModel.wechat;
-        cell.getweixinLabel.hidden = YES;
+        if ([_womanModel.wechat hasPrefix:@"WX**"]) {
+            _isBuyWechat = @"no";
+            cell.getweixinLabel.hidden = NO;
+        } else {
+            _isBuyWechat = @"yes";
+            cell.getweixinLabel.hidden = YES;
+        }
+        
         if ([_womanModel.sfgz isEqualToString:@"1"]) {
             cell.focusButton.selected = YES;
             [cell.focusButton setImage:nil forState:UIControlStateNormal];
@@ -570,20 +607,11 @@
 
 #pragma mark topCellDelegate
 - (void)focusButtonSelect:(UIButton *)button {
-    _focusButton = [[UIButton alloc]init];
-    _focusButton = button;
+
     if (button.selected == YES) {
-        NSLog(@"--------<>><><><><>");
-        button.selected = NO;
-        [_focusButton setImage:[UIImage imageNamed:@"guanzhu"] forState:UIControlStateNormal];
-        [_focusButton setTitle:@"关注" forState:UIControlStateNormal];
-        [self NetPostSelectFocusButtonisFocus:@"0"];
+        [self NetPostSelectFocusButtonisFocus:@"0" button:button];
     } else {
-        NSLog(@"--------->>>");
-        button.selected = YES;
-        [_focusButton setImage:nil forState:UIControlStateNormal];
-        [_focusButton setTitle:@"已关注" forState:UIControlStateNormal];
-        [self NetPostSelectFocusButtonisFocus:@"1"];
+        [self NetPostSelectFocusButtonisFocus:@"1" button:button];
     }
 
 }
@@ -595,15 +623,34 @@
 }
 
 - (void)weiXinButtonSelect {
-   
-    _backGroundView.hidden = NO;
-    _buyVChatView.hidden = NO;
+    if ([_isBuyWechat isEqualToString:@"no"]) {
+        _backGroundView.hidden = NO;
+        _buyVChatView.hidden = NO;
+    } else {
+        
+    }
+    
 }
 //关注的请求方法
-- (void)NetPostSelectFocusButtonisFocus:(NSString *)isFocus {
-  
+- (void)NetPostSelectFocusButtonisFocus:(NSString *)isFocus button:(UIButton *)button{
+    _focusButton = [[UIButton alloc]init];
+    _focusButton = button;
     [MainMananger NetPostCareuserBgzaccount:_womanModel.username gzaccount:[YZCurrentUserModel sharedYZCurrentUserModel].username sfgz:isFocus token:[YZCurrentUserModel sharedYZCurrentUserModel].token success:^(NSDictionary *info) {
-        NSLog(@"---%@--",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            if (button.selected == YES) {
+                
+                _foucusLabel.text = [NSString stringWithFormat:@"%@关注",[[info objectForKey:@"data"] objectForKey:@"fansNum"]];
+                button.selected = NO;
+                [_focusButton setImage:[UIImage imageNamed:@"guanzhu"] forState:UIControlStateNormal];
+                [_focusButton setTitle:@"关注" forState:UIControlStateNormal];
+            } else {
+                _foucusLabel.text = [NSString stringWithFormat:@"%@关注",[[info objectForKey:@"data"] objectForKey:@"fansNum"]];
+                button.selected = YES;
+                [_focusButton setImage:nil forState:UIControlStateNormal];
+                [_focusButton setTitle:@"已关注" forState:UIControlStateNormal];
+            }
+        }
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
@@ -635,7 +682,6 @@
     if (scrollView == _tableView) {
         CGFloat offset = scrollView.contentOffset.y;
         CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-//            NSLog(@"--------%lf",alpha);
         _colorView.alpha = alpha;
     }
   
