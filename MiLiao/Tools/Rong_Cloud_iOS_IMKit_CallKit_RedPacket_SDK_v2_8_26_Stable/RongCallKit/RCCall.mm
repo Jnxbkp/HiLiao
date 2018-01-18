@@ -142,6 +142,7 @@
 - (void)startSingleVideoCallToCallListUser:(CallListModel *)callListUser {
     RCCallSingleCallViewController *singleCallViewController =
     [[RCCallSingleCallViewController alloc] initWithOutgoingCall:callListUser.anchorAccount mediaType:RCCallMediaVideo];
+    singleCallViewController.callListModel = callListUser;
     [self presentCallViewController:singleCallViewController];
 }
 

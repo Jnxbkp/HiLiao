@@ -93,7 +93,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  @param pid pid
  @param result 返回的结果
  */
-+ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result;
++ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result;
 
 
 
