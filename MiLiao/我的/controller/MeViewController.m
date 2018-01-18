@@ -11,6 +11,8 @@
 #import "edttViewController.h"
 #import "IdentificationVController.h"
 #import "RCDCustomerServiceViewController.h"
+#import "MyVideoViewController.h"
+#import "SettingTableViewController.h"
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
@@ -81,7 +83,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            
+            MyVideoViewController *videoVC = [[MyVideoViewController alloc]init];
+            [self.navigationController pushViewController:videoVC animated:YES];
         }
         if (indexPath.row == 1) {
             //我的钱包
@@ -121,7 +124,16 @@
         }
     }
     if (indexPath.section == 2) {
-        //版本更新
+        if (indexPath.row == 0) {
+            //设置
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
+            SettingTableViewController *set = [story instantiateViewControllerWithIdentifier:@"SettingTableViewController"];
+            [self.navigationController pushViewController:set animated:YES];
+        }
+        if (indexPath.row == 1) {
+            //版本更新
+            
+        }
     }
     if (indexPath.section == 3) {
         //退出登录
