@@ -30,6 +30,7 @@
 #import "VideoUserModel.h"
 #import "LoveViewController.h"
 #import "EvaluateVideoViewController.h"//评价
+#import "PayWebViewController.h"
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
@@ -360,11 +361,11 @@
             if (moneyType == MoneyEnoughTypeNotEnough) {
                 if (but.tag == downButtonTag) {
                     [self showPayAlertController:^{
-                        
+                        [weakSelf goPay];
                     }];
                 } else {
                     [self showPayAlertController:^{
-                        //去充值
+                        //[weakSelf goPay];去充值
                         
                     } continueCall:^{
                         //继续视频
@@ -385,7 +386,7 @@
             //余额为0
             if (moneyType == MoneyEnoughTypeEmpty) {
                 [self showPayAlertController:^{
-                    
+                    [weakSelf goPay];
                 }];
             }
         } else {
@@ -426,9 +427,11 @@
 - (void)videoCall {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
+}
 
-    
-    
+- (void)goPay {
+    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    [self.navigationController pushViewController:payViewController animated:YES];
 }
 
 #pragma mark - 计算可通话时长

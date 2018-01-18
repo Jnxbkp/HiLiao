@@ -99,7 +99,7 @@
             NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
-            
+            NSLog(@"%ld", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];

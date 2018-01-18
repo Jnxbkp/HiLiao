@@ -55,7 +55,7 @@
 
 
 ///分钟计费的时间间隔
-static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
+static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 
 @implementation RCCallSingleCallViewController
 
@@ -289,27 +289,63 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
 ///每分钟扣除通话费用
 - (void)deductionCallMoney {
 
-    NSString *userName;
-    NSString *costUserName;
+    NSLog(@"准备执行扣费");
+    NSString *userName;//网红的
+    NSString *costUserName;//扣费的
+    NSString *isBigV = [YZCurrentUserModel sharedYZCurrentUserModel].isBigv;
+    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     
-    if (self.isCallIn) {
-        //呼入的电话
-        userName = self.callSession.caller;
-        costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-    } else {
-        //呼出的电话
-        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-        if (self.videoUser) {
-            costUserName = self.videoUser.username;
+    if (roleType == 0) {
+        //普通用户
+        if (self.callIn) {
+            userName = self.callSession.caller;
+            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+        } else {
+            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+            if (self.videoUser) {
+                userName = self.videoUser.username;
+            }
+            if (self.callListModel) {
+                userName = self.callListModel.anchorAccount;
+            }
         }
-        if (self.callListModel) {
-            costUserName = self.callListModel.anchorAccount;
+    } else if (roleType == 2) {
+        //大v
+        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+        if (self.callIn) {
+            costUserName = self.callSession.caller;
+        } else {
+            if (self.videoUser) {
+                costUserName = self.videoUser.username;
+            }
+            if (self.callListModel) {
+                costUserName = self.callListModel.anchorAccount;
+            }
         }
     }
+    
+//    NSLog(@"%@", isBigV);//3大V
+//    if (self.isCallIn) {
+//        //呼入的电话
+//        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;//
+//        costUserName = self.callSession.caller;
+//    } else {
+//        //呼出的电话
+//         costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+//        if (self.videoUser) {
+//            userName = self.videoUser.username;
+//        }
+//        if (self.callListModel) {
+//            userName = self.callListModel.anchorAccount;
+//        }
+//    }
+    NSLog(@"pid is %@", self.pid);
+    
     [UserInfoNet perMinuteDedectionUserName:userName costUserName:costUserName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
             UserCallPowerModel *canCall = (UserCallPowerModel *)model;
             self.pid = canCall.pid;
+            NSLog(@"方法内的pid:%@", self.pid);
             NSLog(@"执行扣费成功");
             if (!self.isCallIn) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -323,21 +359,52 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
 
 ///最终扣费
 - (void)finalDeductMoney {
-    NSString *userName;
-    NSString *costUserName;
+    NSString *userName;//网红的
+    NSString *costUserName;//扣费的
     
-    if (self.isCallIn) {
-        //呼入的电话
-        userName = self.callSession.caller;
-        costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-    } else {
-        //呼出的电话
-        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-        if (self.videoUser) {
-            costUserName = self.videoUser.username;
+//    if (self.isCallIn) {
+//        //呼入的电话
+//        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;//
+//        costUserName = self.callSession.caller;
+//    } else {
+//        //呼出的电话
+//        costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+//        if (self.videoUser) {
+//            userName = self.videoUser.username;
+//        }
+//        if (self.callListModel) {
+//            userName = self.callListModel.anchorAccount;
+//        }
+//    }
+    
+    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
+    
+    if (roleType == 0) {
+        //普通用户
+        if (self.callIn) {
+            userName = self.callSession.caller;
+            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+        } else {
+            costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+            if (self.videoUser) {
+                userName = self.videoUser.username;
+            }
+            if (self.callListModel) {
+                userName = self.callListModel.anchorAccount;
+            }
         }
-        if (self.callListModel) {
-            costUserName = self.callListModel.anchorAccount;
+    } else if (roleType == 2) {
+        //大v
+        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+        if (self.callIn) {
+            costUserName = self.callSession.caller;
+        } else {
+            if (self.videoUser) {
+                costUserName = self.videoUser.username;
+            }
+            if (self.callListModel) {
+                costUserName = self.callListModel.anchorAccount;
+            }
         }
     }
     
@@ -443,20 +510,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     
     self.callConnect = YES;
      [self checkMoney];
-    NSLog(@"%@", self.callSession.caller);
-    NSLog(@"%@", self.callSession.myProfile.userId);
+//    NSLog(@"%@", self.callSession.caller);
+//    NSLog(@"%@", self.callSession.myProfile.userId);
     
     self.callIn = ![self.callSession.caller isEqualToString:self.callSession.myProfile.userId];
-    
-    if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
-        NSLog(@"我发起的通话");
-//#warning 测试倒计时view 记得删除
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self addCountDownView];
-//        });
-    } else {
-        NSLog(@"我收到的通话");
-    }
 }
 
 - (void)callDidDisconnect {
@@ -471,6 +528,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     if (self.isCallConnect) {
         //最终扣费
         [self finalDeductMoney];
+        
         //呼出电话发通知
         if (!self.isCallIn) {
             
