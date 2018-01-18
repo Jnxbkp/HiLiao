@@ -9,6 +9,7 @@
 #import "FSBaseTopTableViewCell.h"
 
 #define buttonTag   2000
+
 @interface FSBaseTopTableViewCell ()
 
 @end
@@ -60,7 +61,7 @@
     _numFocusLabel.textColor = [UIColor whiteColor];
     _numFocusLabel.font = [UIFont systemFontOfSize:10.0];
     _numFocusLabel.textAlignment = NSTextAlignmentRight;
-    _numFocusLabel.text = [NSString stringWithFormat:@"23984关注"];
+//    _numFocusLabel.text = [NSString stringWithFormat:@"23984关注"];
 
     UILabel *downLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, WIDTH+150, WIDTH, 8)];
     downLabel.backgroundColor = Color242;
@@ -97,13 +98,23 @@
         } else if (i == 1) {
             UIImageView *iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH-25, button.frame.origin.y+16, 13, 18)];
             iconImageView.image = [UIImage imageNamed:@"BackArrow"];
-            for (int i = 0; i < _headImageArr.count; i ++) {
-                if (i <= 2) {
-                    UIImageView *headImage = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH-70-(44*i), button.frame.origin.y+9, 32, 32)];
-                    headImage.image = [UIImage imageNamed:@"aaa"];
-                    headImage.layer.cornerRadius = 16;
-                    [self addSubview:headImage];
+            for (int i = 0; i < 3; i ++) {
+                    
+                UIImageView *headImage = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH-70-(44*i), button.frame.origin.y+9, 32, 32)];
+//                headImage.image = [UIImage imageNamed:@"aaa"];
+                headImage.layer.cornerRadius = 16;
+                headImage.layer.masksToBounds = YES;
+                
+                [self addSubview:headImage];
+                
+                if (i == 0) {
+                    _headImage1 = headImage;
+                } else if (i == 1) {
+                     _headImage2 = headImage;
+                } else {
+                    _headImage3 = headImage;
                 }
+                
                 
             }
             [self addSubview:iconImageView];
