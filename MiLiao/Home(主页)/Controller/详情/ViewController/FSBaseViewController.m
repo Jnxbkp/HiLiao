@@ -349,6 +349,7 @@
 
 ///视频聊天
 - (void)videoCall {
+    NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 
     

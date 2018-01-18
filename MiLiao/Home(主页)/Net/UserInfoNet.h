@@ -65,14 +65,16 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 
 
 
-/**
- 每分钟扣费
 
- @param userName userName
+/**
+ 分钟扣费
+
+ @param userName 发起通话的用户名
+ @param costUserName 大V的用户名
  @param pid pid
  @param result 返回
  */
-+ (void)perMinuteDedectionUserName:(NSString *)userName pid:(NSString *)pid result:(RequestModelResult)result;
++ (void)perMinuteDedectionUserName:(NSString *)userName costUserName:(NSString *)costUserName pid:(NSString *)pid result:(RequestModelResult)result;
 
 
 ///保存通话记录
