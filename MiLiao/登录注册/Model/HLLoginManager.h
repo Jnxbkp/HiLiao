@@ -57,14 +57,13 @@
 //POST /v1/user/saveUserWirthdrawInfo 保存用户提现账户信息
 + (void)saveUserWirthdrawInfotoken:(NSString *)token Account:(NSString *)account AccountName:(NSString *)accountName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/wirthdraw/saveWirthdrawInfo 提现信息申请
-<<<<<<< HEAD
 + (void)saveWirthdrawInfotoken:(NSString *)token amount:(NSNumber *)amount collectionAccount:(NSString *)collectionAccount collectionName:(NSString *)collectionName mobile:(NSString *)mobile remark:(NSString *)remark success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //GET /v1/dict/getTags 获取评论标签
 + (void)getTagstoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-=======
+
 + (void)saveWirthdrawInfotoken:(NSString *)token Account:(NSString *)account amount:(NSString *)amount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //POST /v1/video/saveVideo 视频保存
 + (void)NetPostSaveVideotoken:(NSString *)token videoId:(NSString *)videoId videoName:(NSString *)videoName videoUrl:(NSString *)videoUrl success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
->>>>>>> ab9af926397e7e80954e3f2df85302a854d5d9b5
+
 @end
