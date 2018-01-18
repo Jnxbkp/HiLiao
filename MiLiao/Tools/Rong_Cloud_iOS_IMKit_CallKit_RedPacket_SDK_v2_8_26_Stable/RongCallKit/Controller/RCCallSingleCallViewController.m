@@ -19,6 +19,7 @@
 #import "CountDownView.h"//倒计时view
 #import "UserInfoNet.h"
 #import "UserCallPowerModel.h"//可通话能力
+#import "PayWebViewController.h"
 
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
@@ -180,11 +181,27 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
 }
 
 #pragma mark - 倒计时view的回调
-///倒计时view点击充值的回调
+//充值回调
 - (void)payAction {
-    
+    PayWebViewController *payWebViewController = [[PayWebViewController alloc] init];
+    [self.navigationController pushViewController:payWebViewController animated:YES];
 }
 
+///倒计时结束
+- (void)countDownEnd {
+    [self hangupButton];
+}
+
+
+- (void)countDownSeconds:(NSInteger)second {
+    NSLog(@"控制器内倒计时%ld", second);
+    if (second <= 5) {
+        
+        if (second <= 0) {
+            [self hangupButton];
+        }
+    }
+}
 
 #pragma mark - 通话能力相关方法
 //检查M币
@@ -328,6 +345,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
         
 }
 
+
+- (void)paySuccess {
+    [self.countDownView removeFromSuperview];
+}
+
 #pragma mark - FUAPIDemoBarDelegate
 - (void)demoBarDidSelectedItem:(NSString *)item {
     [[FUManager shareManager] loadItem:item];
@@ -366,6 +388,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
         make.width.equalTo(@120);
         make.height.equalTo(@40);
     }];
+    [self.countDownView startCountDowun];
 }
 
 
@@ -421,6 +444,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
+#warning 测试倒计时view 记得删除
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self addCountDownView];
+        });
     } else {
         NSLog(@"我收到的通话");
     }
@@ -438,6 +465,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     
     //呼出电话发通知
     if (!self.isCallIn) {
+        
         NSString *anchorName;
         NSString *callId = self.callSession.callId;
         if (self.videoUser) {
