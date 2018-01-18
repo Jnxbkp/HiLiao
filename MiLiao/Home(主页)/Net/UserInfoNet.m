@@ -145,7 +145,8 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
     parameter[@"costUserName"] = costUserName;
     parameter[@"token"] = tokenForCurrentUser();
     parameter[@"userName"] = userName;
-    if (pid || pid.length < 1) {
+    NSLog(@"传入的pid：%@", pid);
+    if (!pid || pid.length < 1) {
         parameter[@"pid"] = @"0";
     } else {
         parameter[@"pid"] = pid;
