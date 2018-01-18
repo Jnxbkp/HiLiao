@@ -79,8 +79,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    return _dataArr.count;
-    return 20;
+    return _dataArr.count;
+//    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

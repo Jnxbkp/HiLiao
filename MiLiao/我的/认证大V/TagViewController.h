@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^BackBlock)(NSString * text);
+typedef void (^BackkBlock)(NSString * text);
 
 @interface TagViewController : UIViewController
-@property (nonatomic, copy) BackBlock backBlock;
+@property (nonatomic, copy) BackkBlock backBlock1;
+@property (nonatomic, copy) BackkBlock backBlock2;
 
 @end

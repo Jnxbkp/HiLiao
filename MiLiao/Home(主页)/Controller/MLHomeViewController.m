@@ -280,6 +280,7 @@ static NSString *const bigIdentifer = @"bigCell";
         } else if (footer == nil && header != nil) {
             [header endRefreshing];
         }
+        
         NSLog(@"error%@",error);
     }];
     

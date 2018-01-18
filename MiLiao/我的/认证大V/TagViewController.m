@@ -8,10 +8,18 @@
 
 #import "TagViewController.h"
 #import <TTGTagCollectionView/TTGTextTagCollectionView.h>
-
+#import "TagModel.h"
 @interface TagViewController ()<TTGTextTagCollectionViewDelegate>
+{
+    NSUserDefaults *_userDefaults;
+    
+}
 @property(strong, nonatomic)TTGTextTagCollectionView *textTagCollectionView2;
-@property (strong, nonatomic) NSArray *tags;
+@property (strong, nonatomic) NSMutableArray *tags;
+@property (strong, nonatomic) NSString *tagText1;
+@property (strong, nonatomic) NSString *tagText2;
+@property (strong, nonatomic) NSArray *dataAry;
+@property (strong, nonatomic) NSMutableArray *ary;
 
 @end
 
@@ -24,6 +32,7 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"选择形象标签"];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     self.view.backgroundColor = [UIColor whiteColor];
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, WIDTH, 20)];
     lab.text = @"仅能选择两个";
@@ -66,27 +75,99 @@
     _textTagCollectionView2.horizontalSpacing = 8;
     _textTagCollectionView2.verticalSpacing = 8;
     _textTagCollectionView2.selectionLimit = 2;
-    [_textTagCollectionView2 addTags:_tags];
     [_textTagCollectionView2 reload];
     [self.view addSubview:_textTagCollectionView2];
     [self loadData];
     UIButton *sure = [[UIButton alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(_textTagCollectionView2.frame)+40, WIDTH-60, 50)];
     [sure setTitle:@"确定" forState:UIControlStateNormal];
+    [sure addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
     sure.backgroundColor = [UIColor redColor];
     sure.layer.cornerRadius = 8;
     [self.view addSubview:sure];
+    _tags = [[NSMutableArray alloc]init];
+    _ary = [[NSMutableArray alloc]init];
+
 }
+/*
+ //把图片路径添加到数组
+ NSMutableArray *photoMuArray = [[NSMutableArray alloc] initWithObjects:
+ self.item1String,
+ self.item2String,
+ self.item3String,
+ self.item4String,
+ self.item5String,
+ self.item6String,
+ nil];
+ [posters removeAllObjects];
+ for (NSString *photoUrl in photoMuArray) {
+ if (photoUrl.length > 0) {
+ [posters addObject:photoUrl];
+ }
+ }
+ */
+
 - (void)loadData
 {
-    _tags = @[
-              @"情感专家",
-              @"清纯美女", @"宅男女神",@"邻家小妹",@"长发飘逸",@"制服诱惑",@"丝袜美腿",@"声音迷人",@"时尚御姐",@"小蛮腰",@"二次元",@"大长腿",@"女汉子"
-              ];
+    [HLLoginManager getTagstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            self.dataAry = info[@"data"];
+            for (int i = 0 ; i < self.dataAry.count; i++) {
+                NSString *str =self.dataAry[i][@"tagName"];
+                [_tags addObject:str];
+            }
+            NSLog(@"%@",_tags);
+            [_textTagCollectionView2 addTags:_tags];
+        }else{
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+
+}
+- (void)sure
+{
+    NSDictionary *userDic = [NSDictionary dictionaryWithObject:_ary forKey:@"VTags"];
+    NSNotification *notification =[NSNotification notificationWithName:@"VTags" object:nil userInfo:userDic];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    if (_ary.count == 1) {
+//        self.tagText1 = [_ary objectAtIndex:0];
+//        if (self.backBlock1) {
+//            self.backBlock1(self.tagText1);
+//        }
+//    }
+//    if (_ary.count == 2) {
+//        self.tagText2 = [_ary objectAtIndex:1];
+//        if (self.backBlock1) {
+//            self.backBlock1(self.tagText1);
+//        }
+//        if (self.backBlock2) {
+//            self.backBlock2(self.tagText2);
+//        }
+//    }
+    
+    
+    [self.navigationController popViewControllerAnimated:YES ];
 }
 #pragma mark - TTGTextTagCollectionViewDelegate
 
 - (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView didTapTag:(NSString *)tagText atIndex:(NSUInteger)index selected:(BOOL)selected {
     NSLog(@"%@",tagText);
+    if (selected == YES) {
+        [_ary addObject:tagText];
+        NSLog(@"%@",_ary);
+    }else{
+        [_ary removeObject:tagText];
+    }
+    NSLog(@"9099090%@",_ary);
+    if (_ary.count) {
+        
+    }
+
+
 }
 
 - (void)textTagCollectionView:(TTGTextTagCollectionView *)textTagCollectionView updateContentSize:(CGSize)contentSize {

@@ -19,8 +19,8 @@
     NSUserDefaults *_userDefaults;
     
 }
-//@property (nonatomic, strong) NSString * Mmoney;
-//@property (nonatomic, strong) NSString * money;
+@property (nonatomic, strong) NSString * MMmoney;
+@property (nonatomic, strong) NSString * mmoney;
 @property (weak, nonatomic) IBOutlet UILabel *money;
 
 @end
@@ -49,8 +49,8 @@
     [HLLoginManager getWalletInfotoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSLog(@"%@",info);
 //        self.dict = info[@"data"];
-//        self.Mmoney = info[@"data"][@"mMoney"];
-//        self.money = info[@"data"][@"money"];
+        self.MMmoney = info[@"data"][@"mMoney"];
+        self.mmoney = info[@"data"][@"money"];
 
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -66,8 +66,8 @@
         if (indexPath.row == 1) {
             //提现
             WithdrawalsViewController  * WithdrawalsVC = [[WithdrawalsViewController alloc]init];
-//            WithdrawalsVC.Mmoney = self.Mmoney;
-//            WithdrawalsVC.money = self.money;
+            WithdrawalsVC.Mmoney = self.MMmoney;
+            WithdrawalsVC.money = self.mmoney;
             [self.navigationController pushViewController:WithdrawalsVC animated:YES];
 
         }

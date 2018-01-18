@@ -633,7 +633,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="37X-tE-DKy">
-                            <rect key="frame" x="0.0" y="710" width="375" height="70"/>
+                            <rect key="frame" x="0.0" y="760" width="375" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-vB-ROq" customClass="BoardButton">
@@ -741,25 +741,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XB-XE-GOW">
-                                                    <rect key="frame" x="16" y="17" width="27" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XB-XE-GOW">
+                                                    <rect key="frame" x="16" y="17" width="40" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置身高(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT8-gA-bwT">
-                                                    <rect key="frame" x="238" y="1" width="103" height="49"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入微信号(必填)" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eR5-Ay-u4x">
+                                                    <rect key="frame" x="157" y="10" width="184" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="184" id="bSn-3n-jvo"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4XB-XE-GOW" firstAttribute="centerY" secondItem="Lhl-wu-u9G" secondAttribute="centerY" id="5z9-cG-g7c"/>
-                                                <constraint firstItem="nT8-gA-bwT" firstAttribute="centerY" secondItem="4XB-XE-GOW" secondAttribute="centerY" id="ATS-aA-cf8"/>
+                                                <constraint firstAttribute="bottom" secondItem="eR5-Ay-u4x" secondAttribute="bottom" constant="9.5" id="cTp-Lg-Ku8"/>
+                                                <constraint firstItem="eR5-Ay-u4x" firstAttribute="top" secondItem="Lhl-wu-u9G" secondAttribute="top" constant="10" id="gal-La-tcC"/>
                                                 <constraint firstItem="4XB-XE-GOW" firstAttribute="leading" secondItem="Lhl-wu-u9G" secondAttribute="leading" constant="16" id="ink-5d-l2a"/>
-                                                <constraint firstAttribute="trailing" secondItem="nT8-gA-bwT" secondAttribute="trailing" id="q5f-tg-btd"/>
-                                                <constraint firstItem="nT8-gA-bwT" firstAttribute="top" secondItem="Lhl-wu-u9G" secondAttribute="topMargin" constant="-10" id="wBr-eC-F4r"/>
+                                                <constraint firstAttribute="trailing" secondItem="eR5-Ay-u4x" secondAttribute="trailing" id="qxW-ce-9SF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -770,13 +773,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体重" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDE-KV-XaZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDE-KV-XaZ">
                                                     <rect key="frame" x="16" y="17" width="27" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置体重(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2g-f5-o1S">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置身高(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2g-f5-o1S">
                                                     <rect key="frame" x="238" y="1" width="103" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -799,7 +802,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星座" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-bR-JqG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体重" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-bR-JqG">
                                                     <rect key="frame" x="16" y="12" width="65" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="Z4S-RL-L3k"/>
@@ -808,7 +811,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置星座(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-ne-J8w">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置体重(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-ne-J8w">
                                                     <rect key="frame" x="238" y="1" width="103" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -832,7 +835,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所在城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68j-j2-oIu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星座" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68j-j2-oIu">
                                                     <rect key="frame" x="16" y="12" width="65" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="yYb-5Y-m0H"/>
@@ -841,7 +844,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置城市(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW7-Sf-Y5l">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置星座(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW7-Sf-Y5l">
                                                     <rect key="frame" x="238" y="1" width="103" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -865,7 +868,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGB-ml-dPH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所在城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGB-ml-dPH">
                                                     <rect key="frame" x="16" y="12" width="65" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="dye-LB-k79"/>
@@ -874,8 +877,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请编辑个人介绍(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laf-2R-U2p">
-                                                    <rect key="frame" x="211" y="1" width="130" height="49"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置城市(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laf-2R-U2p">
+                                                    <rect key="frame" x="238" y="1" width="103" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -898,7 +901,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="形象标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuo-aT-J9Y">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuo-aT-J9Y">
                                                     <rect key="frame" x="16" y="12" width="65" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="VDw-Gh-mwl"/>
@@ -907,7 +910,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置形象标签(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jL-T1-ZAc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请编辑个人介绍(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jL-T1-ZAc">
                                                     <rect key="frame" x="211" y="1" width="130" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -931,7 +934,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-cM-qiI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="形象标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-cM-qiI">
                                                     <rect key="frame" x="16" y="12" width="65" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="0Nu-ex-4m5"/>
@@ -940,7 +943,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置个性签名(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBa-Th-rLh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置形象标签(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBa-Th-rLh">
                                                     <rect key="frame" x="211" y="1" width="130" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -957,6 +960,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="gdf-51-eEL">
+                                        <rect key="frame" x="0.0" y="692" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdf-51-eEL" id="x8q-AU-ajL">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBC-w2-XLU">
+                                                    <rect key="frame" x="16" y="12" width="65" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="6k5-BM-q71"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置个性签名(必填)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lux-ho-zT6">
+                                                    <rect key="frame" x="212" y="1" width="130" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FBC-w2-XLU" firstAttribute="top" secondItem="x8q-AU-ajL" secondAttribute="top" constant="12" id="0CP-Kl-eRP"/>
+                                                <constraint firstAttribute="trailing" secondItem="lux-ho-zT6" secondAttribute="trailing" id="9lM-k5-Xri"/>
+                                                <constraint firstItem="lux-ho-zT6" firstAttribute="centerY" secondItem="FBC-w2-XLU" secondAttribute="centerY" id="G9c-6g-JHD"/>
+                                                <constraint firstItem="FBC-w2-XLU" firstAttribute="leading" secondItem="x8q-AU-ajL" secondAttribute="leading" constant="16" id="JhG-7B-kht"/>
+                                                <constraint firstItem="lux-ho-zT6" firstAttribute="top" secondItem="x8q-AU-ajL" secondAttribute="topMargin" constant="-10" id="JoL-6O-zUg"/>
+                                                <constraint firstAttribute="bottom" secondItem="FBC-w2-XLU" secondAttribute="bottom" constant="10.5" id="eJz-RN-DHe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -966,19 +1002,22 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="city" destination="BW7-Sf-Y5l" id="vqe-wT-O2I"/>
+                        <outlet property="city" destination="laf-2R-U2p" id="uVz-WA-S7Z"/>
                         <outlet property="eightBtn" destination="G3R-4y-CmF" id="FLI-KA-sSk"/>
                         <outlet property="fiveBtn" destination="f8q-3Q-RY7" id="feC-gs-lmb"/>
                         <outlet property="fourBtn" destination="tq6-ck-YB8" id="Zv7-FA-7Gn"/>
-                        <outlet property="hetght" destination="nT8-gA-bwT" id="YXC-xs-rQk"/>
+                        <outlet property="hetght" destination="I2g-f5-o1S" id="UQl-mt-0B1"/>
                         <outlet property="nickName" destination="m1K-h9-tvt" id="mcG-Tz-bPa"/>
                         <outlet property="oneBtn" destination="7ST-HJ-aYZ" id="ySL-g7-CsP"/>
-                        <outlet property="peopleJieshao" destination="laf-2R-U2p" id="T0n-MJ-Fcd"/>
-                        <outlet property="sign" destination="gBa-Th-rLh" id="9jP-qD-fcy"/>
+                        <outlet property="peopleJieshao" destination="0jL-T1-ZAc" id="2LE-sE-dgO"/>
+                        <outlet property="phoneNumber" destination="ocl-mv-fF4" id="AQw-Rw-9PX"/>
+                        <outlet property="sign" destination="lux-ho-zT6" id="sN6-9I-Eca"/>
                         <outlet property="sixBtn" destination="r79-0t-JM3" id="O10-w9-zNy"/>
-                        <outlet property="star" destination="Mdc-ne-J8w" id="Igl-aJ-E03"/>
+                        <outlet property="star" destination="BW7-Sf-Y5l" id="Mk2-Rh-nbl"/>
+                        <outlet property="tags" destination="gBa-Th-rLh" id="iAU-m9-a4i"/>
                         <outlet property="twoBtn" destination="1zO-Y8-rLz" id="0f8-hY-oG4"/>
-                        <outlet property="weight" destination="I2g-f5-o1S" id="q6k-2D-mky"/>
+                        <outlet property="weight" destination="Mdc-ne-J8w" id="hEE-4t-Cdo"/>
+                        <outlet property="wx" destination="eR5-Ay-u4x" id="65E-Dx-xnM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6H-8d-yWH" userLabel="First Responder" sceneMemberID="firstResponder"/>

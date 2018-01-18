@@ -74,7 +74,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIView *functionButtonContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UILabel *recordLabel;
-@property (weak, nonatomic) IBOutlet UIButton *fxSelectButton;
+
 @property (weak, nonatomic) IBOutlet UIImageView *fxSelectImageView;
 @property (weak, nonatomic) IBOutlet UIButton *beautyButton;
 @property (weak, nonatomic) IBOutlet UIImageView *beautyImageView;
@@ -103,8 +103,11 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *autoFocusButton;
 @property (weak, nonatomic) IBOutlet UIButton *zoomButton;
 @property (weak, nonatomic) IBOutlet UIButton *exposeButton;
-@property (weak, nonatomic) IBOutlet UIButton *flashButton;
-@property (weak, nonatomic) IBOutlet UIButton *switchFacingButton;
+
+@property (strong, nonatomic) UIButton *flashButton;
+@property (strong, nonatomic) UIButton *switchFacingButton;
+@property (strong, nonatomic) UIButton *fxSelectButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *openBeautyButton;
 @property (weak, nonatomic) IBOutlet UIButton *captureWithFxButton;
 
@@ -268,14 +271,45 @@ typedef enum {
     _nextButton.layer.cornerRadius = 4.0;
     [_nextButton addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_nextButton];
+    for (int i = 0; i < 3; i ++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(WIDTH-55, _nextButton.frame.origin.y+47+52*i, 35, 35);
+        button.layer.cornerRadius = 17.0;
+        button.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0.3];
+     
+
+        if (i == 0) {
+            _flashButton = button;
+            [_flashButton setImage:[UIImage imageNamed:@"flash_off"] forState:UIControlStateNormal];
+            [_flashButton addTarget:self action:@selector(flashButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:_flashButton];
+        } else if (i == 1) {
+            _switchFacingButton = button;
+            [_switchFacingButton setImage:[UIImage imageNamed:@"switch_facing"] forState:UIControlStateNormal];
+            [_switchFacingButton addTarget:self action:@selector(switchFacingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:_switchFacingButton];
+            
+        } else {
+            _fxSelectButton = button;
+            [_fxSelectButton setImage:[UIImage imageNamed:@"fx"] forState:UIControlStateNormal];
+            [_fxSelectButton addTarget:self action:@selector(fxSelectButtonChanged:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:_fxSelectButton];
+            
+        }
+        
+    }
     
-    NSLog(@"----------%lf---%lf----%lf-----%lf",_beautyButton.frame.origin.x,_beautyButton.frame.origin.y,_beautyButton.frame.size.width,_beautyButton.frame.size.width);  
-    
+
     _updateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _updateButton.frame = CGRectMake(WIDTH-50-44, HEIGHT-ML_TabBarHeight-50, 50, 50);
+    if (UI_IS_IPHONE6PLUS) {
+        _updateButton.frame = CGRectMake(_recordButton.frame.origin.x*Iphone6Size+65+44, HEIGHT-ML_TabBarHeight-43, 50, 50);
+    } else {
+        _updateButton.frame = CGRectMake(WIDTH-50-44, HEIGHT-ML_TabBarHeight-43, 50, 50);
+    }
+    
     [_updateButton setTitle:@"上传" forState:UIControlStateNormal];
     _updateButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    _updateButton.backgroundColor = [UIColor lightGrayColor];
+    _updateButton.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0.3];
     _updateButton.layer.cornerRadius = _beautyButton.frame.size.height/2;
     [_updateButton addTarget:self action:@selector(updateButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_updateButton];
@@ -1023,19 +1057,19 @@ typedef enum {
 }
 
 // 开关闪光灯
-- (IBAction)flashButtonPressed:(id)sender {
+- (void)flashButtonPressed:(id)sender {
     if(_context.isFlashOn) {
         [_context toggleFlash:false];
-        [_flashImageView setImage:[UIImage imageNamed:@"flash_off"]];
+        [_flashButton setImage:[UIImage imageNamed:@"flash_off"] forState:UIControlStateNormal];
     } else {
         [_context toggleFlash:true];
-        [_flashImageView setImage:[UIImage imageNamed:@"flash_on"]];
+        [_flashButton setImage:[UIImage imageNamed:@"flash_on"] forState:UIControlStateNormal];
     }
     
 }
 
 // 切换摄像头，需要使用新的相机设备索引重新启动采集预览
-- (IBAction)switchFacingButtonPressed:(id)sender {
+- (void)switchFacingButtonPressed:(id)sender {
     [self resetSettings];
     if(_currentDeviceIndex == 0)
         _currentDeviceIndex = 1;
@@ -1087,7 +1121,7 @@ typedef enum {
     }
 }
 
-- (IBAction)fxSelectButtonChanged:(id)sender {
+- (void)fxSelectButtonChanged:(id)sender {
     if(self.fxTableView.hidden) {
         [self setEditType:EDIT_TYPE_FX];
     } else {
