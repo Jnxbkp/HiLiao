@@ -47,6 +47,7 @@
 
     self.tableView = tableView;
     [self.tableView registerNib:[UINib nibWithNibName:@"messageCell" bundle:nil] forCellReuseIdentifier:@"messageCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    double systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
 //    if (systemVersion < 11) {
 //        self.tableView.contentInset = UIEdgeInsetsMake(32, 0, 0, 0);
@@ -81,6 +82,7 @@
     static NSString *Identifier =@"messageCell";
     messageCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
     self.callListModel = self.modelArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model =  self.callListModel;
 
     return cell;
@@ -103,6 +105,7 @@
 //                    [weakSelf.navigationController pushViewController:goPayVC animated:YES];
                 } continueCall:^{
                     //继续视频
+                    weakSelf.callListModel = weakSelf.modelArray[indexPath.row];
                     [weakSelf videoCall];
                 }];
             }

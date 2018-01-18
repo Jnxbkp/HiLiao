@@ -47,7 +47,7 @@
                                 <color key="textColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-fj-nri">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mbi" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-fj-nri">
                                 <rect key="frame" x="12" y="12" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="6uB-4H-qFe"/>
@@ -81,9 +81,11 @@
                                 <color key="textColor" red="0.92156862745098034" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="购买支付：100元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aP-WV-GOX">
-                                <rect key="frame" x="0.0" y="179" width="178" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购买支付：100元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aP-WV-GOX">
+                                <rect key="frame" x="13" y="179" width="199" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kXN-Ju-gve"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -120,13 +122,16 @@
                             <constraint firstItem="3Rj-z9-j3C" firstAttribute="leading" secondItem="LAH-ym-3CG" secondAttribute="leading" id="UAd-bA-Cby"/>
                             <constraint firstAttribute="trailing" secondItem="Lfq-Ly-o20" secondAttribute="trailing" constant="8" id="ViS-CC-84u"/>
                             <constraint firstAttribute="trailing" secondItem="czu-Fk-6ay" secondAttribute="trailing" constant="8" id="b3F-iV-ZTu"/>
+                            <constraint firstItem="4aP-WV-GOX" firstAttribute="leading" secondItem="LAH-ym-3CG" secondAttribute="leading" constant="13" id="cJV-aL-siq"/>
                             <constraint firstItem="8cX-fj-nri" firstAttribute="top" secondItem="LAH-ym-3CG" secondAttribute="top" constant="12" id="cVS-Ms-CAl"/>
                             <constraint firstItem="czu-Fk-6ay" firstAttribute="leading" secondItem="8cX-fj-nri" secondAttribute="trailing" constant="8" id="dFH-Oi-mGU"/>
                             <constraint firstItem="lGM-sl-zc7" firstAttribute="top" secondItem="8cX-fj-nri" secondAttribute="bottom" constant="33" id="eKg-El-n4e"/>
                             <constraint firstItem="8cX-fj-nri" firstAttribute="leading" secondItem="LAH-ym-3CG" secondAttribute="leading" constant="12" id="l2r-9a-xYV"/>
+                            <constraint firstAttribute="bottom" secondItem="4aP-WV-GOX" secondAttribute="bottom" constant="16" id="lXA-Jt-RIi"/>
                             <constraint firstItem="czu-Fk-6ay" firstAttribute="top" secondItem="Lfq-Ly-o20" secondAttribute="bottom" constant="4" id="ovA-K9-ywr"/>
                             <constraint firstItem="Lfq-Ly-o20" firstAttribute="leading" secondItem="8cX-fj-nri" secondAttribute="trailing" constant="8" id="si3-TR-KzL"/>
                             <constraint firstItem="lGM-sl-zc7" firstAttribute="centerX" secondItem="LAH-ym-3CG" secondAttribute="centerX" id="uTV-Jd-7YA"/>
+                            <constraint firstItem="aiY-Qo-Zlg" firstAttribute="leading" secondItem="4aP-WV-GOX" secondAttribute="trailing" constant="20" id="vRh-cN-scA"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -149,7 +154,20 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="Mmoney" destination="3Rj-z9-j3C" id="hsD-1e-Mxi"/>
+                <outlet property="leftLabel" destination="4aP-WV-GOX" id="8mO-ta-UwY"/>
+                <outlet property="moneyLabel" destination="lGM-sl-zc7" id="x4q-mo-0So"/>
+                <outlet property="rightLabel" destination="DIy-z2-Thm" id="Lff-Dj-IPI"/>
+                <outlet property="time" destination="C0v-dv-4P2" id="VGs-HN-Yhd"/>
+                <outlet property="timeTwo" destination="czu-Fk-6ay" id="QHn-XR-eHG"/>
+                <outlet property="title" destination="Lfq-Ly-o20" id="ZDg-nu-Cpq"/>
+                <outlet property="wChatImage" destination="aiY-Qo-Zlg" id="Uye-tt-k3u"/>
+            </connections>
             <point key="canvasLocation" x="-60.5" y="47"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="mbi" width="52" height="52"/>
+    </resources>
 </document>
