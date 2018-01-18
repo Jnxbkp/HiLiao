@@ -28,15 +28,15 @@
     [super viewDidLoad];
 //    NSString *isV = @"no";
 
-    UIView *view = [[UIView alloc]init];
-    view.backgroundColor = [UIColor whiteColor];
-    view.frame = self.tabBar.bounds;
-    [[UITabBar appearance] insertSubview:view atIndex:0];
+//    UIView *view = [[UIView alloc]init];
+//    view.backgroundColor = [UIColor whiteColor];
+//    view.frame = self.tabBar.bounds;
+//    [[UITabBar appearance] insertSubview:view atIndex:0];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
-//    if ([isBigV isEqualToString:@"1"]) {
+//    if (![isBigV isEqualToString:@"0"]) {
         [self InitMiddleView];
 //    } else {
 //

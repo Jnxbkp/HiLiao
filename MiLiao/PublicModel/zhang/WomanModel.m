@@ -21,6 +21,8 @@
         self.isBigv = [NSString stringWithFormat:@"%@",[dict objectForKey:@"isBigv"]];
         self.sfgz = [NSString stringWithFormat:@"%@",[dict objectForKey:@"sfgz"]];
         self.wechat = [NSString stringWithFormat:@"%@",[dict objectForKey:@"wechat"]];
+        self.fansNum = [NSString stringWithFormat:@"%@",[dict objectForKey:@"fansNum"]];
+        self.price = [NSString stringWithFormat:@"%@",[dict objectForKey:@"price"]];
         
         self.isCommon = [dict objectForKey:@"isCommon"];
         self.jtl = [dict objectForKey:@"jtl"];

@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *jtl;
 @property (nonatomic, strong) NSString *sfgz;
 @property (nonatomic, strong) NSString *wechat;
+@property (nonatomic, strong) NSString *fansNum;
+@property (nonatomic, strong) NSString *price;
 
 
 @property (nonatomic, strong) NSString *personalSign;

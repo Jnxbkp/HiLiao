@@ -13,4 +13,7 @@
 //获取有#号的16进制的颜色
 + (UIColor *)getColorStr:(NSString *)colorStr;
 
+//alert框
++ (void)showOkAlertMessageString:(NSString *)messgeStr withViewController:(UIViewController *)viewController;
+
 @end

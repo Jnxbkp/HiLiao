@@ -22,4 +22,12 @@
     return color;
 }
 
++ (void)showOkAlertMessageString:(NSString *)messgeStr withViewController:(UIViewController *)viewController {
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:messgeStr preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alertCon addAction:okAction];
+    [viewController presentViewController:alertCon animated:YES completion:nil];
+}
+
+
 @end
