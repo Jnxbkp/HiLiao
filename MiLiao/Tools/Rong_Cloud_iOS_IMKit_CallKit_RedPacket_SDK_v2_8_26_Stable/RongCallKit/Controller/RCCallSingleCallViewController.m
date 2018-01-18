@@ -491,7 +491,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
         }
         
     }
-       
+    
 }
 
 - (RCloudImageView *)remotePortraitView {

@@ -233,4 +233,54 @@
         failure(error);
     }];
 }
+//大V设置单价
+//POST /v1/user/setPrice  /v1/user/setPrice
++ (void)setPrice:(NSString *)price token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"price"] = price;
+    param[@"token"] = token;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/user/setPrice",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+//获取我的提现信息
+// GET /v1/moneyDetail/getWalletInfo
++ (void)getWalletInfotoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    [manager GET:[NSString stringWithFormat:@"%@/v1/moneyDetail/getWalletInfo?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+//POST /v1/user/saveUserWirthdrawInfo 保存用户提现账户信息
++ (void)saveUserWirthdrawInfotoken:(NSString *)token Account:(NSString *)account AccountName:(NSString *)accountName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+{
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"account"] = account;
+    param[@"token"] = token;
+    param[@"accountName"] = accountName;
+    [manager POST:[NSString stringWithFormat:@"%@/v1/user/saveUserWirthdrawInfo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end

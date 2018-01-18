@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WithdrawalsViewController : UIViewController
-
+@property (nonatomic, strong) NSString * Mmoney;
+@property (nonatomic, strong) NSString * money;
 @end

@@ -12,9 +12,15 @@
 #import "CashMingXiViewController.h"
 #import "administrateAccountViewController.h"
 @interface WithdrawalsViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSUserDefaults *_userDefaults;
+    
+}
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSNumber * amount;
-
+@property (nonatomic, strong) NSDictionary * dict;
+@property (nonatomic, strong) NSString * wirthdrawAccount;
+@property (nonatomic, strong) NSString * wirthdrawName;
 @end
 
 @implementation WithdrawalsViewController
@@ -27,7 +33,8 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:ML_Color(255, 255, 255, 1)};
-
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    _dict = [[NSDictionary alloc]init];
     self.title = @"提现";
     [self setTableView];
 
@@ -37,14 +44,28 @@
     [super viewWillAppear:YES];
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:ML_Color(250,114,152,1)] forBarMetrics:UIBarMetricsDefault];
+    [self loadData];
+
     
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarBackgroundColor] forBarMetrics:UIBarMetricsDefault];
+
     
-    
+}
+- (void)loadData
+{
+    [HLLoginManager getWalletInfotoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        self.dict = info[@"data"];
+        self.wirthdrawAccount = self.dict[@"wirthdrawAccount"];
+        self.wirthdrawName = self.dict[@"wirthdrawName"];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 - (void)setTableView
 {
@@ -54,13 +75,13 @@
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"tiXainTableViewCell" bundle:nil] forCellReuseIdentifier:@"tiXainTableViewCell"];
     headerView *header = [[NSBundle mainBundle] loadNibNamed:
-                       @"headerView" owner:nil options:nil ].lastObject;
+                          @"headerView" owner:nil options:nil ].lastObject;
+    
+    __weak typeof(self) weakSelf = self;
     //block回调
     header.sureBlock = ^{
         //确定按钮
-        __weak typeof(self) weakSelf = self;
         [weakSelf tiXianLoad];
-        
     };
     header.mingxiBlock = ^{
         //查看明细
@@ -73,6 +94,9 @@
         self.amount = @([str integerValue]);
         NSLog(@"输入的提现金额是:%@",self.amount);
     };
+   header.Mmoney.text = [NSString stringWithFormat:@"%@",self.Mmoney];
+    header.money.text = [NSString stringWithFormat:@"%@",self.money];
+
     self.tableView.tableHeaderView = header;
     UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
     UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, WIDTH*0.637)];
@@ -103,6 +127,22 @@
 
     tiXainTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"tiXainTableViewCell"forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (self.wirthdrawAccount.length>0) {
+        cell.zhanghu.text = [NSString stringWithFormat:@"提现账户(支付宝):  %@",self.dict[@"wirthdrawAccount"]];
+
+    }else{
+        cell.zhanghu.text =@"提现账户(支付宝): ";
+
+    }
+    if (self.wirthdrawName.length>0) {
+       cell.zhanghuName.text = [NSString stringWithFormat:@"账户名称(支付宝):  %@",self.dict[@"wirthdrawName"]];
+    }else{
+        cell.zhanghuName.text = @"账户名称(支付宝):";
+
+
+    }
+
     cell.sureBlock = ^{
         //管理提现账户
         administrateAccountViewController *account = [[administrateAccountViewController alloc]init];

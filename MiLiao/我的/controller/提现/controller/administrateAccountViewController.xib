@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="administrateAccountViewController">
             <connections>
+                <outlet property="account" destination="t5i-b8-6jO" id="nY1-Su-dRi"/>
+                <outlet property="accountName" destination="D2D-dO-YCl" id="xoJ-fm-ukU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
