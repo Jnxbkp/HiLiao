@@ -91,7 +91,7 @@ static NSString *const hotIdentifer = @"hotCell";
     
     [self.view addSubview:_bigCollectionView];
     
-    [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage];
+    [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage header:nil footer:nil];
 
 }
 - (void)addHeadView {
@@ -123,19 +123,18 @@ static NSString *const hotIdentifer = @"hotCell";
     self.navigationItem.titleView = titleView;
 }
 //请求网络接口
-- (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber {
+- (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:@"20" success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
-        NSMutableArray *muArr = [NSMutableArray array];
-//        _diaBaseModel = [[DisbaseModel alloc]initWithDictionary:[info objectForKey:@"data"]];
-//        NSInteger resultCode = [info[@"resultCode"] integerValue];
-//        if (resultCode == SUCCESS) {
+
+        if (header == nil && footer == nil) {//首次请求
+            NSMutableArray *muArr = [NSMutableArray array];
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             for (int i = 0; i < dataArr.count; i ++) {
                 NSDictionary *dic = [dataArr objectAtIndex:i];
                 [muArr addObject:dic];
             }
-
+            
             if([selectStr isEqualToString:newStr]) {
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
@@ -143,8 +142,52 @@ static NSString *const hotIdentifer = @"hotCell";
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
             }
-//        }
+        } else if (header == nil && footer != nil) {//加载
+            NSMutableArray *muArr = [NSMutableArray array];
+            
+            NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
+            for (int i = 0; i < dataArr.count; i ++) {
+                NSDictionary *dic = [dataArr objectAtIndex:i];
+                [muArr addObject:dic];
+            }
+            
+            if([selectStr isEqualToString:newStr]) {
+                [_newsList addObjectsFromArray:muArr];
+                [_newCollectionView reloadData];
+            } else {
+                [_hotList addObjectsFromArray:muArr];
+                [_hotCollectionView reloadData];
+            }
+            [footer endRefreshing];
+            
+        } else if (header != nil && footer == nil) {//刷新
+            [header endRefreshing];
+            NSMutableArray *muArr = [NSMutableArray array];
+            
+            NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
+            for (int i = 0; i < dataArr.count; i ++) {
+                NSDictionary *dic = [dataArr objectAtIndex:i];
+                [muArr addObject:dic];
+            }
+            
+            if([selectStr isEqualToString:newStr]) {
+                _newsList = [NSMutableArray array];
+                [_newsList addObjectsFromArray:muArr];
+                [_newCollectionView reloadData];
+            } else {
+                _hotList = [NSMutableArray array];
+                [_hotList addObjectsFromArray:muArr];
+                [_hotCollectionView reloadData];
+            }
+            
+        }
     } failure:^(NSError *error) {
+        if (header == nil && footer == nil) {//首次请求
+        } else if (header == nil && footer != nil) {//加载
+            [footer endRefreshing];
+        } else if (header != nil && footer == nil) {//刷新
+            [header endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
    
@@ -161,7 +204,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 [_newCollectionView reloadData];
             } else {
                 _newPage = @"1";
-                [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage];
+                [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage header:nil footer:nil];
 
             }
             
@@ -173,7 +216,7 @@ static NSString *const hotIdentifer = @"hotCell";
                 [_hotCollectionView reloadData];
             } else {
                 _hotPage = @"1";
-                [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage];
+                [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage header:nil footer:nil];
             }
             
         }
@@ -190,12 +233,12 @@ static NSString *const hotIdentifer = @"hotCell";
     
     if ([_selectStr isEqualToString:newStr]) {
         _newPage = page;
-        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage];
+        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage header:header footer:nil];
         //        //获取tableview的数据
         //        [self getHomeVCTableViewDataWithKind:_selectStr andHeader:header andFooter:nil andAnchor:_homeAnchor];
     } else {
         _hotPage = page;
-        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage];
+        [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage header:header footer:nil];
     }
 }
 #pragma mark - 加载更多
@@ -208,7 +251,7 @@ static NSString *const hotIdentifer = @"hotCell";
     } else {
         anchor = _hotPage;
     }
-    [self netGetVideoListPageSelectStr:_selectStr pageNumber:anchor];
+    [self netGetVideoListPageSelectStr:_selectStr pageNumber:anchor header:nil footer:footer];
     
     
 }
@@ -258,13 +301,15 @@ static NSString *const hotIdentifer = @"hotCell";
         CollectionView.dataSource = self;
         
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
-        header.stateLabel.hidden = YES;
-        header.lastUpdatedTimeLabel.hidden = YES;
+//        header.stateLabel.hidden = YES;
+//        header.lastUpdatedTimeLabel.hidden = YES;
 //        CollectionView.mj_header = header;
+        CollectionView.mj_header = header;
         
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-        footer.stateLabel.hidden = YES;
-        footer.refreshingTitleHidden = YES;
+//        footer.stateLabel.hidden = YES;
+//        footer.refreshingTitleHidden = YES;
+        CollectionView.mj_footer = footer;
         
 //        CollectionView.mj_footer = footer;
         if (indexPath.row == 0) {
