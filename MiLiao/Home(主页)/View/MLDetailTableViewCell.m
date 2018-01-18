@@ -22,7 +22,7 @@
     _titleLabel.textColor = Color128;
     _titleLabel.font = [UIFont systemFontOfSize:13.0];
     
-    _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, 13, WIDTH/2-12, 12)];
+    _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, 10, WIDTH/2-12, 18)];
     _messageLabel.textAlignment = NSTextAlignmentRight;
     _messageLabel.font = [UIFont systemFontOfSize:12.0];
     

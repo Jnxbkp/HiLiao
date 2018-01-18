@@ -49,5 +49,8 @@
 //POST /v1/bigV/careUser
 + (void)NetPostCareuserBgzaccount:(NSString *)bgzaccount gzaccount:(NSString *)gzaccount sfgz:(NSString *)sfgz token:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
+//购买微信
+//GET /v1/cost/buyWechatInfo
++ (void)NetGetbuyWechatInfoToken:(NSString *)token anchorId:(NSString *)anchorId price:(NSString *)price success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 @end

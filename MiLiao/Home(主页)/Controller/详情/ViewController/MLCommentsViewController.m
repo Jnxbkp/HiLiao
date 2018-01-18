@@ -11,7 +11,9 @@
 #import "MainMananger.h"
 
 
-@interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource> {
+    NSUserDefaults *_userDefaults;
+}
 @property (nonatomic, assign) BOOL fingerIsTouch;
 @property (strong, nonatomic) NSMutableArray *dataArr;
 
@@ -32,8 +34,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
-    
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:@"1" pageSize:@"20" token:[YZCurrentUserModel sharedYZCurrentUserModel].token];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:@"1" pageSize:@"20" token:[_userDefaults objectForKey:@"token"]];
     
     [self setupSubViews];
 }
@@ -75,7 +77,10 @@
     }];
    
 }
-
+//加载更多
+- (void)footerLoadMore:(MJRefreshFooter *)footer {
+    [footer endRefreshing];
+}
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

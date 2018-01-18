@@ -201,6 +201,7 @@
 
 - (void)setSelectIndex:(NSInteger)selectIndex
 {
+    NSLog(@"----------->>>%lu-----%lu",selectIndex,_selectIndex);
     if (_selectIndex == selectIndex||_selectIndex < 0||_selectIndex > self.itemBtnArr.count - 1) {
         return;
     }

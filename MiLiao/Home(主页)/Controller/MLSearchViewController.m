@@ -70,13 +70,13 @@
     _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     _searchBar.delegate = self;
     _searchBar.placeholder = @"请输入";
-    _searchBar.frame = CGRectMake(10, 28, WIDTH-94, 35);
+    _searchBar.frame = CGRectMake(10, ML_StatusBarHeight+8, WIDTH-94, 35);
     _searchBar.layer.cornerRadius = 14.0;
     _searchBar.layer.masksToBounds = YES;
     _searchBar.tintColor = [UIColor blackColor];
     
     UIButton *cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancleButton.frame = CGRectMake(WIDTH-72, 28, 60, 35);
+    cancleButton.frame = CGRectMake(WIDTH-72, ML_StatusBarHeight+8, 60, 35);
     [cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     cancleButton.layer.cornerRadius = 6.0;
     cancleButton.backgroundColor = NavColor;
@@ -87,7 +87,7 @@
     [self.view addSubview:_searchBar];
     [self.view addSubview:cancleButton];
     
-    _likeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 80, WIDTH  , HEIGHT-80) style:UITableViewStylePlain];
+    _likeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, ML_StatusBarHeight+60, WIDTH  , HEIGHT-ML_StatusBarHeight-60) style:UITableViewStylePlain];
     _likeTableView.tag = likeTabTag;
     _likeTableView.delegate = self;
     _likeTableView.dataSource = self;
@@ -96,7 +96,7 @@
     
     [self.view addSubview:_likeTableView];
     
-    _searchTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 80, WIDTH  , HEIGHT-80) style:UITableViewStylePlain];
+    _searchTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, ML_StatusBarHeight+60, WIDTH , HEIGHT-ML_StatusBarHeight-60) style:UITableViewStylePlain];
     _searchTableView.tag = searchTabTag;
     _searchTableView.delegate = self;
     _searchTableView.hidden = YES;

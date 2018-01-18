@@ -61,6 +61,10 @@
 #import "Masonry.h"
 #import "NotificationName.h"
 
+
+//pageSize
+#define PAGESIZE    @"1"
+
 //网络请求成功
 #define SUCCESS 200
 //请求Url

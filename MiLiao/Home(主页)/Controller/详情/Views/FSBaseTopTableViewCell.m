@@ -101,7 +101,6 @@
             for (int i = 0; i < 3; i ++) {
                     
                 UIImageView *headImage = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH-70-(44*i), button.frame.origin.y+9, 32, 32)];
-//                headImage.image = [UIImage imageNamed:@"aaa"];
                 headImage.layer.cornerRadius = 16;
                 headImage.layer.masksToBounds = YES;
                 

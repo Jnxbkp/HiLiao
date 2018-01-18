@@ -144,7 +144,7 @@
     param[@"gzaccount"] = gzaccount;
     param[@"sfgz"] = sfgz;
     param[@"token"] = token;
-    NSLog(@"----->>%@",param);
+//    NSLog(@"----->>%@",param);
     [manager POST:[NSString stringWithFormat:@"%@/v1/bigV/careUser",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -153,5 +153,24 @@
         failure(error);
     }];
    
+}
+
+//购买微信
+//GET /v1/cost/buyWechatInfo
++ (void)NetGetbuyWechatInfoToken:(NSString *)token anchorId:(NSString *)anchorId price:(NSString *)price success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"token"] = token;
+    param[@"anchorId"] = anchorId;
+    param[@"price"] = price;
+    [manager GET:[NSString stringWithFormat:@"%@/v1/cost/buyWechatInfo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 @end
