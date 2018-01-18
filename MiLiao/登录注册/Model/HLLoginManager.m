@@ -283,4 +283,24 @@
         failure(error);
     }];
 }
+
+//POST /v1/video/saveVideo 视频保存
++ (void)NetPostSaveVideotoken:(NSString *)token videoId:(NSString *)videoId videoName:(NSString *)videoName videoUrl:(NSString *)videoUrl success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPSessionManager *manager = [app sharedHTTPSession];
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"videoId"] = videoId;
+    param[@"token"] = token;
+    param[@"videoName"] = videoName;
+    param[@"videoUrl"] = videoUrl;
+  
+    [manager POST:[NSString stringWithFormat:@"%@/v1/video/saveVideo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
 @end

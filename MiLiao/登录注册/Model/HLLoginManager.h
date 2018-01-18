@@ -58,4 +58,7 @@
 + (void)saveUserWirthdrawInfotoken:(NSString *)token Account:(NSString *)account AccountName:(NSString *)accountName success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //POST /v1/wirthdraw/saveWirthdrawInfo 提现信息申请
 + (void)saveWirthdrawInfotoken:(NSString *)token Account:(NSString *)account amount:(NSString *)amount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+
+//POST /v1/video/saveVideo 视频保存
++ (void)NetPostSaveVideotoken:(NSString *)token videoId:(NSString *)videoId videoName:(NSString *)videoName videoUrl:(NSString *)videoUrl success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end
