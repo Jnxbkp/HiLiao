@@ -32,10 +32,7 @@
     lab.textColor = [UIColor redColor];
     [self.view addSubview:lab];
     _textTagCollectionView2 = [[TTGTextTagCollectionView alloc]initWithFrame:CGRectMake(20, 70, WIDTH-40, 150)];
-    _tags = @[
-              @"情感专家",
-              @"清纯美女", @"宅男女神",@"邻家小妹",@"长发飘逸",@"制服诱惑",@"丝袜美腿",@"声音迷人",@"时尚御姐",@"小蛮腰",@"二次元",@"大长腿",@"女汉子"
-              ];
+    
     _textTagCollectionView2.delegate = self;
     _textTagCollectionView2.showsVerticalScrollIndicator = NO;
     // Style2
@@ -72,11 +69,19 @@
     [_textTagCollectionView2 addTags:_tags];
     [_textTagCollectionView2 reload];
     [self.view addSubview:_textTagCollectionView2];
+    [self loadData];
     UIButton *sure = [[UIButton alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(_textTagCollectionView2.frame)+40, WIDTH-60, 50)];
     [sure setTitle:@"确定" forState:UIControlStateNormal];
     sure.backgroundColor = [UIColor redColor];
     sure.layer.cornerRadius = 8;
     [self.view addSubview:sure];
+}
+- (void)loadData
+{
+    _tags = @[
+              @"情感专家",
+              @"清纯美女", @"宅男女神",@"邻家小妹",@"长发飘逸",@"制服诱惑",@"丝袜美腿",@"声音迷人",@"时尚御姐",@"小蛮腰",@"二次元",@"大长腿",@"女汉子"
+              ];
 }
 #pragma mark - TTGTextTagCollectionViewDelegate
 

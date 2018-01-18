@@ -12,11 +12,14 @@
 
 @protocol CountDownViewDelegate<NSObject>
 
+@optional
 //充值回调
 - (void)payAction;
 
-///倒计时结束 通话结束
-- (void)callEnd;
+///倒计时结束
+- (void)countDownEnd;
+///倒计时剩余的秒数
+- (void)countDownSeconds:(NSInteger)second;
 
 @end
 
@@ -39,6 +42,4 @@ typedef void(^ButtonClickBlock)(void);
 ///重置
 - (void)reset;
 
-///充值的回调
-- (void)payAction:(ButtonClickBlock)click;
 @end

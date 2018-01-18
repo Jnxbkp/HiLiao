@@ -123,10 +123,10 @@
 - (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser {
     self.videoUser = videoUser;
     
-    RCCallSingleCallViewController *singleCallViewController =
-    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
 //    RCCallSingleCallViewController *singleCallViewController =
-//    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:videoUser.username mediaType:RCCallMediaVideo];
+//    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+    RCCallSingleCallViewController *singleCallViewController =
+    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:videoUser.username mediaType:RCCallMediaVideo];
     singleCallViewController.price = videoUser.price;
     singleCallViewController.costUserId = videoUser.ID;
     singleCallViewController.videoUser = videoUser;
@@ -142,6 +142,7 @@
 - (void)startSingleVideoCallToCallListUser:(CallListModel *)callListUser {
     RCCallSingleCallViewController *singleCallViewController =
     [[RCCallSingleCallViewController alloc] initWithOutgoingCall:callListUser.anchorAccount mediaType:RCCallMediaVideo];
+    singleCallViewController.callListModel = callListUser;
     [self presentCallViewController:singleCallViewController];
 }
 
@@ -152,7 +153,7 @@
  */
 - (void)startSingleVideoCallToUserName:(NSString *)costUserName {
     RCCallSingleCallViewController *singleCallViewController =
-    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
+    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:costUserName mediaType:RCCallMediaVideo];
     singleCallViewController.costUserName = costUserName;
     [self presentCallViewController:singleCallViewController];
 }

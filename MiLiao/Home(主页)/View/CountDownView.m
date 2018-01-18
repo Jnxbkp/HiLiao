@@ -15,26 +15,17 @@
 @property (nonatomic, strong) dispatch_source_t timer;
 @end
 
-static NSInteger CountDownTime = 5 * 60;
+static NSInteger CountDownTime = 2 * 60;
 
 
 @implementation CountDownView
-{
-    ButtonClickBlock _clickBlock;
-}
 //充值点击
 - (IBAction)payButtonClick:(id)sender {
-    !_clickBlock?:_clickBlock();
     
     if ([self.delegate respondsToSelector:@selector(payAction)]) {
         [self.delegate payAction];
     }
     
-}
-
-///充值的回调
-- (void)payAction:(ButtonClickBlock)click {
-    _clickBlock = click;
 }
 
 + (instancetype)CountDownView {
@@ -46,7 +37,12 @@ static NSInteger CountDownTime = 5 * 60;
     self.autoresizingMask = UIViewAutoresizingNone;
     self.frame = CGRectMake(0, 0, 120, 40);
     self.label.text = [self showTime:CountDownTime];
-//    self.hidden = YES;
+}
+
+
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    [self reset];
 }
 
 
@@ -55,14 +51,14 @@ static NSInteger CountDownTime = 5 * 60;
     NSInteger minu = time / 60;
     NSInteger second = time % 60;
     NSString *string = [NSString stringWithFormat:@"%ld:%02ld", minu, second];
-    NSLog(@"剩余可通话时间:\n%@", string);
     return string;
 }
 
 ///重置
 - (void)reset {
-    CountDownTime = 5 * 60;
-    self.hidden = YES;
+    CountDownTime = 2 * 60;
+    if (self.timer) dispatch_cancel(self.timer);
+    self.label.text = [self showTime:CountDownTime];
 }
 
 ///开始倒计时
@@ -74,10 +70,14 @@ static NSInteger CountDownTime = 5 * 60;
     dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.timer, ^{
         CountDownTime--;
+        if ([self.delegate respondsToSelector:@selector(countDownSeconds:)]) {
+            [self.delegate countDownSeconds:CountDownTime];
+        }
         if (CountDownTime <= 0) {
+            dispatch_cancel(self.timer);
             //通话结束
-            if ([self.delegate respondsToSelector:@selector(callEnd)]) {
-                [self.delegate callEnd];
+            if ([self.delegate respondsToSelector:@selector(countDownEnd)]) {
+                [self.delegate countDownEnd];
             }
         } else {
             

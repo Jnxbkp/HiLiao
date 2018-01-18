@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
+		1819AEA520104E9B00379836 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA420104E9B00379836 /* SettingTableViewController.m */; };
 		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
 		18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249237200C523800A78B94 /* tiXainTableViewCell.m */; };
 		1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18249238200C523800A78B94 /* tiXainTableViewCell.xib */; };
@@ -28,6 +29,7 @@
 		1846CE20200F405D000BF772 /* administrateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1846CE1E200F405D000BF772 /* administrateAccountViewController.xib */; };
 		1846CE24200F4B6A000BF772 /* MyMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846CE22200F4B6A000BF772 /* MyMTableViewCell.m */; };
 		1846CE25200F4B6A000BF772 /* MyMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1846CE23200F4B6A000BF772 /* MyMTableViewCell.xib */; };
+		1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846CE27200F8680000BF772 /* MyVideoViewController.m */; };
 		184C674E200CA48600C852B4 /* PayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C674D200CA48600C852B4 /* PayWebViewController.m */; };
 		184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6753200CB1F800C852B4 /* MyMViewController.m */; };
 		184C6757200CB22600C852B4 /* MyNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6756200CB22600C852B4 /* MyNoticeViewController.m */; };
@@ -376,6 +378,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1819AEA320104E9B00379836 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		1819AEA420104E9B00379836 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		18249230200C505B00A78B94 /* WithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawalsViewController.h; sourceTree = "<group>"; };
 		18249231200C505B00A78B94 /* WithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawalsViewController.m; sourceTree = "<group>"; };
 		18249236200C523800A78B94 /* tiXainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiXainTableViewCell.h; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 		1846CE21200F4B6A000BF772 /* MyMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMTableViewCell.h; sourceTree = "<group>"; };
 		1846CE22200F4B6A000BF772 /* MyMTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMTableViewCell.m; sourceTree = "<group>"; };
 		1846CE23200F4B6A000BF772 /* MyMTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMTableViewCell.xib; sourceTree = "<group>"; };
+		1846CE26200F8680000BF772 /* MyVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyVideoViewController.h; sourceTree = "<group>"; };
+		1846CE27200F8680000BF772 /* MyVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVideoViewController.m; sourceTree = "<group>"; };
 		184C674C200CA48600C852B4 /* PayWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayWebViewController.h; sourceTree = "<group>"; };
 		184C674D200CA48600C852B4 /* PayWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayWebViewController.m; sourceTree = "<group>"; };
 		184C674F200CB1E100C852B4 /* MyCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCallViewController.h; sourceTree = "<group>"; };
@@ -1321,9 +1327,13 @@
 				1858203B2009AC3E0020C232 /* edttViewController.m */,
 				185820362009AC3E0020C232 /* MeViewController.h */,
 				185820392009AC3E0020C232 /* MeViewController.m */,
+				1819AEA320104E9B00379836 /* SettingTableViewController.h */,
+				1819AEA420104E9B00379836 /* SettingTableViewController.m */,
 				185820352009AC3E0020C232 /* NickNameViewController.h */,
 				1858203A2009AC3E0020C232 /* NickNameViewController.m */,
 				185820382009AC3E0020C232 /* NickNameViewController.xib */,
+				1846CE26200F8680000BF772 /* MyVideoViewController.h */,
+				1846CE27200F8680000BF772 /* MyVideoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -3028,6 +3038,7 @@
 				3CC752A42008499D00C03C6B /* AliyunCompositionPickView.m in Sources */,
 				183AAF19200372DD006D658A /* signViewController.m in Sources */,
 				E25929381FFC8DAC00B6502D /* HLSearchTableViewCell.m in Sources */,
+				1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
 				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
@@ -3075,6 +3086,7 @@
 				1858204C2009AC970020C232 /* MyQianBaoTableViewCell.m in Sources */,
 				E27E9F671FFB311100096A6E /* MLDetailTableViewCell.m in Sources */,
 				E2C6B9E820008075006E0B2A /* FxTableViewCell.m in Sources */,
+				1819AEA520104E9B00379836 /* SettingTableViewController.m in Sources */,
 				E2B77BF61FFDD69A00597326 /* UIImage+Color.m in Sources */,
 				E2B497D61FFF50AE0017A5B6 /* HLTabBar.m in Sources */,
 				3CC752972008499D00C03C6B /* AliyunIConfig.m in Sources */,
@@ -3310,7 +3322,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3361,8 +3373,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3376,7 +3389,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3427,8 +3440,9 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

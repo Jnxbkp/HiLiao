@@ -125,6 +125,13 @@
     return _selecetdEvaluateArray;
 }
 
+#pragma mark - Setter
+- (void)setEvaluateDict:(NSDictionary *)evaluateDict {
+    _evaluateDict = evaluateDict;
+    self.anchorName = evaluateDict[@"anchorName"];
+    self.callID = evaluateDict[@"callId"];
+}
+
 - (void)setTagModelArray:(NSArray *)tagModelArray {
     _tagModelArray = tagModelArray;
     NSMutableArray *mutableArray = [NSMutableArray array];
@@ -176,8 +183,13 @@
     }
 }
 
-- (void)showSuccessView {
+- (void)showSetMoneySuccessView:(NSDictionary *)dict {
     SetMoneyView *view = [SetMoneyView SetMoneyView];
+    NSString *time = dict[@"time"];
+    NSString *money = [NSString stringWithFormat:@"%@M币", dict[@"totalFee"]] ;
+    NSLog(@"time is %@, money is %@", time, money);
+    self.timeLabel.text = time;
+    self.moneyLabel.text = money;
     [self.mainView addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.equalTo(self.mainView);
@@ -196,12 +208,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.starView.delegate = self;
+    self.score = @"5";
     [UserInfoNet getEvaluate:^(RequestState success, NSArray *modelArray, NSInteger code, NSString *msg) {
         if (success) {
             self.tagModelArray = modelArray;
         }
     }];
-    [self showSuccessView];
+  
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -230,7 +243,6 @@
         }
     }
     
-    
 }
 
 ///星星评价的个数
@@ -240,6 +252,11 @@
 
 - (IBAction)sureButtonClick:(id)sender {
     
+    if (self.selecetdEvaluateArray.count == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请选取评价标签"];
+        return;
+    }
+    
     NSMutableArray *mutableArray = [NSMutableArray array];
     [self.selecetdEvaluateArray enumerateObjectsUsingBlock:^(EvaluateTagModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [mutableArray addObject:obj.ID];
@@ -248,7 +265,7 @@
     [UserInfoNet saveEvaluateAnchorName:self.anchorName callId:self.callID score:self.score tags:mutableArray complete:^(RequestState success, NSString *msg) {
         NSString *message = @"评价成功";
         if (!success) message = msg;
-        [SVProgressHUD showWithStatus:message];
+        [SVProgressHUD showSuccessWithStatus:message];
         !_evaluateBlock?:_evaluateBlock();
     }];
 }

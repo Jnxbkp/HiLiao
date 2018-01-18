@@ -277,8 +277,6 @@
 
 - (void)updateActiveTimer {
     long sec = [[NSDate date] timeIntervalSince1970] - self.callSession.connectedTime / 1000;
-    self.timeLabel.textColor = [UIColor redColor];
-    NSLog(@"融云内部补货到的通话时间：\n%ld", sec);
     self.timeLabel.text = [RCCallKitUtility getReadableStringForTime:sec];
 }
 
