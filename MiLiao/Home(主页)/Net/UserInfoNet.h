@@ -12,12 +12,14 @@
 
 
 typedef NS_ENUM(NSUInteger, MoneyEnoughType) {
-    ///不充足
-    MoneyEnoughTypeNotEnough,
+    ///账户余额为0
+    MoneyEnoughTypeEmpty,
     ///充足
     MoneyEnoughTypeEnough,
-    ///账户余额为0
-    MoneyEnoughTypeEmpty
+    ///不充足
+    MoneyEnoughTypeNotEnough
+    
+   
 };
 
 ///保存到后台的通话状态
