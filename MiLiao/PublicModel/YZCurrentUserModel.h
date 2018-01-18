@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSString      * rongCloudToken;
 @property (nonatomic, strong) NSString      * rongCloudUserId;
 @property (nonatomic, strong) NSString      * rongCloudUserName;
+///用户身份类别 0普通用户 1-经纪人 2-大v
+@property (nonatomic, assign) NSInteger      roleType;
 singleton_h(YZCurrentUserModel)
 
 - (instancetype)initWithDictionary:(NSDictionary *)d;

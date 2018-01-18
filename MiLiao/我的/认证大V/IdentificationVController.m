@@ -61,6 +61,12 @@ static NSString *kTempFolder = @"touxiang";
 @property (weak, nonatomic) IBOutlet UILabel *peopleJieshao;
 @property (weak, nonatomic) IBOutlet UILabel *sign;
 @property (weak, nonatomic) IBOutlet UITextField *nickName;
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumber;
+@property (weak, nonatomic) IBOutlet UILabel *tags;
+@property(nonatomic,strong)NSString *tag1;
+@property(nonatomic,strong)NSString *tag2;
+@property(nonatomic,strong)NSArray *arr;
+@property (weak, nonatomic) IBOutlet UITextField *wx;
 
 @property (nonatomic,strong) HXProvincialCitiesCountiesPickerview *regionPickerView;
 
@@ -70,6 +76,8 @@ static NSString *kTempFolder = @"touxiang";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationVTags:) name:@"VTags" object:nil];
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.oneBtn setTag:1];
     [self.twoBtn setTag:2];
@@ -85,7 +93,6 @@ static NSString *kTempFolder = @"touxiang";
     self.item5String = @"";
     self.item6String = @"";
 
-
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
@@ -93,7 +100,7 @@ static NSString *kTempFolder = @"touxiang";
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"编辑认证资料"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
    posters = [[NSMutableArray alloc]init];//图片集合
-
+    self.phoneNumber.text = [_userDefaults objectForKey:@"username"];
     [self loData];
 
 }
@@ -124,24 +131,80 @@ static NSString *kTempFolder = @"touxiang";
 }
 //提交认证申请
 - (IBAction)commit:(id)sender {
+    if ([self.country isEqualToString:@"中国"])
+     {
+         if ([provincename isEqualToString:@"北京"]) {
+             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height:@([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                 NSLog(@"%@",info);
+                 NSLog(@"12122121%@",info[@"resultMsg"]);
+                 [self.navigationController popViewControllerAnimated:YES];
+             } failure:^(NSError *error) {
+                 NSLog(@"%@",error);
+             }];
+         }else if ([provincename isEqualToString:@"上海"])
+         {
+             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                 NSLog(@"%@",info);
+                 NSLog(@"12122121%@",info[@"resultMsg"]);
+             } failure:^(NSError *error) {
+                 NSLog(@"%@",error);
+             }];
+         }else if ([provincename isEqualToString:@"天津"])
+         {
+             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                 NSLog(@"%@",info);
+                 NSLog(@"12122121%@",info[@"resultMsg"]);
+             } failure:^(NSError *error) {
+                 NSLog(@"%@",error);
+             }];
+         }else if ([provincename isEqualToString:@"重庆"])
+         {
+             [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                 NSLog(@"%@",info);
+                 NSLog(@"12122121%@",info[@"resultMsg"]);
+             } failure:^(NSError *error) {
+                 NSLog(@"%@",error);
+             }];
+         }else{
+             [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
+                 NSLog(@"%@",info);
+                 NSLog(@"12122121%@",info[@"resultMsg"]);
+             } failure:^(NSError *error) {
+                 NSLog(@"%@",error);
+             }];
+         }
+       
+     }
     if ([self.country isEqualToString:@"国外"]) {
-        [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
+        [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
             NSLog(@"%@",info);
-        } failure:^(NSError *error) {
             
-        }];
-    }else{
-        [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
-            NSLog(@"%@",info);
-
         } failure:^(NSError *error) {
             
         }];
     }
+    else{
+       
+    }
    
     
 }
+- (void)notificationVTags:(NSNotification *)note {
+    self.arr = [note.userInfo objectForKey:@"VTags"];
+    NSLog(@"----%@", self.arr);
+    if (self.arr.count == 1) {
+        self.tag1 = [ self.arr objectAtIndex:0];
+        self.tags.text = [NSString stringWithFormat:@"%@",self.tag1];
 
+    }
+    if (self.arr.count == 2) {
+        self.tag1 = [ self.arr objectAtIndex:0];
+        self.tag2 = [ self.arr objectAtIndex:1];
+        self.tags.text = [NSString stringWithFormat:@"%@  %@",self.tag1,self.tag2];
+
+    }
+    [self.tableView reloadData];
+}
 //上传图片
 - (IBAction)photo:(UIButton *)sender {
      BtnTag = [sender tag];
@@ -330,30 +393,35 @@ static NSString *kTempFolder = @"touxiang";
         
     }
     if (indexPath.row == 2) {
-        //身高
-        IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"" delegate:self];
-        [picker setTag:2];
-        picker.toolbarTintColor = [UIColor whiteColor];
-        picker.titleColor = [UIColor whiteColor];
-//        picker.titleFont = [UIFont systemFontOfSize:16];
-        picker.toolbarButtonColor = [UIColor blackColor];
-        [picker setIsRangePickerView:YES];
-        [picker setTitlesForComponents:@[@[@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"cm"]]];
-        [picker show];
+      
     }
       if (indexPath.row == 3) {
-          //体重
+          //身高
           IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"" delegate:self];
-          [picker setTag:3];
+          [picker setTag:2];
           picker.toolbarTintColor = [UIColor whiteColor];
           picker.titleColor = [UIColor whiteColor];
           //        picker.titleFont = [UIFont systemFontOfSize:16];
           picker.toolbarButtonColor = [UIColor blackColor];
           [picker setIsRangePickerView:YES];
-          [picker setTitlesForComponents:@[@[@"0",@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"KG"]]];
+          [picker setTitlesForComponents:@[@[@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"cm"]]];
           [picker show];
+         
       }
     if (indexPath.row == 4) {
+        //体重
+        IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"" delegate:self];
+        [picker setTag:3];
+        picker.toolbarTintColor = [UIColor whiteColor];
+        picker.titleColor = [UIColor whiteColor];
+        //        picker.titleFont = [UIFont systemFontOfSize:16];
+        picker.toolbarButtonColor = [UIColor blackColor];
+        [picker setIsRangePickerView:YES];
+        [picker setTitlesForComponents:@[@[@"0",@"1",@"2"],@[@"99", @"98", @"97", @"96", @"95",@"94", @"93", @"92", @"91",@"90",@"89",@"88",@"87",@"86",@"85",@"84",@"83",@"82",@"81",@"80",@"79",@"78",@"77",@"76",@"75",@"74",@"73",@"72",@"71",@"70",@"69",@"68",@"67",@"66",@"65",@"64",@"63",@"62",@"61",@"60",@"59",@"58",@"57",@"56",@"55",@"54",@"53",@"52",@"51",@"50",@"49",@"48",@"47",@"46",@"45",@"44",@"43",@"42",@"41",@"40",@"39",@"38",@"37",@"36",@"35",@"34",@"33",@"32",@"31",@"30",@"29",@"28",@"27",@"26",@"25",@"24",@"23",@"22",@"21",@"20",@"19",@"18",@"17",@"16",@"15",@"14",@"13",@"12",@"11",@"10",@"09",@"08",@"07",@"06",@"05",@"04",@"03",@"02",@"01",@"00"],@[@"KG"]]];
+        [picker show];
+        
+    }
+    if (indexPath.row == 5) {
         //星座
         IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"" delegate:self];
         [picker setTag:4];
@@ -364,8 +432,10 @@ static NSString *kTempFolder = @"touxiang";
         [picker setIsRangePickerView:YES];
         [picker setTitlesForComponents:@[@[@"白羊座",@"金牛座",@"双子座",@"巨蟹座",@"狮子座",@"处女座",@"天秤座",@"天蝎座",@"射手座",@"摩羯座",@"水瓶座",@"双鱼座"]]];
         [picker show];
+       
+
     }
-    if (indexPath.row == 5) {
+    if (indexPath.row == 6) {
         NSString *address = @"北京";
         NSArray *array = [address componentsSeparatedByString:@" "];
         
@@ -383,23 +453,31 @@ static NSString *kTempFolder = @"touxiang";
             province = array[0];
         }
         [self.regionPickerView showPickerWithProvinceName:province cityName:city countyName:county];
-
+       
     }
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
         introduceViewController *intro = [[introduceViewController alloc]init];
         intro.backBlock = ^(NSString *text) {
             self.peopleJieshao.text = text;
-//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            //            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             
         };
         [self.navigationController pushViewController:intro animated:YES];
-    }
-    if (indexPath.row == 7) {
-        //形象标签
-        TagViewController *tag = [[TagViewController alloc]init];
-        [self.navigationController pushViewController:tag animated:YES];
+        
     }
     if (indexPath.row == 8) {
+        //形象标签
+        TagViewController *tag = [[TagViewController alloc]init];
+        tag.backBlock1 = ^(NSString *text) {
+            self.tag1 = text;
+        };
+        tag.backBlock2 = ^(NSString *text) {
+            self.tag2 = text;
+        };
+        [self.navigationController pushViewController:tag animated:YES];
+       
+    }
+    if (indexPath.row == 9) {
         signViewController *sign = [[signViewController alloc]init];
         sign.backBlock = ^(NSString *text) {
             self.sign.text = text;

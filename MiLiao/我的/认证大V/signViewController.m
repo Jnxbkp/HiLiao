@@ -24,6 +24,7 @@
 }
 - (IBAction)sure:(id)sender {
     if (self.backBlock) {
+//        self.backBlock(self.textField.text);
         self.backBlock(self.textField.text);
     }
     [self.navigationController popViewControllerAnimated:YES];

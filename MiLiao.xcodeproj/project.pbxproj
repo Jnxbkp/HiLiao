@@ -10,6 +10,7 @@
 		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		1819AEA520104E9B00379836 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA420104E9B00379836 /* SettingTableViewController.m */; };
+		1819AEA92010CB6800379836 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA82010CB6800379836 /* TagModel.m */; };
 		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
 		18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249237200C523800A78B94 /* tiXainTableViewCell.m */; };
 		1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18249238200C523800A78B94 /* tiXainTableViewCell.xib */; };
@@ -381,6 +382,8 @@
 /* Begin PBXFileReference section */
 		1819AEA320104E9B00379836 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1819AEA420104E9B00379836 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		1819AEA72010CB6800379836 /* TagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
+		1819AEA82010CB6800379836 /* TagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
 		18249230200C505B00A78B94 /* WithdrawalsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawalsViewController.h; sourceTree = "<group>"; };
 		18249231200C505B00A78B94 /* WithdrawalsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawalsViewController.m; sourceTree = "<group>"; };
 		18249236200C523800A78B94 /* tiXainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiXainTableViewCell.h; sourceTree = "<group>"; };
@@ -1075,6 +1078,15 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		1819AEA62010CB5200379836 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1819AEA72010CB6800379836 /* TagModel.h */,
+				1819AEA82010CB6800379836 /* TagModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		18249233200C507F00A78B94 /* 充值 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,6 +1364,7 @@
 			isa = PBXGroup;
 			children = (
 				183AAF08200356CB006D658A /* 城市选择 */,
+				1819AEA62010CB5200379836 /* model */,
 				187724102000BF1600A93345 /* IdentificationVController.h */,
 				187724112000BF1600A93345 /* IdentificationVController.m */,
 				183AAF1120036C59006D658A /* introduceViewController.h */,
@@ -3002,6 +3015,7 @@
 				3CC752C12008499E00C03C6B /* JSONModelClassProperty.m in Sources */,
 				3CC752AA2008499E00C03C6B /* AliyunCoverPickViewController.m in Sources */,
 				3CC753452008828700C03C6B /* RCCallKitExtensionModule.m in Sources */,
+				1819AEA92010CB6800379836 /* TagModel.m in Sources */,
 				18249239200C523800A78B94 /* tiXainTableViewCell.m in Sources */,
 				E2D1950220033D0400EAEE57 /* QBCheckmarkView.m in Sources */,
 				E25929611FFCBC1700B6502D /* FSBaselineTableViewCell.m in Sources */,
@@ -3328,7 +3342,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3395,7 +3408,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

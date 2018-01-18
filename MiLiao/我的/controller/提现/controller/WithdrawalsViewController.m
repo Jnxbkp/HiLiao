@@ -109,7 +109,16 @@
 - (void)tiXianLoad
 {
     [self.view endEditing:YES];
+    NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
+    NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
 
+    [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"token"] remark:@"" success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

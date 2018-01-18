@@ -99,7 +99,7 @@
             NSLog(@"%@", [User ShardInstance].user_id);
             
             NSLog(@"nickname = %@",[User ShardInstance].nickname);
-            
+            NSLog(@"%ld", [YZCurrentUserModel sharedYZCurrentUserModel].roleType);
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
@@ -113,6 +113,7 @@
             [_userDefaults setObject:self.password.text forKey:@"password"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"balance"]] forKey:@"balance"];
+            [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"username"]] forKey:@"username"];
             NSLog(@"111111%@",[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"balance"]]);
             [_userDefaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
