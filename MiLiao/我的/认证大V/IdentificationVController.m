@@ -126,13 +126,14 @@ static NSString *kTempFolder = @"touxiang";
 - (IBAction)commit:(id)sender {
     if ([self.country isEqualToString:@"国外"]) {
         [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
-            
+            NSLog(@"%@",info);
         } failure:^(NSError *error) {
             
         }];
     }else{
         [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: self.hetght.text nickName:self.nickName.text personalSign:self.sign.text personalTags:@"1" posters:posters token:[_userDefaults objectForKey:@"token"] weight: self.weight.text success:^(NSDictionary *info) {
-            
+            NSLog(@"%@",info);
+
         } failure:^(NSError *error) {
             
         }];

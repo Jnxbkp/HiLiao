@@ -15,6 +15,13 @@
 #import "IncomeMoneyViewController.h"
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
 @interface MyMoneyViewController ()<UINavigationControllerDelegate>
+{
+    NSUserDefaults *_userDefaults;
+    
+}
+//@property (nonatomic, strong) NSString * Mmoney;
+//@property (nonatomic, strong) NSString * money;
+@property (weak, nonatomic) IBOutlet UILabel *money;
 
 @end
 
@@ -28,13 +35,27 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的钱包"];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    self.money.text = [NSString stringWithFormat:@"%@M币",[_userDefaults objectForKey:@"balance"]];
+    [self loadData];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
 }
+- (void)loadData
+{
+    [HLLoginManager getWalletInfotoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+//        self.dict = info[@"data"];
+//        self.Mmoney = info[@"data"][@"mMoney"];
+//        self.money = info[@"data"][@"money"];
 
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
@@ -45,6 +66,8 @@
         if (indexPath.row == 1) {
             //提现
             WithdrawalsViewController  * WithdrawalsVC = [[WithdrawalsViewController alloc]init];
+//            WithdrawalsVC.Mmoney = self.Mmoney;
+//            WithdrawalsVC.money = self.money;
             [self.navigationController pushViewController:WithdrawalsVC animated:YES];
 
         }

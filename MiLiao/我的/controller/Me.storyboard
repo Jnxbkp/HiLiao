@@ -538,6 +538,9 @@
                             <outlet property="delegate" destination="Hn7-Dc-dOm" id="CBr-6V-cjq"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="money" destination="4Ba-im-Qz1" id="6iS-lF-msg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBV-1V-FPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -557,48 +560,42 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-HJ-aYZ">
                                     <rect key="frame" x="12" y="0.0" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuanhaibao"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="GGm-jY-61s"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zO-Y8-rLz">
                                     <rect key="frame" x="133" y="0.0" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuantupian"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="DSo-Vt-MCi"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8q-3Q-RY7">
                                     <rect key="frame" x="12" y="121" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuantupian"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="Mt7-br-XwI"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r79-0t-JM3">
                                     <rect key="frame" x="133" y="121" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuantupian"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="3hm-DG-4SJ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tq6-ck-YB8">
                                     <rect key="frame" x="254" y="0.0" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuantupian"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="g3v-mc-vbB"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3R-4y-CmF">
                                     <rect key="frame" x="254" y="121" width="109" height="109"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="上传图片"/>
+                                    <state key="normal" backgroundImage="shangchuantupian"/>
                                     <connections>
                                         <action selector="photo:" destination="voR-q8-Bjd" eventType="touchUpInside" id="xZf-av-efT"/>
                                     </connections>
@@ -1091,6 +1088,8 @@
     <resources>
         <image name="bianji" width="24" height="25"/>
         <image name="chongzhi" width="20" height="20"/>
+        <image name="shangchuanhaibao" width="109" height="109"/>
+        <image name="shangchuantupian" width="109" height="109"/>
         <image name="shouru" width="20" height="20"/>
         <image name="tixian" width="20" height="20"/>
         <image name="tixianmingxi" width="20" height="20"/>
