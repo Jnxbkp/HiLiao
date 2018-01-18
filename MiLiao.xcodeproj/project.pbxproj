@@ -263,6 +263,7 @@
 		E2659C08200A022A00AA63CC /* PlayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCBAFC62008A542003071D2 /* PlayCollectionViewCell.m */; };
 		E2659C09200A028500AA63CC /* CommentVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AF952009B0E40029778B /* CommentVideoView.m */; };
 		E2659C0C200B473700AA63CC /* DiscoverMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659C0B200B473700AA63CC /* DiscoverMananger.m */; };
+		E26CC8452010E1C200ADBA96 /* LogCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CC8442010E1C200ADBA96 /* LogCategory.m */; };
 		E27024A1200F36B0002B08F5 /* ToolObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A0200F36B0002B08F5 /* ToolObject.m */; };
 		E27024A4200F51F1002B08F5 /* StateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A3200F51F1002B08F5 /* StateButton.m */; };
 		E27024AA200F6FAA002B08F5 /* DisVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E27024A9200F6FAA002B08F5 /* DisVideoModel.m */; };
@@ -819,6 +820,8 @@
 		E264E5FA2005BFD800DFF4A5 /* QuCore-ThirdParty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuCore-ThirdParty.framework"; path = "../看到的/AliyunVideoSDK_pro_iOS_3.4.0_20180103/Release/QuCore-ThirdParty.framework"; sourceTree = "<group>"; };
 		E2659C0A200B473700AA63CC /* DiscoverMananger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DiscoverMananger.h; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.h"; sourceTree = SOURCE_ROOT; };
 		E2659C0B200B473700AA63CC /* DiscoverMananger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DiscoverMananger.m; path = "MiLiao/Discover(发现)/Model/DiscoverMananger.m"; sourceTree = SOURCE_ROOT; };
+		E26CC8432010E1C200ADBA96 /* LogCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCategory.h; sourceTree = "<group>"; };
+		E26CC8442010E1C200ADBA96 /* LogCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogCategory.m; sourceTree = "<group>"; };
 		E270249F200F36B0002B08F5 /* ToolObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolObject.h; sourceTree = "<group>"; };
 		E27024A0200F36B0002B08F5 /* ToolObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolObject.m; sourceTree = "<group>"; };
 		E27024A2200F51F1002B08F5 /* StateButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateButton.h; sourceTree = "<group>"; };
@@ -2226,6 +2229,8 @@
 		E225016A1FFA586700E8321F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E26CC8432010E1C200ADBA96 /* LogCategory.h */,
+				E26CC8442010E1C200ADBA96 /* LogCategory.m */,
 				E2C6B9DD20008075006E0B2A /* UIColor+Hex.h */,
 				E2C6B9D820008075006E0B2A /* UIColor+Hex.m */,
 				E2C6B9DF20008075006E0B2A /* UIView+Frame.h */,
@@ -3041,6 +3046,7 @@
 				1846CE28200F8680000BF772 /* MyVideoViewController.m in Sources */,
 				3CC752962008499D00C03C6B /* AliyunImage.m in Sources */,
 				3CC753572008828700C03C6B /* RCCallFloatingBoard.m in Sources */,
+				E26CC8452010E1C200ADBA96 /* LogCategory.m in Sources */,
 				3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */,
 				185687942002138B003F1985 /* ChatListController.m in Sources */,
 				E221B5C81FF60EB600353875 /* MenuInfo.m in Sources */,
