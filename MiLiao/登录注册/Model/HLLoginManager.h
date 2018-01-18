@@ -60,16 +60,10 @@
 + (void)saveWirthdrawInfotoken:(NSString *)token amount:(NSNumber *)amount collectionAccount:(NSString *)collectionAccount collectionName:(NSString *)collectionName mobile:(NSString *)mobile remark:(NSString *)remark success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //GET /v1/dict/getTags 获取评论标签
 + (void)getTagstoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-<<<<<<< HEAD
-=======
 
->>>>>>> e414b9d0c3dd764d449c5ae2f4b9682326fdf441
 + (void)saveWirthdrawInfotoken:(NSString *)token Account:(NSString *)account amount:(NSString *)amount success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //POST /v1/video/saveVideo 视频保存
 + (void)NetPostSaveVideotoken:(NSString *)token videoId:(NSString *)videoId videoName:(NSString *)videoName videoUrl:(NSString *)videoUrl success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
-<<<<<<< HEAD
-=======
 
->>>>>>> e414b9d0c3dd764d449c5ae2f4b9682326fdf441
 @end
