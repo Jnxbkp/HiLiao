@@ -37,7 +37,7 @@ typedef void(^EvaluateSuccessBlock)(void);
 - (void)evaluateSuccess:(EvaluateSuccessBlock)success;
 
 ///展示结算成功
-- (void)showSetMoneySuccessView;
+- (void)showSetMoneySuccessView:(NSDictionary *)dict;
 
 
 @end

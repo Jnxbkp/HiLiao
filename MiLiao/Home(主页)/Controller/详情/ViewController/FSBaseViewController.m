@@ -143,7 +143,7 @@
     }
     //结算成功
     if ([notification.name isEqualToString:SetMoneySuccess]) {
-        [self setMoneySuccess];
+        [self setMoneySuccess:notification.userInfo];
     }
     
 }
@@ -184,9 +184,9 @@
 }
 
 ///结算成功
-- (void)setMoneySuccess {
+- (void)setMoneySuccess:(NSDictionary *)dict {
     [SVProgressHUD dismiss];
-    [self.evaluateVideoViewConroller showSetMoneySuccessView];
+    [self.evaluateVideoViewConroller showSetMoneySuccessView:dict];
 }
 
 - (void)setupSubViews

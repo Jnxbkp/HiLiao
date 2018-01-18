@@ -183,8 +183,13 @@
     }
 }
 
-- (void)showSetMoneySuccessView {
+- (void)showSetMoneySuccessView:(NSDictionary *)dict {
     SetMoneyView *view = [SetMoneyView SetMoneyView];
+    NSString *time = dict[@"time"];
+    NSString *money = [NSString stringWithFormat:@"%@M币", dict[@"totalFee"]] ;
+    NSLog(@"time is %@, money is %@", time, money);
+    self.timeLabel.text = time;
+    self.moneyLabel.text = money;
     [self.mainView addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.equalTo(self.mainView);

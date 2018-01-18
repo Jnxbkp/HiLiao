@@ -21,6 +21,8 @@
 #import "UserCallPowerModel.h"//可通话能力
 #import "PayWebViewController.h"
 
+#import "RCCallKitUtility.h"
+
 
 @interface RCCallSingleCallViewController ()<FUAPIDemoBarDelegate, UIGestureRecognizerDelegate, CountDownViewDelegate>
 
@@ -44,6 +46,9 @@
 @property (nonatomic, assign, getter=isCallIn) BOOL callIn;
 ///用于每分钟扣费的参数
 @property (nonatomic, strong) NSString *pid;
+
+///电话是否接通过
+@property (nonatomic, assign, getter=isCallConnect) BOOL callConnect;
 
 @end
 
@@ -290,8 +295,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     if (self.isCallIn) {
         //呼入的电话
         userName = self.callSession.caller;
-#warning 记得更改
-        costUserName = @"15662696090";//[YZCurrentUserModel sharedYZCurrentUserModel].username;
+        costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
     } else {
         //呼出的电话
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
@@ -325,8 +329,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     if (self.isCallIn) {
         //呼入的电话
         userName = self.callSession.caller;
-#warning 记得更改
-        costUserName = @"15662696090";//[YZCurrentUserModel sharedYZCurrentUserModel].username;
+        costUserName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
     } else {
         //呼出的电话
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
@@ -337,9 +340,12 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
             costUserName = self.callListModel.anchorAccount;
         }
     }
-    [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+    
+    [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, NSDictionary *dict, NSString *msg) {
         if (success) {
-            PostNotificationNameUserInfo(SetMoneySuccess, nil);
+            NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+            mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];
+            PostNotificationNameUserInfo(SetMoneySuccess, mutableDict);
         }
     }];
         
@@ -435,7 +441,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
 - (void)callDidConnect {
     [super callDidConnect];
     
-    
+    self.callConnect = YES;
      [self checkMoney];
     NSLog(@"%@", self.callSession.caller);
     NSLog(@"%@", self.callSession.myProfile.userId);
@@ -444,10 +450,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     
     if ([self.callSession.caller isEqualToString:self.callSession.myProfile.userId]) {
         NSLog(@"我发起的通话");
-#warning 测试倒计时view 记得删除
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self addCountDownView];
-        });
+//#warning 测试倒计时view 记得删除
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self addCountDownView];
+//        });
     } else {
         NSLog(@"我收到的通话");
     }
@@ -460,30 +466,32 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 20;
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
     //保存通话
     [self saveCall];
-    //最终扣费
-    [self finalDeductMoney];
     
-    //呼出电话发通知
-    if (!self.isCallIn) {
-        
-        NSString *anchorName;
-        NSString *callId = self.callSession.callId;
-        if (self.videoUser) {
-            anchorName = self.videoUser.username;
+    //如果电话接通过 则执行扣费
+    if (self.isCallConnect) {
+        //最终扣费
+        [self finalDeductMoney];
+        //呼出电话发通知
+        if (!self.isCallIn) {
+            
+            NSString *anchorName;
+            NSString *callId = self.callSession.callId;
+            if (self.videoUser) {
+                anchorName = self.videoUser.username;
+            }
+            
+            if (self.callListModel) {
+                anchorName = self.callListModel.userAccount;
+            }
+            NSDictionary *dict = @{
+                                   @"anchorName":anchorName,
+                                   @"callId":callId
+                                   };
+            PostNotificationNameUserInfo(VideoCallEnd, dict);
         }
         
-        if (self.callListModel) {
-            anchorName = self.callListModel.userAccount;
-        }
-        NSDictionary *dict = @{
-                               @"anchorName":anchorName,
-                               @"callId":callId
-                               };
-        PostNotificationNameUserInfo(VideoCallEnd, dict);
     }
-    
-    
-   
+       
 }
 
 - (RCloudImageView *)remotePortraitView {
