@@ -287,13 +287,20 @@
         failure(error);
     }];
 }
+<<<<<<< HEAD
 //POST /v1/wirthdraw/saveWirthdrawInfo 提现信息申请
 + (void)saveWirthdrawInfotoken:(NSString *)token amount:(NSNumber *)amount collectionAccount:(NSString *)collectionAccount collectionName:(NSString *)collectionName mobile:(NSString *)mobile remark:(NSString *)remark success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 {
+=======
+
+//POST /v1/video/saveVideo 视频保存
++ (void)NetPostSaveVideotoken:(NSString *)token videoId:(NSString *)videoId videoName:(NSString *)videoName videoUrl:(NSString *)videoUrl success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+>>>>>>> ab9af926397e7e80954e3f2df85302a854d5d9b5
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+<<<<<<< HEAD
     param[@"amount"] = amount;
     param[@"token"] = token;
     param[@"collectionAccount"] = collectionAccount;
@@ -314,6 +321,14 @@
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     [manager GET:[NSString stringWithFormat:@"%@/v1/dict/getTags?token=%@",HLRequestUrl,token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+=======
+    param[@"videoId"] = videoId;
+    param[@"token"] = token;
+    param[@"videoName"] = videoName;
+    param[@"videoUrl"] = videoUrl;
+  
+    [manager POST:[NSString stringWithFormat:@"%@/v1/video/saveVideo",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+>>>>>>> ab9af926397e7e80954e3f2df85302a854d5d9b5
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

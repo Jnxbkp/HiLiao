@@ -82,9 +82,9 @@
 - (void)autoLogin{
 
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
-    if (tokenStr.length>0) {
+    if (tokenStr.length>0&&![tokenStr isEqualToString:@"(null)"]) {
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
-            NSLog(@"------%@--->>>%@",tokenStr,info);
+            NSLog(@"------%@--->>>%@---%ld",tokenStr,info,tokenStr.length);
 //            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
         } failure:^(NSError *error) {

@@ -33,6 +33,7 @@
     _userDefaults = [NSUserDefaults standardUserDefaults];
     // 设置导航控制器的代理为self
     self.navigationController.delegate = self;
+    _password.secureTextEntry = YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

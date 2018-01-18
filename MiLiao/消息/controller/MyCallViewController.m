@@ -95,14 +95,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:^(RequestState success, MoneyEnoughType moneyType) {
+    
+    [UserInfoNet canCall:self.callListModel.anchorAccount resule:^(RequestState success, MoneyEnoughType moneyType, NSString *errMsg) {
         if (success) {
             //余额不充足 不能聊天 可以视频
             if (moneyType == MoneyEnoughTypeNotEnough) {
                 [self showPayAlertController:^{
                     //去充值
-//                    GoPayTableViewController *goPayVC = [[GoPayTableViewController alloc]init];
-//                    [weakSelf.navigationController pushViewController:goPayVC animated:YES];
+                    //                    GoPayTableViewController *goPayVC = [[GoPayTableViewController alloc]init];
+                    //                    [weakSelf.navigationController pushViewController:goPayVC animated:YES];
                 } continueCall:^{
                     //继续视频
                     weakSelf.callListModel = weakSelf.modelArray[indexPath.row];
@@ -121,9 +122,10 @@
                     
                 }];
             }
+        } else {
+            [SVProgressHUD showErrorWithStatus:errMsg];
         }
     }];
-
 
 }
 ///视频聊天

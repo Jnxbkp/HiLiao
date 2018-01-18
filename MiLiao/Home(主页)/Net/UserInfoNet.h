@@ -12,12 +12,12 @@
 
 
 typedef NS_ENUM(NSUInteger, MoneyEnoughType) {
-    ///账户余额为0
-    MoneyEnoughTypeEmpty,
+    ///不充足
+    MoneyEnoughTypeNotEnough,
     ///充足
     MoneyEnoughTypeEnough,
-    ///不充足
-    MoneyEnoughTypeNotEnough
+    ///账户余额为0
+    MoneyEnoughTypeEmpty
     
    
 };
@@ -63,7 +63,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)getUserBalance:(void(^)(CGFloat balance))balance;
 
 ///判定余额足够消费
-+ (void)canCall:(void(^)(RequestState success, MoneyEnoughType moneyType))complete;
++ (void)canCall:(NSString *)userName resule:(void(^)(RequestState success, MoneyEnoughType moneyType, NSString *errMsg))complete;
 
 
 

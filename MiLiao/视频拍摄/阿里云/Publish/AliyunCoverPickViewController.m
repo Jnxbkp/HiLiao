@@ -290,6 +290,13 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         _stateLabel.text = [NSString stringWithFormat:@"success:%@",vid];
         _backGroundView.hidden = YES;
+        
+        [HLLoginManager NetPostSaveVideotoken:[_userDefaults objectForKey:@"token"] videoId:vid videoName:_titleView.text videoUrl:imageUrl success:^(NSDictionary *info) {
+            NSLog(@"success--%@",info);
+        } failure:^(NSError *error) {
+            NSLog(@"error%@",error);
+        }];
+        
         [self.navigationController popToRootViewControllerAnimated:YES];
 //        [self dismissViewControllerAnimated:YES completion:nil];
     });

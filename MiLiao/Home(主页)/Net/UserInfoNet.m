@@ -113,17 +113,17 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 }
 
 ///判定余额足够消费
-+ (void)canCall:(void(^)(RequestState success, MoneyEnoughType moneyType))complete {
++ (void)canCall:(NSString *)userName resule:(void(^)(RequestState success, MoneyEnoughType moneyType, NSString *errMsg))complete {
     NSDictionary *parameters = @{@"token":tokenForCurrentUser(),
-                                 @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
+                                 @"userName":userName
                                  };
     [self Get:CanCallEnoughAPI parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
         RequestState state = Failure;
         if (success) {
             MoneyEnoughType type = [dict[@"typeCode"] integerValue];
-            !complete?:complete(Success, type);
+            !complete?:complete(Success, type, nil);
         } else {
-            !complete?:complete(Failure, 100);
+            !complete?:complete(Failure, 100, errMsg);
         }
         
     }];

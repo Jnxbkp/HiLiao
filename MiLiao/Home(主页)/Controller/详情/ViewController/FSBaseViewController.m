@@ -353,7 +353,7 @@
 - (void)downButtonClick:(UIButton *)but {
     
     __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:^(RequestState success, MoneyEnoughType moneyType) {
+    [UserInfoNet canCall:self.videoUserModel.username resule:^(RequestState success, MoneyEnoughType moneyType, NSString *errMsg) {
         if (success) {
             
             //余额不充足 不能聊天 可以视频
@@ -388,9 +388,12 @@
                     
                 }];
             }
+        } else {
+            [SVProgressHUD showErrorWithStatus:errMsg];
         }
     }];
-
+    
+    
     
 //    //计算可通话时长
 //    [self calculatorCallTime:^(BOOL canCall) {
