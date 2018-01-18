@@ -45,6 +45,9 @@
                                 <constraint firstAttribute="width" constant="40" id="OVi-4X-rIk"/>
                             </constraints>
                             <state key="normal" image="fanhui"/>
+                            <connections>
+                                <action selector="backButonClick:" destination="-1" eventType="touchUpInside" id="cyW-Wd-WAm"/>
+                            </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-js-nUz">
                             <rect key="frame" x="309" y="17" width="46" height="30"/>

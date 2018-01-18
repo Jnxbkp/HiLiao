@@ -38,6 +38,10 @@ static NSString *CellID_PlayCollectionViewCell = @"PlayCollectionViewCell";
     [self config];
     
 }
+- (IBAction)backButonClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
