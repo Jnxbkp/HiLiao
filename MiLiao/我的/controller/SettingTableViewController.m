@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swich;
 @property (nonatomic, copy) NSString * strM;
 @property (nonatomic, copy) NSString * strCM;
-@property (nonatomic, copy) NSString * money;
 
 @end
 
