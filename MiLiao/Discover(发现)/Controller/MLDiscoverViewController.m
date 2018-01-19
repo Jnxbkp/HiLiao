@@ -126,7 +126,6 @@ static NSString *const hotIdentifer = @"hotCell";
 - (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
     [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
-
         if (header == nil && footer == nil) {//首次请求
             NSMutableArray *muArr = [NSMutableArray array];
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
@@ -139,12 +138,19 @@ static NSString *const hotIdentifer = @"hotCell";
                 _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
+                if (_newsList.count > 0) {
+                    _newCollectionView.mj_footer.hidden = NO;
+                }
             } else {
                 _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
+                if (_hotList.count > 0) {
+                    _hotCollectionView.mj_footer.hidden = NO;
+                }
             }
         } else if (header == nil && footer != nil) {//加载
+            [footer endRefreshing];
             NSMutableArray *muArr = [NSMutableArray array];
             
             NSArray *dataArr = [[info objectForKey:@"data"] objectForKey:@"userList"];
@@ -157,12 +163,16 @@ static NSString *const hotIdentifer = @"hotCell";
                 _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
+                
             } else {
                 _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
+                
             }
-            [footer endRefreshing];
+            if (dataArr.count <= 0) {
+                [footer endRefreshingWithNoMoreData];
+            }
             
         } else if (header != nil && footer == nil) {//刷新
             [header endRefreshing];
@@ -179,11 +189,17 @@ static NSString *const hotIdentifer = @"hotCell";
                 _newsList = [NSMutableArray array];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
+                if (_newsList.count > 0) {
+                    _newCollectionView.mj_footer.hidden = NO;
+                }
             } else {
                 _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 _hotList = [NSMutableArray array];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
+                if (_hotList.count > 0) {
+                    _hotCollectionView.mj_footer.hidden = NO;
+                }
             }
             
         }
@@ -239,17 +255,16 @@ static NSString *const hotIdentifer = @"hotCell";
     
     if ([_selectStr isEqualToString:newStr]) {
         _newPage = page;
+        _newCollectionView.mj_footer.state = MJRefreshStateIdle;
         [self netGetVideoListPageSelectStr:_selectStr pageNumber:_newPage header:header footer:nil];
-        //        //获取tableview的数据
-        //        [self getHomeVCTableViewDataWithKind:_selectStr andHeader:header andFooter:nil andAnchor:_homeAnchor];
     } else {
         _hotPage = page;
+        _hotCollectionView.mj_footer.state = MJRefreshStateIdle;
         [self netGetVideoListPageSelectStr:_selectStr pageNumber:_hotPage header:header footer:nil];
     }
 }
 #pragma mark - 加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
-    
     
     NSString *anchor = [NSString string];
     if ([_selectStr isEqualToString:newStr]) {
@@ -307,17 +322,12 @@ static NSString *const hotIdentifer = @"hotCell";
         CollectionView.dataSource = self;
         
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
-//        header.stateLabel.hidden = YES;
-//        header.lastUpdatedTimeLabel.hidden = YES;
-//        CollectionView.mj_header = header;
         CollectionView.mj_header = header;
         
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-//        footer.stateLabel.hidden = YES;
-//        footer.refreshingTitleHidden = YES;
         CollectionView.mj_footer = footer;
+        CollectionView.mj_footer.hidden = YES;
         
-//        CollectionView.mj_footer = footer;
         if (indexPath.row == 0) {
             [CollectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:newIdentifer];
             _newCollectionView = CollectionView;

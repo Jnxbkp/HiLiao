@@ -45,9 +45,6 @@ static NSString *const bigIdentifer = @"bigCell";
     NSString            *_carePage;
     NSString            *_recommandPage;
     
-    NSString            *_isRecommandNull; //是否加载完
-    NSString            *_isNewNull;
-    NSString            *_isCareNull;
     
 }
 ///模型数组
@@ -85,10 +82,6 @@ static NSString *const bigIdentifer = @"bigCell";
     _carePage = @"1";
     _recommandPage = @"1";
     
-    _isNewNull = @"no";
-    _isCareNull = @"no";
-    _isRecommandNull = @"no";
-    
     NSLog(@"-------------%@",[_userDefaults objectForKey:@"token"]);
     [self addTableChoseView];
     
@@ -109,6 +102,7 @@ static NSString *const bigIdentifer = @"bigCell";
     
     [self.view addSubview:_bigCollectionView];
   
+    
     [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:nil];
 }
 //table选择视图
@@ -203,6 +197,7 @@ static NSString *const bigIdentifer = @"bigCell";
 
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
+            
             self.modelArray = [VideoUserModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             NSLog(@"%ld", self.modelArray.count);
 
@@ -211,14 +206,24 @@ static NSString *const bigIdentifer = @"bigCell";
                     _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                     _newsList = [self.modelArray mutableCopy];
                     [self newTabReload];
+                    if (self.modelArray.count > 0) {
+                        _newTabelView.mj_footer.hidden = NO;
+                    }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
                     [self careTabReload];
+                    if (self.modelArray.count > 0) {
+                        _careTabelView.mj_footer.hidden = NO;
+                    }
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
                     [self recommandTabReload];
+                    
+                    if (self.modelArray.count > 0) {
+                        _recommandTabelView.mj_footer.hidden = NO;
+                    }
                 }
             } else if (header == nil && footer != nil) {//加载
                 [footer endRefreshing];
@@ -227,21 +232,21 @@ static NSString *const bigIdentifer = @"bigCell";
                     [_newsList addObjectsFromArray:[self.modelArray mutableCopy]];
                     [self newTabReload];
                     if (self.modelArray.count <= 0) {
-                        _isNewNull = @"yes";
+                        [footer endRefreshingWithNoMoreData];
                     }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     [_careList addObjectsFromArray:[self.modelArray mutableCopy]];
                     [self careTabReload];
                     if (self.modelArray.count <= 0) {
-                        _isCareNull = @"yes";
+                        [footer endRefreshingWithNoMoreData];
                     }
                 } else {
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     [_recommandList addObjectsFromArray:[self.modelArray mutableCopy]];
                     [self recommandTabReload];
                     if (self.modelArray.count <= 0) {
-                        _isRecommandNull = @"yes";
+                        [footer endRefreshingWithNoMoreData];
                     }
                 }
                 
@@ -252,23 +257,32 @@ static NSString *const bigIdentifer = @"bigCell";
                     _newsList = [NSMutableArray array];
                     _newsList = [self.modelArray mutableCopy];
                     [self newTabReload];
+                    if (self.modelArray.count > 0) {
+                        _newTabelView.mj_footer.hidden = NO;
+                    }
                 } else if ([selectStr isEqualToString:careStr]) {
                     _careList = [NSMutableArray array];
                     _carePage = [NSString stringWithFormat:@"%lu",[_carePage integerValue] +1];
                     _careList = [self.modelArray mutableCopy];
                     [self careTabReload];
+                    if (self.modelArray.count > 0) {
+                        _careTabelView.mj_footer.hidden = NO;
+                    }
                 } else {
                     _recommandList = [NSMutableArray array];
                     _recommandPage = [NSString stringWithFormat:@"%lu",[_recommandPage integerValue] +1];
                     _recommandList = [self.modelArray mutableCopy];
                     [_recommandTabelView reloadData];
+                    if (self.modelArray.count > 0) {
+                        _recommandTabelView.mj_footer.hidden = NO;
+                    }
                 }
             }
             
         } else {
-            if (header == nil && footer != nil) {//加载
+            if (footer != nil) {//加载
                 [footer endRefreshing];
-            } else if (header != nil && footer == nil) {//刷新
+            } else if (header != nil) {//刷新
                 [header endRefreshing];
             }
         }
@@ -291,42 +305,27 @@ static NSString *const bigIdentifer = @"bigCell";
     
     if ([_selectStr isEqualToString:newStr]) {
         _newPage = page;
-        _isNewNull = @"no";
+        _newTabelView.mj_footer.state = MJRefreshStateIdle;
         [self netGetListPageSelectStr:_selectStr pageNumber:_newPage header:header footer:nil];
     } else if ([_selectStr isEqualToString:careStr]) {
         _carePage = page;
-        _isCareNull = @"no";
+        _careTabelView.mj_footer.state = MJRefreshStateIdle;
         [self netGetListPageSelectStr:_selectStr pageNumber:_carePage header:header footer:nil];
     } else {
-        _isRecommandNull = @"no";
         _recommandPage = page;
+        _recommandTabelView.mj_footer.state = MJRefreshStateIdle;
         [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:header footer:nil];
     }
 }
 #pragma mark - 加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
-
     if ([_selectStr isEqualToString:newStr]) {
-        if ([_isNewNull isEqualToString:@"no"]) {
-            [self netGetListPageSelectStr:_selectStr pageNumber:_newPage header:nil footer:footer];
-        } else {
-            [footer endRefreshing];
-        }
+        [self netGetListPageSelectStr:_selectStr pageNumber:_newPage header:nil footer:footer];
     } else if ([_selectStr isEqualToString:careStr]) {
-        if ([_isCareNull isEqualToString:@"no"]) {
-            [self netGetListPageSelectStr:_selectStr pageNumber:_carePage header:nil footer:footer];
-        } else {
-            [footer endRefreshing];
-        }
+        [self netGetListPageSelectStr:_selectStr pageNumber:_carePage header:nil footer:footer];
     } else {
-        if ([_isRecommandNull isEqualToString:@"no"]) {
-            [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:footer];
-        } else {
-            [footer resetNoMoreData];
-        }
+        [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:footer];
     }
-    
-    
 }
 //collection section
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -358,8 +357,9 @@ static NSString *const bigIdentifer = @"bigCell";
     tableView.mj_header = header;
 
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-//    [footer setTitle:@"" forState:1];
     tableView.mj_footer = footer;
+    tableView.mj_footer.hidden = YES;
+    
     if (indexPath.row == 0) {
         _recommandTabelView = tableView;
         [cell.contentView addSubview:_recommandTabelView];
@@ -394,7 +394,6 @@ static NSString *const bigIdentifer = @"bigCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectio {
     if (tableView == _newTabelView) {
         return _newsList.count;
-//        return 1;
     } else if (tableView == _careTabelView) {
         return _careList.count;
     } else {

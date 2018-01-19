@@ -733,9 +733,9 @@
         CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
         _colorView.alpha = alpha;
     }
-  
- 
-    CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y-85;
+
+      CGFloat bottomCellOffset = [_tableView rectForSection:1].origin.y-ML_StatusBarHeight-ML_TopHeight;
+   
 //    NSLog(@"--------%lf-----%lf",bottomCellOffset,scrollView.contentOffset.y);
     if (scrollView.contentOffset.y >= bottomCellOffset) {
         scrollView.contentOffset = CGPointMake(0, bottomCellOffset);

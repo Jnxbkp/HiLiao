@@ -13,6 +13,7 @@
 
 @interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource> {
     NSUserDefaults *_userDefaults;
+    NSString    *_commentsPage;
 }
 @property (nonatomic, assign) BOOL fingerIsTouch;
 @property (strong, nonatomic) NSMutableArray *dataArr;
@@ -35,7 +36,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:@"1" pageSize:@"20" token:[_userDefaults objectForKey:@"token"]];
+    _commentsPage = @"1";
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil];
     
     [self setupSubViews];
 }
@@ -48,38 +50,54 @@
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    _tableView.bounces = NO;
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-    footer.stateLabel.hidden = YES;
-    footer.refreshingTitleHidden = YES;
     _tableView.mj_footer = footer;
+    _tableView.mj_footer.hidden = YES;
     
     [self.view addSubview:_tableView];
-    //    __weak typeof(self) weakSelf = self;
-    //    [self.tableView addInfiniteScrollingWithActionHandler:^{
-    //        [weakSelf insertRowAtBottom];
-    //    }];
+
 }
 
 //主播评论列表
-- (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token {
+- (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token footer:(MJRefreshAutoNormalFooter *)footer{
     [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:pageSize token:token success:^(NSDictionary *info) {
         NSLog(@"--------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
+            _commentsPage = [NSString stringWithFormat:@"%lu",[_commentsPage integerValue] +1];
             for (int i = 0; i < arr.count; i ++) {
                 NSDictionary *dic = arr[i];
                 [_dataArr addObject:dic];
             }
-            [_tableView reloadData];
+            
+            if (footer != nil) {//加载
+                [footer endRefreshing];
+                [_tableView reloadData];
+                if (arr.count <= 0) {
+                    [footer endRefreshingWithNoMoreData];
+                }
+            } else {//首次请求
+                [_tableView reloadData];
+                if (arr.count > 0) {
+                    _tableView.mj_footer.hidden = NO;
+                }
+            }
+        } else {
+            if (footer != nil) {
+                [footer endRefreshing];
+            }
         }
     } failure:^(NSError *error) {
+        if (footer != nil) {
+            [footer endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
    
 }
 //加载更多
-- (void)footerLoadMore:(MJRefreshFooter *)footer {
-    [footer endRefreshing];
+- (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:footer];
 }
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
