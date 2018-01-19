@@ -682,9 +682,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称(必填)" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m1K-h9-tvt">
-                                                    <rect key="frame" x="157" y="10" width="184" height="30"/>
+                                                    <rect key="frame" x="89" y="10" width="252" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="184" id="8PB-z3-96L"/>
+                                                        <constraint firstAttribute="width" constant="252" id="8PB-z3-96L"/>
                                                         <constraint firstAttribute="height" constant="30" id="CnG-Ab-cop"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
@@ -748,9 +748,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入微信号(必填)" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eR5-Ay-u4x">
-                                                    <rect key="frame" x="157" y="10" width="184" height="30"/>
+                                                    <rect key="frame" x="87" y="10" width="254" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="184" id="bSn-3n-jvo"/>
+                                                        <constraint firstAttribute="width" constant="254" id="bSn-3n-jvo"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -964,7 +964,7 @@
                                         <rect key="frame" x="0.0" y="692" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gdf-51-eEL" id="x8q-AU-ajL">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBC-w2-XLU">

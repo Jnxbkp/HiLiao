@@ -13,6 +13,9 @@
 #import "RCDCustomerServiceViewController.h"
 #import "MyVideoViewController.h"
 #import "SettingTableViewController.h"
+#import "InReviewViewController.h"//审核中
+#import "AuditFailureViewController.h"//审核失败
+#import "AuditSuccessViewController.h"//审核成功
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
@@ -77,6 +80,33 @@
 //    if (indexPath.section == 0 && indexPath.row == 0) {
 //        return 0;
 //    }
+    //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"])
+    {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+                    return 0;
+            }
+        if (indexPath.section == 2 && indexPath.row == 0) {
+            return 0;
+        }
+    }
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"1"])
+    {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return 0;
+        }
+        if (indexPath.section == 2 && indexPath.row == 0) {
+            return 0;
+        }
+    }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"2"])
+    {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return 0;
+        }
+        if (indexPath.section == 2 && indexPath.row == 0) {
+            return 0;
+        }
+    }
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,14 +128,31 @@
 
         }
         if (indexPath.row == 2) {
-            //大V
-            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
-            IdentificationVController *Identification = [story instantiateViewControllerWithIdentifier:@"IdentificationVController"];
-            //设置导航条颜色
-            UINavigationController *nav = (UINavigationController *)self.navigationController;
-            //隐藏分隔线
-            [nav.navigationBar setShadowImage:[UIImage new]];
-            [self.navigationController pushViewController:Identification animated:YES];
+              //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
+            if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"]) {
+                //大V
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
+                IdentificationVController *Identification = [story instantiateViewControllerWithIdentifier:@"IdentificationVController"];
+                //设置导航条颜色
+                UINavigationController *nav = (UINavigationController *)self.navigationController;
+                //隐藏分隔线
+                [nav.navigationBar setShadowImage:[UIImage new]];
+                [self.navigationController pushViewController:Identification animated:YES];
+            }
+            if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"1"]) {
+                InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                [self presentViewController:inreview animated:NO completion:^{
+                }];
+            }
+            if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"2"]) {
+                AuditFailureViewController *AuditFailure = [[AuditFailureViewController alloc]init];
+                [self presentViewController:AuditFailure animated:NO completion:^{
+                }];
+            }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+                AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
+                [self presentViewController:AuditSuccess animated:NO completion:^{
+                }];
+            }
         }
     }
     if (indexPath.section == 1) {

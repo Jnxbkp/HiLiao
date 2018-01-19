@@ -14,6 +14,7 @@
 #import "introduceViewController.h"
 #import "signViewController.h"
 #import "TagViewController.h"
+#import "InReviewViewController.h"
 static NSString *kTempFolder = @"touxiang";
 
 @interface IdentificationVController ()<IQActionSheetPickerViewDelegate,UIImagePickerControllerDelegate>
@@ -137,7 +138,9 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height:@([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 [self.navigationController popViewControllerAnimated:YES];
+                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                 [self presentViewController:inreview animated:NO completion:^{
+                 }];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -146,8 +149,9 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 [self.navigationController popViewControllerAnimated:YES];
-
+                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                 [self presentViewController:inreview animated:NO completion:^{
+                 }];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -156,8 +160,9 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 [self.navigationController popViewControllerAnimated:YES];
-
+                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                 [self presentViewController:inreview animated:NO completion:^{
+                 }];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -166,8 +171,9 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 [self.navigationController popViewControllerAnimated:YES];
-
+                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                 [self presentViewController:inreview animated:NO completion:^{
+                 }];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -175,8 +181,9 @@ static NSString *kTempFolder = @"touxiang";
              [HLLoginManager NetPostupdateV:self.country province:provincename city:cityname constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
-                 [self.navigationController popViewControllerAnimated:YES];
-
+                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
+                 [self presentViewController:inreview animated:NO completion:^{
+                 }];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -186,8 +193,9 @@ static NSString *kTempFolder = @"touxiang";
     if ([self.country isEqualToString:@"国外"]) {
         [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
             NSLog(@"%@",info);
-            [self.navigationController popViewControllerAnimated:YES];
-
+            InReviewViewController *inreview = [[InReviewViewController alloc]init];
+            [self presentViewController:inreview animated:NO completion:^{
+            }];
         } failure:^(NSError *error) {
             
         }];

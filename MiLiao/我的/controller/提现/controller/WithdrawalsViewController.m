@@ -112,9 +112,13 @@
     NSString *collectionAccount = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawAccount"]];
     NSString *collectionName = [NSString stringWithFormat:@"%@",self.dict[@"wirthdrawName"]];
 
-    [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"token"] remark:@"" success:^(NSDictionary *info) {
+    [HLLoginManager saveWirthdrawInfotoken:[_userDefaults objectForKey:@"token"] amount:self.amount collectionAccount:collectionAccount collectionName:collectionName mobile:[_userDefaults objectForKey:@"username"] remark:@"" success:^(NSDictionary *info) {
         NSLog(@"%@",info);
-        
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            
+            
+        }
         
     } failure:^(NSError *error) {
         
