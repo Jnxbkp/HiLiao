@@ -15,6 +15,7 @@
 
 @interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
     NSUserDefaults   *_userDefaults;
+    NSString        *_videoPage;
 }
 
 @property (nonatomic, assign) BOOL fingerIsTouch;
