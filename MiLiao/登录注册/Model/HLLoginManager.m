@@ -244,7 +244,7 @@
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     
-    param[@"price"] = [NSNumber numberWithInt:price];
+    param[@"money"] = [NSNumber numberWithInt:price];
     param[@"token"] = token;
     NSLog(@"%@",param);
     [manager POST:[NSString stringWithFormat:@"%@/v1/user/setPrice",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
