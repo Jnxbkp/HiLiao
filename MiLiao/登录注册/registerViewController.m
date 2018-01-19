@@ -107,7 +107,7 @@
 
         }
     } failure:^(NSError *error) {
-        
+        NSLog(@"----%@",error);
     }];
 
 
