@@ -124,7 +124,7 @@ static NSString *const hotIdentifer = @"hotCell";
 }
 //请求网络接口
 - (void)netGetVideoListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
-    [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:@"20" success:^(NSDictionary *info) {
+    [DiscoverMananger NetGetVideoListVideoType:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
 
         if (header == nil && footer == nil) {//首次请求
@@ -136,9 +136,11 @@ static NSString *const hotIdentifer = @"hotCell";
             }
             
             if([selectStr isEqualToString:newStr]) {
+                _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
             } else {
+                _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
             }
@@ -152,9 +154,11 @@ static NSString *const hotIdentifer = @"hotCell";
             }
             
             if([selectStr isEqualToString:newStr]) {
+                _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
             } else {
+                _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
             }
@@ -171,10 +175,12 @@ static NSString *const hotIdentifer = @"hotCell";
             }
             
             if([selectStr isEqualToString:newStr]) {
+                _newPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 _newsList = [NSMutableArray array];
                 [_newsList addObjectsFromArray:muArr];
                 [_newCollectionView reloadData];
             } else {
+                _hotPage = [NSString stringWithFormat:@"%lu",[_newPage integerValue] +1];
                 _hotList = [NSMutableArray array];
                 [_hotList addObjectsFromArray:muArr];
                 [_hotCollectionView reloadData];
