@@ -10,7 +10,12 @@
 #import "CashTableViewCell.h"
 
 @interface IncomeMoneyViewController ()<UITableViewDelegate, UITableViewDataSource>
+{
+    NSUserDefaults *_userDefaults;
+    
+}
 @property (nonatomic, weak) UITableView * tableView;
+@property (strong, nonatomic) NSMutableArray *modelArray;
 
 @end
 
@@ -24,6 +29,9 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"收入明细"];
     self.view.backgroundColor = ML_Color(248, 248, 248, 1);
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    [self loadData];
+
     [self setTableview];
 
 }
@@ -31,6 +39,19 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+}
+- (void)loadData
+{
+    [HLLoginManager incomeDetailstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+//        if (resultCode == SUCCESS) {
+//            self.modelArray = [CallListModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+//            [self.tableView reloadData];
+//            
+//        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)setTableview
 {
@@ -47,7 +68,8 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return 6;
+    return 0;
+
 }
 //头部视图高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

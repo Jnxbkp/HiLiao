@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
+		180B0DAD20117E3400A19BA2 /* BigVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DAB20117E3400A19BA2 /* BigVViewController.m */; };
+		180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DAC20117E3400A19BA2 /* BigVViewController.xib */; };
+		180B0DB220117F7200A19BA2 /* InReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DB020117F7200A19BA2 /* InReviewViewController.m */; };
+		180B0DB320117F7200A19BA2 /* InReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DB120117F7200A19BA2 /* InReviewViewController.xib */; };
+		180B0DB720117F9200A19BA2 /* AuditFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DB520117F9200A19BA2 /* AuditFailureViewController.m */; };
+		180B0DB820117F9200A19BA2 /* AuditFailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DB620117F9200A19BA2 /* AuditFailureViewController.xib */; };
+		180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DBA20117FAF00A19BA2 /* AuditSuccessViewController.m */; };
+		180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DBB20117FAF00A19BA2 /* AuditSuccessViewController.xib */; };
 		1819AEA520104E9B00379836 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA420104E9B00379836 /* SettingTableViewController.m */; };
 		1819AEA92010CB6800379836 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA82010CB6800379836 /* TagModel.m */; };
 		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
@@ -380,6 +388,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		180B0DAA20117E3400A19BA2 /* BigVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigVViewController.h; sourceTree = "<group>"; };
+		180B0DAB20117E3400A19BA2 /* BigVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigVViewController.m; sourceTree = "<group>"; };
+		180B0DAC20117E3400A19BA2 /* BigVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigVViewController.xib; sourceTree = "<group>"; };
+		180B0DAF20117F7200A19BA2 /* InReviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InReviewViewController.h; sourceTree = "<group>"; };
+		180B0DB020117F7200A19BA2 /* InReviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InReviewViewController.m; sourceTree = "<group>"; };
+		180B0DB120117F7200A19BA2 /* InReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InReviewViewController.xib; sourceTree = "<group>"; };
+		180B0DB420117F9200A19BA2 /* AuditFailureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuditFailureViewController.h; sourceTree = "<group>"; };
+		180B0DB520117F9200A19BA2 /* AuditFailureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuditFailureViewController.m; sourceTree = "<group>"; };
+		180B0DB620117F9200A19BA2 /* AuditFailureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuditFailureViewController.xib; sourceTree = "<group>"; };
+		180B0DB920117FAF00A19BA2 /* AuditSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuditSuccessViewController.h; sourceTree = "<group>"; };
+		180B0DBA20117FAF00A19BA2 /* AuditSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuditSuccessViewController.m; sourceTree = "<group>"; };
+		180B0DBB20117FAF00A19BA2 /* AuditSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuditSuccessViewController.xib; sourceTree = "<group>"; };
 		1819AEA320104E9B00379836 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1819AEA420104E9B00379836 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1819AEA72010CB6800379836 /* TagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
@@ -1367,6 +1387,18 @@
 				1819AEA62010CB5200379836 /* model */,
 				187724102000BF1600A93345 /* IdentificationVController.h */,
 				187724112000BF1600A93345 /* IdentificationVController.m */,
+				180B0DAA20117E3400A19BA2 /* BigVViewController.h */,
+				180B0DAB20117E3400A19BA2 /* BigVViewController.m */,
+				180B0DAC20117E3400A19BA2 /* BigVViewController.xib */,
+				180B0DAF20117F7200A19BA2 /* InReviewViewController.h */,
+				180B0DB020117F7200A19BA2 /* InReviewViewController.m */,
+				180B0DB120117F7200A19BA2 /* InReviewViewController.xib */,
+				180B0DB420117F9200A19BA2 /* AuditFailureViewController.h */,
+				180B0DB520117F9200A19BA2 /* AuditFailureViewController.m */,
+				180B0DB620117F9200A19BA2 /* AuditFailureViewController.xib */,
+				180B0DB920117FAF00A19BA2 /* AuditSuccessViewController.h */,
+				180B0DBA20117FAF00A19BA2 /* AuditSuccessViewController.m */,
+				180B0DBB20117FAF00A19BA2 /* AuditSuccessViewController.xib */,
 				183AAF1120036C59006D658A /* introduceViewController.h */,
 				183AAF1220036C59006D658A /* introduceViewController.m */,
 				183AAF1320036C59006D658A /* introduceViewController.xib */,
@@ -2789,12 +2821,14 @@
 			files = (
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
+				180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */,
 				3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */,
 				3C0075D7200D9409004D205D /* CountDownView.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
 				1858203E2009AC3E0020C232 /* NickNameViewController.xib in Resources */,
+				180B0DB820117F9200A19BA2 /* AuditFailureViewController.xib in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
 				180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */,
@@ -2837,6 +2871,7 @@
 				1858204A2009AC970020C232 /* MyQianBaoTableViewCell.xib in Resources */,
 				3CCBB0062008D773003071D2 /* lixiaolong.png in Resources */,
 				1824923F200C526700A78B94 /* headerView.xib in Resources */,
+				180B0DB320117F7200A19BA2 /* InReviewViewController.xib in Resources */,
 				18567F49200207C7003F1985 /* RCConfig.plist in Resources */,
 				3CFF061720078D4600E20FDE /* yuguan.bundle in Resources */,
 				3CCBB0052008D773003071D2 /* yazui.png in Resources */,
@@ -2846,6 +2881,7 @@
 				3CCBAFC92008A542003071D2 /* PlayCollectionViewCell.xib in Resources */,
 				E2AB3703200CCF3B00458C41 /* LICENSE in Resources */,
 				E2C6B9E720008075006E0B2A /* 7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx in Resources */,
+				180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */,
 				E25929431FFCA96700B6502D /* phoneLoginViewController.xib in Resources */,
 				18567F50200207C8003F1985 /* WalletResource.bundle in Resources */,
 				E2B77BD41FFDD64900597326 /* messageCell.xib in Resources */,
@@ -2959,6 +2995,7 @@
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
 				3C77AF9F2009D7DF0029778B /* Networking.m in Sources */,
 				3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */,
+				180B0DAD20117E3400A19BA2 /* BigVViewController.m in Sources */,
 				3CC753492008828700C03C6B /* RCCallVideoMultiCallViewController.m in Sources */,
 				3CC7529E2008499D00C03C6B /* AliyunAlbumViewController.m in Sources */,
 				183AAF10200356E4006D658A /* HXAddressManager.m in Sources */,
@@ -2974,6 +3011,7 @@
 				185DC3C120085764004E3842 /* RCDCustomerServiceViewController.m in Sources */,
 				3CC752B42008499E00C03C6B /* AVAsset+VideoInfo.m in Sources */,
 				E2C6B9E320008075006E0B2A /* UIColor+Hex.m in Sources */,
+				180B0DB220117F7200A19BA2 /* InReviewViewController.m in Sources */,
 				3CC753542008828700C03C6B /* RCDVideoFrameObserver.mm in Sources */,
 				185687952002138B003F1985 /* ChatRoomController.m in Sources */,
 				18568798200215F0003F1985 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -2982,6 +3020,7 @@
 				E2B77BCB1FFDD4BA00597326 /* YZNavgationBackButton.m in Sources */,
 				E27E9F541FFB1E0C00096A6E /* SGPageTitleView.m in Sources */,
 				3CC752AC2008499E00C03C6B /* AliyunPublishTopView.m in Sources */,
+				180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */,
 				3CC753502008828700C03C6B /* RCCallSelectingMemberCell.m in Sources */,
 				3CC752AE2008499E00C03C6B /* QPSSZipArchive.m in Sources */,
 				3CC753562008828700C03C6B /* RCCallKitUtility.m in Sources */,
@@ -2990,6 +3029,7 @@
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
+				180B0DB720117F9200A19BA2 /* AuditFailureViewController.m in Sources */,
 				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
@@ -3342,7 +3382,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3393,7 +3433,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3409,7 +3449,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
+				DEVELOPMENT_TEAM = 9W5TA328XR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3460,7 +3500,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -416,7 +416,7 @@
 - (void)chat {
     //新建一个聊天会话View Controller对象,建议这样初始化
     ChatRoomController *chat = [[ChatRoomController alloc] initWithConversationType:ConversationType_PRIVATE targetId:self.videoUserModel.ID];
-    chat.title = @"hehehe";
+    chat.title = self.videoUserModel.nickname;
     chat.videoUser = self.videoUserModel;
     chat.automaticallyAdjustsScrollViewInsets = NO;
     //显示聊天会话界面

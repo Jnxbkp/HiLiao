@@ -103,6 +103,7 @@
 
             NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",@"yes",@"isLog", nil];
+          //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
             [_userDefaults setObject:isBigV forKey:@"isBigV"];
             [_userDefaults setObject:@"yes" forKey:@"isLog"];
             NSString *token = info[@"data"][@"token"];
@@ -114,7 +115,6 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"balance"]] forKey:@"balance"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"username"]] forKey:@"username"];
-            NSLog(@"111111%@",[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"balance"]]);
             [_userDefaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             //融云登录操作
