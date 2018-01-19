@@ -97,7 +97,14 @@
         [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
     }
 }
-
+- (void)didTapMessageCell:(RCMessageModel *)model
+{
+    if ([model.objectName isEqualToString:@"RC:VCSummary"]) {
+        return;
+    } else {
+        [super didTapMessageCell:model];
+    }
+}
 // @param userId  点击头像对应的用户ID
 - (void)didTapCellPortrait:(NSString *)userId {
 //    RtLog(@"%@",userId);
