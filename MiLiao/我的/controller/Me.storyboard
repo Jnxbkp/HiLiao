@@ -1006,6 +1006,7 @@
                         <outlet property="eightBtn" destination="G3R-4y-CmF" id="FLI-KA-sSk"/>
                         <outlet property="fiveBtn" destination="f8q-3Q-RY7" id="feC-gs-lmb"/>
                         <outlet property="fourBtn" destination="tq6-ck-YB8" id="Zv7-FA-7Gn"/>
+                        <outlet property="headerView" destination="93r-So-Gjb" id="FNj-UZ-ipd"/>
                         <outlet property="hetght" destination="I2g-f5-o1S" id="UQl-mt-0B1"/>
                         <outlet property="nickName" destination="m1K-h9-tvt" id="mcG-Tz-bPa"/>
                         <outlet property="oneBtn" destination="7ST-HJ-aYZ" id="ySL-g7-CsP"/>

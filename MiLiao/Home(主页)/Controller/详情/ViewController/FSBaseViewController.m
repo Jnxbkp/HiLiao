@@ -118,7 +118,7 @@
     _isBuyWechat = [NSString string];
 
     //主播信息请求
-    [self NetGetUserInformation:_user_id];
+    [self NetGetUserInformation:_user_id header:nil];
     
     _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -131,13 +131,20 @@
     _tableView.mj_header = header;
     
     [self.view addSubview:_tableView];
-    
     [self addFootView];
      [self addNavView];
     [self setupSubViews];
-    
+    [self loadDaata];
 }
-
+- (void)loadDaata
+{
+    [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
+        NSLog(@"%@",msg);
+        if (success) {
+            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+        }
+    }];
+}
 #pragma mark - 通知方法
 - (void)listenNotification {
     ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
@@ -292,15 +299,19 @@
         [footView addSubview:button];
     }
     [self.view addSubview:footView];
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        footView.hidden = YES;
+    }
+   
+    
 }
 #pragma mark - 请求主播数据
-- (void)NetGetUserInformation:(NSString *)user_id {
+- (void)NetGetUserInformation:(NSString *)user_id header:(MJRefreshNormalHeader *)header{
     NSLog(@"-------%@",user_id);
     [MainMananger NetGetgetAnchorInfoNickName:@"a" token:[_userDefaults objectForKey:@"token"] userid:user_id success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-        
             _womanModel = [[WomanModel alloc]initWithDictionary:[[info objectForKey:@"data"] objectAtIndex:0]];
             for (int i = 0; i < _womanModel.imageList.count; i++) {
                 NSDictionary *dic = _womanModel.imageList[i];
@@ -308,19 +319,37 @@
                 [_imageMuArr addObject:fileUrl];
                 
             }
-            NSDictionary *userDic = [NSDictionary dictionaryWithObject:_womanModel forKey:@"womanModel"];
-            NSNotification *notification =[NSNotification notificationWithName:@"getWomanInformation" object:nil userInfo:userDic];
-            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            
             [_tableView reloadData];
+            if (header != nil) {
+                
+                [header endRefreshing];
+                _titleView.selectIndex = 0;
+                self.contentCell.pageContentView.contentViewCurrentIndex = _titleView.selectIndex;
+                NSDictionary *userDic = [NSDictionary dictionaryWithObject:_womanModel forKey:@"womanModel"];
+                NSNotification *notification =[NSNotification notificationWithName:@"refreshWomanData" object:nil userInfo:userDic];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
+            } else {
+                NSDictionary *userDic = [NSDictionary dictionaryWithObject:_womanModel forKey:@"womanModel"];
+                NSNotification *notification =[NSNotification notificationWithName:@"getWomanInformation" object:nil userInfo:userDic];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
+            }
+        } else {
+            if (header != nil) {
+                [header endRefreshing];
+            }
         }
     } failure:^(NSError *error) {
+        if (header != nil) {
+            [header endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
 }
 
 #pragma mark refresh
 - (void)headerRefreshing:(MJRefreshNormalHeader *)header {
-    [header endRefreshing];
+    [self NetGetUserInformation:_user_id header:header];
 }
 //微信购买
 - (void)buyVChatButton:(UIButton *)button {
@@ -340,7 +369,7 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             _isBuyWechat = @"yes";
-            [self NetGetUserInformation:_user_id];
+            [self NetGetUserInformation:_user_id header:nil];
         } else {
             [ToolObject showOkAlertMessageString:[info objectForKey:@"resultMsg"] withViewController:self];
         }

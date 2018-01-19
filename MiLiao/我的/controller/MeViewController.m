@@ -141,17 +141,15 @@
             }
             if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"1"]) {
                 InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                [self presentViewController:inreview animated:NO completion:^{
-                }];
+                [self.navigationController pushViewController:inreview animated:YES];
             }
             if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"2"]) {
                 AuditFailureViewController *AuditFailure = [[AuditFailureViewController alloc]init];
-                [self presentViewController:AuditFailure animated:NO completion:^{
-                }];
+                [self.navigationController pushViewController:AuditFailure animated:YES];
+
             }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
                 AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
-                [self presentViewController:AuditSuccess animated:NO completion:^{
-                }];
+                [self.navigationController pushViewController:AuditSuccess animated:YES];
             }
         }
     }

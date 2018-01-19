@@ -28,13 +28,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+   //下拉刷新
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
+    
     _videoPage = @"1";
     self.view.backgroundColor = [UIColor whiteColor];
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _dataArr = [NSMutableArray array];
     
-    [self netGetUserVideoListfooter:nil];
+    [self netGetUserVideoListId:_videoUserModel.ID footer:nil isFresh:@"no"];
     
     [self setupSubViews];
 }
@@ -44,7 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50-ML_TopHeight-50) collectionViewLayout:layout];
-    _collectionView.backgroundColor = Color242;
+    _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
@@ -56,12 +58,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 //主播视频列表
-- (void)netGetUserVideoListfooter:(MJRefreshAutoNormalFooter *)footer {
-    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:_videoPage pageSize:PAGESIZE success:^(NSDictionary *info) {
+- (void)netGetUserVideoListId:(NSString *)Id footer:(MJRefreshAutoNormalFooter *)footer isFresh:(NSString *)isRefresh{
+    [MainMananger NetGetgetVideoListById:Id token:[_userDefaults objectForKey:@"token"] pageNumber:_videoPage pageSize:PAGESIZE success:^(NSDictionary *info) {
+        NSLog(@"------->>>video----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-            NSArray *arr = [info objectForKey:@"data"];
+            NSArray *arr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             _videoPage = [NSString stringWithFormat:@"%lu",[_videoPage integerValue] +1];
+            if ([isRefresh isEqualToString:@"yes"]) {
+                _dataArr = [NSMutableArray array];
+            }
             for (int i = 0; i < arr.count; i ++) {
                 NSDictionary *dic = arr[i];
                 [_dataArr addObject:dic];
@@ -93,12 +99,21 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 //加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
-    [self netGetUserVideoListfooter:footer];
+    [self netGetUserVideoListId:_videoUserModel.ID footer:footer isFresh:@"no"];
+}
+#pragma mark - 通知刷新
+- (void)notificationWomanData:(NSNotification *)note {
+    NSDictionary *dic = note.userInfo;
+//    _videoUserModel = [dic objectForKey:@"womanModel"];
+//    
+//    _videoPage = @"1";
+//    NSLog(@"--------%@",[NSString stringWithFormat:@"%@",_videoUserModel.ID]);
+//    [self netGetUserVideoListId:_videoUserModel.ID footer:nil isFresh:@"yes"];
 }
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataArr.count;
-//    return 20;
+
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

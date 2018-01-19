@@ -36,9 +36,9 @@
     [HLLoginManager NetPostresetpwdMobile:self.phoneNum password:self.password.text msgId:self.msgId verifyCode:self.yanZhengNum success:^(NSDictionary *info) {
         NSLog(@"------>>%@",info);
 
-        NSString *resultCode = [NSString stringWithFormat:@"%@",[info objectForKey:@"resultCode"]];
-        if ([resultCode isEqualToString:@"200"]) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+       NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+         [self dismissViewControllerAnimated:NO completion:nil];
         }
     } failure:^(NSError *error) {
         
