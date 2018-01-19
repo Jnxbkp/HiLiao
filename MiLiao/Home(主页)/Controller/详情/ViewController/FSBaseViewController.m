@@ -131,13 +131,20 @@
     _tableView.mj_header = header;
     
     [self.view addSubview:_tableView];
-    
     [self addFootView];
      [self addNavView];
     [self setupSubViews];
-    
+    [self loadDaata];
 }
-
+- (void)loadDaata
+{
+    [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
+        NSLog(@"%@",msg);
+        if (success) {
+            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+        }
+    }];
+}
 #pragma mark - 通知方法
 - (void)listenNotification {
     ListenNotificationName_Func(VideoCallEnd, @selector(notificationFunc:));
@@ -292,6 +299,11 @@
         [footView addSubview:button];
     }
     [self.view addSubview:footView];
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        footView.hidden = YES;
+    }
+   
+    
 }
 #pragma mark - 请求主播数据
 - (void)NetGetUserInformation:(NSString *)user_id {
