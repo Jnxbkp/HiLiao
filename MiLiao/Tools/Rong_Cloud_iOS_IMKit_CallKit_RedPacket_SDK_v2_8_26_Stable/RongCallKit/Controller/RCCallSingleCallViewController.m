@@ -146,6 +146,10 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    NSLog(@"%@", self.callSession.targetId);
+    NSArray *array = self.callSession.userProfileList;
+    NSLog(@"%ld", array.count);
+    NSLog(@"%@", self.callSession.myProfile.userId);
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUserInfoUpdate:)
                                                  name:RCKitDispatchUserInfoUpdateNotification
@@ -166,12 +170,21 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     
     //加载底部的美颜bar 并默认隐藏
     [self addBottomBar];
-    
+    //初始化美颜
+    [[FUManager shareManager] setUpFaceunity];
     //注册监听 美颜视频流
     [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-    //初始化美颜
-    [[FUManager shareManager] setUpFaceunity];
+    
+    
+    
+    //判断电话 是呼入还是呼出
+    if (self.callSession.callStatus == RCCallDialing) {
+        self.callIn = NO;
+    }
+    if (self.callSession.callStatus == RCCallIncoming) {
+        self.callIn = YES;
+    }
     
 }
 
@@ -255,10 +268,14 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 }
 
 ///保存通话
-- (void)saveCall {
+- (void)saveCall:(RCCallDisconnectReason)reason {
     NSString *userName;
     NSString *userID;
     
+//    if (reason == RCCallDisconnectReasonRemoteCancel) {
+//        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+//        userID = [YZCurrentUserModel sharedYZCurrentUserModel].user_id;
+//    }
     if (self.callIn) {
         //接听的来电
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
@@ -308,6 +325,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
             if (self.callListModel) {
                 userName = self.callListModel.anchorAccount;
             }
+            NSLog(@"%@", self.targetId);
         }
     } else if (roleType == 2) {
         //大v
@@ -322,6 +340,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
                 costUserName = self.callListModel.anchorAccount;
             }
         }
+        NSLog(@"%@", self.targetId);
     }
     
 //    NSLog(@"%@", isBigV);//3大V
@@ -507,22 +526,16 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 ///通话已连接
 - (void)callDidConnect {
     [super callDidConnect];
-    
     self.callConnect = YES;
      [self checkMoney];
-//    NSLog(@"%@", self.callSession.caller);
-//    NSLog(@"%@", self.callSession.myProfile.userId);
-    
-    self.callIn = ![self.callSession.caller isEqualToString:self.callSession.myProfile.userId];
 }
 
 - (void)callDidDisconnect {
     [super callDidDisconnect];
     RCCallDisconnectReason reason = self.callSession.disconnectReason;
-    NSLog(@"%ld", reason);
     if (self.checkMoneyTimer) dispatch_cancel(self.checkMoneyTimer);
     //保存通话
-    [self saveCall];
+    [self saveCall:reason];
     
     //如果电话接通过 则执行扣费
     if (self.isCallConnect) {

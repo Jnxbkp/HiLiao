@@ -109,4 +109,13 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  @param complete 完成
  */
 + (void)saveEvaluateAnchorName:(NSString *)anchorName callId:(NSString *)callId score:(NSString *)score tags:(NSArray *)tags complete:(CompleteBlock)complete;
+
+
+
+/**
+ 获取用户角色
+
+ @param complete <#complete description#>
+ */
++ (void)getUserRole:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))complete;
 @end

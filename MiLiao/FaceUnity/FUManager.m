@@ -44,16 +44,16 @@ static FUManager *shareManager = NULL;
         
         /*设置默认参数*/
         self.itemsDataSource = @[@"noitem", @"yuguan", @"yazui", @"mask_matianyu", @"lixiaolong", @"EatRabbi", @"Mood"];
-        self.selectedItem = self.itemsDataSource[1]; //贴纸道具
+        self.selectedItem = self.itemsDataSource[0]; //贴纸道具
         
         self.filtersDataSource = @[@"nature", @"delta", @"electric", @"slowlived", @"tokyo", @"warm"];
         self.selectedFilter = self.filtersDataSource[0]; //滤镜效果
         
-        self.selectedBlur = 6; //磨皮程度
+        self.selectedBlur = 5; //磨皮程度
         
-        self.beautyLevel = 0.2; //美白程度
+        self.beautyLevel = 0.7; //美白程度
         
-        self.redLevel = 0.5; //红润程度
+        self.redLevel = 0.2; //红润程度
         
         self.thinningLevel = 1.0; //瘦脸程度
         
@@ -179,7 +179,7 @@ static FUManager *shareManager = NULL;
     /**设置美颜参数*/
     [self setBeautyParams];
     
-    [[FURenderer shareRenderer] renderFrame:y u:u v:v ystride:ystride ustride:ustride vstride:vstride width:width height:height frameId:frameID items:items itemCount:3];
+    [[FURenderer shareRenderer] renderFrame:y u:u v:v ystride:ystride ustride:ustride vstride:vstride width:width height:height frameId:frameID items:items itemCount:3];//itemCount默认是3
     
     frameID += 1;
 }
