@@ -18,6 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (IBAction)go:(id)sender {
 //    self.tabBarController.hidesBottomBarWhenPushed=NO;
 //    self.tabBarController.selectedIndex=0;

@@ -35,18 +35,29 @@
 //    }];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (IBAction)success:(id)sender {
-    SettingTableViewController *set = [[SettingTableViewController alloc]init];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
+    SettingTableViewController *set = [story instantiateViewControllerWithIdentifier:@"SettingTableViewController"];
 //    YZNavigationController *nav = [[YZNavigationController alloc] initWithRootViewController:set];
 
-//    [self.navigationController pushViewController:set animated:YES];
+    [self.navigationController pushViewController:set animated:YES];
     
     
-    [self presentViewController:set animated:NO completion:^{
-//
-//
-//
-    }];
+//    [self presentViewController:set animated:NO completion:^{
+////
+////
+////
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

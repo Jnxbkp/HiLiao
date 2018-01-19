@@ -68,6 +68,7 @@ static NSString *kTempFolder = @"touxiang";
 @property(nonatomic,strong)NSString *tag2;
 @property(nonatomic,strong)NSArray *arr;
 @property (weak, nonatomic) IBOutlet UITextField *wx;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property (nonatomic,strong) HXProvincialCitiesCountiesPickerview *regionPickerView;
 
@@ -102,6 +103,7 @@ static NSString *kTempFolder = @"touxiang";
     _userDefaults = [NSUserDefaults standardUserDefaults];
    posters = [[NSMutableArray alloc]init];//图片集合
     self.phoneNumber.text = [_userDefaults objectForKey:@"username"];
+    self.headerView.height = (WIDTH-48)/3*2+24;
     [self loData];
 
 }
@@ -139,8 +141,7 @@ static NSString *kTempFolder = @"touxiang";
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
                  InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self presentViewController:inreview animated:NO completion:^{
-                 }];
+                 [self.navigationController pushViewController:inreview animated:YES];
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -150,8 +151,8 @@ static NSString *kTempFolder = @"touxiang";
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
                  InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self presentViewController:inreview animated:NO completion:^{
-                 }];
+                 [self.navigationController pushViewController:inreview animated:YES];
+
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -161,8 +162,8 @@ static NSString *kTempFolder = @"touxiang";
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
                  InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self presentViewController:inreview animated:NO completion:^{
-                 }];
+                 [self.navigationController pushViewController:inreview animated:YES];
+
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -172,8 +173,8 @@ static NSString *kTempFolder = @"touxiang";
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
                  InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self presentViewController:inreview animated:NO completion:^{
-                 }];
+                 [self.navigationController pushViewController:inreview animated:YES];
+
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -182,8 +183,8 @@ static NSString *kTempFolder = @"touxiang";
                  NSLog(@"%@",info);
                  NSLog(@"12122121%@",info[@"resultMsg"]);
                  InReviewViewController *inreview = [[InReviewViewController alloc]init];
-                 [self presentViewController:inreview animated:NO completion:^{
-                 }];
+                 [self.navigationController pushViewController:inreview animated:YES];
+
              } failure:^(NSError *error) {
                  NSLog(@"%@",error);
              }];
@@ -194,8 +195,8 @@ static NSString *kTempFolder = @"touxiang";
         [HLLoginManager NetPostupdateV:self.country province:provincename city:provincename constellation:self.star.text description:self.peopleJieshao.text height: @([ self.hetght.text integerValue]) nickName:self.nickName.text personalSign:self.sign.text personalTags:self.arr posters:posters token:[_userDefaults objectForKey:@"token"] weight: @([self.weight.text integerValue]) wechat:self.wx.text success:^(NSDictionary *info) {
             NSLog(@"%@",info);
             InReviewViewController *inreview = [[InReviewViewController alloc]init];
-            [self presentViewController:inreview animated:NO completion:^{
-            }];
+            [self.navigationController pushViewController:inreview animated:YES];
+
         } failure:^(NSError *error) {
             
         }];
@@ -259,11 +260,11 @@ static NSString *kTempFolder = @"touxiang";
     //判断图片是不是png格式的文件
     if (UIImagePNGRepresentation(avatar)) {
         //返回为png图像。
-        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
+        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
         self.imageData = UIImagePNGRepresentation(imagenew);
     }else {
         //返回为JPEG图像。
-        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake(200, 200)];
+        UIImage *imagenew = [self imageWithImageSimple:avatar scaledToSize:CGSizeMake((WIDTH-48)/3, (WIDTH-48)/3)];
         self.imageData = UIImageJPEGRepresentation(imagenew, 0.1);
     }
     // 参数设置

@@ -24,9 +24,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-Dm-XWl">
-                    <rect key="frame" x="0.0" y="371" width="375" height="247"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="247" id="G3g-Xu-013"/>
+                        <constraint firstAttribute="height" constant="667" id="G3g-Xu-013"/>
                     </constraints>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +40,7 @@
             <constraints>
                 <constraint firstItem="exZ-4b-aTI" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="TcI-Ct-JIg"/>
                 <constraint firstItem="QLI-Dm-XWl" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="hug-mP-xyQ"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QLI-Dm-XWl" secondAttribute="bottom" constant="49" id="izZ-ff-Wuv"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QLI-Dm-XWl" secondAttribute="bottom" id="izZ-ff-Wuv"/>
                 <constraint firstItem="exZ-4b-aTI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="peP-Jw-zFP"/>
                 <constraint firstItem="exZ-4b-aTI" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="rId-HW-sdq"/>
                 <constraint firstItem="exZ-4b-aTI" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="tLZ-iV-kP0"/>

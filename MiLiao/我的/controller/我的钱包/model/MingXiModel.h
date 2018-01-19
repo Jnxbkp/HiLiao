@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface MingXiModel : NSObject
+@property(nonatomic,strong)NSString *createTime;
+@property(nonatomic,strong)NSString *amount;
+@property(nonatomic,strong)NSString *collectionAccount;
+@property(nonatomic,strong)NSString *collectionName;
 
 @end
