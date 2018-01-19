@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = Color242;
     
-    [self netGetBigVEvaluationList];
+    [self netGetBigVEvaluationListheader:nil];
     
     _dataArr = [NSMutableArray array];
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-ML_TopHeight) style:UITableViewStylePlain];
@@ -31,25 +31,43 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = Color242;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
+    _tableView.mj_header = header;
+    
     [self.view addSubview:_tableView];
 }
 //请求数据
-- (void)netGetBigVEvaluationList {
+- (void)netGetBigVEvaluationListheader:(MJRefreshNormalHeader *)header {
     [MainMananger NetGetIntimateListUsername:_womanModel.username success:^(NSDictionary *info) {
         NSLog(@"---------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
+            if (header != nil) {
+                _dataArr = [NSMutableArray array];
+                [header endRefreshing];
+            }
             for (int i = 0; i < arr.count; i ++) {
                 NSDictionary *dic = arr[i];
                 [_dataArr addObject:dic];
             }
             [_tableView reloadData];
+        } else {
+            if (header != nil) {
+                [header endRefreshing];
+            }
         }
     } failure:^(NSError *error) {
+        if (header != nil) {
+            [header endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
 
+}
+#pragma mark refresh
+- (void)headerRefreshing:(MJRefreshNormalHeader *)header {
+    [self netGetBigVEvaluationListheader:header];
 }
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

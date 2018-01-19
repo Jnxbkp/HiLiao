@@ -15,6 +15,7 @@
 
 @interface VideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
     NSUserDefaults   *_userDefaults;
+    NSString        *_videoPage;
 }
 
 @property (nonatomic, assign) BOOL fingerIsTouch;
@@ -28,11 +29,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    _videoPage = @"1";
     self.view.backgroundColor = [UIColor whiteColor];
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _dataArr = [NSMutableArray array];
     
-    [self netGetUserVideoList];
+    [self netGetUserVideoListfooter:nil];
     
     [self setupSubViews];
 }
@@ -46,36 +48,52 @@ static NSString * const reuseIdentifier = @"Cell";
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-    footer.stateLabel.hidden = YES;
-    footer.refreshingTitleHidden = YES;
     _collectionView.mj_footer = footer;
+    _collectionView.mj_footer.hidden = YES;
+    
     [self.collectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.view addSubview:_collectionView];
 
-    //    __weak typeof(self) weakSelf = self;
-    //    [self.tableView addInfiniteScrollingWithActionHandler:^{
-    //        [weakSelf insertRowAtBottom];
-    //    }];
 }
 //主播视频列表
-- (void)netGetUserVideoList {
-    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
+- (void)netGetUserVideoListfooter:(MJRefreshAutoNormalFooter *)footer {
+    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:_videoPage pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
+            _videoPage = [NSString stringWithFormat:@"%lu",[_videoPage integerValue] +1];
             for (int i = 0; i < arr.count; i ++) {
                 NSDictionary *dic = arr[i];
                 [_dataArr addObject:dic];
             }
-            [_collectionView reloadData];
+            _videoPage = [NSString stringWithFormat:@"%lu",[_videoPage integerValue] +1];
+            if (footer != nil) {//加载
+                [footer endRefreshing];
+                [_collectionView reloadData];
+                if (arr.count <= 0) {
+                    [footer endRefreshingWithNoMoreData];
+                }
+            } else {//首次请求
+                [_collectionView reloadData];
+                if (arr.count > 0) {
+                    _collectionView.mj_footer.hidden = NO;
+                }
+            }
+        } else {
+            if (footer != nil) {//加载
+                [footer endRefreshing];
+            }
         }
     } failure:^(NSError *error) {
+        if (footer != nil) {//加载
+            [footer endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
 }
 //加载更多
-- (void)footerLoadMore:(MJRefreshFooter *)footer {
-    [footer endRefreshing];
+- (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
+    [self netGetUserVideoListfooter:footer];
 }
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

@@ -12,9 +12,12 @@
 
 #define itemWidth                 (WIDTH-32)/2
 #define itemHeight                 itemWidth*16/9
-@interface MyVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface MyVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
+    NSUserDefaults  *_userDefaults;
+}
 @property (nonatomic, assign) BOOL fingerIsTouch;
 @property (strong, nonatomic) NSMutableArray *dataArr;
+@property (strong, nonatomic) NSString *pageNum;
 @end
 static NSString * const reuseIdentifier = @"Cell";
 @implementation MyVideoViewController
@@ -28,7 +31,9 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"小视频"];
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
-    [self netGetUserVideoList];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
+    _pageNum = @"1";
+    [self netGetUserVideoListHeader:nil footer:nil];
     [self setupSubViews];
 
 }
@@ -40,38 +45,81 @@ static NSString * const reuseIdentifier = @"Cell";
     _collectionView.backgroundColor = Color242;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing:)];
+    _collectionView.mj_header = header;
+    
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
-    footer.stateLabel.hidden = YES;
-    footer.refreshingTitleHidden = YES;
     _collectionView.mj_footer = footer;
+    _collectionView.mj_footer.hidden = YES;
+    
     [self.collectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.view addSubview:_collectionView];
 }
 //主播视频列表
-- (void)netGetUserVideoList{
-    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[YZCurrentUserModel sharedYZCurrentUserModel].token pageNumber:@"1" pageSize:@"10" success:^(NSDictionary *info) {
+- (void)netGetUserVideoListHeader:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
+    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:_pageNum pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
-            for (int i = 0; i < arr.count; i ++) {
-                NSDictionary *dic = arr[i];
-                [_dataArr addObject:dic];
+            _pageNum = [NSString stringWithFormat:@"%lu",[_pageNum integerValue] +1];
+            if (header == nil && footer == nil) {//首次请求
+                for (int i = 0; i < arr.count; i ++) {
+                    NSDictionary *dic = arr[i];
+                    [_dataArr addObject:dic];
+                }
+                
+            } else if (header != nil) {
+                [header endRefreshing];
+                _dataArr = [NSMutableArray array];
+                for (int i = 0; i < arr.count; i ++) {
+                    NSDictionary *dic = arr[i];
+                    [_dataArr addObject:dic];
+                }
+                if (_dataArr.count > 0) {
+                    _collectionView.mj_footer.hidden = NO;
+                }
+            } else if (footer != nil) {
+                [footer endRefreshing];
+                for (int i = 0; i < arr.count; i ++) {
+                    NSDictionary *dic = arr[i];
+                    [_dataArr addObject:dic];
+                }
+                if (arr.count <= 0) {
+                    [footer endRefreshingWithNoMoreData];
+                }
             }
             [_collectionView reloadData];
+        } else {
+            if (header != nil) {
+                [header endRefreshing];
+            } else if (footer != nil) {
+                [footer endRefreshing];
+            }
         }
     } failure:^(NSError *error) {
+        if (header != nil) {
+            [header endRefreshing];
+        } else if (footer != nil) {
+            [footer endRefreshing];
+        }
         NSLog(@"error%@",error);
     }];
     
 }
-//加载更多
-- (void)footerLoadMore:(MJRefreshFooter *)footer {
-    [footer endRefreshing];
+#pragma mark refresh
+- (void)headerRefreshing:(MJRefreshNormalHeader *)header {
+    _pageNum = @"1";
+     _collectionView.mj_footer.state = MJRefreshStateIdle;
+    [self netGetUserVideoListHeader:header footer:nil];
+}
+#pragma mark - 加载更多
+- (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
+    [self netGetUserVideoListHeader:nil footer:footer];
 }
 #pragma mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //    return _dataArr.count;
-    return 20;
+        return _dataArr.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MLDiscoverListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
@@ -80,7 +128,7 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
     cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
     cell.timeLabel.text = @"12小时";
-    cell.messageLabel.text = @"来玩啊啊 ad福建省打客服";
+    cell.messageLabel.text = [[_dataArr objectAtIndex:indexPath.row] objectForKey:@"videoName"];;
     cell.likeNumLabel.text = @"22";
     return cell;
 }
@@ -93,7 +141,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 //UICollectionView item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     return CGSizeMake(itemWidth, itemHeight);
     
 }

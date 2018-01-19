@@ -91,6 +91,7 @@
     _likeTableView.tag = likeTabTag;
     _likeTableView.delegate = self;
     _likeTableView.dataSource = self;
+    _likeTableView.scrollEnabled = NO;
     _likeTableView.backgroundColor = Color242;
     _likeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -104,11 +105,16 @@
     _searchTableView.backgroundColor = Color242;
     _searchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerLoadMore:)];
+//    _searchTableView.mj_footer = footer;
+    
     [self.view addSubview:_searchTableView];
     
-    
 }
-
+#pragma mark - 加载更多
+- (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
+    [footer endRefreshing];
+}
 //点击清空按钮
 - (void)clearButton:(UIButton *)butt {
     [_userDefaults removeObjectForKey:@"historyArr"];
@@ -301,11 +307,11 @@
     [MainMananger NetGetgetAnchorInfoNickName:str token:[_userDefaults objectForKey:@"token"] userid:@"" success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
+        _searchArr = [NSMutableArray array];
         if (resultCode == SUCCESS) {
-            _searchArr = [NSMutableArray array];
             _searchArr = [info objectForKey:@"data"];
-            [_searchTableView reloadData];
         }
+         [_searchTableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
