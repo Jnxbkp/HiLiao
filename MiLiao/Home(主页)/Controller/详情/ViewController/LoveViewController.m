@@ -127,7 +127,7 @@
         cell.iconImageView.hidden = YES;
         cell.rankLabel.text = [NSString stringWithFormat:@"NO.%lu",indexPath.row+1];
     }
-    cell.headUrlImageView.image = [UIImage imageNamed:@"aaa"];
+    [cell.headUrlImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"headUrl"]]] placeholderImage:nil];
     cell.nameLabel.text = [[_dataArr objectAtIndex:indexPath.row] objectForKey:@"userName"];
     cell.loveLabel.text = [NSString stringWithFormat:@"亲密值%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"amount"]];
     return cell;

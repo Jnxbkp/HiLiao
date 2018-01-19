@@ -32,12 +32,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //下拉刷新
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _commentsPage = @"1";
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"no"];
     
     [self setupSubViews];
 }
@@ -58,12 +60,16 @@
 }
 
 //主播评论列表
-- (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token footer:(MJRefreshAutoNormalFooter *)footer{
-    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:pageSize token:token success:^(NSDictionary *info) {
+- (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token footer:(MJRefreshAutoNormalFooter *)footer isFresh:(NSString *)isFresh{
+    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:PAGESIZE token:token success:^(NSDictionary *info) {
         NSLog(@"--------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
+            if ([isFresh isEqualToString:@"yes"]) {
+                NSLog(@"------------>>>");
+                _dataArr = [NSMutableArray array];
+            }
             _commentsPage = [NSString stringWithFormat:@"%lu",[_commentsPage integerValue] +1];
             for (int i = 0; i < arr.count; i ++) {
                 NSDictionary *dic = arr[i];
@@ -97,7 +103,15 @@
 }
 //加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:footer];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:footer isFresh:@"no"];
+}
+#pragma mark - 通知刷新
+- (void)notificationWomanData:(NSNotification *)note {
+    NSLog(@"---------%@",note);
+//    NSDictionary *dic = note.userInfo;
+//    _videoUserModel = [dic objectForKey:@"womanModel"];
+//    _commentsPage = @"1";
+//    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"yes"];
 }
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

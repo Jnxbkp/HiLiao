@@ -58,10 +58,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 //主播视频列表
 - (void)netGetUserVideoListHeader:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
-    [MainMananger NetPostgetVideoListById:_videoUserModel.ID token:[_userDefaults objectForKey:@"token"] pageNumber:_pageNum pageSize:PAGESIZE success:^(NSDictionary *info) {
+    [MainMananger NetGetgetVideoListById:[_userDefaults objectForKey:@"id"] token:[_userDefaults objectForKey:@"token"] pageNumber:_pageNum pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
-            NSArray *arr = [info objectForKey:@"data"];
+            NSArray *arr = [[info objectForKey:@"data"] objectForKey:@"userList"];
             _pageNum = [NSString stringWithFormat:@"%lu",[_pageNum integerValue] +1];
             if (header == nil && footer == nil) {//首次请求
                 for (int i = 0; i < arr.count; i ++) {
