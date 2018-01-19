@@ -143,13 +143,15 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     return [super initWithActiveCall:callSession];
 }
 
+
+#pragma mark - View
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSLog(@"%@", self.callSession.targetId);
-    NSArray *array = self.callSession.userProfileList;
-    NSLog(@"%ld", array.count);
-    NSLog(@"%@", self.callSession.myProfile.userId);
+    NSLog(@"通话目标:%@", self.targetId);
+    NSLog(@"当前用户:%@", self.callSession.myProfile.userId);
+    //验证用户身份
+    [self checkoutUserRole];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUserInfoUpdate:)
                                                  name:RCKitDispatchUserInfoUpdateNotification
@@ -175,9 +177,6 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     //注册监听 美颜视频流
     [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-    
-    
-    
     //判断电话 是呼入还是呼出
     if (self.callSession.callStatus == RCCallDialing) {
         self.callIn = NO;
@@ -196,6 +195,18 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
         make.height.equalTo(@208);
     }];
     self.bar.hidden = YES;
+}
+
+///验证用户的身份类别
+- (void)checkoutUserRole {
+    [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
+        if (success) {
+            [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+        }
+//        else {
+//            [self checkoutUserRole];
+//        }
+    }];
 }
 
 #pragma mark - 倒计时view的回调
@@ -309,7 +320,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     NSLog(@"准备执行扣费");
     NSString *userName;//网红的
     NSString *costUserName;//扣费的
-    NSString *isBigV = [YZCurrentUserModel sharedYZCurrentUserModel].isBigv;
+//    NSString *isBigV = [YZCurrentUserModel sharedYZCurrentUserModel].isBigv;
     NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
     
     if (roleType == 0) {
