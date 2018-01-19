@@ -20,7 +20,7 @@ static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
 static NSString *SaveCall = @"/v1/call/saveUserCall";
 
 ///获取用户身份类别
-static NSString *GetUserRoleType = @"/v1/user/getUserRole/{username}/{token}";
+static NSString *GetUserRoleType = @"/v1/user/getUserRole";
 
 ///获取评价标签
 static NSString *GetEvaluate = @"/v1/dict/getTags";
