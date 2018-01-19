@@ -23,6 +23,16 @@
 @property (strong, nonatomic) IBOutlet UIButton *weiBo;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNum;
 @property (strong, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UILabel *SEliao;
+@property (weak, nonatomic) IBOutlet UIView *viewOne;
+@property (weak, nonatomic) IBOutlet UIView *viewTwo;
+@property (weak, nonatomic) IBOutlet UIButton *shoujibtn;
+@property (weak, nonatomic) IBOutlet UIButton *mimabtn;
+@property (weak, nonatomic) IBOutlet UIButton *eye;
+@property (weak, nonatomic) IBOutlet UIButton *zhuce;
+@property (weak, nonatomic) IBOutlet UIButton *login;
+@property (weak, nonatomic) IBOutlet UIButton *forget;
 
 @end
 
@@ -34,6 +44,9 @@
     // 设置导航控制器的代理为self
     self.navigationController.delegate = self;
     _password.secureTextEntry = YES;
+    if (UI_IS_IPHONE6PLUS) {
+        self.icon.frame = CGRectMake(WIDTH/2-37.5, 200, 75, 75);
+    }
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -85,12 +98,14 @@
 //登录
 - (IBAction)login:(id)sender {
     [self.view endEditing:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
     [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
               NSLog(@"---------------->>%@",info);
+            [SVProgressHUD dismiss];
             //保存用户信息
 
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
@@ -116,10 +131,15 @@
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"rongCloudToken"]] forKey:@"rongCloudToken"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"balance"]] forKey:@"balance"];
             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"username"]] forKey:@"username"];
+             [_userDefaults setObject:[NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"price"]] forKey:@"price"];
             [_userDefaults synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
             //融云登录操作
             [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
+            
+
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
         }
        
     } failure:^(NSError *error) {

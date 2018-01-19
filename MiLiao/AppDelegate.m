@@ -65,17 +65,14 @@
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     [RCIM sharedRCIM].receiveMessageDelegate = self;
 
-
-
-
     [self settingRCIMToken:[_userDefaults objectForKey:@"rongCloudToken"]];
 
-   
-    
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     [SVProgressHUD setMaximumDismissTimeInterval:2];
     //设置视频分辨率
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
+    //注册监听 美颜视频流
+//    [FUVideoFrameObserverManager registerVideoFrameObserver];
     return YES;
 }
 

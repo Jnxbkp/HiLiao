@@ -8,6 +8,7 @@
 
 #import "CashMingXiViewController.h"
 #import "CashTableViewCell.h"
+#import "MingXiModel.h"
 @interface CashMingXiViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     NSUserDefaults *_userDefaults;
@@ -42,11 +43,11 @@
 {
     [HLLoginManager withdrawDetailstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
-//        if (resultCode == SUCCESS) {
-//            self.modelArray = [CallListModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
-//            [self.tableView reloadData];
-//            
-//        }
+        if (resultCode == SUCCESS) {
+            self.modelArray = [MingXiModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+            [self.tableView reloadData];
+//
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -66,7 +67,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-   return 0;
+   return self.modelArray.count;
 ;
 }
 //头部视图高度

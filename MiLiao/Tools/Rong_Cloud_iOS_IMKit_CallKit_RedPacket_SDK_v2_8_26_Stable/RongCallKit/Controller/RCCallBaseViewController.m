@@ -148,6 +148,8 @@
 
     [self registerTelephonyEvent];
     [self addProximityMonitoringObserver];
+    
+    self.startCallTime = self.endCallTime = 0;//初始化时间
     //    UIVisualEffect *blurEffect = [UIBlurEffect
     //    effectWithStyle:UIBlurEffectStyleDark];
     //    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -297,13 +299,15 @@
 - (UIButton *)muteButton {
     if (!_muteButton) {
         _muteButton = [[UIButton alloc] init];
-        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute.png"] forState:UIControlStateNormal];
-        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute_hover.png"]
-                     forState:UIControlStateHighlighted];
-        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute_hover.png"]
-                     forState:UIControlStateSelected];
-        [_muteButton setTitle:NSLocalizedStringFromTable(@"VoIPCallMute", @"RongCloudKit", nil)
-                     forState:UIControlStateNormal];
+        [_muteButton setImage:[UIImage imageNamed:@"meiyan"] forState:UIControlStateNormal];
+        [_muteButton setImage:[UIImage imageNamed:@"meiyan"] forState:UIControlStateHighlighted];
+//        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute.png"] forState:UIControlStateNormal];
+//        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute_hover.png"]
+//                     forState:UIControlStateHighlighted];
+//        [_muteButton setImage:[RCCallKitUtility imageFromVoIPBundle:@"voip/mute_hover.png"]
+//                     forState:UIControlStateSelected];
+//        [_muteButton setTitle:NSLocalizedStringFromTable(@"VoIPCallMute", @"RongCloudKit", nil)
+//                     forState:UIControlStateNormal];
         [_muteButton setSelected:self.callSession.isMuted];
         [_muteButton addTarget:self action:@selector(muteButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 
@@ -315,9 +319,9 @@
 
 - (void)muteButtonClicked {
     [self didTapMuteButton];
-
-    [self.callSession setMuted:!self.callSession.isMuted];
-    [self.muteButton setSelected:self.callSession.isMuted];
+#warning 基类中关闭了 静音的触发时间
+//    [self.callSession setMuted:!self.callSession.isMuted];
+//    [self.muteButton setSelected:self.callSession.isMuted];
 }
 
 - (UIButton *)speakerButton {
@@ -440,7 +444,7 @@
                                action:@selector(cameraCloseButtonClicked)
                      forControlEvents:UIControlEventTouchUpInside];
 
-        [self.view addSubview:_cameraCloseButton];
+//        [self.view addSubview:_cameraCloseButton];
         _cameraCloseButton.hidden = YES;
     }
     return _cameraCloseButton;
@@ -980,8 +984,6 @@
  */
 - (void)callDidConnect {
     [self callWillConnect];
-
-//    self.startCallTime = [[NSDate date] timeIntervalSince1970];
     self.tipsLabel.text = @"";
     [self startActiveTimer];
     [self resetLayout:self.callSession.isMultiCall
@@ -1031,6 +1033,7 @@
             mediaType:self.callSession.mediaType
            callStatus:self.callSession.callStatus];
 }
+
 
 /*!
  有用户被邀请加入通话
@@ -1207,7 +1210,9 @@
     //    }
 }
 
+
 #pragma mark - outside callback
+
 - (void)callWillConnect {
     self.startCallTime = [[NSDate date] timeIntervalSince1970];
 }

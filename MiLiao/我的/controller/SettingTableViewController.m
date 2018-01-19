@@ -34,6 +34,7 @@
     self.swich.on = YES;//设置初始为ON的一边
    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _userDefaults = [NSUserDefaults standardUserDefaults];
+    self.money.text = [NSString stringWithFormat:@"%@M币/分钟",[_userDefaults objectForKey:@"price"]];
 
 }
 - (IBAction)swich:(UISwitch *)sender {
@@ -65,11 +66,13 @@
         self.strCM = [titles objectAtIndex:1];
         self.money.text = [NSString stringWithFormat:@"%@M币/分钟", self.strCM];
     
-    [HLLoginManager setPrice:50 token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+    [HLLoginManager setPrice:[self.strCM intValue] token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         NSLog(@"----------------%@",info);
         if (resultCode == SUCCESS) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [SVProgressHUD showInfoWithStatus:@"设置成功"];
+//            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             
         }

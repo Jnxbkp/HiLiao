@@ -24,9 +24,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIh-aB-3yQ">
-                    <rect key="frame" x="0.0" y="239" width="375" height="321"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="321" id="N6a-OW-bJd"/>
+                        <constraint firstAttribute="height" constant="667" id="N6a-OW-bJd"/>
                     </constraints>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,7 +41,7 @@
                 <constraint firstItem="JAR-sb-fyK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="1D0-h8-4pC"/>
                 <constraint firstItem="UIh-aB-3yQ" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="28d-os-iiN"/>
                 <constraint firstItem="UIh-aB-3yQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="6xX-rh-OkC"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="UIh-aB-3yQ" secondAttribute="bottom" constant="107" id="MPA-zF-qca"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="UIh-aB-3yQ" secondAttribute="bottom" id="MPA-zF-qca"/>
                 <constraint firstItem="JAR-sb-fyK" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Mqp-bn-abw"/>
                 <constraint firstItem="JAR-sb-fyK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YCC-uP-kQe"/>
                 <constraint firstItem="JAR-sb-fyK" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="hBk-5M-xe1"/>

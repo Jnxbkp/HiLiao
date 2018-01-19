@@ -19,6 +19,9 @@ static NSString *EveryMinuAPI = @"/v1/cost/minuteCost";
 ///保存通话记录
 static NSString *SaveCall = @"/v1/call/saveUserCall";
 
+///获取用户身份类别
+static NSString *GetUserRoleType = @"/v1/user/getUserRole";
+
 ///获取评价标签
 static NSString *GetEvaluate = @"/v1/dict/getTags";
 ///最终扣费
@@ -159,7 +162,7 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 
 ///保存通话记录
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete {
-    
+#warning 有电话呼入时， 呼叫方在电话未接通时挂断电话 崩溃
     YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
     NSDictionary *parameters = @{@"anchorAccount":anchorAccount,
                                  @"anchorId":anchorId,
@@ -221,6 +224,19 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  @"userName":[YZCurrentUserModel sharedYZCurrentUserModel].username
                                  };
     [self Post:SaveEvaluate parameters:parameters complete:complete];
+}
+
+/**
+ 获取用户角色
+ 
+ @param complete
+ */
++ (void)getUserRole:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))complete {
+    NSDictionary *parameter = @{
+                                @"username":[YZCurrentUserModel sharedYZCurrentUserModel].username,
+                                @"token":tokenForCurrentUser()
+                                };
+    [self Get:GetUserRoleType parameters:parameter result:complete];
 }
 
 
