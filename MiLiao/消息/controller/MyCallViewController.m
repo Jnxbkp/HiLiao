@@ -93,6 +93,7 @@
     return 64;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak typeof(self) weakSelf = self;
     
