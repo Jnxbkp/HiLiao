@@ -7,7 +7,8 @@
 //
 
 #import "IncomeMoneyViewController.h"
-#import "CashTableViewCell.h"
+#import "shourucell.h"
+#import "shouruModel.h"
 
 @interface IncomeMoneyViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -16,6 +17,10 @@
 }
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
+@property (assign, nonatomic) NSInteger pageNumber;
+@property (assign, nonatomic) NSInteger pageSize;
+@property (strong, nonatomic) NSDictionary *parameters;
+@property (nonatomic, strong) shouruModel *shouruModel;
 
 @end
 
@@ -30,9 +35,9 @@
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"收入明细"];
     self.view.backgroundColor = ML_Color(248, 248, 248, 1);
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    [self loadData];
-
     [self setTableview];
+    [self creatMJRefresh];
+//    [self loadData];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -40,17 +45,50 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
+- (void)creatMJRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    [self.tableView.mj_header beginRefreshing];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreData)];
+}
 - (void)loadData
 {
-    [HLLoginManager incomeDetailstoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+    self.pageNumber = 1;
+    self.pageSize = 1;
+    NSString *pageN =  [NSString stringWithFormat: @"%ld",  (long)self.pageNumber];
+    NSString *pageS =  [NSString stringWithFormat: @"%ld",  self.pageSize];
+    [self.tableView.mj_header endRefreshing];
+    [HLLoginManager incomeDetailstoken:[_userDefaults objectForKey:@"token"] pageNumber:pageN pageSize:pageS  success:^(NSDictionary *info) {
+        [self.tableView.mj_header endRefreshing];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
-//        if (resultCode == SUCCESS) {
-//            self.modelArray = [CallListModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
-//            [self.tableView reloadData];
-//            
-//        }
+        if (resultCode == SUCCESS) {
+            self.modelArray = [shouruModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+            [self.tableView reloadData];
+
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+        }
     } failure:^(NSError *error) {
-        
+        NSLog(@"%@",error);
+    }];
+}
+- (void)getMoreData
+{
+    [self.tableView.mj_footer endRefreshing];
+    self.pageNumber++;
+    self.pageSize++;
+    NSString *pageN =  [NSString stringWithFormat: @"%ld",  (long)self.pageNumber];
+    NSString *pageS =  [NSString stringWithFormat: @"%ld",  self.pageSize];
+    [HLLoginManager incomeDetailstoken:[_userDefaults objectForKey:@"token"] pageNumber:pageN pageSize:pageS success:^(NSDictionary *info) {
+        [self.tableView.mj_header endRefreshing];
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            self.modelArray = [shouruModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
+            [self.tableView reloadData];
+
+        }
+    } failure:^(NSError *error) {
+
     }];
 }
 - (void)setTableview
@@ -61,14 +99,14 @@
     tableView.backgroundColor = ML_Color(230, 230, 230, 1);
     self.tableView = tableView;
     self.tableView.backgroundColor = [UIColor whiteColor];
-    [self.tableView registerNib:[UINib nibWithNibName:@"CashTableViewCell" bundle:nil] forCellReuseIdentifier:@"CashTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"shourucell" bundle:nil] forCellReuseIdentifier:@"shourucell"];
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 10)];
     self.tableView.tableFooterView = v;
     [self.view addSubview:self.tableView];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return 0;
+    return self.modelArray.count;
 
 }
 //头部视图高度
@@ -78,8 +116,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    static NSString *Identifier =@"CashTableViewCell";
-    CashTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+    static NSString *Identifier =@"shourucell";
+    shourucell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+    self.shouruModel = self.modelArray[indexPath.row];
+    cell.model = self.shouruModel;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

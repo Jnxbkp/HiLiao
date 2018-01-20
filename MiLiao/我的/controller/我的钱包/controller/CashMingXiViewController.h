@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MingXiModel;
 @interface CashMingXiViewController : UIViewController
+@property (nonatomic, strong) MingXiModel *mingXiModel;
 
 @end

@@ -15,6 +15,7 @@
                 <outlet property="SEliao" destination="P3j-ya-VV6" id="gDA-lE-ZE8"/>
                 <outlet property="eye" destination="m1X-tb-WXy" id="6Qa-QT-3Cw"/>
                 <outlet property="forget" destination="E4L-L1-mGy" id="iWG-PN-6eT"/>
+                <outlet property="height" destination="cOA-Wo-gH2" id="hpW-3H-FQu"/>
                 <outlet property="icon" destination="QVD-X7-1Qu" id="aOh-AV-wz1"/>
                 <outlet property="login" destination="iFW-JM-1NS" id="TYU-l4-baD"/>
                 <outlet property="mimabtn" destination="MqZ-5R-kJO" id="Zvc-Sg-V4c"/>
@@ -192,11 +193,11 @@
                 <constraint firstItem="E4L-L1-mGy" firstAttribute="trailing" secondItem="iFW-JM-1NS" secondAttribute="trailing" constant="-3" id="ZaV-up-GDc"/>
                 <constraint firstItem="iFW-JM-1NS" firstAttribute="top" secondItem="qXF-Ag-neP" secondAttribute="bottom" constant="22" id="aEV-YT-ar9"/>
                 <constraint firstItem="4cf-Zb-zc5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bLR-J7-NJ8"/>
+                <constraint firstItem="QVD-X7-1Qu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="cOA-Wo-gH2"/>
                 <constraint firstItem="P3j-ya-VV6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f33-oK-8P2"/>
                 <constraint firstItem="P3j-ya-VV6" firstAttribute="top" secondItem="QVD-X7-1Qu" secondAttribute="bottom" constant="25" id="jrv-f7-EGD"/>
                 <constraint firstItem="iFW-JM-1NS" firstAttribute="trailing" secondItem="qXF-Ag-neP" secondAttribute="trailing" constant="0.5" id="m0Z-Jc-Yli"/>
                 <constraint firstItem="PqO-Ow-E5l" firstAttribute="leading" secondItem="qXF-Ag-neP" secondAttribute="leading" id="q6P-8J-ZWn"/>
-                <constraint firstItem="QVD-X7-1Qu" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="45" id="y71-zl-cCP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="26.5" y="52.5"/>
