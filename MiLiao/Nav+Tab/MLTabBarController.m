@@ -36,12 +36,12 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
-//    if (![isBigV isEqualToString:@"0"]) {
-        [self InitMiddleView];
-//    } else {
-//
-//    }
     
+    if ([isBigV isEqualToString:@"3"]) {
+        [self InitMiddleView];
+    } else {
+
+    }
     
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     

@@ -133,6 +133,34 @@
     }
 }
 
+
+#pragma mark - view
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.callSession.callStatus == RCCallActive) {
+        [self updateActiveTimer];
+        [self startActiveTimer];
+    } else if (self.callSession.callStatus == RCCallDialing) {
+        self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPCallWaitingForRemoteAccept", @"RongCloudKit", nil);
+    } else if (self.callSession.callStatus == RCCallIncoming || self.callSession.callStatus == RCCallRinging) {
+        if (self.needPlayingRingAfterForeground) {
+            [self shouldRingForIncomingCall];
+        }
+        if (self.callSession.mediaType == RCCallMediaAudio) {
+            self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPAudioCallIncoming", @"RongCloudKit", nil);
+        } else {
+            self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPVideoCallIncoming", @"RongCloudKit", nil);
+        }
+    } else if (self.callSession.callStatus == RCCallHangup) {
+        [self callDidDisconnect];
+    }
+    
+    [self resetLayout:self.callSession.isMultiCall
+            mediaType:self.callSession.mediaType
+           callStatus:self.callSession.callStatus];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -163,31 +191,7 @@
             mediaType:self.callSession.mediaType
            callStatus:self.callSession.callStatus];
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 
-    if (self.callSession.callStatus == RCCallActive) {
-        [self updateActiveTimer];
-        [self startActiveTimer];
-    } else if (self.callSession.callStatus == RCCallDialing) {
-        self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPCallWaitingForRemoteAccept", @"RongCloudKit", nil);
-    } else if (self.callSession.callStatus == RCCallIncoming || self.callSession.callStatus == RCCallRinging) {
-        if (self.needPlayingRingAfterForeground) {
-            [self shouldRingForIncomingCall];
-        }
-        if (self.callSession.mediaType == RCCallMediaAudio) {
-            self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPAudioCallIncoming", @"RongCloudKit", nil);
-        } else {
-            self.tipsLabel.text = NSLocalizedStringFromTable(@"VoIPVideoCallIncoming", @"RongCloudKit", nil);
-        }
-    } else if (self.callSession.callStatus == RCCallHangup) {
-        [self callDidDisconnect];
-    }
-
-    [self resetLayout:self.callSession.isMultiCall
-            mediaType:self.callSession.mediaType
-           callStatus:self.callSession.callStatus];
-}
 
 #pragma mark - Button&&Label&View
 - (UIButton *)minimizeButton {

@@ -55,12 +55,12 @@
     }];
 }
 //根据用户id获取视频列表
-//POST /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
-+ (void)NetPostgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
+//Get /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
++ (void)NetGetgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
-
-    [manager POST:[NSString stringWithFormat:@"%@/v1/video/getVideoListById/%@/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token,userId] parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+    
+    [manager GET:[NSString stringWithFormat:@"%@/v1/video/getVideoListById/%@/%@/%@/%@",HLRequestUrl,pageNumber,pageSize,token,userId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

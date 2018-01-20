@@ -32,6 +32,9 @@
     // Do any additional setup after loading the view.
     //get love num
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"getWomanInformation" object:nil];
+    //下拉刷新
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.data = [NSMutableArray arrayWithObjects:@"接听率",@"身高",@"体重",@"星座",@"城市", nil];
     

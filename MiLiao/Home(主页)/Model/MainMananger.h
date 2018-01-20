@@ -22,8 +22,8 @@
 + (void)NetGetgetAnchorInfoNickName:(NSString *)nickname token:(NSString *)token userid:(NSString *)userid success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //根据用户id获取视频列表
-//POST /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
-+ (void)NetPostgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//Get /v1/video/getVideoListById/{pageNumber}/{pageSize}/{token}/{userId}
++ (void)NetGetgetVideoListById:(NSString *)userId token:(NSString *)token pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 //关注大VV
 //POST POST /v1/bigV/careUser
