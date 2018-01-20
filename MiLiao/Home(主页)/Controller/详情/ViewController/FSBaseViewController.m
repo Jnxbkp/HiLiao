@@ -116,7 +116,8 @@
     _womanModel = [[WomanModel alloc]init];
     _imageMuArr = [NSMutableArray array];
     _isBuyWechat = [NSString string];
-
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     //主播信息请求
     [self NetGetUserInformation:_user_id header:nil];
     
@@ -310,6 +311,7 @@
     NSLog(@"-------%@",user_id);
     [MainMananger NetGetgetAnchorInfoNickName:@"a" token:[_userDefaults objectForKey:@"token"] userid:user_id success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
+        [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             _womanModel = [[WomanModel alloc]initWithDictionary:[[info objectForKey:@"data"] objectAtIndex:0]];
@@ -340,6 +342,7 @@
             }
         }
     } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
         if (header != nil) {
             [header endRefreshing];
         }

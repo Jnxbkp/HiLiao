@@ -123,13 +123,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MLDiscoverListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    CGSize likeSize = [NSStringSize getNSStringHeight:@"2223" Font:12.0];
+    CGSize likeSize = [NSStringSize getNSStringHeight:[NSString stringWithFormat:@"%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"videoUp"]] Font:12.0];
     cell.likeNumLabel.frame = CGRectMake(itemWidth-likeSize.width-12, cell.timeLabel.frame.origin.y, likeSize.width, 12);
     cell.iconImageView.frame = CGRectMake(cell.likeNumLabel.frame.origin.x-18, cell.timeLabel.frame.origin.y+1.5, 10, 9);
-    cell.mainImgageView.image = [UIImage imageNamed:@"aaa"];
-    cell.timeLabel.text = @"12小时";
+    [cell.mainImgageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"videoUrl"]]] placeholderImage:[UIImage imageNamed:@"aaa"]];
     cell.messageLabel.text = [[_dataArr objectAtIndex:indexPath.row] objectForKey:@"videoName"];;
-    cell.likeNumLabel.text = @"22";
+    cell.likeNumLabel.text = [NSString stringWithFormat:@"%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"videoUp"]];
+    NSString *timeStampString  = [NSString stringWithFormat:@"%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"updateDate"]];
+    NSString *timeStr = [ToolObject timeBeforeInfoWithString:[timeStampString doubleValue]];
+    cell.timeLabel.text = timeStr;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

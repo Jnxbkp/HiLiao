@@ -102,7 +102,7 @@ static NSString *const bigIdentifer = @"bigCell";
     
     [self.view addSubview:_bigCollectionView];
   
-    
+     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeNone];
     [self netGetListPageSelectStr:_selectStr pageNumber:_recommandPage header:nil footer:nil];
 }
 //table选择视图
@@ -194,7 +194,7 @@ static NSString *const bigIdentifer = @"bigCell";
    NSLog(@"----token--%@----%@",[_userDefaults objectForKey:@"token"],pageNumber);
     [MainMananger NetGetMainListKind:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:@"2" success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
-
+        [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             
@@ -287,6 +287,7 @@ static NSString *const bigIdentifer = @"bigCell";
             }
         }
     } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
         if (header == nil&&footer == nil) {
             
         } else if (header == nil && footer != nil) {

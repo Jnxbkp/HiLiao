@@ -16,4 +16,8 @@
 //alert框
 + (void)showOkAlertMessageString:(NSString *)messgeStr withViewController:(UIViewController *)viewController;
 
+//时间戳转化
++ (NSString *)timeBeforeInfoWithString:(NSTimeInterval)timeIntrval;
+
+
 @end
