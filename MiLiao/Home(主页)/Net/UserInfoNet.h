@@ -91,11 +91,12 @@ SelfCallEndState getSelfCallState(NSInteger callState);
  视频通话的最终扣费
 
  @param callTime 通话时间
+  @param callId callID
  @param costUserName 对端用户名
  @param pid pid
  @param result 返回的结果
  */
-+ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))result;
++ (void)finalDeductMoneyCallTime:(NSString *)callTime callID:(NSString *)callId costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))result;
 
 
 
