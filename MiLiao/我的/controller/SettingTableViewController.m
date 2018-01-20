@@ -34,6 +34,11 @@
     self.swich.on = YES;//设置初始为ON的一边
    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _userDefaults = [NSUserDefaults standardUserDefaults];
+
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     self.money.text = [NSString stringWithFormat:@"%@M币/分钟",[_userDefaults objectForKey:@"price"]];
 
 }
@@ -70,8 +75,8 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         NSLog(@"----------------%@",info);
         if (resultCode == SUCCESS) {
+            [_userDefaults setObject:self.strCM forKey:@"price"];
             [SVProgressHUD showInfoWithStatus:@"设置成功"];
-//            [self.navigationController popViewControllerAnimated:YES];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             

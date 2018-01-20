@@ -42,9 +42,27 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.headerImg.layer.cornerRadius = 45;
     self.headerImg.layer.masksToBounds = YES;
+//    [self loadData];
+
 //    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
 //    NSLog(@"wowowowowowowowo%@",[_userDefaults objectForKey:@"headUrl"]);
 //    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
+}
+- (void)loadData
+{
+    [HLLoginManager centertoken:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
+        
+        NSLog(@"----------------%@",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+          //  headUrl
+            [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+            self.nickName.text = [NSString stringWithFormat:@"%@",info[@"data"][@"nickname"]];
+
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -52,11 +70,9 @@
     //导航栏透明
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]]forBarMetrics:UIBarMetricsDefault];
-    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
-    self.nickName.text = [_userDefaults objectForKey:@"nickname"];
 //    self.nickName.text = [YZCurrentUserModel sharedYZCurrentUserModel].nickname;
     NSLog(@"%@^^^",[YZCurrentUserModel sharedYZCurrentUserModel].nickname);
-
+    [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;

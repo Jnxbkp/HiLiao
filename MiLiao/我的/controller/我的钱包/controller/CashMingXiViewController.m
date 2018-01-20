@@ -7,7 +7,7 @@
 //
 
 #import "CashMingXiViewController.h"
-#import "CashTableViewCell.h"
+#import "tixianTableViewCell.h"
 #import "MingXiModel.h"
 @interface CashMingXiViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -47,6 +47,8 @@
             self.modelArray = [MingXiModel mj_objectArrayWithKeyValuesArray:info[@"data"]];
             [self.tableView reloadData];
 //
+        }else{
+            
         }
     } failure:^(NSError *error) {
         
@@ -60,7 +62,7 @@
     tableView.backgroundColor = ML_Color(230, 230, 230, 1);
     self.tableView = tableView;
     self.tableView.backgroundColor = [UIColor whiteColor];
-    [self.tableView registerNib:[UINib nibWithNibName:@"CashTableViewCell" bundle:nil] forCellReuseIdentifier:@"CashTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"tixianTableViewCell" bundle:nil] forCellReuseIdentifier:@"tixianTableViewCell"];
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 10)];
     self.tableView.tableFooterView = v;
     [self.view addSubview:self.tableView];
@@ -77,8 +79,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    static NSString *Identifier =@"CashTableViewCell";
-    CashTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+    static NSString *Identifier =@"tixianTableViewCell";
+    tixianTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+    self.mingXiModel = self.modelArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.model =  self.mingXiModel;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
