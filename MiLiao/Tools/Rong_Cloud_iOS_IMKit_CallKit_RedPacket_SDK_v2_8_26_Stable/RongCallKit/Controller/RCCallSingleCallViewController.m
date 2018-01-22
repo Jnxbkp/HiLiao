@@ -53,6 +53,8 @@
 ///电话是否接通过
 @property (nonatomic, assign, getter=isCallConnect) BOOL callConnect;
 
+
+
 @end
 
 
@@ -130,6 +132,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     self.bar.hidden = !showBar;
 }
 
+
 // init
 - (instancetype)initWithIncomingCall:(RCCallSession *)callSession {
     return [super initWithIncomingCall:callSession];
@@ -153,6 +156,15 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 
     NSLog(@"通话目标:%@", self.targetId);
     NSLog(@"当前用户:%@", self.callSession.myProfile.userId);
+    
+    //判断电话 是呼入还是呼出
+    if (self.callSession.callStatus == RCCallDialing) {
+        self.callIn = NO;
+    }
+    if (self.callSession.callStatus == RCCallIncoming) {
+        self.callIn = YES;
+    }
+    
     //验证用户身份
     [self checkoutUserRole];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -180,13 +192,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     //注册监听 美颜视频流
     [FUVideoFrameObserverManager registerVideoFrameObserver];
     
-    //判断电话 是呼入还是呼出
-    if (self.callSession.callStatus == RCCallDialing) {
-        self.callIn = NO;
-    }
-    if (self.callSession.callStatus == RCCallIncoming) {
-        self.callIn = YES;
-    }
+    
     
 }
 
@@ -205,11 +211,39 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     [UserInfoNet getUserRole:^(RequestState success, NSDictionary *dict, NSString *msg) {
         if (success) {
             [YZCurrentUserModel sharedYZCurrentUserModel].roleType = [dict[@"roleType"] integerValue];
+            [self setupCostUserName];
         }
-//        else {
-//            [self checkoutUserRole];
-//        }
     }];
+}
+
+- (void)setupCostUserName {
+    NSInteger roleType = [YZCurrentUserModel sharedYZCurrentUserModel].roleType;
+    //普通用户
+    if (roleType == 0) {
+        NSLog(@"%@", self.targetId);
+        if (self.isCallIn) {
+             //打进来的电话 网红的回拨
+            self.netHotUserName = self.callSession.caller;
+            
+        } else {
+            //打出的电话
+            self.netHotUserName = self.targetId;
+        }
+        self.costUserName = self.callSession.myProfile.userId;
+    }
+    //大V
+    if (roleType == 2) {
+        if (self.isCallIn) {
+            
+        } else {
+            
+        }
+        self.costUserName = self.targetId;
+        self.netHotUserName = self.callSession.myProfile.userId;
+    }
+    
+    NSLog(@"costUserName is %@", self.costUserName);
+    NSLog(@"netHotUserName is %@", self.netHotUserName);
 }
 
 #pragma mark - 倒计时view的回调
@@ -287,11 +321,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     NSString *userName;
     NSString *userID;
     
-//    if (reason == RCCallDisconnectReasonRemoteCancel) {
-//        userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
-//        userID = [YZCurrentUserModel sharedYZCurrentUserModel].user_id;
-//    }
-    if (self.callIn) {
+    if ( [YZCurrentUserModel sharedYZCurrentUserModel].roleType != 0) {
+        return;
+    }
+
+    if (self.isCallIn) {
         //接听的来电
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
         userID = [YZCurrentUserModel sharedYZCurrentUserModel].user_id;
