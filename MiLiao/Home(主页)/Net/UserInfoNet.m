@@ -124,16 +124,7 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                  @"userName":userName
                                  };
     [self Get:CanCallEnoughAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
-//    [self Get:CanCallEnoughAPI parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
-//        RequestState state = Failure;
-//        if (success) {
-//            MoneyEnoughType type = [dict[@"typeCode"] integerValue];
-//            !complete?:complete(Success, type, nil);
-//        } else {
-//            !complete?:complete(Failure, 100, errMsg);
-//        }
-//        
-//    }];
+
    
     
 }

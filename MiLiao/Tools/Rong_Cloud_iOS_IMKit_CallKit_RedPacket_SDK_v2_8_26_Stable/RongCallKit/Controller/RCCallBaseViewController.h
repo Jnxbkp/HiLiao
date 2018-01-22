@@ -106,9 +106,10 @@
 @property (nonatomic, strong) NSString *costUserId;
 ///对端的用户模型
 @property (nonatomic, strong) VideoUserModel *videoUser;
-///对端的手机号
+///扣费用户的的手机号
 @property (nonatomic, strong) NSString *costUserName;
-
+///网红用户的手机号
+@property (nonatomic, strong) NSString *netHotUserName;
 ///通话列表模型
 @property (nonatomic, strong) CallListModel *callListModel;
 
