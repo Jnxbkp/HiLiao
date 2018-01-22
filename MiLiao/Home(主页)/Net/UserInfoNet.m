@@ -237,7 +237,10 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                 @"username":[YZCurrentUserModel sharedYZCurrentUserModel].username,
                                 @"token":tokenForCurrentUser()
                                 };
-    [self Get:GetUserRoleType parameters:parameter result:complete];
+    NSString *userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+    NSString *token = tokenForCurrentUser();
+    NSString *api = [GetUserRoleType stringByAppendingString:[NSString stringWithFormat:@"/%@/%@", userName, token]];
+    [self Get:api parameters:nil result:complete];
 }
 
 
