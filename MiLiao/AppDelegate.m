@@ -81,9 +81,17 @@
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
     if (tokenStr.length>0&&![tokenStr isEqualToString:@"(null)"]) {
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
-            NSLog(@"------%@--->>>%@---%ld",tokenStr,info,tokenStr.length);
+//            NSLog(@"------%@",info);
 //            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
+            
+            _userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *isBigV = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"isBigv"]];
+            [_userDefaults setObject:isBigV forKey:@"isBigV"];
+            NSString *token = info[@"data"][@"token"];
+            [_userDefaults setObject:token forKey:@"token"];
+            [_userDefaults synchronize];
+            
         } failure:^(NSError *error) {
             
         }];
