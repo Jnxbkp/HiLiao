@@ -61,7 +61,7 @@
 
 //主播评论列表
 - (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token footer:(MJRefreshAutoNormalFooter *)footer isFresh:(NSString *)isFresh{
-    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:PAGESIZE token:token success:^(NSDictionary *info) {
+    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:@"20" token:token success:^(NSDictionary *info) {
         NSLog(@"--------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {

@@ -117,7 +117,7 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
-    NSLog(@"%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
+    NSLog(@"接口地址:%@",[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
     
     manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10;
@@ -131,6 +131,7 @@
     
     [manager GET:[NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString] parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"接口地址:%@", [NSString stringWithFormat:@"%@%@",kAPIURLBaseURL,urlString]);
         NSLog(@"\n\nGET基类请求返回:\n%@", responseObject);
         if (success) {
             success(task, responseObject);

@@ -34,6 +34,8 @@ static NSString *SaveEvaluate = @"/v1/bigV/saveBigVEvaluation";
 
 
 /////////类名
+
+///通话能力模型
 static NSString *UserCallPowerModelClass = @"UserCallPowerModel";
 
 
@@ -116,20 +118,22 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 }
 
 ///判定余额足够消费
-+ (void)canCall:(NSString *)userName resule:(void(^)(RequestState success, MoneyEnoughType moneyType, NSString *errMsg))complete {
++ (void)canCall:(NSString *)userName result:(RequestModelResult)result {
+    
     NSDictionary *parameters = @{@"token":tokenForCurrentUser(),
                                  @"userName":userName
                                  };
-    [self Get:CanCallEnoughAPI parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
-        RequestState state = Failure;
-        if (success) {
-            MoneyEnoughType type = [dict[@"typeCode"] integerValue];
-            !complete?:complete(Success, type, nil);
-        } else {
-            !complete?:complete(Failure, 100, errMsg);
-        }
-        
-    }];
+    [self Get:CanCallEnoughAPI parameters:parameters modelClass:NSClassFromString(UserCallPowerModelClass) modelResult:result];
+//    [self Get:CanCallEnoughAPI parameters:parameters result:^(RequestState success, NSDictionary *dict, NSString *errMsg) {
+//        RequestState state = Failure;
+//        if (success) {
+//            MoneyEnoughType type = [dict[@"typeCode"] integerValue];
+//            !complete?:complete(Success, type, nil);
+//        } else {
+//            !complete?:complete(Failure, 100, errMsg);
+//        }
+//        
+//    }];
    
     
 }
@@ -237,7 +241,10 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                 @"username":[YZCurrentUserModel sharedYZCurrentUserModel].username,
                                 @"token":tokenForCurrentUser()
                                 };
-    [self Get:GetUserRoleType parameters:parameter result:complete];
+    NSString *userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+    NSString *token = tokenForCurrentUser();
+    NSString *api = [GetUserRoleType stringByAppendingString:[NSString stringWithFormat:@"/%@/%@", userName, token]];
+    [self Get:api parameters:nil result:complete];
 }
 
 

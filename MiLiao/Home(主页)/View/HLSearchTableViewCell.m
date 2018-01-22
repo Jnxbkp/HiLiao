@@ -29,14 +29,14 @@
     
     _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(_nameLabel.frame.origin.x, _nameLabel.frame.origin.y+28, _nameLabel.frame.size.width-80, 14)];
     _messageLabel.textColor = Color155;
-    _messageLabel.font = [UIFont systemFontOfSize:14.0];
+    _messageLabel.font = [UIFont systemFontOfSize:12.0];
     
     _lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 74.7, WIDTH, 0.3)];
     _lineLabel.backgroundColor = Color229;
     
     _seeLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH-82, _messageLabel.frame.origin.y,70, 14)];
     _seeLabel.textColor = Color155;
-    _seeLabel.font = [UIFont systemFontOfSize:14.0];
+    _seeLabel.font = [UIFont systemFontOfSize:12.0];
     _seeLabel.textAlignment = NSTextAlignmentRight;
     
     [self.contentView addSubview:_headImageView];

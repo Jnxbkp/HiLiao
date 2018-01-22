@@ -270,6 +270,12 @@
     }];
 }
 
+- (IBAction)cancleButtonClick:(UIButton *)sender {
+    [self.view removeFromSuperview];
+}
+
+
+
 ///评价成功的回调
 - (void)evaluateSuccess:(EvaluateSuccessBlock)success {
     _evaluateBlock = success;

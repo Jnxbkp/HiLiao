@@ -31,6 +31,9 @@
 #import "LoveViewController.h"
 #import "EvaluateVideoViewController.h"//评价
 #import "PayWebViewController.h"
+#import "UserCallPowerModel.h"//通话能力
+
+
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
@@ -55,6 +58,7 @@
     UIButton        *_foucusButton;
     UILabel         *_foucusLabel;
     NSString        *_isBuyWechat;
+    NSString        *_isVideo;    //是否能播放视频
     
 }
 @property (nonatomic, strong) FSBaseTableView *tableView;
@@ -103,7 +107,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
-   
+    _isVideo = @"no";
     //监听通知
     [self listenNotification];
     
@@ -385,49 +389,46 @@
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
     
-    __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:self.videoUserModel.username resule:^(RequestState success, MoneyEnoughType moneyType, NSString *errMsg) {
-        if (success) {
+    if (but.tag == downButtonTag) {
+        [self chat];
+    } else {
+       
+        __weak typeof(self) weakSelf = self;
+        [UserInfoNet canCall:self.videoUserModel.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
             
-            //余额不充足 不能聊天 可以视频
-            if (moneyType == MoneyEnoughTypeNotEnough) {
-                if (but.tag == downButtonTag) {
+            if (success) {
+                UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+                MoneyEnoughType moneyType = callPower.typeCode;
+                //余额不充足 不能聊天 可以视频
+                if (moneyType == MoneyEnoughTypeNotEnough) {
                     [self showPayAlertController:^{
-                        [weakSelf goPay];
-                    }];
-                } else {
-                    [self showPayAlertController:^{
-                        //[weakSelf goPay];去充值
+                        [weakSelf goPay];//去充值
                         
                     } continueCall:^{
                         //继续视频
-                        [weakSelf videoCall];
+                        [weakSelf videoCall];;
                     }];
                 }
-            }
-            
-            //余额充足 既能聊天 有能视频
-            if (moneyType == MoneyEnoughTypeEnough) {
-                if (but.tag == downButtonTag) {
-                    [self chat];
-                } else {
+                
+                //余额充足 既能聊天 有能视频
+                if (moneyType == MoneyEnoughTypeEnough) {
                     [self videoCall];
                 }
+                
+                //余额为0
+                if (moneyType == MoneyEnoughTypeEmpty) {
+                    [self showPayAlertController:^{
+                        [weakSelf goPay];
+                    }];
+                }
+            } else {
+                [SVProgressHUD showErrorWithStatus:msg];
             }
             
-            //余额为0
-            if (moneyType == MoneyEnoughTypeEmpty) {
-                [self showPayAlertController:^{
-                    [weakSelf goPay];
-                }];
-            }
-        } else {
-            [SVProgressHUD showErrorWithStatus:errMsg];
-        }
-    }];
+        }];
+    }
     
-    
-    
+
 //    //计算可通话时长
 //    [self calculatorCallTime:^(BOOL canCall) {
 //        if (canCall) {
@@ -519,7 +520,13 @@
 
 - (void)insertRowAtTop
 {
-    NSArray *sortTitles = @[@"资料",@"视频",@"评论"];
+    NSArray *sortTitles = [NSArray array];
+    if ([_isVideo isEqualToString:@"yes"]) {
+        sortTitles = @[@"资料",@"视频",@"评论"];
+    } else {
+        sortTitles = @[@"资料",@"评论"];
+    }
+    
     self.contentCell.currentTagStr = sortTitles[self.titleView.selectIndex];
     self.contentCell.isRefresh = YES;
 //    [self.tableView.pullToRefreshView stopAnimating];
@@ -568,7 +575,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 50) titles:@[@"资料",@"视频",@"评论"] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
+    if ([_isVideo isEqualToString:@"yes"]) {
+        self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 50) titles:@[@"资料",@"视频",@"评论"] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
+    } else {
+        self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 50) titles:@[@"资料",@"评论"] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
+    }
+    
     self.titleView.titleNormalColor = ML_Color(77, 77, 77, 1);
     self.titleView.titleSelectColor = NavColor;
     self.titleView.indicatorColor = NavColor;
@@ -588,25 +600,46 @@
         _contentCell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (!_contentCell) {
             _contentCell = [[FSBottomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-            NSArray *titles = @[@"资料",@"视频",@"评论"];
             NSMutableArray *contentVCs = [NSMutableArray array];
-            for (NSString *title in titles) {
-                if ([title isEqualToString:@"资料"]) {
-                    HLZiLiaoController *detailVC = [[HLZiLiaoController alloc]init];
-                    detailVC.womanModel = _womanModel;
-                    
-                    [contentVCs addObject:detailVC];
-                } else if ([title isEqualToString:@"视频"]) {
-                    VideoViewController *videoVC = [[VideoViewController alloc]init];
-                    videoVC.videoUserModel = _videoUserModel;
-                    [contentVCs addObject:videoVC];
-                } else {
-                    MLCommentsViewController *vc = [[MLCommentsViewController alloc]init];
-                    vc.title = title;
-                    vc.str = title;
-                    vc.videoUserModel = _videoUserModel;
-                    [contentVCs addObject:vc];
+            if ([_isVideo isEqualToString:@"yes"]) {
+                NSArray *titles = @[@"资料",@"视频",@"评论"];
+                
+                for (NSString *title in titles) {
+                    if ([title isEqualToString:@"资料"]) {
+                        HLZiLiaoController *detailVC = [[HLZiLiaoController alloc]init];
+                        detailVC.womanModel = _womanModel;
+                        
+                        [contentVCs addObject:detailVC];
+                    } else if ([title isEqualToString:@"视频"]) {
+                        VideoViewController *videoVC = [[VideoViewController alloc]init];
+                        videoVC.videoUserModel = _videoUserModel;
+                        [contentVCs addObject:videoVC];
+                    } else {
+                        MLCommentsViewController *vc = [[MLCommentsViewController alloc]init];
+                        vc.title = title;
+                        vc.str = title;
+                        vc.videoUserModel = _videoUserModel;
+                        [contentVCs addObject:vc];
+                    }
                 }
+            } else {
+                NSArray *titles = @[@"资料",@"评论"];
+//                NSMutableArray *contentVCs = [NSMutableArray array];
+                for (NSString *title in titles) {
+                    if ([title isEqualToString:@"资料"]) {
+                        HLZiLiaoController *detailVC = [[HLZiLiaoController alloc]init];
+                        detailVC.womanModel = _womanModel;
+                        
+                        [contentVCs addObject:detailVC];
+                    } else {
+                        MLCommentsViewController *vc = [[MLCommentsViewController alloc]init];
+                        vc.title = title;
+                        vc.str = title;
+                        vc.videoUserModel = _videoUserModel;
+                        [contentVCs addObject:vc];
+                    }
+                }
+            
             }
             _contentCell.viewControllers = contentVCs;
             _contentCell.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT - 50) childVCs:contentVCs parentVC:self delegate:self];
