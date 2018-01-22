@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="m8O-MC-4sn">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8O-MC-4sn">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d3a-8i-I51">
@@ -67,11 +67,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="m8O-MC-4sn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CjQ-eK-VsX"/>
                 <constraint firstItem="m8O-MC-4sn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I3m-Wn-LSI"/>
                 <constraint firstAttribute="bottom" secondItem="m8O-MC-4sn" secondAttribute="bottom" id="NOj-BK-4k9"/>
                 <constraint firstAttribute="trailing" secondItem="m8O-MC-4sn" secondAttribute="trailing" id="Nzw-uQ-Tm5"/>
                 <constraint firstAttribute="trailing" secondItem="TfJ-or-yHO" secondAttribute="trailing" id="RYu-R0-raq"/>
-                <constraint firstItem="m8O-MC-4sn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="alS-v2-P9u"/>
                 <constraint firstItem="TfJ-or-yHO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iNv-WZ-DIw"/>
                 <constraint firstItem="TfJ-or-yHO" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="k4d-GM-Ubb"/>
             </constraints>

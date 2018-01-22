@@ -30,6 +30,11 @@ static NSString *CellID_PlayCollectionViewCell = @"PlayCollectionViewCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad {
@@ -46,6 +51,7 @@ static NSString *CellID_PlayCollectionViewCell = @"PlayCollectionViewCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 

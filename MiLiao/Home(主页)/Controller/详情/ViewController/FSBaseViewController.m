@@ -398,7 +398,7 @@
                     }];
                 } else {
                     [self showPayAlertController:^{
-                        //[weakSelf goPay];去充值
+                        [weakSelf goPay];//去充值
                         
                     } continueCall:^{
                         //继续视频
