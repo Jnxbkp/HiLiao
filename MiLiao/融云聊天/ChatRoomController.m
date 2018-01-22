@@ -9,6 +9,9 @@
 #import "ChatRoomController.h"
 #import "RongCallKit.h"
 #import "VideoUserModel.h"
+#import "UserInfoNet.h"
+#import "UserCallPowerModel.h"//通话能力
+#import "PayWebViewController.h"
 //#import "PersonHomepageController.h"
 //#import "DatingModel.h"
 @interface ChatRoomController ()<RCIMUserInfoDataSource>
@@ -82,11 +85,52 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//发送消息
 - (RCMessageContent *)willSendMessage:(RCMessageContent *)messageContent
 {
+    __weak typeof(self) weakSelf = self;
+    [UserInfoNet canCall:self.videoUser.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+        if (success) {
+            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+            MoneyEnoughType moneyType = callPower.typeCode;
+            //余额不充足 不能聊天
+            if (moneyType == MoneyEnoughTypeNotEnough) {
+                [self showPayAlertController:^{
+                    [weakSelf goPay];
+                }];
+            }
+            //余额为0
+            if (moneyType == MoneyEnoughTypeEmpty) {
+                [self showPayAlertController:^{
+                    [weakSelf goPay];
+                }];
+            }
+        }else {
+            [SVProgressHUD showErrorWithStatus:msg];
+        }
+    }];
     
     return messageContent;
 }
+- (void)goPay {
+    PayWebViewController *payViewController = [[PayWebViewController alloc] init];
+    [self.navigationController pushViewController:payViewController animated:YES];
+}
+///去充值
+- (void)showPayAlertController:(void(^)(void))pay {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"您的M不足" message:@"是否立即充值" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *payAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        !pay?:pay();
+    }];
+    [payAction setValue:[UIColor orangeColor] forKey:@"titleTextColor"];
+    [alertController addAction:cancleAction];
+    [alertController addAction:payAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 /*!
  扩展功能板的点击回调
  

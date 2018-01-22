@@ -58,17 +58,32 @@
 //    self.navigationController.navigationBarHidden = NO;
 //    [super viewWillDisappear:animated];
 //}
+//判断8-16位数字、字母组合
+-(BOOL)judgePassWordLegal:(NSString *)pass{
+    BOOL result = false;
+    if ([pass length] >= 8){
+        // 判断长度大于8位后再接着判断是否同时包含数字和字符
+        NSString * regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$";
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+        result = [pred evaluateWithObject:pass];
+    }
+    return result;
+}
 //获取验证码
 - (IBAction)yanzheng:(id)sender {
     if (![self.phoneNum.text isValidateMobile]) {
         [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
         return;
     }
-    if ([self.password.text isNumText]&&self.password.text.length>8) {
+    if (![self judgePassWordLegal:self.password.text]) {
         [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
         return;
     }
-    self.getButton.enabled=NO;
+//    if ([self.password judgePassWordLegal:self.password.text]) {
+//        [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
+//        return;
+//    }
+//    self.getButton.enabled=NO;
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];

@@ -17,6 +17,7 @@
 @property(nonatomic,assign) NSInteger secondCountDown;
 @property(nonatomic,strong) NSTimer *countDownTimer;
 @property(nonatomic,strong) NSString *msgId;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @end
 
 @implementation forgetPassViewController
@@ -28,6 +29,10 @@
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"忘记密码"];
+    _getButton.backgroundColor = [UIColor grayColor];
+    _nextBtn.backgroundColor = [UIColor whiteColor];
+    [_phoneNum addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_yanZhengNum addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     UIButton *leftButton   = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame  = CGRectMake(0, 0, 50, 30);
     leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -37,6 +42,34 @@
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [leftButton addTarget:self action:@selector(leftButtonDidClick) forControlEvents:UIControlEventTouchUpInside];
+}
+#pragma mark -输入框实时变化改变颜色
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    if (theTextField == self.phoneNum) {
+        if ([_phoneNum.text isEqualToString:@""]) {
+            self.getButton.enabled=NO;
+            _getButton.backgroundColor = [UIColor grayColor];
+            
+        }else{
+            self.getButton.enabled=YES;
+            
+            _getButton.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
+            
+        }
+    }
+//    if (theTextField == self.yanZhengNum) {
+//        if ([_yanZhengNum.text isEqualToString:@""]) {
+////            self.nextBtn.enabled=NO;
+//            _nextBtn.backgroundColor = [UIColor whiteColor];
+//            
+//        }else{
+////            self.nextBtn.enabled=YES;
+//            
+//            _nextBtn.backgroundColor = ML_Color(250, 114, 152, 1);// 250  114  152
+//            
+//        }
+//    }
+    
 }
 - (void)leftButtonDidClick {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -49,6 +82,10 @@
 }
 - (IBAction)yanzheng:(id)sender {
     [self.view endEditing:YES];
+    if (![self.phoneNum.text isValidateMobile]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        return;
+    }
     self.getButton.enabled=NO;
     
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {

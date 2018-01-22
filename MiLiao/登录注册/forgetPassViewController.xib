@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="forgetPassViewController">
             <connections>
                 <outlet property="getButton" destination="gVl-vU-ofN" id="Y4I-m5-Wpe"/>
+                <outlet property="nextBtn" destination="onn-en-RnF" id="XEY-W9-aPo"/>
                 <outlet property="phoneNum" destination="TL4-Fy-SNu" id="RgJ-Ov-GId"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yanZhengNum" destination="fX7-O8-SBk" id="TZV-uF-JMn"/>
@@ -59,7 +60,7 @@
                     <rect key="frame" x="42" y="162" width="165" height="44"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-O8-SBk">
-                            <rect key="frame" x="0.0" y="8" width="145" height="30"/>
+                            <rect key="frame" x="8" y="8" width="137" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -68,7 +69,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="165" id="2r9-eG-HcF"/>
-                        <constraint firstItem="fX7-O8-SBk" firstAttribute="leading" secondItem="KR8-Px-Cqu" secondAttribute="leading" id="KVZ-fP-gbX"/>
+                        <constraint firstItem="fX7-O8-SBk" firstAttribute="leading" secondItem="KR8-Px-Cqu" secondAttribute="leading" constant="8" id="KVZ-fP-gbX"/>
                         <constraint firstAttribute="bottom" secondItem="fX7-O8-SBk" secondAttribute="bottom" constant="6" id="cMu-in-mK2"/>
                         <constraint firstAttribute="trailing" secondItem="fX7-O8-SBk" secondAttribute="trailing" constant="20" id="fmT-Kw-MWl"/>
                         <constraint firstAttribute="height" constant="44" id="tbx-ng-rF9"/>
@@ -80,7 +81,6 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVl-vU-ofN">
                     <rect key="frame" x="221" y="162" width="112" height="44"/>
-                    <color key="backgroundColor" red="0.98039215686274506" green="0.44705882352941173" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="gGx-nf-7Ow"/>
                     </constraints>
