@@ -66,15 +66,16 @@
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _hisMuArr = [NSMutableArray arrayWithArray:[_userDefaults objectForKey:@"historyArr"]];
     
-    _searchBar = [[UISearchBar alloc] init];
-    _searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    _searchBar.delegate = self;
-    _searchBar.placeholder = @"请输入";
-    _searchBar.frame = CGRectMake(10, ML_StatusBarHeight+8, WIDTH-94, 35);
-    _searchBar.layer.cornerRadius = 14.0;
-    _searchBar.layer.masksToBounds = YES;
-    _searchBar.tintColor = [UIColor blackColor];
-    _searchBar.barTintColor = [UIColor whiteColor];
+    [self searchBar];
+//    _searchBar = [[UISearchBar alloc] init];
+//    _searchBar.searchBarStyle = UISearchBarStyleMinimal;
+//    _searchBar.delegate = self;
+//    _searchBar.placeholder = @"请输入";
+//    _searchBar.frame = CGRectMake(10, ML_StatusBarHeight+8, WIDTH-94, 35);
+//    _searchBar.layer.cornerRadius = 14.0;
+//    _searchBar.layer.masksToBounds = YES;
+//    _searchBar.tintColor = [UIColor blackColor];
+//    _searchBar.barTintColor = [UIColor whiteColor];
     
     UIButton *cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cancleButton.frame = CGRectMake(WIDTH-72, ML_StatusBarHeight+8, 60, 35);
@@ -111,6 +112,40 @@
     
     [self.view addSubview:_searchTableView];
     
+}
+//搜索框
+- (UISearchBar *)searchBar{
+    if (_searchBar == nil) {
+        _searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(10, ML_StatusBarHeight+8, WIDTH-94, 35)];
+        _searchBar.placeholder = @"请输入";
+        _searchBar.backgroundImage = [[UIImage alloc] init];
+        _searchBar.delegate = self;
+        _searchBar.tintColor =  Color75;
+        //取出textfield
+        
+        UITextField *searchField=[_searchBar valueForKey:@"_searchField"];
+        
+        //        searchField.backgroundColor = [UIColor grayColor];
+        //        searchField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:@"ic_map_topbar_search"]];
+        //        searchField.background = [UIImage imageNamed:@"ic_map_topbar_search"];
+        //改变searcher的textcolor
+        searchField.borderStyle = UITextBorderStyleNone;
+        //        searchField.background = [UIImage imageNamed:@"ic_top"];
+        searchField.backgroundColor = [UIColor whiteColor];
+        searchField.layer.cornerRadius = 14.0;
+        searchField.layer.masksToBounds = YES;
+//        searchField.placeholder = @"请输入";
+        searchField.font = [UIFont systemFontOfSize:14.0];
+        searchField.leftViewMode = UITextFieldViewModeAlways;
+        UIView  *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 12, 12)];
+        view.backgroundColor = [UIColor clearColor];
+        searchField.leftView = view;
+        searchField.textColor = Color75;
+        //改变placeholder的颜色
+//
+//        [searchField setValue:[UIColor whiteColor]forKeyPath:@"_placeholderLabel.textColor"];
+    }
+    return _searchBar;
 }
 #pragma mark - 加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
@@ -322,6 +357,16 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchBar.text.length > 0) {
+        _searchTableView.hidden = NO;
+        _likeTableView.hidden = YES;
+    } else {
+        _searchTableView.hidden = YES;
+        _likeTableView.hidden = NO;
+    }
 }
 //点击搜索
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {

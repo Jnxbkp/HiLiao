@@ -58,6 +58,10 @@ static NSString *const bigIdentifer = @"bigCell";
 
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
