@@ -24,6 +24,7 @@
     
     _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(WIDTH/2, 10, WIDTH/2-12, 18)];
     _messageLabel.textAlignment = NSTextAlignmentRight;
+    _messageLabel.textColor = Color155;
     _messageLabel.font = [UIFont systemFontOfSize:12.0];
     
     _lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 0.3)];

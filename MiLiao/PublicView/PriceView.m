@@ -25,7 +25,7 @@
         
         
         if ([kind isEqualToString:@"main"]) {
-            _priceLabel.textColor = ML_Color(253, 152, 0, 1);
+            _priceLabel.textColor = Color255;
             _iconImageView.image = [UIImage imageNamed:@"icon_shipin"];
         } else {
             _priceLabel.textColor = NavColor;

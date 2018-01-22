@@ -32,23 +32,22 @@
 
 - (void)creat {
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 0, WIDTH-24, WIDTH-24)];
-    _mainImgageView.image = [UIImage imageNamed:@"aaa"];
+//    _mainImgageView.image = [UIImage imageNamed:@"aaa"];
     
     _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-64, 12, 40, 20);
 
     _belowView = [[UIView alloc]initWithFrame:CGRectMake(12, WIDTH-66-24, WIDTH-24, 66)];
-    _belowView.backgroundColor = ML_Color(0, 0, 0, 0.5);
+    _belowView.backgroundColor = ML_Color(0, 0, 0, 0.1);
     
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(24, _belowView.frame.origin.y+12, WIDTH-48, 16)];
-    _nameLabel.textColor = NavColor;
+    _nameLabel.textColor = Color255;
     _nameLabel.font = [UIFont systemFontOfSize:15.0];
     
     _messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(24, _nameLabel.frame.origin.y+28, WIDTH-154-34, 15)];
-    _messageLabel.textColor = [UIColor whiteColor];
+    _messageLabel.textColor = Color231;
     _messageLabel.font = [UIFont systemFontOfSize:14.0];
    
-    
     
     _priceView = [[PriceView alloc]initWithFrame:CGRectMake(WIDTH-154, _messageLabel.frame.origin.y, 130, 15) withPrice:@"0" kind:@"main"];
    

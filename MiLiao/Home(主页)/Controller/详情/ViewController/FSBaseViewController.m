@@ -49,10 +49,10 @@
     UIView          *_navView;
     UIView          *_colorView;
     NSMutableArray  *_imageMuArr;
+    UIView          *_footView;//下方视图
     
     UIView          *_backGroundView;
     UIView          *_buyVChatView;
-    UIButton        *_foucusButton;
     UILabel         *_foucusLabel;
     NSString        *_isBuyWechat;
     NSString        *_isVideo;    //是否能播放视频
@@ -123,6 +123,10 @@
     [self NetGetUserInformation:_user_id header:nil];
     
     _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight);
+    }
+    
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.estimatedRowHeight = 0;
     _tableView.estimatedSectionFooterHeight = 0;
@@ -226,7 +230,7 @@
     
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 28, _buyVChatView.frame.size.width, 14)];
     titleLabel.font = [UIFont systemFontOfSize:14.0];
-    titleLabel.text = @"需支付2000M币，是否立即支付";
+    titleLabel.text = @"需支付1000M币，是否立即支付";
     titleLabel.textColor = Color155;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     NSArray *buttonArr = [NSArray arrayWithObjects:@"否",@"是", nil];
@@ -276,9 +280,9 @@
 }
 //底部视图
 - (void)addFootView {
-    UIView  *footView = [[UIView alloc]initWithFrame:CGRectMake(0, HEIGHT-50, WIDTH, 50)];
-    footView.backgroundColor = [UIColor whiteColor];
-    NSArray *titleArr = [NSArray arrayWithObjects:@"私信她",@"与TA视频", nil];
+    _footView = [[UIView alloc]initWithFrame:CGRectMake(0, HEIGHT-50, WIDTH, 50)];
+    _footView.backgroundColor = [UIColor whiteColor];
+    NSArray *titleArr = [NSArray arrayWithObjects:@"私信我",@"与我视频", nil];
     for (int i = 0; i < titleArr.count; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(12+((WIDTH-48)/2+24)*i, 10, (WIDTH-48)/2, 30);
@@ -298,11 +302,11 @@
         }
         button.tag = downButtonTag+i;
         [button addTarget:self action:@selector(downButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [footView addSubview:button];
+        [_footView addSubview:button];
     }
-    [self.view addSubview:footView];
+    [self.view addSubview:_footView];
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
-        footView.hidden = YES;
+        _footView.hidden = YES;
     }
    
     
@@ -561,8 +565,12 @@
         }
         return 0;
     }
-//    return CGRectGetHeight(self.view.bounds);
-    return HEIGHT-ML_TopHeight-50;
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        return HEIGHT-ML_TopHeight;
+    } else {
+        return HEIGHT-ML_TopHeight-50;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -570,7 +578,8 @@
     if (section == 0) {
         return 0;
     }
-    return 50;
+        return 50;
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -643,7 +652,9 @@
             }
             _contentCell.viewControllers = contentVCs;
             _contentCell.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT - 50) childVCs:contentVCs parentVC:self delegate:self];
-
+            if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+                _contentCell.pageContentView.frame = CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT);
+            }
             [_contentCell.contentView addSubview:_contentCell.pageContentView];
         }
         return _contentCell;

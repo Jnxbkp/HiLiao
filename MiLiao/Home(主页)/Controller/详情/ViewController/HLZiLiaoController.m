@@ -11,7 +11,9 @@
 
 
 
-@interface HLZiLiaoController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface HLZiLiaoController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
+    NSUserDefaults  *_userDefaults;
+}
 @property (nonatomic, assign) BOOL fingerIsTouch;
 /** 用来显示的假数据 */
 @property (strong, nonatomic) NSMutableArray *data;
@@ -29,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     // Do any additional setup after loading the view.
     //get love num
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"getWomanInformation" object:nil];
@@ -44,6 +47,9 @@
 - (void)setupSubViews
 {
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-50) style:UITableViewStylePlain];
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
+    }
     _tableView.delegate = self;
     _tableView.dataSource = self;
 //    _tableView.scrollsToTop = NO;
@@ -135,7 +141,7 @@
         myLabel.font = [UIFont systemFontOfSize:13.0];
         
         UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 42+48, 60, 12)];
-        userLabel.text = @"用户形象";
+        userLabel.text = @"用户印象";
         userLabel.textColor = ML_Color(127, 127, 127, 1);
         userLabel.font = [UIFont systemFontOfSize:13.0];
         

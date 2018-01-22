@@ -18,15 +18,24 @@
 @end
 
 @implementation LoveViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = Color242;
+    [self addNavView];
     
     [self netGetBigVEvaluationListheader:nil];
     
+    
     _dataArr = [NSMutableArray array];
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-ML_TopHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, ML_TopHeight, WIDTH, HEIGHT-ML_TopHeight) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = Color242;
@@ -36,6 +45,34 @@
     
     [self.view addSubview:_tableView];
 }
+- (void)addNavView {
+    
+    UIView *navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, ML_TopHeight)];
+    navView.backgroundColor = [UIColor whiteColor];
+    
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, ML_StatusBarHeight, WIDTH-100, 44)];
+    titleLabel.text = @"亲密度";
+    titleLabel.textColor = Color75;
+    titleLabel.font = [UIFont systemFontOfSize:18.0];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [navView addSubview:titleLabel];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(0, ML_StatusBarHeight, 50, 40);
+    if (UI_IS_IPHONEX) {
+        backButton.frame = CGRectMake(10, ML_StatusBarHeight, 50, 40);
+    }
+    [backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+    backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
+    [backButton addTarget:self action:@selector(backBarButtonItemAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [navView addSubview:backButton];
+    [self.view addSubview:navView];
+    
+    
+}
+
 //请求数据
 - (void)netGetBigVEvaluationListheader:(MJRefreshNormalHeader *)header {
     [MainMananger NetGetIntimateListUsername:_womanModel.username success:^(NSDictionary *info) {
@@ -131,6 +168,9 @@
     cell.nameLabel.text = [[_dataArr objectAtIndex:indexPath.row] objectForKey:@"userName"];
     cell.loveLabel.text = [NSString stringWithFormat:@"亲密值%@",[[_dataArr objectAtIndex:indexPath.row] objectForKey:@"amount"]];
     return cell;
+}
+- (void)backBarButtonItemAction:(UIButton *)button {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
