@@ -438,7 +438,7 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
         }
     }
     
-    [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, NSDictionary *dict, NSString *msg) {
+    [UserInfoNet finalDeductMoneyCallTime:[self getCallTime] callID:self.callSession.callId costUserName:costUserName userName:userName pid:self.pid result:^(RequestState success, NSDictionary *dict, NSString *msg) {
         if (success) {
             NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithDictionary:dict];
             mutableDict[@"time"] = [RCCallKitUtility getReadableStringForTime:[[self getCallTime] longLongValue]];

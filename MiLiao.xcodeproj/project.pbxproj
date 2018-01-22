@@ -17,6 +17,14 @@
 		180B0DB820117F9200A19BA2 /* AuditFailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DB620117F9200A19BA2 /* AuditFailureViewController.xib */; };
 		180B0DBC20117FAF00A19BA2 /* AuditSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DBA20117FAF00A19BA2 /* AuditSuccessViewController.m */; };
 		180B0DBD20117FAF00A19BA2 /* AuditSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DBB20117FAF00A19BA2 /* AuditSuccessViewController.xib */; };
+		180B0DC12012D40400A19BA2 /* tixianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DBF2012D40400A19BA2 /* tixianTableViewCell.m */; };
+		180B0DC52012DCAF00A19BA2 /* zhichuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DC42012DCAF00A19BA2 /* zhichuModel.m */; };
+		180B0DC92012E03A00A19BA2 /* zhichuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DC62012E03700A19BA2 /* zhichuCell.m */; };
+		180B0DCA2012E03A00A19BA2 /* zhichuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DC72012E03800A19BA2 /* zhichuCell.xib */; };
+		180B0DCE20131E0200A19BA2 /* shourucell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DCB20131DFF00A19BA2 /* shourucell.m */; };
+		180B0DCF20131E0200A19BA2 /* shourucell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DCC20131E0000A19BA2 /* shourucell.xib */; };
+		180B0DD220131E1400A19BA2 /* shouruModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DD120131E1400A19BA2 /* shouruModel.m */; };
+		180B0DD520133D2A00A19BA2 /* YZNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DD420133D2A00A19BA2 /* YZNetWorking.m */; };
 		1819AEA520104E9B00379836 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA420104E9B00379836 /* SettingTableViewController.m */; };
 		1819AEA92010CB6800379836 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1819AEA82010CB6800379836 /* TagModel.m */; };
 		18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18249231200C505B00A78B94 /* WithdrawalsViewController.m */; };
@@ -46,7 +54,7 @@
 		184C675D200CC2BD00C852B4 /* PayMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675C200CC2BD00C852B4 /* PayMingXiViewController.m */; };
 		184C6760200CC53A00C852B4 /* YZCurrentUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */; };
 		184C6763200CD17C00C852B4 /* CashMingXiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C6762200CD17C00C852B4 /* CashMingXiViewController.m */; };
-		184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C6766200CD21500C852B4 /* CashTableViewCell.xib */; };
+		184C6768200CD21500C852B4 /* tixianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C6766200CD21500C852B4 /* tixianTableViewCell.xib */; };
 		18567F202001F568003F1985 /* BoardImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F162001F568003F1985 /* BoardImageView.m */; };
 		18567F212001F568003F1985 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1C2001F568003F1985 /* BoardView.m */; };
 		18567F222001F568003F1985 /* BoardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18567F1D2001F568003F1985 /* BoardButton.m */; };
@@ -400,6 +408,20 @@
 		180B0DB920117FAF00A19BA2 /* AuditSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuditSuccessViewController.h; sourceTree = "<group>"; };
 		180B0DBA20117FAF00A19BA2 /* AuditSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuditSuccessViewController.m; sourceTree = "<group>"; };
 		180B0DBB20117FAF00A19BA2 /* AuditSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuditSuccessViewController.xib; sourceTree = "<group>"; };
+		180B0DBE2012D40400A19BA2 /* tixianTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tixianTableViewCell.h; sourceTree = "<group>"; };
+		180B0DBF2012D40400A19BA2 /* tixianTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tixianTableViewCell.m; sourceTree = "<group>"; };
+		180B0DC32012DCAF00A19BA2 /* zhichuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhichuModel.h; sourceTree = "<group>"; };
+		180B0DC42012DCAF00A19BA2 /* zhichuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhichuModel.m; sourceTree = "<group>"; };
+		180B0DC62012E03700A19BA2 /* zhichuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhichuCell.m; sourceTree = "<group>"; };
+		180B0DC72012E03800A19BA2 /* zhichuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zhichuCell.xib; sourceTree = "<group>"; };
+		180B0DC82012E03A00A19BA2 /* zhichuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhichuCell.h; sourceTree = "<group>"; };
+		180B0DCB20131DFF00A19BA2 /* shourucell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shourucell.m; sourceTree = "<group>"; };
+		180B0DCC20131E0000A19BA2 /* shourucell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shourucell.xib; sourceTree = "<group>"; };
+		180B0DCD20131E0200A19BA2 /* shourucell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shourucell.h; sourceTree = "<group>"; };
+		180B0DD020131E1400A19BA2 /* shouruModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shouruModel.h; sourceTree = "<group>"; };
+		180B0DD120131E1400A19BA2 /* shouruModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shouruModel.m; sourceTree = "<group>"; };
+		180B0DD320133D2800A19BA2 /* YZNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZNetWorking.h; sourceTree = "<group>"; };
+		180B0DD420133D2A00A19BA2 /* YZNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZNetWorking.m; sourceTree = "<group>"; };
 		1819AEA320104E9B00379836 /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1819AEA420104E9B00379836 /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1819AEA72010CB6800379836 /* TagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
@@ -453,9 +475,7 @@
 		184C675F200CC53A00C852B4 /* YZCurrentUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCurrentUserModel.m; sourceTree = "<group>"; };
 		184C6761200CD17C00C852B4 /* CashMingXiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashMingXiViewController.h; sourceTree = "<group>"; };
 		184C6762200CD17C00C852B4 /* CashMingXiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashMingXiViewController.m; sourceTree = "<group>"; };
-		184C6764200CD21500C852B4 /* CashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashTableViewCell.h; sourceTree = "<group>"; };
-		184C6765200CD21500C852B4 /* CashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashTableViewCell.m; sourceTree = "<group>"; };
-		184C6766200CD21500C852B4 /* CashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CashTableViewCell.xib; sourceTree = "<group>"; };
+		184C6766200CD21500C852B4 /* tixianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tixianTableViewCell.xib; sourceTree = "<group>"; };
 		18567F162001F568003F1985 /* BoardImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardImageView.m; sourceTree = "<group>"; };
 		18567F172001F568003F1985 /* BoardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardButton.h; sourceTree = "<group>"; };
 		18567F182001F568003F1985 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
@@ -1187,9 +1207,15 @@
 		1846CE11200F2780000BF772 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				184C6764200CD21500C852B4 /* CashTableViewCell.h */,
-				184C6765200CD21500C852B4 /* CashTableViewCell.m */,
-				184C6766200CD21500C852B4 /* CashTableViewCell.xib */,
+				180B0DC82012E03A00A19BA2 /* zhichuCell.h */,
+				180B0DC62012E03700A19BA2 /* zhichuCell.m */,
+				180B0DC72012E03800A19BA2 /* zhichuCell.xib */,
+				180B0DBE2012D40400A19BA2 /* tixianTableViewCell.h */,
+				180B0DBF2012D40400A19BA2 /* tixianTableViewCell.m */,
+				184C6766200CD21500C852B4 /* tixianTableViewCell.xib */,
+				180B0DCD20131E0200A19BA2 /* shourucell.h */,
+				180B0DCB20131DFF00A19BA2 /* shourucell.m */,
+				180B0DCC20131E0000A19BA2 /* shourucell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1197,8 +1223,14 @@
 		1846CE12200F27C1000BF772 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				180B0DD320133D2800A19BA2 /* YZNetWorking.h */,
+				180B0DD420133D2A00A19BA2 /* YZNetWorking.m */,
 				1846CE13200F27DA000BF772 /* MingXiModel.h */,
 				1846CE14200F27DA000BF772 /* MingXiModel.m */,
+				180B0DC32012DCAF00A19BA2 /* zhichuModel.h */,
+				180B0DC42012DCAF00A19BA2 /* zhichuModel.m */,
+				180B0DD020131E1400A19BA2 /* shouruModel.h */,
+				180B0DD120131E1400A19BA2 /* shouruModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2852,17 +2884,19 @@
 				18567F4B200207C7003F1985 /* RongCloudKit.strings in Resources */,
 				1846CE25200F4B6A000BF772 /* MyMTableViewCell.xib in Resources */,
 				1846CE20200F405D000BF772 /* administrateAccountViewController.xib in Resources */,
-				184C6768200CD21500C852B4 /* CashTableViewCell.xib in Resources */,
+				184C6768200CD21500C852B4 /* tixianTableViewCell.xib in Resources */,
 				186CBF1A2004B2FB0023924D /* messageView.xib in Resources */,
 				E25929461FFCA96700B6502D /* registerViewController.xib in Resources */,
 				3CA5FCD7200EFE97000FCCD4 /* SetMoneyView.xib in Resources */,
 				183AAF1A200372DD006D658A /* signViewController.xib in Resources */,
 				3CFF061E20078D4600E20FDE /* v3.bundle in Resources */,
 				E221B5761FF5D6FF00353875 /* Main.storyboard in Resources */,
+				180B0DCA2012E03A00A19BA2 /* zhichuCell.xib in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
 				3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */,
 				3CFF061F20078D4600E20FDE /* face_beautification.bundle in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
+				180B0DCF20131E0200A19BA2 /* shourucell.xib in Resources */,
 				3CFF061920078D4600E20FDE /* mask_matianyu.bundle in Resources */,
 				18567F56200207C8003F1985 /* AlipaySDK.bundle in Resources */,
 				E2AB3704200CCF3B00458C41 /* README.md in Resources */,
@@ -2974,6 +3008,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AB3719200CD5D500458C41 /* WomanModel.m in Sources */,
+				180B0DD520133D2A00A19BA2 /* YZNetWorking.m in Sources */,
 				E27024A4200F51F1002B08F5 /* StateButton.m in Sources */,
 				185BDFE4200D931E00A54E7B /* MyCallViewController.m in Sources */,
 				18249232200C505B00A78B94 /* WithdrawalsViewController.m in Sources */,
@@ -3028,12 +3063,15 @@
 				3CC752BA2008499E00C03C6B /* FMDatabase.m in Sources */,
 				E221B5BB1FF5DFD000353875 /* MLTabBarController.m in Sources */,
 				3CC752C02008499E00C03C6B /* JSONModelError.m in Sources */,
+				180B0DC52012DCAF00A19BA2 /* zhichuModel.m in Sources */,
+				180B0DC92012E03A00A19BA2 /* zhichuCell.m in Sources */,
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
 				180B0DB720117F9200A19BA2 /* AuditFailureViewController.m in Sources */,
 				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
 				E25929451FFCA96700B6502D /* registerViewController.m in Sources */,
 				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
 				3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */,
+				180B0DD220131E1400A19BA2 /* shouruModel.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
 				E27E9F571FFB1E0C00096A6E /* UIView+SGFrame.m in Sources */,
 				183AAF1420036C59006D658A /* introduceViewController.m in Sources */,
@@ -3089,6 +3127,7 @@
 				1824923D200C525400A78B94 /* headerView.m in Sources */,
 				184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */,
 				1846CE24200F4B6A000BF772 /* MyMTableViewCell.m in Sources */,
+				180B0DCE20131E0200A19BA2 /* shourucell.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
 				E27E9F561FFB1E0C00096A6E /* SGPageContentView.m in Sources */,
 				E2D1950320033D0400EAEE57 /* QBSlomoIconView.m in Sources */,
@@ -3173,6 +3212,7 @@
 				3CC7529B2008499D00C03C6B /* AliyunPhotoAssetSelectedView.m in Sources */,
 				3CC752B12008499E00C03C6B /* ioapi.c in Sources */,
 				3CA5FCD5200EFE7E000FCCD4 /* SetMoneyView.m in Sources */,
+				180B0DC12012D40400A19BA2 /* tixianTableViewCell.m in Sources */,
 				3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */,
 				185BDFE7200DA6FF00A54E7B /* NSURLRequest+NSURLRequestWithIgnoreSSL.m in Sources */,
 				3CC752AB2008499E00C03C6B /* AliyunCoverPickView.m in Sources */,
@@ -3382,7 +3422,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3433,7 +3472,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3449,7 +3488,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EE4DP99UN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3500,7 +3538,7 @@
 					"$(PROJECT_DIR)/MiLiao/Tools/lib/ios",
 					"$(PROJECT_DIR)/MiLiao/FaceUnity/Faceunity/FaceUnity-SDK-iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.im;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jnxbkp.imKKK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

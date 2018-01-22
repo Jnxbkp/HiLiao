@@ -48,29 +48,50 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 - (IBAction)yanzheng:(id)sender {
+    [self.view endEditing:YES];
     self.getButton.enabled=NO;
     
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
-        self.msgId = info[@"data"][@"verifyCode"];
-        NSLog(@"--------%@",self.msgId);
-        //写在网络请求里
-        [self getCodeFromSer];
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            self.msgId = info[@"data"][@"verifyCode"];
+            NSLog(@"--------%@",self.msgId);
+            //写在网络请求里
+            [self getCodeFromSer];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+        }
+     
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
 }
 //下一步
 - (IBAction)next:(id)sender {
-    forgetNextViewController *next = [[forgetNextViewController alloc]init];
-    next.phoneNum = self.phoneNum.text;
-    next.yanZhengNum = self.yanZhengNum.text;
-    next.msgId = self.msgId;
-    [self.navigationController pushViewController:next animated:YES];
+    [HLLoginManager verifyCodeResetPWD:self.phoneNum.text verifyCode:self.yanZhengNum.text success:^(NSDictionary *info){
+        NSLog(@"----------------%@",info);
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            forgetNextViewController *next = [[forgetNextViewController alloc]init];
+            next.phoneNum = self.phoneNum.text;
+            next.yanZhengNum = self.yanZhengNum.text;
+            next.msgId = self.msgId;//验证码
+            [self.navigationController pushViewController:next animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+  
 }
 - (void)getCodeFromSer{
     _secondCountDown = CountDown;
-    _countDownTimer=[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
+    _countDownTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
 }
 //60秒倒计时
 -(void)timeFireMethod{
@@ -78,7 +99,7 @@
     _secondCountDown--;
     
     NSString*secondStr1=[NSString stringWithFormat:@"重新发送(%ld秒)",(long)_secondCountDown];
-    [self.getButton setTitle:secondStr1 forState:UIControlStateDisabled];
+    [self.getButton setTitle:secondStr1 forState:UIControlStateNormal];
     
     if (_secondCountDown==0) {
         [_countDownTimer invalidate];

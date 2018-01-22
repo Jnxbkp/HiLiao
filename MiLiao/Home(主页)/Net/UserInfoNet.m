@@ -186,10 +186,11 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
  @param pid pid
  @param result 返回的结果
  */
-+ (void)finalDeductMoneyCallTime:(NSString *)callTime costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))result {
++ (void)finalDeductMoneyCallTime:(NSString *)callTime callID:(NSString *)callId costUserName:(NSString *)costUserName userName:(NSString *)userName pid:(NSString *)pid result:(void(^)(RequestState success, NSDictionary *dict, NSString *msg))result {
     
     NSDictionary *parameters = @{
                                  @"callTime":callTime,
+                                 @"callId":callId,
                                  @"costUserName":costUserName,
                                  @"pid":pid,
                                  @"token":tokenForCurrentUser(),
@@ -236,7 +237,10 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
                                 @"username":[YZCurrentUserModel sharedYZCurrentUserModel].username,
                                 @"token":tokenForCurrentUser()
                                 };
-    [self Get:GetUserRoleType parameters:parameter result:complete];
+    NSString *userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
+    NSString *token = tokenForCurrentUser();
+    NSString *api = [GetUserRoleType stringByAppendingString:[NSString stringWithFormat:@"/%@/%@", userName, token]];
+    [self Get:api parameters:nil result:complete];
 }
 
 

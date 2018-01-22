@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *zhuce;
 @property (weak, nonatomic) IBOutlet UIButton *login;
 @property (weak, nonatomic) IBOutlet UIButton *forget;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
 
 @end
 
@@ -45,7 +46,7 @@
     self.navigationController.delegate = self;
     _password.secureTextEntry = YES;
     if (UI_IS_IPHONE6PLUS) {
-        self.icon.frame = CGRectMake(WIDTH/2-37.5, 200, 75, 75);
+        self.height.constant = 100;
     }
 }
 - (void)viewWillAppear:(BOOL)animated{
