@@ -389,50 +389,45 @@
 //底部按钮点击
 - (void)downButtonClick:(UIButton *)but {
     
-    __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:self.videoUserModel.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+    if (but.tag == downButtonTag) {
+        [self chat];
+    } else {
        
-        if (success) {
-            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
-            MoneyEnoughType moneyType = callPower.typeCode;
-            NSString *seconds = callPower.seconds;
-            //余额不充足 不能聊天 可以视频
-            if (moneyType == MoneyEnoughTypeNotEnough) {
-                if (but.tag == downButtonTag) {
-                    [self showPayAlertController:^{
-                        [weakSelf goPay];
-                    }];
-                } else {
+        __weak typeof(self) weakSelf = self;
+        [UserInfoNet canCall:self.videoUserModel.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+            
+            if (success) {
+                UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+                MoneyEnoughType moneyType = callPower.typeCode;
+                //余额不充足 不能聊天 可以视频
+                if (moneyType == MoneyEnoughTypeNotEnough) {
                     [self showPayAlertController:^{
                         [weakSelf goPay];//去充值
                         
                     } continueCall:^{
                         //继续视频
-                        [weakSelf videoCall:seconds];;
+                        [weakSelf videoCall];;
                     }];
                 }
-            }
-            
-            //余额充足 既能聊天 有能视频
-            if (moneyType == MoneyEnoughTypeEnough) {
-                if (but.tag == downButtonTag) {
-                    [self chat];
-                } else {
-                    [self videoCall:nil];
+                
+                //余额充足 既能聊天 有能视频
+                if (moneyType == MoneyEnoughTypeEnough) {
+                    [self videoCall];
                 }
+                
+                //余额为0
+                if (moneyType == MoneyEnoughTypeEmpty) {
+                    [self showPayAlertController:^{
+                        [weakSelf goPay];
+                    }];
+                }
+            } else {
+                [SVProgressHUD showErrorWithStatus:msg];
             }
             
-            //余额为0
-            if (moneyType == MoneyEnoughTypeEmpty) {
-                [self showPayAlertController:^{
-                    [weakSelf goPay];
-                }];
-            }
-        } else {
-            [SVProgressHUD showErrorWithStatus:msg];
-        }
-        
-    }];
+        }];
+    }
+    
 
 //    //计算可通话时长
 //    [self calculatorCallTime:^(BOOL canCall) {
@@ -462,7 +457,7 @@
 }
 
 ///视频聊天
-- (void)videoCall:(NSString *)seconds {
+- (void)videoCall {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 }

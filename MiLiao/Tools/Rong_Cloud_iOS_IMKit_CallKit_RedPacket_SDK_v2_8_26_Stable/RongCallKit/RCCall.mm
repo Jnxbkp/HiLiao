@@ -132,18 +132,6 @@
     
 }
 
-/**
- 发起单人视频通话
- 
- @param videoUser 主播用户模型
- @param seconds 可通话秒数
- */
-- (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser seconds:(NSString *)seconds {
-    RCCallSingleCallViewController *singleCallViewController =
-    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:videoUser.username mediaType:RCCallMediaVideo];
-    singleCallViewController.videoUser = videoUser;
-    [self presentCallViewController:singleCallViewController];
-}
 
 /**
  发起单人视频通话
