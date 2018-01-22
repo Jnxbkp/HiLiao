@@ -17,23 +17,58 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    CGFloat w = self.bounds.size.width/5.0;
+//    CGFloat w = self.bounds.size.width/5.0;
+//
+//    UIButton *sendBtn = [[UIButton alloc] init];
+//    sendBtn.backgroundColor = [UIColor clearColor];
+//    [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal@2x"] forState:UIControlStateNormal];
+//
+//    sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+//    [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
+//    sendBtn.adjustsImageWhenHighlighted = NO;
+//    sendBtn.size = CGSizeMake(w, 70);
+//    sendBtn.centerX = self.width / 2;
+//    sendBtn.centerY = 12;
+//    [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [self addSubview:sendBtn];
+//    self.middleBtn = sendBtn;
+//
+//    [sendBtn setImagePositionWithType:SSImagePositionTypeTop spacing:4];
+//    // 其他位置按钮
+//    NSUInteger count = self.subviews.count;
+//    for (NSUInteger i = 0 , j = 0; i < count; i++)
+//    {
+//        UIView *view = self.subviews[i];
+//        Class class = NSClassFromString(@"UITabBarButton");
+//        if ([view isKindOfClass:class])
+//        {
+//            view.width = self.width / 5.0;
+//            view.x = self.width * j / 5.0;
+//            j++;
+//            if (j == 2)
+//            {
+//                j++;
+//            }
+//        }
+//    }
+    
+    CGFloat w = self.bounds.size.width/4.0;
     
     UIButton *sendBtn = [[UIButton alloc] init];
     sendBtn.backgroundColor = [UIColor clearColor];
     [sendBtn setImage:[UIImage imageNamed:@"tabar_plus_normal@2x"] forState:UIControlStateNormal];
-   
+    
     sendBtn.titleLabel.font = [UIFont systemFontOfSize:10];
     [sendBtn addTarget:self action:@selector(didClickPublishBtn:) forControlEvents:UIControlEventTouchUpInside];
     sendBtn.adjustsImageWhenHighlighted = NO;
-    sendBtn.size = CGSizeMake(w, 70);
-    sendBtn.centerX = self.width / 2;
-    sendBtn.centerY = 12;
+    sendBtn.size = CGSizeMake(30, 30);
+    sendBtn.centerX = w+w/2;
+    sendBtn.centerY = 18;
     [sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self addSubview:sendBtn];
     self.middleBtn = sendBtn;
     
-    [sendBtn setImagePositionWithType:SSImagePositionTypeTop spacing:4];
+    [sendBtn setImagePositionWithType:SSImagePositionTypeTop spacing:3];
     // 其他位置按钮
     NSUInteger count = self.subviews.count;
     for (NSUInteger i = 0 , j = 0; i < count; i++)
@@ -42,10 +77,10 @@
         Class class = NSClassFromString(@"UITabBarButton");
         if ([view isKindOfClass:class])
         {
-            view.width = self.width / 5.0;
-            view.x = self.width * j / 5.0;
+            view.width = self.width / 4.0;
+            view.x = self.width * j / 4.0;
             j++;
-            if (j == 2)
+            if (j == 1)
             {
                 j++;
             }
