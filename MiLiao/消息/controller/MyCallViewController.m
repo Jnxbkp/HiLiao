@@ -13,6 +13,7 @@
 #import <RongIMKit/RongIMKit.h>
 #import "UserInfoNet.h"
 #import "GoPayTableViewController.h"
+#import "UserCallPowerModel.h"
 @interface MyCallViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray *modelArray;
@@ -96,9 +97,11 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak typeof(self) weakSelf = self;
-    
-    [UserInfoNet canCall:self.callListModel.anchorAccount resule:^(RequestState success, MoneyEnoughType moneyType, NSString *errMsg) {
+    [UserInfoNet canCall:self.callListModel.anchorAccount result:^(RequestState success, id model, NSInteger code, NSString *msg) {
         if (success) {
+            
+            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+            MoneyEnoughType moneyType = callPower.typeCode;
             //余额不充足 不能聊天 可以视频
             if (moneyType == MoneyEnoughTypeNotEnough) {
                 [self showPayAlertController:^{
@@ -123,11 +126,11 @@
                     
                 }];
             }
+            
         } else {
-            [SVProgressHUD showErrorWithStatus:errMsg];
+           [SVProgressHUD showErrorWithStatus:msg];
         }
     }];
-
 }
 ///视频聊天
 - (void)videoCall {

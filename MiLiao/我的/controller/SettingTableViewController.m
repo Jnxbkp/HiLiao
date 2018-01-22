@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swich;
 @property (nonatomic, copy) NSString * strM;
 @property (nonatomic, copy) NSString * strCM;
+@property (nonatomic, strong) NSString *status;
 
 @end
 
@@ -25,15 +26,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _userDefaults = [NSUserDefaults standardUserDefaults];
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"设置"];
-    self.swich.on = YES;//设置初始为ON的一边
+    if ([[_userDefaults objectForKey:@"status"]isEqualToString:@"BUSY"]) {
+        self.swich.on = NO;
+    }else if ([[_userDefaults objectForKey:@"status"]isEqualToString:@"TALKING"])
+    {
+        self.swich.on = YES;
+    }else{
+        self.swich.on = NO;//设置初始为off的一边
+        
+    }
    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _userDefaults = [NSUserDefaults standardUserDefaults];
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -46,9 +54,27 @@
     BOOL isButtonOn = [self.swich isOn];
     if (isButtonOn) {
         NSLog(@"开");
+        self.status = [NSString stringWithFormat:@"BUSY"];
+        [_userDefaults setObject:@"BUSY" forKey:@"status"];
+        [self updateStatus];
+
     }else {
         NSLog(@"关");
+        self.status = @"TALKING";
+        [_userDefaults setObject:@"TALKING" forKey:@"status"];
+        [self updateStatus];
+
     }
+}
+- (void)updateStatus
+{
+    [HLLoginManager updateStatustoken:[_userDefaults objectForKey:@"token"] status:self.status success:^(NSDictionary *info) {
+        NSLog(@"%@",info);
+        NSLog(@"22222%@",[_userDefaults objectForKey:@"token"]);
+        NSLog(@"121221%@",self.status);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

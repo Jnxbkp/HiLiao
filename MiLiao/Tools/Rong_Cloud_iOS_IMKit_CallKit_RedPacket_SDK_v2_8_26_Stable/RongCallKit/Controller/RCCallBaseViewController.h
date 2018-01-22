@@ -112,6 +112,9 @@
 ///通话列表模型
 @property (nonatomic, strong) CallListModel *callListModel;
 
+///剩余可通话秒数
+@property (nonatomic, strong) NSString *residueSeconds;
+
 ///获取通话时长
 - (NSString *)getCallTime;
 

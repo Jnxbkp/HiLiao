@@ -72,5 +72,7 @@
 + (void)centertoken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //  GET  /v1/user/verifyCodeResetPWD 检验验证码
 + (void)verifyCodeResetPWD:(NSString *)mobile verifyCode:(NSString *)verifyCode  success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
+//POST /v1/user/updateStatus 修改用户在线状态
++ (void)updateStatustoken:(NSString *)token status:(NSString *)status success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
 @end
