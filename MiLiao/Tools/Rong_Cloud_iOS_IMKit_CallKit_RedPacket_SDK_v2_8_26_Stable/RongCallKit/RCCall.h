@@ -114,6 +114,15 @@
 /**
  发起单人视频通话
 
+ @param videoUser 主播用户模型
+ @param seconds 可通话秒数
+ */
+- (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser seconds:(NSString *)seconds;
+
+
+/**
+ 发起单人视频通话
+
  @param callListUser 通话列表模型
  */
 - (void)startSingleVideoCallToCallListUser:(CallListModel *)callListUser;

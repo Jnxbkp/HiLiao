@@ -18,8 +18,6 @@ typedef NS_ENUM(NSUInteger, MoneyEnoughType) {
     MoneyEnoughTypeEnough,
     ///账户余额为0
     MoneyEnoughTypeEmpty
-    
-   
 };
 
 ///保存到后台的通话状态
@@ -63,8 +61,7 @@ SelfCallEndState getSelfCallState(NSInteger callState);
 + (void)getUserBalance:(void(^)(CGFloat balance))balance;
 
 ///判定余额足够消费
-+ (void)canCall:(NSString *)userName resule:(void(^)(RequestState success, MoneyEnoughType moneyType, NSString *errMsg))complete;
-
++ (void)canCall:(NSString *)userName result:(RequestModelResult)result;
 
 
 

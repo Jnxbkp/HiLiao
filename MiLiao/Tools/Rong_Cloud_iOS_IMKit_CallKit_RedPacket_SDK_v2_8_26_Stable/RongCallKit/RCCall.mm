@@ -123,17 +123,28 @@
 - (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser {
     self.videoUser = videoUser;
     
-//    RCCallSingleCallViewController *singleCallViewController =
-//    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:@"18678899778" mediaType:RCCallMediaVideo];
     RCCallSingleCallViewController *singleCallViewController =
     [[RCCallSingleCallViewController alloc] initWithOutgoingCall:videoUser.username mediaType:RCCallMediaVideo];
     singleCallViewController.price = videoUser.price;
     singleCallViewController.costUserId = videoUser.ID;
     singleCallViewController.videoUser = videoUser;
-//    singleCallViewController.costUserName = @"18678899778";
     [self presentCallViewController:singleCallViewController];
     
 }
+
+/**
+ 发起单人视频通话
+ 
+ @param videoUser 主播用户模型
+ @param seconds 可通话秒数
+ */
+- (void)startSingleVideoCallToVideoUser:(VideoUserModel *)videoUser seconds:(NSString *)seconds {
+    RCCallSingleCallViewController *singleCallViewController =
+    [[RCCallSingleCallViewController alloc] initWithOutgoingCall:videoUser.username mediaType:RCCallMediaVideo];
+    singleCallViewController.videoUser = videoUser;
+    [self presentCallViewController:singleCallViewController];
+}
+
 /**
  发起单人视频通话
  

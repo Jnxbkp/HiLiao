@@ -31,6 +31,9 @@
 #import "LoveViewController.h"
 #import "EvaluateVideoViewController.h"//评价
 #import "PayWebViewController.h"
+#import "UserCallPowerModel.h"//通话能力
+
+
 //#import "FUManager.h"
 //#import <FUAPIDemoBar/FUAPIDemoBar.h>
 //#import "FUVideoFrameObserverManager.h"
@@ -386,9 +389,12 @@
 - (void)downButtonClick:(UIButton *)but {
     
     __weak typeof(self) weakSelf = self;
-    [UserInfoNet canCall:self.videoUserModel.username resule:^(RequestState success, MoneyEnoughType moneyType, NSString *errMsg) {
+    [UserInfoNet canCall:self.videoUserModel.username result:^(RequestState success, id model, NSInteger code, NSString *msg) {
+       
         if (success) {
-            
+            UserCallPowerModel *callPower = (UserCallPowerModel *)model;
+            MoneyEnoughType moneyType = callPower.typeCode;
+            NSString *seconds = callPower.seconds;
             //余额不充足 不能聊天 可以视频
             if (moneyType == MoneyEnoughTypeNotEnough) {
                 if (but.tag == downButtonTag) {
@@ -401,7 +407,7 @@
                         
                     } continueCall:^{
                         //继续视频
-                        [weakSelf videoCall];
+                        [weakSelf videoCall:seconds];;
                     }];
                 }
             }
@@ -411,7 +417,7 @@
                 if (but.tag == downButtonTag) {
                     [self chat];
                 } else {
-                    [self videoCall];
+                    [self videoCall:nil];
                 }
             }
             
@@ -422,12 +428,11 @@
                 }];
             }
         } else {
-            [SVProgressHUD showErrorWithStatus:errMsg];
+            [SVProgressHUD showErrorWithStatus:msg];
         }
+        
     }];
-    
-    
-    
+
 //    //计算可通话时长
 //    [self calculatorCallTime:^(BOOL canCall) {
 //        if (canCall) {
@@ -456,7 +461,7 @@
 }
 
 ///视频聊天
-- (void)videoCall {
+- (void)videoCall:(NSString *)seconds {
     NSLog(@"%@", self.videoUserModel.username);
     [[RCCall sharedRCCall] startSingleVideoCallToVideoUser:self.videoUserModel];
 }

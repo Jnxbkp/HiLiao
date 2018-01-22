@@ -39,6 +39,9 @@
 ///检查M币的定时器
 @property (nonatomic, strong) dispatch_source_t checkMoneyTimer;
 
+///准备倒计时的倒计时
+@property (nonatomic, strong) dispatch_source_t prepareShowCountDownTimer;
+
 ///倒计时view
 @property (nonatomic, strong) CountDownView *countDownView;
 
@@ -265,16 +268,17 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
      long seconds = [canCall.seconds longLongValue];
     
     //剩余两分钟时 开始倒计时
-    if (seconds <= 60 * 2) {
-        //添加倒计时view
-        [self addCountDownView];
-        
+    if (seconds <= 60 * 3) {
+        //准备显示倒计时
+        [self prepareShowCountDownView:seconds];
         if (seconds <= 0) {
             //通话结束
             [self hangupButtonClicked];
         }
     } else {
-        
+        if (self.prepareShowCountDownTimer) {
+            dispatch_cancel(self.prepareShowCountDownTimer);
+        }
     }
 }
 
@@ -481,7 +485,27 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
 }
 
 
-#pragma mark - 倒计时view代理方法
+#pragma mark - 倒计时view
+//准备显示倒计时view
+- (void)prepareShowCountDownView:(long)seconds {
+    
+    __block long residueSeconds = seconds;
+    self.prepareShowCountDownTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+    dispatch_source_set_timer(self.prepareShowCountDownTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(self.prepareShowCountDownTimer, ^{
+        if (residueSeconds <= 60*2) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //添加倒计时view
+                [self addCountDownView];
+                dispatch_cancel(self.prepareShowCountDownTimer);
+            });
+        }
+        residueSeconds--;
+    });
+    dispatch_resume(self.prepareShowCountDownTimer);
+    
+}
+
 ///添加倒计时view
 - (void)addCountDownView {
     [self.mainVideoView addSubview:self.countDownView];

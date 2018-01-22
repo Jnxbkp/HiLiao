@@ -128,6 +128,7 @@
 		3C0FA5A2200C4B280098AC28 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A1200C4B280098AC28 /* CountDownView.m */; };
 		3C0FA5A7200C4BF60098AC28 /* UIView+IBBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0FA5A5200C4BF60098AC28 /* UIView+IBBorder.m */; };
 		3C12A402200A140A0044A6A2 /* UserInfoNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12A401200A140A0044A6A2 /* UserInfoNet.m */; };
+		3C14D7162015B6B5003448A8 /* CallPowerMoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C14D7152015B6B5003448A8 /* CallPowerMoel.m */; };
 		3C6458A7200DEC0700E1721C /* EvaluateVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */; };
 		3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */; };
 		3C6458B0200E06ED00E1721C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6458AE200DFC1600E1721C /* CoreText.framework */; };
@@ -584,6 +585,8 @@
 		3C0FA5A6200C4BF60098AC28 /* UIView+IBBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IBBorder.h"; sourceTree = "<group>"; };
 		3C12A400200A140A0044A6A2 /* UserInfoNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoNet.h; sourceTree = "<group>"; };
 		3C12A401200A140A0044A6A2 /* UserInfoNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoNet.m; sourceTree = "<group>"; };
+		3C14D7142015B6B5003448A8 /* CallPowerMoel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallPowerMoel.h; sourceTree = "<group>"; };
+		3C14D7152015B6B5003448A8 /* CallPowerMoel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallPowerMoel.m; sourceTree = "<group>"; };
 		3C6458A4200DEC0700E1721C /* EvaluateVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateVideoViewController.h; sourceTree = "<group>"; };
 		3C6458A5200DEC0700E1721C /* EvaluateVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateVideoViewController.m; sourceTree = "<group>"; };
 		3C6458A6200DEC0700E1721C /* EvaluateVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvaluateVideoViewController.xib; sourceTree = "<group>"; };
@@ -2245,6 +2248,8 @@
 				3CC51493200C96CC00095AE8 /* VideoUserModel.m */,
 				3C6458B7200E20AE00E1721C /* EvaluateTagModel.h */,
 				3C6458B8200E20AE00E1721C /* EvaluateTagModel.m */,
+				3C14D7142015B6B5003448A8 /* CallPowerMoel.h */,
+				3C14D7152015B6B5003448A8 /* CallPowerMoel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3171,6 +3176,7 @@
 				E2D194FC20033D0400EAEE57 /* QBVideoIndicatorView.m in Sources */,
 				E2B77BCD1FFDD4BA00597326 /* YZNavigationTitleLabel.m in Sources */,
 				3CC752B32008499E00C03C6B /* QUReorderableCollectionViewFlowLayout.m in Sources */,
+				3C14D7162015B6B5003448A8 /* CallPowerMoel.m in Sources */,
 				3CC752BD2008499E00C03C6B /* JSONValueTransformer.m in Sources */,
 				3CC752AF2008499E00C03C6B /* unzip.c in Sources */,
 				185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */,
