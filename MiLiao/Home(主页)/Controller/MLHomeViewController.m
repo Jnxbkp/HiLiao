@@ -178,7 +178,7 @@ static NSString *const bigIdentifer = @"bigCell";
             _newButton.selected = YES;
             
             _selectStr = newStr;
-            if (_careList.count > 0) {
+            if (_newsList.count > 0) {
                 [self newTabReload];
             } else {
                 _newPage = @"1";

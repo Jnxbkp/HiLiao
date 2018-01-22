@@ -60,14 +60,30 @@
 //}
 //获取验证码
 - (IBAction)yanzheng:(id)sender {
+    if (![self.phoneNum.text isValidateMobile]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        return;
+    }
+    if ([self.password.text isNumText]&&self.password.text.length>8) {
+        [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
+        return;
+    }
     self.getButton.enabled=NO;
-    
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
-        self.msgId = info[@"data"][@"verifyCode"];
-        NSLog(@"--------%@",self.msgId);
-        //写在网络请求里
-        [self getCodeFromSer];
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            [SVProgressHUD dismiss];
+            self.msgId = info[@"data"][@"verifyCode"];
+            NSLog(@"--------%@",self.msgId);
+            //写在网络请求里
+            [self getCodeFromSer];
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
+        }
+      
+
     } failure:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
@@ -95,6 +111,10 @@
 }
 //下一步
 - (IBAction)next:(id)sender {
+    if ([self.password.text isNumText]&&self.password.text.length>8) {
+        [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
+        return;
+    }
     [HLLoginManager NetPostRegisterMobile:self.phoneNum.text password:self.password.text msgId:self.msgId verifyCode:self.yanzhengNum.text success:^(NSDictionary *info) {
         NSLog(@"注册---------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];

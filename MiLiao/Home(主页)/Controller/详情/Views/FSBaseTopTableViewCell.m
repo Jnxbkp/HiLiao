@@ -75,7 +75,7 @@
     [self addSubview:lineLabel];
     [self addSubview:downLabel];
    
-    NSArray *arr = [NSArray arrayWithObjects:@"与我视频聊天需要支付:",@"与我亲密的:",@"微信号:", nil];
+    NSArray *arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:",@"个人微信:", nil];
     for (int i = 0; i < arr.count ; i ++) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH+18+50*i, 150, 14)];
         label.textColor = Color75;

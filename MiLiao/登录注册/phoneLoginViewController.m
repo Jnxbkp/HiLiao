@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *login;
 @property (weak, nonatomic) IBOutlet UIButton *forget;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
+@property (strong, nonatomic) IBOutlet UIView *bgView;
 
 @end
 
@@ -48,7 +49,21 @@
     if (UI_IS_IPHONE6PLUS) {
         self.height.constant = 100;
     }
+ //  现在改变你的代码
+    [ self.view setFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[self imageResize :[UIImage imageNamed:@"bg"] andResizeTo: self.view.frame.size]];
 }
+-(UIImage *)imageResize :(UIImage*)img andResizeTo:(CGSize)newSize
+{
+    CGFloat scale = [[UIScreen mainScreen]scale];
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    [img drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];

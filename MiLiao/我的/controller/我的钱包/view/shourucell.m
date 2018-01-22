@@ -17,7 +17,7 @@
 - (void)setModel:(shouruModel *)model {
     _model = model;
     self.nickName.text = [NSString stringWithFormat:@"%@",model.nickName];
-    self.money.text = [NSString stringWithFormat:@"-%@M币 | 剩余0M币",model.amount];
+    self.money.text = [NSString stringWithFormat:@"+%@M币",model.amount];
 }
 
 
