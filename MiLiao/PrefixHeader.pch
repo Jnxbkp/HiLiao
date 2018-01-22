@@ -130,7 +130,10 @@
 #define Color128 [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]
 //255
 #define Color255 [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
-
+//231
+#define Color231 [UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1.0]
+//153
+#define Color153 [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0]
 
 // 设置字体
 #define YZFont(f)  [UIFont systemFontOfSize:f]

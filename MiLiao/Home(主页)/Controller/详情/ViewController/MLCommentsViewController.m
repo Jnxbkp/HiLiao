@@ -47,6 +47,9 @@
 - (void)setupSubViews
 {
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight-50) style:UITableViewStylePlain];
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
+    }
     _tableView.delegate = self;
     _tableView.dataSource = self;
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

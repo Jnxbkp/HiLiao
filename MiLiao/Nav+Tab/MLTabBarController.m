@@ -37,11 +37,11 @@
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
     
-//    if ([isBigV isEqualToString:@"3"]) {
+    if ([isBigV isEqualToString:@"3"]) {
         [self InitMiddleView];
-//    } else {
-//
-//    }
+    } else {
+
+    }
     
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
@@ -70,7 +70,9 @@
 }
 - (void)addChildViewController:(UIViewController *)childController title:(NSString *)title imageName:(NSString *)imageName navigationIsHidden:(NSString *)isHidden {
     
-    childController.tabBarItem.image = [UIImage imageNamed:imageName];
+    UIImage *image = [UIImage imageNamed:imageName];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    childController.tabBarItem.image = image;
     
     NSString *selectedImageName = [NSString string];
     if ([imageName isEqualToString:@"tab_main_nomal"]) {

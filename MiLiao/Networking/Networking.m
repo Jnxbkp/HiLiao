@@ -139,7 +139,9 @@
           id model;
           NSInteger errCode = 0;
           
-          if ([responseObject[ResultCode] integerValue] == SUCCESS
+          if (([responseObject[ResultCode] integerValue] == SUCCESS
+               ||
+               [responseObject[@"code"] integerValue] == SUCCESS)
               &&
               [responseObject[@"data"] isKindOfClass:[NSDictionary class]])
           {
@@ -173,7 +175,9 @@
         NSString *errMsg = @"";
         NSDictionary *dictonary;
         NSInteger errCode;
-        if ([responseObject[@"code"] integerValue] == SUCCESS
+        if (([responseObject[@"code"] integerValue] == SUCCESS
+             ||
+             [responseObject[ResultCode] integerValue] == SUCCESS)
             &&
             [responseObject[@"data"] isKindOfClass:[NSDictionary class]])
         {
@@ -205,7 +209,9 @@
         
         RequestState state = Failure;
         NSString *errMsg = @"";
-        if ([responseObject[ResultCode] integerValue] == SUCCESS) {
+        if ([responseObject[ResultCode] integerValue] == SUCCESS
+            ||
+            [responseObject[@"code"] integerValue] == SUCCESS) {
             state = Success;
         } else {
             errMsg = responseObject[ResultMsg];
