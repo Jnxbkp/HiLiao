@@ -82,7 +82,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (RCMessageContent *)willSendMessage:(RCMessageContent *)messageContent
+{
+    
+    return messageContent;
+}
 /*!
  扩展功能板的点击回调
  

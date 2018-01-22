@@ -36,13 +36,14 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"我的钱包"];
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    self.money.text = [NSString stringWithFormat:@"%@M币",[_userDefaults objectForKey:@"balance"]];
-    [self loadData];
+//    self.money.text = [NSString stringWithFormat:@"%@M币",[_userDefaults objectForKey:@"balance"]];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
+    [self loadData];
+
 }
 - (void)loadData
 {
@@ -51,7 +52,8 @@
 //        self.dict = info[@"data"];
         self.MMmoney = info[@"data"][@"mMoney"];
         self.mmoney = info[@"data"][@"money"];
-
+//money
+         self.money.text = [NSString stringWithFormat:@"%@M币",info[@"data"][@"money"]];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
