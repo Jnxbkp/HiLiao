@@ -100,11 +100,15 @@
 
     
     if (section == 1) {
+        UIView  *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 14, 3, 20)];
+        titleView.backgroundColor = ML_Color(250, 114, 152, 1);
+        
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, 17, WIDTH-24, 14)];
         titleLabel.font = [UIFont systemFontOfSize:14.0];
         titleLabel.textColor = Color75;
         titleLabel.text = @"个人资料";
         
+        [headView addSubview:titleView];
         [headView addSubview:titleLabel];
     } else {
         
@@ -143,8 +147,6 @@
         myLabel.textColor = ML_Color(127, 127, 127, 1);
         myLabel.font = [UIFont systemFontOfSize:13.0];
         
-        UIView  *titleView1 = [[UIView alloc]initWithFrame:CGRectMake(0, 42+45, 3, 20)];
-        titleView1.backgroundColor = ML_Color(250, 114, 152, 1);
         UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(13, 42+48, 60, 12)];
         userLabel.text = @"用户印象";
         userLabel.textColor = ML_Color(127, 127, 127, 1);
@@ -163,7 +165,6 @@
         
         
         [cell.contentView addSubview:titleView];
-        [cell.contentView addSubview:titleView1];
         [cell.contentView addSubview:titleLabel];
         [cell.contentView addSubview:myLabel];
         [cell.contentView addSubview:userLabel];

@@ -51,6 +51,7 @@
     float           detailHeight;
     UIView          *_navView;
     UIView          *_colorView;
+    UILabel         *_titleLabel;
     NSMutableArray  *_imageMuArr;
     UIView          *_footView;//下方视图
     
@@ -265,6 +266,11 @@
     _colorView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, ML_TopHeight)];
     _colorView.backgroundColor = NavColor;
     _colorView.alpha = 0;
+    
+    _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 8, WIDTH, ML_TopHeight)];
+    _titleLabel.font = [UIFont systemFontOfSize:18.0];
+    _titleLabel.textColor = Color255;
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backButton.frame = CGRectMake(0, ML_StatusBarHeight, 50, 40);
     if (UI_IS_IPHONEX) {
@@ -273,6 +279,7 @@
     [_backButton setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
     _backButton.imageEdgeInsets = UIEdgeInsetsMake(11, 12, 11, 25);
     [_backButton addTarget:self action:@selector(backBarButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
+    [_colorView addSubview:_titleLabel];
     [_navView addSubview:_colorView];
     [_navView addSubview:_backButton];
     [self.view addSubview:_navView];
@@ -323,6 +330,7 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             _womanModel = [[WomanModel alloc]initWithDictionary:[[info objectForKey:@"data"] objectAtIndex:0]];
+            _titleLabel.text = _womanModel.nickname;
             for (int i = 0; i < _womanModel.imageList.count; i++) {
                 NSDictionary *dic = _womanModel.imageList[i];
                 NSString *fileUrl = [dic objectForKey:@"fileUrl"];
@@ -761,6 +769,7 @@
     _focusButton = [[UIButton alloc]init];
     _focusButton = button;
     [MainMananger NetPostCareuserBgzaccount:_womanModel.username gzaccount:[YZCurrentUserModel sharedYZCurrentUserModel].username sfgz:isFocus token:[YZCurrentUserModel sharedYZCurrentUserModel].token success:^(NSDictionary *info) {
+        
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             if (button.selected == YES) {

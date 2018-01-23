@@ -51,7 +51,7 @@
     navView.backgroundColor = [UIColor whiteColor];
     
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, ML_StatusBarHeight, WIDTH-100, 44)];
-    titleLabel.text = @"亲密度";
+    titleLabel.text = [NSString stringWithFormat:@"%@亲密度",_womanModel.nickname];
     titleLabel.textColor = Color75;
     titleLabel.font = [UIFont systemFontOfSize:18.0];
     titleLabel.textAlignment = NSTextAlignmentCenter;

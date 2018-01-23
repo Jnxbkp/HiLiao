@@ -329,7 +329,7 @@ typedef enum {
     //录制时间显示
     self.timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,ML_StatusBarHeight+10, 100, 15)];
     self.timerLabel.hidden = YES;
-    self.timerLabel.textColor = [UIColor redColor];
+    self.timerLabel.textColor = Color255;
     self.timerLabel.text = @"00:00";
     self.timerLabel.font = [UIFont systemFontOfSize:13.0];
     [self.view addSubview:_timerLabel];
