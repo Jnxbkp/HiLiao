@@ -289,6 +289,13 @@ static NSString *const bigIdentifer = @"bigCell";
             } else if (header != nil) {//刷新
                 [header endRefreshing];
             }
+            
+            if (resultCode == 1004) {
+                [_userDefaults setObject:@"0" forKey:@"isBigV"];
+                [_userDefaults setObject:@"no" forKey:@"isLog"];
+                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"0",@"isBigV",@"no",@"isLog", nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
+            }
         }
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];

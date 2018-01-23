@@ -82,11 +82,12 @@
 }
 
 - (void)autoLogin{
-
+  
     NSString *tokenStr = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"token"]];
     if (tokenStr.length>0&&![tokenStr isEqualToString:@"(null)"]) {
+      
         [HLLoginManager NetGetgetUserInfoToken:tokenStr UserId:@"0" success:^(NSDictionary *info) {
-//            NSLog(@"------%@",info);
+            
 //            [[User ShardInstance] saveUserInfoWithInfo:info[@"data"]];
             [YZCurrentUserModel userInfoWithDictionary:info[@"data"]];
             
@@ -100,7 +101,7 @@
         } failure:^(NSError *error) {
             
         }];
-    }
+    } 
 
 }
 //是否是隐藏
