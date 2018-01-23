@@ -60,6 +60,8 @@ e6d2a7cd7d57578a51532065957fb9ea</string>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+	<key>CFPlugInFactories</key>
+	<dict/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
