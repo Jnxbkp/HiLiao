@@ -196,7 +196,7 @@ static NSString *const bigIdentifer = @"bigCell";
 //请求网络接口
 - (void)netGetListPageSelectStr:(NSString *)selectStr pageNumber:(NSString *)pageNumber header:(MJRefreshNormalHeader *)header footer:(MJRefreshAutoNormalFooter *)footer {
    NSLog(@"----token--%@----%@",[_userDefaults objectForKey:@"token"],pageNumber);
-    [MainMananger NetGetMainListKind:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:@"2" success:^(NSDictionary *info) {
+    [MainMananger NetGetMainListKind:selectStr token:[_userDefaults objectForKey:@"token"] pageNumber:pageNumber pageSize:PAGESIZE success:^(NSDictionary *info) {
         NSLog(@"---success--%@",info);
         [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];

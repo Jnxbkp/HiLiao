@@ -78,7 +78,15 @@
     [self addSubview:lineLabel];
     [self addSubview:downLabel];
    
-    NSArray *arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:",@"个人微信:", nil];
+    NSArray *arr = [NSArray array];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *isHidden = [userDefaults objectForKey:@"isHidden"];
+    if ([isHidden isEqualToString:@"yes"]) {
+        arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:", nil];
+    } else {
+        arr = [NSArray arrayWithObjects:@"视频聊天需要支付:",@"亲密度排行:",@"个人微信:", nil];
+    }
+    
     for (int i = 0; i < arr.count ; i ++) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH+18+50*i, 150, 14)];
         label.textColor = Color75;

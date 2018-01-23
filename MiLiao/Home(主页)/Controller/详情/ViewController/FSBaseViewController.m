@@ -571,6 +571,9 @@
 {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            if ([_isHidden isEqualToString:@"yes"]) {
+               return WIDTH+108;
+            }
             return WIDTH+158;
         }
         return 0;

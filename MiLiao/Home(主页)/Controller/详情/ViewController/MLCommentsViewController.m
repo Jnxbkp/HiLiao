@@ -70,7 +70,6 @@
         if (resultCode == SUCCESS) {
             NSArray *arr = [info objectForKey:@"data"];
             if ([isFresh isEqualToString:@"yes"]) {
-                NSLog(@"------------>>>");
                 _dataArr = [NSMutableArray array];
             }
             _commentsPage = [NSString stringWithFormat:@"%lu",[_commentsPage integerValue] +1];
@@ -87,7 +86,7 @@
                 }
             } else {//首次请求
                 [_tableView reloadData];
-                if (arr.count > 0) {
+                if (arr.count > 10) {
                     _tableView.mj_footer.hidden = NO;
                 }
             }

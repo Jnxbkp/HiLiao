@@ -63,7 +63,7 @@
 
 #import "YZNetWorking.h"
 //pageSize
-#define PAGESIZE    @"1"
+#define PAGESIZE    @"10"
 
 //网络请求成功
 #define SUCCESS 200
