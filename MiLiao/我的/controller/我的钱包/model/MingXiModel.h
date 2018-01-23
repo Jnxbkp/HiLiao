@@ -11,7 +11,5 @@
 @interface MingXiModel : NSObject
 @property(strong, nonatomic)NSString *createTime;
 @property(strong, nonatomic)NSString *amount;
-@property(strong, nonatomic)NSString *collectionAccount;
-@property(strong, nonatomic)NSString *collectionName;
 @property(strong, nonatomic)NSString *afterAmount;
 @end

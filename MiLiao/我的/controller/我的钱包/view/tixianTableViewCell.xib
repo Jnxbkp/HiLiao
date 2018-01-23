@@ -62,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="money" destination="Uz0-Fy-1lc" id="udE-Nl-Ueo"/>
+                <outlet property="nickName" destination="2FO-Sk-CJJ" id="Zui-0k-LoD"/>
                 <outlet property="time" destination="Lar-f4-nXl" id="B4W-XP-DE1"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>

@@ -22,21 +22,13 @@
     [super viewDidLoad];
     _userDefaults = [NSUserDefaults standardUserDefaults];
     if (UI_IS_IPHONEX) {
-        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝 4"];
+        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝 2"];
     }
-//    [HLLoginManager setPrice:50 token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
-//        NSInteger resultCode = [info[@"resultCode"] integerValue];
-//        NSLog(@"----------------%@",info);
-//        if (resultCode == SUCCESS) {
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }else{
-//
-//        }
-//
-//    } failure:^(NSError *error) {
-//        NSLog(@"11111111111%@",error);
-//    }];
-    // Do any additional setup after loading the view from its nib.
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"审核成功"];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -68,14 +60,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
