@@ -21,6 +21,8 @@
 
 #import <AlipaySDK/AlipaySDK.h>
 
+#import "PublicManager.h"
+
 @interface AppDelegate ()<RCIMReceiveMessageDelegate> {
     NSUserDefaults *_userDefaults;
 }
@@ -73,6 +75,9 @@
     [[RCCallClient sharedRCCallClient] setVideoProfile:RC_VIDEO_PROFILE_480P];
     //注册监听 美颜视频流
 //    [FUVideoFrameObserverManager registerVideoFrameObserver];
+    
+    [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+    [self getHiddenVersion];
     return YES;
 }
 
@@ -97,6 +102,31 @@
         }];
     }
 
+}
+//是否是隐藏
+- (void)getHiddenVersion {
+    [PublicManager NetGetgetHideVersionsuccess:^(NSDictionary *info) {
+        NSInteger resultCode = [info[@"resultCode"] integerValue];
+        if (resultCode == SUCCESS) {
+            NSString *str = [NSString stringWithFormat:@"%@",[[info objectForKey:@"data"] objectForKey:@"hideVersion"]];
+         
+            if ([str isEqualToString:@"0"]) {
+                [_userDefaults setObject:@"no" forKey:@"isHidden"];
+            } else {
+                [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+            }
+            NSString *isBigV = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"isBigV"]];
+            NSString *isLog = [NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"isBigV"]];
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:isBigV,@"isBigV",isLog,@"isLog", nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"KSwitchRootViewControllerNotification" object:nil userInfo:dic];
+        } else {
+            [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"error%@",error);
+        [_userDefaults setObject:@"yes" forKey:@"isHidden"];
+        
+    }];
 }
 /*!
  接收消息的回调方法

@@ -37,19 +37,24 @@
     NSString *isBigV = [userDefaults objectForKey:@"isBigV"];
     self.delegate = self;
     
-//    if ([isBigV isEqualToString:@"3"]) {
+    if ([isBigV isEqualToString:@"3"]) {
         [self InitMiddleView];
-//    } else {
-//
-//    }
+    } else {
+
+    }
     
     [self addChildViewController:[[MLHomeViewController alloc]init] title:nil imageName:@"tab_main_nomal" navigationIsHidden:@"no"];
     
-//    [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"tab_discover_nomal" navigationIsHidden:@"no"];
-   
-
+    NSString *isHidden = [userDefaults objectForKey:@"isHidden"];
+    NSLog(@"-------><<<>><<><>-%@",isHidden);
+    if ([isHidden isEqualToString:@"yes"]) {
+       
+    } else {
+        [self addChildViewController:[[MLDiscoverViewController alloc]init] title:nil imageName:@"tab_discover_nomal" navigationIsHidden:@"no"];
+    }
+    
     [self addChildViewController:[[ChatListController alloc] init] title:nil imageName:@"tab_message_nomal" navigationIsHidden:@"no"];
-        
+    
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
     MeViewController *meViewController = [story instantiateViewControllerWithIdentifier:@"MeViewController"];
     [self addChildViewController:meViewController title:nil imageName:@"wode" navigationIsHidden:@"yes"];

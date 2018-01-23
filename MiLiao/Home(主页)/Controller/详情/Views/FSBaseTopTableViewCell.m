@@ -33,6 +33,9 @@
     
     _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-52, ML_StatusBarHeight+12, 40, 20);
+    if (UI_IS_IPHONE6PLUS) {
+        _stateButton.frame = CGRectMake(WIDTH-52, ML_StatusBarHeight+32, 40, 20);
+    }
 
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(12, WIDTH-68, (WIDTH-24)/2, 20)];
     _nameLabel.textColor = ML_Color(255, 255, 255, 1);
