@@ -20,17 +20,19 @@
     if (UI_IS_IPHONEX) {
         self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝"];
     }
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"审核中"];
+    
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-}
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:NO];
+//}
+
 - (IBAction)go:(id)sender {
 //    self.tabBarController.hidesBottomBarWhenPushed=NO;
 //    self.tabBarController.selectedIndex=0;

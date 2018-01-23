@@ -50,7 +50,7 @@
         self.height.constant = 100;
     }
     if (UI_IS_IPHONEX) {
-        self.height.constant = 100;
+        self.height.constant = 150;
         //  现在改变你的代码
         [ self.view setFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
         self.view.backgroundColor = [UIColor colorWithPatternImage:[self imageResize :[UIImage imageNamed:@"2436"] andResizeTo: self.view.frame.size]];
