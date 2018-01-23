@@ -103,7 +103,7 @@ static NSString *kTempFolder = @"touxiang";
     _userDefaults = [NSUserDefaults standardUserDefaults];
    posters = [[NSMutableArray alloc]init];//图片集合
     self.phoneNumber.text = [_userDefaults objectForKey:@"username"];
-    self.headerView.height = (WIDTH-48)/3*2+24;
+    self.headerView.height = (WIDTH-48)/3*2+36;
     [self loData];
 
 }
@@ -305,11 +305,6 @@ static NSString *kTempFolder = @"touxiang";
                 }
             }
             NSLog(@"%@",posters);
-            //            for (NSDictionary * objectInfo in result.contents) {
-            //                NSLog(@"list object: %@", objectInfo);
-            //            }
-            NSLog(@"upload object success!");
-            
         }
         else {
             NSLog(@"upload object failed, error: %@" , task.error);
@@ -319,40 +314,28 @@ static NSString *kTempFolder = @"touxiang";
 }
 - (void)takePhoto {
     if (BtnTag == 1) {
-//        [posters replaceObjectAtIndex:0 withObject:result];
-
         self.item1String = [NSString stringWithFormat:@"%@",result];
         [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item1String]] forState:UIControlStateNormal];
    }
     if (BtnTag == 2) {
-//        [posters replaceObjectAtIndex:1 withObject:result];
-
        self.item2String = [NSString stringWithFormat:@"%@",result];
         [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item2String]] forState:UIControlStateNormal];
     }
 
     if (BtnTag == 3) {
-//        [posters replaceObjectAtIndex:2 withObject:result];
-
         self.item3String = [NSString stringWithFormat:@"%@",result];
         [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item3String]] forState:UIControlStateNormal];
     }
     if (BtnTag == 4) {
-//        [posters replaceObjectAtIndex:3 withObject:result];
-
         self.item4String = [NSString stringWithFormat:@"%@",result];
         [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item4String]] forState:UIControlStateNormal];
    }
     if (BtnTag == 5) {
-//        [posters replaceObjectAtIndex:4 withObject:result];
-
         self.item5String = [NSString stringWithFormat:@"%@",result];
         [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", self.item5String]] forState:UIControlStateNormal];
   }
 
     if (BtnTag == 6) {
-//        [posters replaceObjectAtIndex:5 withObject:result];
-
         self.item6String = [NSString stringWithFormat:@"%@",result];
         [self.eightBtn sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.item6String]] forState:UIControlStateNormal];
   }

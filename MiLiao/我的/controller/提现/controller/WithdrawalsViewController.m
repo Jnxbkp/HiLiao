@@ -117,7 +117,11 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
             
-            
+            [SVProgressHUD showSuccessWithStatus:@"提现成功"];
+
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
         }
         
     } failure:^(NSError *error) {

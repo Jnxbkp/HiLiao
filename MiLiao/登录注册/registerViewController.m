@@ -140,6 +140,9 @@
 //            }];
             [self dismissViewControllerAnimated:NO completion:nil];
 
+        }else{
+            [SVProgressHUD showErrorWithStatus:info[@"resultMsg"]];
+
         }
     } failure:^(NSError *error) {
         NSLog(@"----%@",error);

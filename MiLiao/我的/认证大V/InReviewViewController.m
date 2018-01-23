@@ -9,6 +9,7 @@
 #import "InReviewViewController.h"
 
 @interface InReviewViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
 
 @end
 
@@ -16,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    if (UI_IS_IPHONEX) {
+        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝"];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {

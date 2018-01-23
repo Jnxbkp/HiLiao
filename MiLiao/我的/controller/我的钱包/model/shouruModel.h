@@ -11,5 +11,6 @@
 @interface shouruModel : NSObject
 @property(strong, nonatomic)NSString *amount;
 @property(strong, nonatomic)NSString *nickName;
-
+@property(strong, nonatomic)NSString *callTime;
+@property(strong, nonatomic)NSString *createDate;
 @end

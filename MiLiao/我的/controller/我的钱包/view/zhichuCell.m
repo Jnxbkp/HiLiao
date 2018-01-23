@@ -30,35 +30,20 @@
     NSDate *stampDate2 = [NSDate dateWithTimeIntervalSince1970:time];
     NSLog(@"时间戳转化时间 >>> %@",[stampFormatter stringFromDate:stampDate2]);
       self.time.text = [stampFormatter stringFromDate: stampDate2];
-
-   
-//    NSDate *detaildate=[NSDate dateWithTimeIntervalSince1970:time];
-//    NSLog(@"date:%@",[detaildate description]);
-//
-//    //实例化一个NSDateFormatter对象
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    //设定时间格式,这里可以设置成自己需要的格式
-//    [dateFormatter setDateFormat:@"MM-dd HH:mm"];
+}
+//- (NSString *)timeWithTimeIntervalString:(NSString *)timeString
+//{
 //    // 格式化时间
 //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 //    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
 //    [formatter setDateStyle:NSDateFormatterMediumStyle];
 //    [formatter setTimeStyle:NSDateFormatterShortStyle];
 //    [formatter setDateFormat:@"MM月dd日 HH:mm"];
-}
-- (NSString *)timeWithTimeIntervalString:(NSString *)timeString
-{
-    // 格式化时间
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"MM月dd日 HH:mm"];
-    
-    // 毫秒值转化为秒
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
-    NSString* dateString = [formatter stringFromDate:date];
-    return dateString;
-}
+//    
+//    // 毫秒值转化为秒
+//    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
+//    NSString* dateString = [formatter stringFromDate:date];
+//    return dateString;
+//}
 
 @end
