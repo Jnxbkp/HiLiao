@@ -329,7 +329,7 @@ typedef enum {
     //录制时间显示
     self.timerLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,ML_StatusBarHeight+10, 100, 15)];
     self.timerLabel.hidden = YES;
-    self.timerLabel.textColor = [UIColor redColor];
+    self.timerLabel.textColor = Color255;
     self.timerLabel.text = @"00:00";
     self.timerLabel.font = [UIFont systemFontOfSize:13.0];
     [self.view addSubview:_timerLabel];
@@ -550,17 +550,9 @@ typedef enum {
     _fxSelectImageView.hidden = YES;
     _beautyImageView.hidden = YES;
     _beautyButton.hidden = YES;
-    
-//    if (_beautyButton.selected) {
-//        _beautyContainerView.hidden = NO;
-//    } else {
-        _beautyContainerView.hidden = YES;
-//    }
-//    if (_fxSelectButton.selected) {
-//        _fxTableView.hidden = NO;
-//    } else {
-        _fxTableView.hidden = YES;
-//    }
+    _beautyContainerView.hidden = YES;
+    _fxTableView.hidden = YES;
+
 }
 //录制完成
 - (void)recorderViewShow {
@@ -570,6 +562,8 @@ typedef enum {
     _fxSelectImageView.hidden = NO;
     _beautyImageView.hidden = NO;
     _beautyButton.hidden = NO;
+    _flashButton.hidden = NO;
+    _switchFacingButton.hidden = NO;
     [self setEditType:EDIT_TYPE_NONE];
     
 }
@@ -580,6 +574,10 @@ typedef enum {
     _backButton.hidden = YES;
     _timerLabel.hidden = NO;
     _nextButton.hidden = YES;
+    _flashButton.hidden = YES;
+    _switchFacingButton.hidden = YES;
+    _fxSelectButton.hidden = YES;
+    
     _animationView.frame = CGRectMake(-WIDTH, ML_StatusBarHeight, WIDTH, 5);
     
     [self startAnimation];
@@ -598,6 +596,31 @@ typedef enum {
         _nextButton.hidden = NO;
     }
     self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d",self.count/60,self.count%60];
+    if (self.count == 31) {
+        [_context stopRecording];
+        [self recorderViewShow];
+        [self stopAnimation];
+        
+        _nextButton.hidden = YES;
+        [self.recordLabel setText:@"开始拍"];
+        [self.recordButton setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+        
+        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *captureDir = [docPath stringByAppendingPathComponent:@"capture"];
+        _compositionConfig.outputPath = outputFilePath;
+        CGSize _outputSize = [_compositionConfig fixedSize];
+        
+        AliyunCoverPickViewController *vc = [AliyunCoverPickViewController new];
+        vc.outputSize = _outputSize;
+        vc.taskPath = captureDir;
+        vc.videoPath = outputFilePath;
+        vc.finishHandler = ^(UIImage *image) {
+            //        _image = image;
+            //        _coverImageView.image = image;
+            //        _backgroundView.image = image;
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 #pragma mark - 进度条动画
 - (void)startAnimation {
@@ -611,6 +634,8 @@ typedef enum {
 
     } completion:^(BOOL finished){
         _animationView.frame = CGRectMake(0, ML_StatusBarHeight, WIDTH, 5);
+        
+       
     }];
 }
 //停止动画
@@ -655,13 +680,7 @@ typedef enum {
 //        _coverImageView.image = image;
 //        _backgroundView.image = image;
     };
-//    [self presentViewController:vc animated:YES completion:nil];
     [self.navigationController pushViewController:vc animated:YES];
-    
-//    [_context clearCachedResources:YES];
-//    [self preparePlay];
-    
-    
    
 }
 #pragma mark - 点击上传

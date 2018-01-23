@@ -12,6 +12,8 @@
 
 #import <VODUpload/VODUploadSVideoClient.h>
 #import <sys/utsname.h>
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 #define buttonTag   2000
 @interface AliyunCoverPickViewController () <AliyunPublishTopViewDelegate, AliyunCoverPickViewDelegate,UITextFieldDelegate,VODUploadSVideoClientDelegate> {
@@ -149,7 +151,13 @@
 #pragma mark - 下方按钮点击
 - (void)buttonSelect:(UIButton *)button {
     if (button.tag == buttonTag) {
-        [self saveVideo:_videoPath];
+        if ([self isCanUsePhotos]) {
+            [self saveVideo:_videoPath];
+        } else {
+            PHFetchResult *fetchResult = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+          
+        }
+        
     } else {
         if (_titleView.text.length > 0&&_titleView.text.length <= 20) {
             _stateLabel.hidden = NO;
@@ -211,6 +219,13 @@
         NSLog(@"保存视频成功");
     }
     
+}
+- (BOOL)isCanUsePhotos {
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        return YES;
+    }
+    return NO;
 }
 - (void)videoSaveAlert:(NSString *)str {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:str preferredStyle:UIAlertControllerStyleAlert];
