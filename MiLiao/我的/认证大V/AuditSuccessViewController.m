@@ -13,6 +13,7 @@
     NSUserDefaults *_userDefaults;
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
 @end
 
 @implementation AuditSuccessViewController
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _userDefaults = [NSUserDefaults standardUserDefaults];
-
+    if (UI_IS_IPHONEX) {
+        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝 4"];
+    }
 //    [HLLoginManager setPrice:50 token:[_userDefaults objectForKey:@"token"] success:^(NSDictionary *info) {
 //        NSInteger resultCode = [info[@"resultCode"] integerValue];
 //        NSLog(@"----------------%@",info);
