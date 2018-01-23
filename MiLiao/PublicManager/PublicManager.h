@@ -14,4 +14,7 @@
 // GET /v1/oss/getOSSVideoToken
 + (void)NetGetgetOSSVideoToken:(NSString *)token success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 
+//获取是否隐藏视频
+//GET /v1/app/getHideVersion
++ (void)NetGetgetHideVersionsuccess:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 @end
