@@ -341,6 +341,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
         }
     }
     
+    if (userID.length < 1 ||
+        userName.length < 1) {
+        return;
+    }
+    
     SelfCallEndState callEndState = getSelfCallState(self.callSession.disconnectReason);
     NSString *callTime = [self getCallTime];
     [UserInfoNet saveCallAnchorAccount:userName anchorId:userID callId:self.callSession.callId callTime:callTime callType:callEndState remark:@"一对一视频" complete:^(RequestState success, NSString *msg) {
