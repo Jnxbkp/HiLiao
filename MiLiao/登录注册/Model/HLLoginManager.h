@@ -20,10 +20,10 @@
 
 //用户注册
 //POST /v1/user/register
-+ (void)NetPostRegisterMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)NetPostRegisterMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode deviceType:(NSNumber *)deviceType success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //用户登录
 //POST /v1/user/login
-+ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
++ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password  deviceType:(NSNumber *)deviceType success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;
 //重置密码
 //POST /v1/user/resetpwd
 + (void)NetPostresetpwdMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure;

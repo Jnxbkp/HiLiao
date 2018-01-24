@@ -17,12 +17,14 @@
 #import "AuditFailureViewController.h"//审核失败
 #import "AuditSuccessViewController.h"//审核成功
 #import "HelpViewController.h"
+#import "CallUSViewController.h"
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
 //退出按钮
 @property(nonatomic,strong)UIButton *LogoutButton;
 @property (strong, nonatomic) IBOutlet UIImageView *headerImg;
+@property (weak, nonatomic) IBOutlet UIButton *edit;
 @property (strong, nonatomic) IBOutlet UILabel *nickName;
 @end
 
@@ -43,6 +45,7 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.headerImg.layer.cornerRadius = 45;
     self.headerImg.layer.masksToBounds = YES;
+    self.edit.hidden = YES;
 //    [self loadData];
 
 //    [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[_userDefaults objectForKey:@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
@@ -94,12 +97,12 @@
     return 0.01;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //隐藏小视频
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        return 0;
-//    }
     //隐藏客服
     if (indexPath.section == 1 && indexPath.row == 0) {
+        return 0;
+    }
+    //隐藏帮助
+    if (indexPath.section == 1 && indexPath.row == 1) {
         return 0;
     }
     //隐藏版本更新
@@ -116,6 +119,7 @@
     //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"])
     {
+        //隐藏小视频
         if (indexPath.section == 0 && indexPath.row == 0) {
                     return 0;
             }
@@ -145,6 +149,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
+        if (indexPath.row == 4) {
+            //联系我们
+            CallUSViewController *callUS = [[CallUSViewController alloc]init];
+            [self.navigationController pushViewController:callUS animated:YES];
+        }
         if (indexPath.row == 0) {
             MyVideoViewController *videoVC = [[MyVideoViewController alloc]init];
             [self.navigationController pushViewController:videoVC animated:YES];
@@ -161,7 +170,12 @@
 
         }
         if (indexPath.row == 2) {
-              //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
+            //编辑个人资料
+            edttViewController *edit = [[edttViewController alloc]init];
+            [self.navigationController pushViewController:edit animated:YES];
+        }
+        if (indexPath.row == 3) {
+            //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
             if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"]) {
                 //大V
                 UIStoryboard *story = [UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]];
@@ -179,11 +193,12 @@
             if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"2"]) {
                 AuditFailureViewController *AuditFailure = [[AuditFailureViewController alloc]init];
                 [self.navigationController pushViewController:AuditFailure animated:YES];
-
+                
             }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
                 AuditSuccessViewController *AuditSuccess = [[AuditSuccessViewController alloc]init];
                 [self.navigationController pushViewController:AuditSuccess animated:YES];
             }
+          
         }
     }
     if (indexPath.section == 1) {
@@ -198,8 +213,8 @@
         }
         if (indexPath.row == 1) {
             //帮助
-            HelpViewController *help = [[HelpViewController alloc]init];
-            [self.navigationController pushViewController:help animated:YES];
+//            HelpViewController *help = [[HelpViewController alloc]init];
+//            [self.navigationController pushViewController:help animated:YES];
         }
     }
     if (indexPath.section == 2) {

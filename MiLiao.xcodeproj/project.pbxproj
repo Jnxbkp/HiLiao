@@ -31,6 +31,8 @@
 		1835EC9E2015C62D003B4D8E /* NSString+CYValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835EC9D2015C62D003B4D8E /* NSString+CYValidation.m */; };
 		183890E220182C02009ED98C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183890E020182C02009ED98C /* HelpViewController.m */; };
 		183890E320182C02009ED98C /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183890E120182C02009ED98C /* HelpViewController.xib */; };
+		183890E720186544009ED98C /* CallUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183890E520186544009ED98C /* CallUSViewController.m */; };
+		183890E820186544009ED98C /* CallUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183890E620186544009ED98C /* CallUSViewController.xib */; };
 		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
 		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
 		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
@@ -437,6 +439,9 @@
 		183890DF20182C02009ED98C /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		183890E020182C02009ED98C /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		183890E120182C02009ED98C /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		183890E420186544009ED98C /* CallUSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallUSViewController.h; sourceTree = "<group>"; };
+		183890E520186544009ED98C /* CallUSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallUSViewController.m; sourceTree = "<group>"; };
+		183890E620186544009ED98C /* CallUSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallUSViewController.xib; sourceTree = "<group>"; };
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
 		183AAF0C200356E3006D658A /* HXAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAddressManager.m; sourceTree = "<group>"; };
@@ -1401,6 +1406,9 @@
 				1858203B2009AC3E0020C232 /* edttViewController.m */,
 				185820362009AC3E0020C232 /* MeViewController.h */,
 				185820392009AC3E0020C232 /* MeViewController.m */,
+				183890E420186544009ED98C /* CallUSViewController.h */,
+				183890E520186544009ED98C /* CallUSViewController.m */,
+				183890E620186544009ED98C /* CallUSViewController.xib */,
 				183890DF20182C02009ED98C /* HelpViewController.h */,
 				183890E020182C02009ED98C /* HelpViewController.m */,
 				183890E120182C02009ED98C /* HelpViewController.xib */,
@@ -2908,6 +2916,7 @@
 				180B0DCA2012E03A00A19BA2 /* zhichuCell.xib in Resources */,
 				185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */,
 				3CCBAFC42008A256003071D2 /* PlayViewController.xib in Resources */,
+				183890E820186544009ED98C /* CallUSViewController.xib in Resources */,
 				3CFF061F20078D4600E20FDE /* face_beautification.bundle in Resources */,
 				1863902A2017238100CAC217 /* shourucell.xib in Resources */,
 				E2B497D81FFF56010017A5B6 /* tabar_plus_normal@2x.png in Resources */,
@@ -3041,6 +3050,7 @@
 				E25929441FFCA96700B6502D /* LoginViewController.m in Sources */,
 				3CC752952008499D00C03C6B /* AliyunPhotoLibraryManager.m in Sources */,
 				E2B77BF71FFDD69A00597326 /* UIImage+Common.m in Sources */,
+				183890E720186544009ED98C /* CallUSViewController.m in Sources */,
 				3C77AF9F2009D7DF0029778B /* Networking.m in Sources */,
 				3C77AF922009AABE0029778B /* CommentVideoTableViewCell.m in Sources */,
 				180B0DAD20117E3400A19BA2 /* BigVViewController.m in Sources */,
