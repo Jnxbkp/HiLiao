@@ -341,6 +341,7 @@
         [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
+            _imageMuArr = [NSMutableArray array];
             _womanModel = [[WomanModel alloc]initWithDictionary:[[info objectForKey:@"data"] objectAtIndex:0]];
             _titleLabel.text = _womanModel.nickname;
             for (int i = 0; i < _womanModel.imageList.count; i++) {
