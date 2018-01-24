@@ -341,7 +341,8 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
         }
     }
     
-    if (userID.length < 1 ||
+    if (userID.length < 1
+        &&
         userName.length < 1) {
         return;
     }
