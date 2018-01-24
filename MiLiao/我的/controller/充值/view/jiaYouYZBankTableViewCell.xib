@@ -57,7 +57,7 @@
                 <outlet property="bankSelect" destination="fEg-mA-Cs1" id="S89-Ft-5cJ"/>
                 <outlet property="bankTitle" destination="xph-iJ-PcA" id="xNt-uA-Z10"/>
             </connections>
-            <point key="canvasLocation" x="366" y="327"/>
+            <point key="canvasLocation" x="288" y="257"/>
         </tableViewCell>
     </objects>
     <resources>
