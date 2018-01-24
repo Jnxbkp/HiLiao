@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
-		180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */; };
 		180B0DAD20117E3400A19BA2 /* BigVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DAB20117E3400A19BA2 /* BigVViewController.m */; };
 		180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180B0DAC20117E3400A19BA2 /* BigVViewController.xib */; };
 		180B0DB220117F7200A19BA2 /* InReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180B0DB020117F7200A19BA2 /* InReviewViewController.m */; };
@@ -27,6 +25,8 @@
 		1824923A200C523800A78B94 /* tiXainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18249238200C523800A78B94 /* tiXainTableViewCell.xib */; };
 		1824923D200C525400A78B94 /* headerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1824923C200C525400A78B94 /* headerView.m */; };
 		1824923F200C526700A78B94 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1824923E200C526700A78B94 /* headerView.xib */; };
+		182850342018AA180040F845 /* zhifuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182850322018AA180040F845 /* zhifuTableViewCell.m */; };
+		182850352018AA180040F845 /* zhifuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182850332018AA180040F845 /* zhifuTableViewCell.xib */; };
 		1835EC9B2015BF29003B4D8E /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835EC992015BF29003B4D8E /* SettingTableViewController.m */; };
 		1835EC9E2015C62D003B4D8E /* NSString+CYValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835EC9D2015C62D003B4D8E /* NSString+CYValidation.m */; };
 		183890E220182C02009ED98C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183890E020182C02009ED98C /* HelpViewController.m */; };
@@ -106,7 +106,6 @@
 		1858204C2009AC970020C232 /* MyQianBaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820472009AC960020C232 /* MyQianBaoTableViewCell.m */; };
 		1858204D2009AC970020C232 /* CardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820482009AC970020C232 /* CardCollectionViewCell.m */; };
 		185820502009B3DD0020C232 /* GoPayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858204F2009B3DD0020C232 /* GoPayTableViewController.m */; };
-		185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */; };
 		185A9EFE1FFE4B0000110182 /* forgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */; };
 		185A9EFF1FFE4B0000110182 /* forgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */; };
 		185A9F031FFE58A800110182 /* forgetNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A9F011FFE58A800110182 /* forgetNextViewController.m */; };
@@ -381,7 +380,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				180A0D8B200B17B2003F8A82 /* jiaYouYZBankTableViewCell.xib in Embed Frameworks */,
 				3CFF062420078D6000E20FDE /* FUAPIDemoBar.framework in Embed Frameworks */,
 				3C80D6AB200778B600D0DEA7 /* QuCore-ThirdParty.framework in Embed Frameworks */,
 				3C80D6A8200778AB00D0DEA7 /* AliyunVideoSDKPro.framework in Embed Frameworks */,
@@ -432,6 +430,9 @@
 		1824923B200C525400A78B94 /* headerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headerView.h; sourceTree = "<group>"; };
 		1824923C200C525400A78B94 /* headerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = headerView.m; sourceTree = "<group>"; };
 		1824923E200C526700A78B94 /* headerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerView.xib; sourceTree = "<group>"; };
+		182850312018AA180040F845 /* zhifuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhifuTableViewCell.h; sourceTree = "<group>"; };
+		182850322018AA180040F845 /* zhifuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhifuTableViewCell.m; sourceTree = "<group>"; };
+		182850332018AA180040F845 /* zhifuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = zhifuTableViewCell.xib; sourceTree = "<group>"; };
 		1835EC992015BF29003B4D8E /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1835EC9A2015BF29003B4D8E /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1835EC9C2015C62C003B4D8E /* NSString+CYValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CYValidation.h"; sourceTree = "<group>"; };
@@ -552,9 +553,6 @@
 		185820492009AC970020C232 /* CardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionViewCell.h; sourceTree = "<group>"; };
 		1858204E2009B3DD0020C232 /* GoPayTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoPayTableViewController.h; sourceTree = "<group>"; };
 		1858204F2009B3DD0020C232 /* GoPayTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoPayTableViewController.m; sourceTree = "<group>"; };
-		185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jiaYouYZBankTableViewCell.xib; sourceTree = "<group>"; };
-		185820522009B4D90020C232 /* jiaYouYZBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaYouYZBankTableViewCell.h; sourceTree = "<group>"; };
-		185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaYouYZBankTableViewCell.m; sourceTree = "<group>"; };
 		185A9EFB1FFE4B0000110182 /* forgetPassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forgetPassViewController.h; sourceTree = "<group>"; };
 		185A9EFC1FFE4B0000110182 /* forgetPassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = forgetPassViewController.m; sourceTree = "<group>"; };
 		185A9EFD1FFE4B0000110182 /* forgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = forgetPassViewController.xib; sourceTree = "<group>"; };
@@ -1263,15 +1261,15 @@
 		1846CE17200F2D42000BF772 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				185820522009B4D90020C232 /* jiaYouYZBankTableViewCell.h */,
-				185820532009B4DA0020C232 /* jiaYouYZBankTableViewCell.m */,
-				185820512009B4D90020C232 /* jiaYouYZBankTableViewCell.xib */,
 				185820462009AC960020C232 /* MyQianBaoTableViewCell.h */,
 				185820472009AC960020C232 /* MyQianBaoTableViewCell.m */,
 				185820442009AC960020C232 /* MyQianBaoTableViewCell.xib */,
 				185820482009AC970020C232 /* CardCollectionViewCell.m */,
 				185820492009AC970020C232 /* CardCollectionViewCell.h */,
 				185820452009AC960020C232 /* CardCollectionViewCell.xib */,
+				182850312018AA180040F845 /* zhifuTableViewCell.h */,
+				182850322018AA180040F845 /* zhifuTableViewCell.m */,
+				182850332018AA180040F845 /* zhifuTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2872,6 +2870,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182850352018AA180040F845 /* zhifuTableViewCell.xib in Resources */,
 				3CFF061820078D4600E20FDE /* EatRabbi.bundle in Resources */,
 				E2D194FE20033D0400EAEE57 /* QBImagePicker.storyboard in Resources */,
 				180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */,
@@ -2885,7 +2884,6 @@
 				180B0DB820117F9200A19BA2 /* AuditFailureViewController.xib in Resources */,
 				183AAF1520036C59006D658A /* introduceViewController.xib in Resources */,
 				E2D194FA20033D0400EAEE57 /* QBImagePicker.strings in Resources */,
-				180A0D8C200B17CB003F8A82 /* jiaYouYZBankTableViewCell.xib in Resources */,
 				18567F4E200207C8003F1985 /* RongCloud.bundle in Resources */,
 				3CFF061A20078D4600E20FDE /* Mood.bundle in Resources */,
 				18567F55200207C8003F1985 /* JResource.bundle in Resources */,
@@ -3091,7 +3089,6 @@
 				3CC752B52008499E00C03C6B /* UIView+Progress.m in Sources */,
 				180B0DB720117F9200A19BA2 /* AuditFailureViewController.m in Sources */,
 				3C0075D6200D87B5004D205D /* UserCallPowerModel.m in Sources */,
-				185820552009B4DA0020C232 /* jiaYouYZBankTableViewCell.m in Sources */,
 				3C6458B9200E20AE00E1721C /* EvaluateTagModel.m in Sources */,
 				180B0DD220131E1400A19BA2 /* shouruModel.m in Sources */,
 				E2B77BF81FFDD69A00597326 /* UIColor+expanded.m in Sources */,
@@ -3151,6 +3148,7 @@
 				183AAF1D20038EBC006D658A /* TagViewController.m in Sources */,
 				3CC752A92008499E00C03C6B /* AliyunPublishViewController.m in Sources */,
 				1824923D200C525400A78B94 /* headerView.m in Sources */,
+				182850342018AA180040F845 /* zhifuTableViewCell.m in Sources */,
 				184C6754200CB1F800C852B4 /* MyMViewController.m in Sources */,
 				1846CE24200F4B6A000BF772 /* MyMTableViewCell.m in Sources */,
 				E2B77BC31FFD077900597326 /* VideoViewController.m in Sources */,
