@@ -32,7 +32,9 @@
 
 - (void)creat {
     _mainImgageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 0, WIDTH-24, WIDTH-24)];
-//    _mainImgageView.image = [UIImage imageNamed:@"aaa"];
+    [_mainImgageView setContentMode:UIViewContentModeScaleAspectFill];
+    _mainImgageView.clipsToBounds = YES;
+
     
     _stateButton = [StateButton buttonWithType:UIButtonTypeCustom];
     _stateButton.frame = CGRectMake(WIDTH-64, 12, 40, 20);

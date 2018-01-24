@@ -206,7 +206,7 @@
     <resources>
         <image name="biaozhi" width="70" height="70"/>
         <image name="mima" width="20" height="25"/>
-        <image name="shouji" width="14" height="20"/>
+        <image name="shouji" width="17" height="25"/>
         <image name="yanjing" width="15" height="9"/>
         <image name="yanjingbi" width="15" height="7"/>
     </resources>

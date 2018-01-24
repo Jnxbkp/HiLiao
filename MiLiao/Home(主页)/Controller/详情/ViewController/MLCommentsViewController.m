@@ -50,6 +50,9 @@
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
     }
+    if (UI_IS_IPHONEX) {
+        <#statements#>
+    }
     _tableView.delegate = self;
     _tableView.dataSource = self;
      _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
