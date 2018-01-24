@@ -9,7 +9,7 @@
 #import "GoPayTableViewController.h"
 #import <Masonry.h>
 #import "MyQianBaoTableViewCell.h"
-#import "jiaYouYZBankTableViewCell.h"//支付方式新
+#import "zhifuTableViewCell.h"//支付方式新
 #import "PayWebViewController.h"
 @interface GoPayTableViewController ()
 @property(nonatomic,assign)BOOL boolBtnSelected;
@@ -42,7 +42,7 @@
     //选择金额
     [self.tableView registerNib:[UINib nibWithNibName:@"MyQianBaoTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyQianBaoTableViewCell"];
     //支付方式
-    [self.tableView registerNib:[UINib nibWithNibName:@"jiaYouYZBankTableViewCell" bundle:nil] forCellReuseIdentifier:@"jiaYouYZBankTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"zhifuTableViewCell" bundle:nil] forCellReuseIdentifier:@"zhifuTableViewCell"];
 
 }
 
@@ -66,12 +66,11 @@
         
         return cell;
     }else{
-        static NSString *Identifier =@"jiaYouYZBankTableViewCell";
-        jiaYouYZBankTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
-        cell.index = indexPath.row;
-        cell.tuijian.hidden = YES;
+        static NSString *Identifier =@"zhifuTableViewCell";
+        zhifuTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:Identifier];
+//        cell.index = indexPath.row;
+//        cell.tuijian.hidden = YES;
         return cell;
-        
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
