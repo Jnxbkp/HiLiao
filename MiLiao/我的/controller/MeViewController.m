@@ -109,39 +109,27 @@
     if (indexPath.section == 2 && indexPath.row == 1) {
         return 0;
     }
-    //根据后台判断隐藏我的钱包
+    //根据后台判断隐藏我的钱包 小视频
     if ([[_userDefaults objectForKey:@"isHidden"]isEqualToString:@"yes"])
     {
         if (indexPath.section == 0 && indexPath.row == 1) {
             return 0;
         }
-    }
-    //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
-    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"])
-    {
-        //隐藏小视频
         if (indexPath.section == 0 && indexPath.row == 0) {
-                    return 0;
+            return 0;
+        }
+    }else{
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"])
+        {
+            
+        }else{
+            //隐藏小视频
+            if (indexPath.section == 0 && indexPath.row == 0) {
+                return 0;
             }
-        if (indexPath.section == 2 && indexPath.row == 0) {
-            return 0;
-        }
-    }
-    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"1"])
-    {
-        if (indexPath.section == 0 && indexPath.row == 0) {
-            return 0;
-        }
-        if (indexPath.section == 2 && indexPath.row == 0) {
-            return 0;
-        }
-    }if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"2"])
-    {
-        if (indexPath.section == 0 && indexPath.row == 0) {
-            return 0;
-        }
-        if (indexPath.section == 2 && indexPath.row == 0) {
-            return 0;
+            if (indexPath.section == 2 && indexPath.row == 0) {
+                return 0;
+            }
         }
     }
     return 50;
