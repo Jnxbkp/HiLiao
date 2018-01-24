@@ -159,17 +159,20 @@ SelfCallEndState getSelfCallState(NSInteger callState) {
 + (void)saveCallAnchorAccount:(NSString *)anchorAccount anchorId:(NSString *)anchorId callId:(NSString *)callId callTime:(NSString *)callTime callType:(NSInteger)callType remark:(NSString *)remark complete:(CompleteBlock)complete {
 #warning 有电话呼入时， 呼叫方在电话未接通时挂断电话 崩溃
     YZCurrentUserModel *user = [YZCurrentUserModel sharedYZCurrentUserModel];
-    NSDictionary *parameters = @{@"anchorAccount":anchorAccount,
-                                 @"anchorId":anchorId,
-                                 @"callId":callId,
-                                 @"callTime":callTime,
-                                 @"callType":@(callType),
-                                 @"remark":remark,
-                                 @"token":tokenForCurrentUser(),
-                                 @"userAccount":user.username,
-                                 @"userId":user.user_id
-                                 };
-    [self Post:SaveCall parameters:parameters complete:complete];
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    parameter[@"anchorAccount"] = anchorAccount;
+    parameter[@"callId"] = callId;
+    parameter[@"callTime"] = callTime;
+    parameter[@"callType"] = @(callType);
+    parameter[@"remark"] = remark;
+    parameter[@"token"] = tokenForCurrentUser();
+    parameter[@"userAccount"] = user.username;
+    parameter[@"userId"] = user.user_id;
+    if (anchorId) {
+        parameter[@"anchorId"] = anchorId;
+    }
+    
+    [self Post:SaveCall parameters:parameter complete:complete];
     
 }
 
