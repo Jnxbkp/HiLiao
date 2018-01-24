@@ -43,7 +43,7 @@
 }
 //用户注册
 //POST /v1/user/register
-+ (void)NetPostRegisterMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
++ (void)NetPostRegisterMobile:(NSString *)mobile password:(NSString *)password msgId:(NSString *)msgId verifyCode:(NSString *)verifyCode deviceType:(NSNumber *)deviceType success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
 
@@ -52,6 +52,7 @@
     param[@"msgId"] = msgId;
     param[@"verifyCode"] = verifyCode;
     param[@"password"] = password;
+    param[@"deviceType"] = deviceType;
     [manager POST:[NSString stringWithFormat:@"%@/v1/user/register",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -63,13 +64,15 @@
 }
 //用户登录
 //POST /v1/user/login
-+ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
++ (void)NetPostLoginMobile:(NSString *)mobile password:(NSString *)password  deviceType:(NSNumber *)deviceType success:(void(^)(NSDictionary *info))success failure:(void(^)(NSError *error))failure {
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AFHTTPSessionManager *manager = [app sharedHTTPSession];
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"mobile"] = mobile;
     param[@"password"] = password;
+    param[@"deviceType"] = deviceType;
+
     [manager POST:[NSString stringWithFormat:@"%@/v1/user/login",HLRequestUrl] parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

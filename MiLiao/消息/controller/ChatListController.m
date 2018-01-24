@@ -12,6 +12,8 @@
 #import "MyCallViewController.h"
 #import "MyMViewController.h"
 #import "MyNoticeViewController.h"
+
+#import "VideoUserModel.h"
 //#import "DatingModel.h"
 @interface ChatListController ()<RCIMUserInfoDataSource>
 {
@@ -54,14 +56,16 @@
     //设置需要显示哪些类型的会话
     
 
-    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
-                                        @(ConversationType_DISCUSSION),
-                                        @(ConversationType_CHATROOM),
-                                        @(ConversationType_GROUP),
-                                        @(ConversationType_APPSERVICE),
-                                        @(ConversationType_CUSTOMERSERVICE),
-                                        @(ConversationType_PUSHSERVICE),
-                                        @(ConversationType_SYSTEM)]];
+    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)
+//                                        @(ConversationType_DISCUSSION),
+//                                        @(ConversationType_CHATROOM),
+//                                        @(ConversationType_GROUP),
+//                                        @(ConversationType_APPSERVICE),
+//                                        @(ConversationType_CUSTOMERSERVICE),
+//                                        @(ConversationType_PUSHSERVICE),
+//                                        @(ConversationType_SYSTEM)
+                                        ]
+     ];
     [self setConversationAvatarStyle:RC_USER_AVATAR_CYCLE];
     //设置需要将哪些类型的会话在会话列表中聚合显示
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
@@ -102,9 +106,9 @@
     
     self.conversationListTableView.tableFooterView = [UIView new];
 
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.emptyConversationView = imageView;
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xiaoxi"]];
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    self.emptyConversationView = imageView;
     
 //    [self.emptyConversationView removeFromSuperview];
     
@@ -159,6 +163,10 @@
     conversationVC.conversationType = model.conversationType;
     conversationVC.targetId = model.targetId;
     conversationVC.title = model.conversationTitle;
+    VideoUserModel *user = [[VideoUserModel alloc] init];
+    user.username = model.targetId;
+    conversationVC.videoUser = user;
+    
     [self.navigationController pushViewController:conversationVC animated:YES];
 }
 

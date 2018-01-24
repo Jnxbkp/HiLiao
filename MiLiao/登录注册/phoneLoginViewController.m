@@ -124,7 +124,7 @@
     [self.view endEditing:YES];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
-    [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text success:^(NSDictionary *info) {
+    [HLLoginManager NetPostLoginMobile:self.phoneNum.text password:self.password.text  deviceType:[NSNumber numberWithInt:1] success:^(NSDictionary *info) {
         NSLog(@"----------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {

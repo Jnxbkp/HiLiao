@@ -79,10 +79,6 @@
         [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
         return;
     }
-//    if ([self.password judgePassWordLegal:self.password.text]) {
-//        [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
-//        return;
-//    }
 //    self.getButton.enabled=NO;
     [HLLoginManager NetGetgetVerifyCodeMobile:self.phoneNum.text success:^(NSDictionary *info) {
         NSLog(@"----%@",info);
@@ -130,7 +126,7 @@
         [SVProgressHUD showErrorWithStatus:@"请输入8-16位数字字母组合"];
         return;
     }
-    [HLLoginManager NetPostRegisterMobile:self.phoneNum.text password:self.password.text msgId:self.msgId verifyCode:self.yanzhengNum.text success:^(NSDictionary *info) {
+    [HLLoginManager NetPostRegisterMobile:self.phoneNum.text password:self.password.text msgId:self.msgId verifyCode:self.yanzhengNum.text  deviceType:[NSNumber numberWithInt:1] success:^(NSDictionary *info) {
         NSLog(@"注册---------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {

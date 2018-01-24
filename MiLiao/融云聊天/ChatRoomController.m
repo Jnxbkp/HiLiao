@@ -145,6 +145,8 @@
         [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
     }
 }
+
+
 - (void)didTapMessageCell:(RCMessageModel *)model
 {
     if ([model.objectName isEqualToString:@"RC:VCSummary"]) {
