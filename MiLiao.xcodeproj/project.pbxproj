@@ -29,6 +29,8 @@
 		1824923F200C526700A78B94 /* headerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1824923E200C526700A78B94 /* headerView.xib */; };
 		1835EC9B2015BF29003B4D8E /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835EC992015BF29003B4D8E /* SettingTableViewController.m */; };
 		1835EC9E2015C62D003B4D8E /* NSString+CYValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1835EC9D2015C62D003B4D8E /* NSString+CYValidation.m */; };
+		183890E220182C02009ED98C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183890E020182C02009ED98C /* HelpViewController.m */; };
+		183890E320182C02009ED98C /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183890E120182C02009ED98C /* HelpViewController.xib */; };
 		183AAF0A200356D9006D658A /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AAF09200356D9006D658A /* address.plist */; };
 		183AAF0F200356E4006D658A /* HXProvincialCitiesCountiesPickerview.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */; };
 		183AAF10200356E4006D658A /* HXAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AAF0C200356E3006D658A /* HXAddressManager.m */; };
@@ -432,6 +434,9 @@
 		1835EC9A2015BF29003B4D8E /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1835EC9C2015C62C003B4D8E /* NSString+CYValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CYValidation.h"; sourceTree = "<group>"; };
 		1835EC9D2015C62D003B4D8E /* NSString+CYValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CYValidation.m"; sourceTree = "<group>"; };
+		183890DF20182C02009ED98C /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		183890E020182C02009ED98C /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		183890E120182C02009ED98C /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		183AAF09200356D9006D658A /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		183AAF0B200356E3006D658A /* HXProvincialCitiesCountiesPickerview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXProvincialCitiesCountiesPickerview.m; sourceTree = "<group>"; };
 		183AAF0C200356E3006D658A /* HXAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXAddressManager.m; sourceTree = "<group>"; };
@@ -1396,6 +1401,9 @@
 				1858203B2009AC3E0020C232 /* edttViewController.m */,
 				185820362009AC3E0020C232 /* MeViewController.h */,
 				185820392009AC3E0020C232 /* MeViewController.m */,
+				183890DF20182C02009ED98C /* HelpViewController.h */,
+				183890E020182C02009ED98C /* HelpViewController.m */,
+				183890E120182C02009ED98C /* HelpViewController.xib */,
 				1835EC9A2015BF29003B4D8E /* SettingTableViewController.h */,
 				1835EC992015BF29003B4D8E /* SettingTableViewController.m */,
 				185820352009AC3E0020C232 /* NickNameViewController.h */,
@@ -2861,6 +2869,7 @@
 				180B0DAE20117E3400A19BA2 /* BigVViewController.xib in Resources */,
 				3C6458A8200DEC0700E1721C /* EvaluateVideoViewController.xib in Resources */,
 				3C0075D7200D9409004D205D /* CountDownView.xib in Resources */,
+				183890E320182C02009ED98C /* HelpViewController.xib in Resources */,
 				E221B57B1FF5D6FF00353875 /* LaunchScreen.storyboard in Resources */,
 				185A9F041FFE58A800110182 /* forgetNextViewController.xib in Resources */,
 				18567F4D200207C7003F1985 /* Emoji.plist in Resources */,
@@ -3082,6 +3091,7 @@
 				3CC752A22008499D00C03C6B /* AliyunCompositionInfo.m in Sources */,
 				E259297C1FFCBC3900B6502D /* FSSegmentTitleView.m in Sources */,
 				184C675A200CC29400C852B4 /* IncomeMoneyViewController.m in Sources */,
+				183890E220182C02009ED98C /* HelpViewController.m in Sources */,
 				3CC752AD2008499E00C03C6B /* AliyunPublishProgressView.m in Sources */,
 				E2B77BB71FFCEBCD00597326 /* HLLoginManager.m in Sources */,
 				3CC7534A2008828700C03C6B /* RCCallSingleCallViewController.m in Sources */,

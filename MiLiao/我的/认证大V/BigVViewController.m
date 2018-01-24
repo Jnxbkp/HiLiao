@@ -9,6 +9,7 @@
 #import "BigVViewController.h"
 
 @interface BigVViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
 
 @end
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (UI_IS_IPHONEX) {
+        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝 3"];
+    }
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置导航栏为白色
@@ -23,6 +27,8 @@
     self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"大咪认证"];
 }
 
+- (IBAction)btn:(id)sender {
+}
 
 
 @end

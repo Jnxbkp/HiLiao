@@ -12,5 +12,6 @@
 @property (strong, nonatomic) MingXiModel *model;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *money;
+@property (weak, nonatomic) IBOutlet UILabel *nickName;
 
 @end

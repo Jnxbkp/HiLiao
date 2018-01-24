@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (UI_IS_IPHONEX) {
-        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝"];
+        self.bgView.image = [UIImage imageNamed:@"画板 1"];
     }
     //设置状态栏为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;

@@ -18,8 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (UI_IS_IPHONEX) {
-        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝 3"];
+        self.bgView.image = [UIImage imageNamed:@"画板 1 拷贝"];
     }
+    //设置状态栏为黑色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //设置导航栏为白色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor colorWithHexString:@"FFFFFF"] colorWithAlphaComponent:1]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.titleView=[YZNavigationTitleLabel titleLabelWithText:@"审核失败"];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
