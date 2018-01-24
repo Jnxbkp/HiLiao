@@ -16,6 +16,7 @@
 #import "InReviewViewController.h"//审核中
 #import "AuditFailureViewController.h"//审核失败
 #import "AuditSuccessViewController.h"//审核成功
+#import "HelpViewController.h"
 @interface MeViewController () {
     NSUserDefaults   *_userDefaults;
 }
@@ -56,7 +57,7 @@
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
           //  headUrl
-            [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"my_head_icon"] options:SDWebImageRefreshCached];
+            [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",info[@"data"][@"headUrl"]]] placeholderImage:[UIImage imageNamed:@"默认头像"] options:SDWebImageRefreshCached];
             self.nickName.text = [NSString stringWithFormat:@"%@",info[@"data"][@"nickname"]];
 
         }
@@ -93,6 +94,7 @@
     return 0.01;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //隐藏小视频
 //    if (indexPath.section == 0 && indexPath.row == 0) {
 //        return 0;
 //    }
@@ -100,15 +102,17 @@
     if (indexPath.section == 1 && indexPath.row == 0) {
         return 0;
     }
-//    if ([[_userDefaults objectForKey:@"isHidden"]isEqualToString:@"yes"])
-//    {
-//        if (indexPath.section == 0 && indexPath.row == 1) {
-//            return 0;
-//        }
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        return 0;
-//    }
-//    }
+    //隐藏版本更新
+    if (indexPath.section == 2 && indexPath.row == 1) {
+        return 0;
+    }
+    //根据后台判断隐藏我的钱包
+    if ([[_userDefaults objectForKey:@"isHidden"]isEqualToString:@"yes"])
+    {
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            return 0;
+        }
+    }
     //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"0"])
     {
@@ -185,16 +189,17 @@
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //客服
-            RCDCustomerServiceViewController *chatService = [[RCDCustomerServiceViewController alloc] init];
-            chatService.userName = @"客服";
-            chatService.conversationType = ConversationType_CUSTOMERSERVICE;
-            chatService.targetId = @"KEFU151540013396895";
-            chatService.title = chatService.userName;
-            [self.navigationController pushViewController :chatService animated:YES];
+//            RCDCustomerServiceViewController *chatService = [[RCDCustomerServiceViewController alloc] init];
+//            chatService.userName = @"客服";
+//            chatService.conversationType = ConversationType_CUSTOMERSERVICE;
+//            chatService.targetId = @"KEFU151540013396895";
+//            chatService.title = chatService.userName;
+//            [self.navigationController pushViewController :chatService animated:YES];
         }
         if (indexPath.row == 1) {
             //帮助
-            
+            HelpViewController *help = [[HelpViewController alloc]init];
+            [self.navigationController pushViewController:help animated:YES];
         }
     }
     if (indexPath.section == 2) {
@@ -206,7 +211,9 @@
         }
         if (indexPath.row == 1) {
             //版本更新
-            
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"当前已是最新版本" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
     if (indexPath.section == 3) {

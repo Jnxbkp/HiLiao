@@ -16,6 +16,9 @@ typedef void (^BackBlock)(void);
 @property (nonatomic, copy) BackBlock tonghuaBlock;
 @property (nonatomic, copy) BackBlock MBlock;
 @property (nonatomic, copy) BackBlock xitongBlock;
+@property (weak, nonatomic) IBOutlet UIImageView *MImageView;
+@property (weak, nonatomic) IBOutlet UILabel *MLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *Mjiantou;
 
 
 @end

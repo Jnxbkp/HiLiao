@@ -85,14 +85,28 @@
         MyMViewController *Mvc = [[MyMViewController alloc]init];
         [weakSelf.navigationController pushViewController:Mvc animated:YES];
     };
-    vc.xitongBlock = ^{
-        //系统通知
-        NSLog(@"系统通知");
-
-    };
+//    vc.xitongBlock = ^{
+//        //系统通知
+//        NSLog(@"系统通知");
+//
+//    };
+    if ([[_userDefaults objectForKey:@"isHidden"]isEqualToString:@"yes"])
+    {
+        vc.MImageView.hidden = YES;
+        vc.MLabel.hidden = YES;
+        vc.Mjiantou.hidden = YES;
+        vc.btnM.hidden = YES;
+        vc.frame = CGRectMake(0, 0, WIDTH, 90);
+    }
     self.conversationListTableView.tableHeaderView = vc;
-   
-    self.emptyConversationView.hidden = YES;
+    
+    self.conversationListTableView.tableFooterView = [UIView new];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.emptyConversationView = imageView;
+    
+//    [self.emptyConversationView removeFromSuperview];
     
     if ([self.conversationListTableView respondsToSelector:@selector (setSeparatorInset:)]) {
         [self.conversationListTableView setSeparatorInset:UIEdgeInsetsZero ];

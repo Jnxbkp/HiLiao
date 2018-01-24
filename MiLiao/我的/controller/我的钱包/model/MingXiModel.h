@@ -12,4 +12,5 @@
 @property(strong, nonatomic)NSString *createTime;
 @property(strong, nonatomic)NSString *amount;
 @property(strong, nonatomic)NSString *afterAmount;
+@property(strong, nonatomic)NSString *createDate;
 @end

@@ -122,6 +122,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="MImageView" destination="lL6-Hn-Gmv" id="OIo-Hk-zB1"/>
+                <outlet property="MLabel" destination="25F-we-DoH" id="fgc-eR-arB"/>
+                <outlet property="Mjiantou" destination="LPI-fN-U7C" id="RbW-Kw-CUd"/>
                 <outlet property="btnM" destination="d81-lS-uR7" id="TtS-R2-nU3"/>
                 <outlet property="btnTonghua" destination="Svn-GO-M6o" id="ai3-AY-siO"/>
             </connections>

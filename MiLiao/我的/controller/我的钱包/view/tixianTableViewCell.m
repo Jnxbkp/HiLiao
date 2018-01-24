@@ -18,7 +18,7 @@
     _model = model;
     self.money.text = [NSString stringWithFormat:@"-%@M币 | 剩余%@M币",model.amount,model.afterAmount];
     ///时间戳转化成时间
-    NSString *str=model.createTime;//时间戳
+    NSString *str=model.createDate;//时间戳
     NSTimeInterval time=[str doubleValue]/1000;
     NSDateFormatter *stampFormatter = [[NSDateFormatter alloc] init];
     [stampFormatter setDateFormat:@"MM-dd HH:mm"];
