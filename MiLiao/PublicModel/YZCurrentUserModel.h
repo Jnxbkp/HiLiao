@@ -17,7 +17,8 @@
 /**用户名*/
 @property (nonatomic, strong) NSString      * username;
 @property (nonatomic, strong) NSString      * balance;
-@property (nonatomic, strong) NSString      * user_id;
+@property (nonatomic, strong) NSNumber      * userID;
+@property (nonatomic, strong) NSString      *user_id;
 @property (nonatomic, strong) NSString      * isBigv;
 @property (nonatomic, strong) NSString      * nickname;
 @property (nonatomic, strong) NSString      * height;

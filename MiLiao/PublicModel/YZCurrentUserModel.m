@@ -39,7 +39,9 @@ singleton_m(YZCurrentUserModel)
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     if ([key isEqualToString:@"id"]) {
-        self.user_id = value;
+        self.userID = value;
+        NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
+        self.user_id = [format stringFromNumber:(NSNumber *)value];
     }
     // 当发现没有定义的key值时 不处理
 }

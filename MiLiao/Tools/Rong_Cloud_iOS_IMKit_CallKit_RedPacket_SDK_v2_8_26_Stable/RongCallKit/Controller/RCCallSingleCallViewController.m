@@ -326,9 +326,11 @@ static CGFloat DEDUCT_MONEY_INTERVAL_TIME = 10;
     }
 
     if (self.isCallIn) {
+        
         //接听的来电
         userName = [YZCurrentUserModel sharedYZCurrentUserModel].username;
         userID = [YZCurrentUserModel sharedYZCurrentUserModel].user_id;
+        
     } else {
         //呼出的
         if (self.videoUser) {
