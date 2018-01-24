@@ -50,6 +50,12 @@
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
     }
+  
+    if (UI_IS_IPHONEX) {
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+            _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight-34);
+        }
+    }
     _tableView.delegate = self;
     _tableView.dataSource = self;
 //    _tableView.scrollsToTop = NO;

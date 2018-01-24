@@ -108,7 +108,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.title = @"tableView嵌套tableView手势Demo";
-    
+ 
     //监听通知
     [self listenNotification];
     
@@ -129,10 +129,17 @@
     [self NetGetUserInformation:_user_id header:nil];
     
     _tableView = [[FSBaseTableView alloc]initWithFrame:CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT-50+ML_StatusBarHeight) style:UITableViewStylePlain];
+    
     if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
         _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight);
     }
     
+    if (UI_IS_IPHONEX) {
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+            _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight-34);
+        }
+        
+    }
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.estimatedRowHeight = 0;
     _tableView.estimatedSectionFooterHeight = 0;
@@ -293,6 +300,9 @@
 //底部视图
 - (void)addFootView {
     _footView = [[UIView alloc]initWithFrame:CGRectMake(0, HEIGHT-50, WIDTH, 50)];
+    if (UI_IS_IPHONEX) {
+        _footView.frame = CGRectMake(0, HEIGHT-50-34, WIDTH, 50);
+    }
     _footView.backgroundColor = [UIColor whiteColor];
     NSArray *titleArr = [NSArray arrayWithObjects:@"私信我",@"与我视频", nil];
     for (int i = 0; i < titleArr.count; i ++) {
@@ -331,6 +341,7 @@
         [SVProgressHUD dismiss];
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
+            _imageMuArr = [NSMutableArray array];
             _womanModel = [[WomanModel alloc]initWithDictionary:[[info objectForKey:@"data"] objectAtIndex:0]];
             _titleLabel.text = _womanModel.nickname;
             for (int i = 0; i < _womanModel.imageList.count; i++) {

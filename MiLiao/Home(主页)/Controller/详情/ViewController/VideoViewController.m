@@ -46,6 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-50-ML_TopHeight-50) collectionViewLayout:layout];
+    
     _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -54,6 +55,17 @@ static NSString * const reuseIdentifier = @"Cell";
     _collectionView.mj_footer.hidden = YES;
     
     [self.collectionView registerClass:[MLDiscoverListCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+        _collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
+    }
+    
+    if (UI_IS_IPHONEX) {
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+            _collectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight-34);
+        }
+    }
+    
     [self.view addSubview:_collectionView];
 
 }
