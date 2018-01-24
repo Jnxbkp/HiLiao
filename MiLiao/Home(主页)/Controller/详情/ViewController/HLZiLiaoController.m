@@ -190,7 +190,13 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLabel.text = [_data objectAtIndex:indexPath.row];
         if (indexPath.row == 0) {
-            cell.messageLabel.text = [NSString stringWithFormat:@"%@ %%",_womanModel.jtl];
+            NSString *jtlStr = [NSString stringWithFormat:@"%@ %%",_womanModel.jtl];
+            if ([jtlStr isEqualToString:@"(null)"]) {
+                cell.messageLabel.text = [NSString stringWithFormat:@"100 %%"];
+            } else {
+                cell.messageLabel.text = [NSString stringWithFormat:@"%@ %%",_womanModel.jtl];
+            }
+            
         } else if (indexPath.row == 1) {
             cell.messageLabel.text = [NSString stringWithFormat:@"%@ cm",_womanModel.height];
         } else if (indexPath.row == 2) {

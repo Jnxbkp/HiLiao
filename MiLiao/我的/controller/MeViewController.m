@@ -118,7 +118,18 @@
         if (indexPath.section == 0 && indexPath.row == 0) {
             return 0;
         }
+        //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"])
+        {
+            
+        }else{
+            if (indexPath.section == 2 && indexPath.row == 0) {
+                return 0;
+            }
+        }
+        
     }else{
+        //  0:未申请, 1:申请待审核, 2:审核未通过, 3:审核通过
         if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"])
         {
             
@@ -131,6 +142,7 @@
                 return 0;
             }
         }
+
     }
     return 50;
 }
