@@ -136,8 +136,6 @@
     
     if (UI_IS_IPHONEX) {
         if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
-            _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight);
-        } else {
             _tableView.frame = CGRectMake(0, -ML_StatusBarHeight, WIDTH, HEIGHT+ML_StatusBarHeight-34);
         }
         

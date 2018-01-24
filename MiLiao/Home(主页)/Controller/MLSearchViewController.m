@@ -317,7 +317,7 @@
         [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:_womanModel.headUrl] placeholderImage:nil];
         cell.nameLabel.text = _womanModel.nickname;
         cell.messageLabel.text = _womanModel.descriptionStr;
-        cell.seeLabel.text = _womanModel.fansNum;
+        cell.seeLabel.text = [NSString stringWithFormat:@"%@关注",_womanModel.fansNum];
         
         return cell;
     }

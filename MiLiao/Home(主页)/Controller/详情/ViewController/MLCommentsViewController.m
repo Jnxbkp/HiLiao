@@ -10,6 +10,7 @@
 #import "CommentTableViewCell.h"
 #import "MainMananger.h"
 
+#define itemCount   @"20"
 
 @interface MLCommentsViewController ()<UITableViewDelegate,UITableViewDataSource> {
     NSUserDefaults *_userDefaults;
@@ -33,13 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //下拉刷新
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationWomanData:) name:@"refreshWomanData" object:nil];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArr = [NSMutableArray array];
     _userDefaults = [NSUserDefaults standardUserDefaults];
     _commentsPage = @"1";
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"no"];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:itemCount token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"no"];
     
     [self setupSubViews];
 }
@@ -51,7 +52,9 @@
         _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight);
     }
     if (UI_IS_IPHONEX) {
-        <#statements#>
+        if ([[_userDefaults objectForKey:@"isBigV"]isEqualToString:@"3"]) {
+            _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HEIGHT-50-ML_TopHeight-34);
+        }
     }
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -67,7 +70,7 @@
 
 //主播评论列表
 - (void)NetGetBigVEvalsUsername:(NSString *)username pageNumber:(NSString *)pageNumber pageSize:(NSString *)pageSize token:(NSString *)token footer:(MJRefreshAutoNormalFooter *)footer isFresh:(NSString *)isFresh{
-    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:@"20" token:token success:^(NSDictionary *info) {
+    [MainMananger NetGetBigVgetEvalsUsername:username pageNumber:pageNumber pageSize:pageSize token:token success:^(NSDictionary *info) {
         NSLog(@"--------------%@",info);
         NSInteger resultCode = [info[@"resultCode"] integerValue];
         if (resultCode == SUCCESS) {
@@ -108,15 +111,16 @@
 }
 //加载更多
 - (void)footerLoadMore:(MJRefreshAutoNormalFooter *)footer {
-    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:footer isFresh:@"no"];
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:itemCount token:[_userDefaults objectForKey:@"token"] footer:footer isFresh:@"no"];
 }
 #pragma mark - 通知刷新
 - (void)notificationWomanData:(NSNotification *)note {
     NSLog(@"---------%@",note);
-//    NSDictionary *dic = note.userInfo;
-//    _videoUserModel = [dic objectForKey:@"womanModel"];
-//    _commentsPage = @"1";
-//    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:PAGESIZE token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"yes"];
+    NSDictionary *dic = note.userInfo;
+    _videoUserModel = [dic objectForKey:@"womanModel"];
+    _commentsPage = @"1";
+    _tableView.mj_footer.state = MJRefreshStateIdle;
+    [self NetGetBigVEvalsUsername:_videoUserModel.username pageNumber:_commentsPage pageSize:itemCount token:[_userDefaults objectForKey:@"token"] footer:nil isFresh:@"yes"];
 }
 #pragma mark UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

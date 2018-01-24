@@ -39,10 +39,16 @@
     [super layoutSubviews];
     
     _lastImgView.frame = CGRectMake(0, 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds));
+    [_lastImgView setContentMode:UIViewContentModeScaleAspectFill];
+    _lastImgView.clipsToBounds = YES;
         
     _currentImgView.frame = _isHorizontal?CGRectOffset(_lastImgView.frame, CGRectGetWidth(_lastImgView.bounds), 0):CGRectOffset(_lastImgView.frame, 0, CGRectGetHeight(_lastImgView.bounds));
+    [_currentImgView setContentMode:UIViewContentModeScaleAspectFill];
+    _currentImgView.clipsToBounds = YES;
         
     _nextImgView.frame = _isHorizontal?CGRectOffset(_currentImgView.frame, CGRectGetWidth(_currentImgView.bounds), 0):CGRectOffset(_currentImgView.frame, 0, CGRectGetHeight(_currentImgView.bounds));
+    [_nextImgView setContentMode:UIViewContentModeScaleAspectFill];
+    _nextImgView.clipsToBounds = YES;
     
     _currentLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     
