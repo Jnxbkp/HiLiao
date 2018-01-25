@@ -30,9 +30,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>7</string>
 	<key>CFPlugInFactories</key>
 	<dict/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sinaweibo</string>
@@ -57,13 +59,13 @@ e6d2a7cd7d57578a51532065957fb9ea</string>
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>相机权限</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>使用您的位置，获取你的位置信息。</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>麦克风权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>相册权限</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -1422,13 +1422,6 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		185820432009AC850020C232 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		1877240F2000BE3500A93345 /* 认证大V */ = {
 			isa = PBXGroup;
 			children = (
@@ -2751,7 +2744,6 @@
 		E2D518B51FFE375D00A548DA /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				185820432009AC850020C232 /* view */,
 				185820322009AC3E0020C232 /* controller */,
 				1877240F2000BE3500A93345 /* 认证大V */,
 			);
@@ -3501,7 +3493,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3568,7 +3560,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
